@@ -1,0 +1,45 @@
+﻿.menu {font-family: arial, sans-serif; width:auto;position:absolute; padding-top: 10px;padding-left: 8px; font-size:11px;}
+
+.menu ul li a, .menu ul li a:visited {display:block; text-decoration:none; color:#000;width:99px; height:20px; text-align:center; color:#000; border:1px solid #ccc; line-height:20px; font-size:11px;}
+
+.menu ul {padding:0; margin:0;list-style-type: none; }
+
+.menu ul li {float:left; margin-right:1px; position:relative;}
+
+.menu ul li ul {display: none;}
+
+ 
+
+.menu ul li:hover a {color:#fff; background:#4a7ec7;}
+
+.menu ul li:hover ul {display:block; position:absolute; top:21px; left:0; width:150px;}
+
+.menu ul li ul { position:absolute; top:21px; left:0; width:150px;}
+
+.menu ul li:hover ul li a.hide {background:#fff; color:#000;}
+
+.menu ul li:hover ul li:hover a.hide {background:#4a7ec7; color:#ffffff;}
+
+.menu ul li:hover ul li ul {display:block;}
+
+.menu ul li:hover ul li a {display:block; background:#ddd; color:#000;}
+
+.menu ul li:hover ul li a:hover {background:#4a7ec7; color:#ffffff;}
+
+.menu ul li:hover ul li:hover ul {display:block; position:absolute; left:105px; top:0;}
+
+.menu ul li:hover ul li:hover ul.left {left:-105px;}
+
+ 
+
+ 
+
+li a.hide {background:#fff; color:#4a7ec7;}
+
+ 
+
+ul li a:hover {background:#4a7ec7; color:#ffffff;}
+
+ 
+
+ul li:hover a {color:#ffffff; background:#4a7ec7;}
