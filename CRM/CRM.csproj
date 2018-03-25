@@ -58,6 +58,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\common.css" />
     <Content Include="js\cloud.js" />
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.min.js" />
@@ -83,7 +84,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="css\" />
     <Folder Include="page\" />
   </ItemGroup>
   <PropertyGroup>
@@ -101,7 +101,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>46624</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:10000/</IISUrl>
+          <IISUrl>http://localhost:10086/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
