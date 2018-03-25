@@ -1,0 +1,5 @@
+E:\WorkSpace\simple-crm\src\bin\CRM.dll.config
+E:\WorkSpace\simple-crm\src\bin\CRM.dll
+E:\WorkSpace\simple-crm\src\bin\CRM.pdb
+E:\WorkSpace\simple-crm\src\obj\Debug\CRM.dll
+E:\WorkSpace\simple-crm\src\obj\Debug\CRM.pdb

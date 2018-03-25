@@ -9,7 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <script language="JavaScript" src="js/jquery.js"></script>
-
+    <style>
+        .top {
+            height: 85px;
+            background-color: lightblue;
+        }
+    </style>
     <script type="text/javascript">
         $(function () {
             //导航切换
@@ -30,14 +35,12 @@
         })
     </script>
 </head>
-<body style="background: #f0f9fd;">
-    <asp:HiddenField runat="server" ID="HiddenField1" />
-    <div class="lefttop"><span></span>控制中心</div>
-    <dl class="leftmenu">
-
-        <asp:Literal ID="Literal2" runat="server"></asp:Literal>
-
-    </dl>
+<body style="background: #f0f9fd;" runat="server">
+    <form runat="server">
+        <asp:HiddenField runat="server" ID="HiddenField1" />
+        <div class="top">
+        </div>
+    </form>
 </body>
 </html>
 
