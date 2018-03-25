@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CRMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--生成过程中发现错误:
+警告 6013: 表/视图“oldCRM.dbo.Access”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="Access">
+          <Property Name="DisplayName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LinkURL" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID1" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID2" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProgramID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Class" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+        <!--生成过程中发现错误:
+警告 6013: 表/视图“oldCRM.dbo.Authority”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="Authority">
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProgramID" Type="nvarchar" MaxLength="50" />
+          <Property Name="FatherID" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+        <!--生成过程中发现错误:
+警告 6013: 表/视图“oldCRM.dbo.Company”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="Company">
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Owner" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Website" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateDate" Type="date" />
+          <Property Name="CompanyID" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“oldCRM.dbo.Customer”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Customertype" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerQQ" Type="nvarchar" MaxLength="50" />
+          <Property Name="mail" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerID" Type="nvarchar" MaxLength="50" />
+          <Property Name="HomeAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="Owner" Type="nvarchar" MaxLength="50" />
+          <Property Name="contract" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="CreateEmp" Type="nvarchar" MaxLength="50" />
+          <Property Name="ReturnVisit" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="OM" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6013: 表/视图“oldCRM.dbo.CustomerLog”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="CustomerLog">
+          <Property Name="CustomerID" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="Remark" Type="varchar" MaxLength="250" />
+          <Property Name="EMP" Type="varchar" MaxLength="50" />
+          <Property Name="LogDate" Type="datetime" />
+        </EntityType>-->
+        <!--生成过程中发现错误:
+警告 6013: 表/视图“oldCRM.dbo.CustomerNoContact”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="CustomerNoContact">
+          <Property Name="CustomerID" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="QQ" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mail" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompanyOwner" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactDate" Type="date" />
+          <Property Name="EMP" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="150" />
+        </EntityType>-->
+        <!--生成过程中发现错误:
+警告 6013: 表/视图“oldCRM.dbo.CustomerVisit”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="CustomerVisit">
+          <Property Name="CustomerID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sourceform" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sourceemp" Type="nvarchar" MaxLength="50" />
+          <Property Name="createdate" Type="datetime" />
+          <Property Name="Visitdate" Type="datetime" />
+          <Property Name="Visitemp" Type="nvarchar" MaxLength="50" />
+          <Property Name="remark" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+        <!--生成过程中发现错误:
+警告 6013: 表/视图“oldCRM.dbo.Employee”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="Employee">
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Company" Type="nvarchar" MaxLength="50" />
+          <Property Name="Team" Type="nvarchar" MaxLength="50" />
+          <Property Name="Post" Type="nvarchar" MaxLength="50" />
+          <Property Name="Supervisor" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="QQNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="WorkStartDate" Type="date" />
+          <Property Name="Photo" Type="image" />
+        </EntityType>-->
+        <!--生成过程中发现错误:
+警告 6013: 表/视图“oldCRM.dbo.EmpPassWord”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="EmpPassWord">
+          <Property Name="emp" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“oldCRM.dbo.Message”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="MessageID" />
+          </Key>
+          <Property Name="MessageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sender" Type="nvarchar" MaxLength="50" />
+          <Property Name="Receiver" Type="nvarchar" MaxLength="50" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mcontent" Type="text" />
+          <Property Name="Send_date" Type="datetime" />
+          <Property Name="Mstatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrderID" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“oldCRM.dbo.Mylog”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="Mylog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="emp" Type="nvarchar" MaxLength="50" />
+          <Property Name="subject" Type="nvarchar" MaxLength="100" />
+          <Property Name="contents" Type="text" />
+          <Property Name="createDate" Type="datetime" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“oldCRM.dbo.MyRiCheng”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="MyRiCheng">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="50" />
+          <Property Name="richengtime" Type="nvarchar" MaxLength="50" />
+          <Property Name="address" Type="nvarchar" MaxLength="50" />
+          <Property Name="detail" Type="text" />
+          <Property Name="emp" Type="nvarchar" MaxLength="50" />
+          <Property Name="createdate" Type="datetime" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6013: 表/视图“oldCRM.dbo.Team”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="Team">
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Owner" Type="nvarchar" MaxLength="50" />
+          <Property Name="OwnerPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Slogan" Type="nvarchar" MaxLength="50" />
+          <Property Name="Company" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+        <EntityContainer Name="CRMModelStoreContainer">
+          <EntitySet Name="Customer" EntityType="Self.Customer" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Customer].[ID] AS [ID], 
+    [Customer].[Customertype] AS [Customertype], 
+    [Customer].[CustomerName] AS [CustomerName], 
+    [Customer].[CustomerPhone] AS [CustomerPhone], 
+    [Customer].[CustomerQQ] AS [CustomerQQ], 
+    [Customer].[mail] AS [mail], 
+    [Customer].[CustomerID] AS [CustomerID], 
+    [Customer].[HomeAddress] AS [HomeAddress], 
+    [Customer].[Owner] AS [Owner], 
+    [Customer].[contract] AS [contract], 
+    [Customer].[Status] AS [Status], 
+    [Customer].[CreateDate] AS [CreateDate], 
+    [Customer].[CreateEmp] AS [CreateEmp], 
+    [Customer].[ReturnVisit] AS [ReturnVisit], 
+    [Customer].[UpdateDate] AS [UpdateDate], 
+    [Customer].[OM] AS [OM]
+    FROM [dbo].[Customer] AS [Customer]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Message" EntityType="Self.Message" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Message].[MessageID] AS [MessageID], 
+    [Message].[Sender] AS [Sender], 
+    [Message].[Receiver] AS [Receiver], 
+    [Message].[Subject] AS [Subject], 
+    [Message].[Mcontent] AS [Mcontent], 
+    [Message].[Send_date] AS [Send_date], 
+    [Message].[Mstatus] AS [Mstatus], 
+    [Message].[OrderID] AS [OrderID]
+    FROM [dbo].[Message] AS [Message]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Mylog" EntityType="Self.Mylog" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Mylog].[id] AS [id], 
+    [Mylog].[emp] AS [emp], 
+    [Mylog].[subject] AS [subject], 
+    [Mylog].[contents] AS [contents], 
+    [Mylog].[createDate] AS [createDate]
+    FROM [dbo].[Mylog] AS [Mylog]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MyRiCheng" EntityType="Self.MyRiCheng" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MyRiCheng].[ID] AS [ID], 
+    [MyRiCheng].[Subject] AS [Subject], 
+    [MyRiCheng].[richengtime] AS [richengtime], 
+    [MyRiCheng].[address] AS [address], 
+    [MyRiCheng].[detail] AS [detail], 
+    [MyRiCheng].[emp] AS [emp], 
+    [MyRiCheng].[createdate] AS [createdate]
+    FROM [dbo].[MyRiCheng] AS [MyRiCheng]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CRMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Customertype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerQQ" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HomeAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Owner" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="contract" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="CreateEmp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ReturnVisit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="OM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="MessageID" />
+          </Key>
+          <Property Name="MessageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Receiver" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mcontent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Send_date" Type="DateTime" Precision="3" />
+          <Property Name="Mstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrderID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Mylog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="emp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="subject" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="contents" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="MyRiCheng">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="richengtime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="emp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="createdate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="CRMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customer" EntityType="Self.Customer" />
+          <EntitySet Name="Message" EntityType="Self.Message" />
+          <EntitySet Name="Mylog" EntityType="Self.Mylog" />
+          <EntitySet Name="MyRiCheng" EntityType="Self.MyRiCheng" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CRMModelStoreContainer" CdmEntityContainer="CRMEntities">
+          <EntitySetMapping Name="Customer">
+            <EntityTypeMapping TypeName="CRMModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Customertype" ColumnName="Customertype" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerPhone" ColumnName="CustomerPhone" />
+                <ScalarProperty Name="CustomerQQ" ColumnName="CustomerQQ" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="HomeAddress" ColumnName="HomeAddress" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="contract" ColumnName="contract" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateEmp" ColumnName="CreateEmp" />
+                <ScalarProperty Name="ReturnVisit" ColumnName="ReturnVisit" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="OM" ColumnName="OM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Message">
+            <EntityTypeMapping TypeName="CRMModel.Message">
+              <MappingFragment StoreEntitySet="Message">
+                <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+                <ScalarProperty Name="Sender" ColumnName="Sender" />
+                <ScalarProperty Name="Receiver" ColumnName="Receiver" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Mcontent" ColumnName="Mcontent" />
+                <ScalarProperty Name="Send_date" ColumnName="Send_date" />
+                <ScalarProperty Name="Mstatus" ColumnName="Mstatus" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mylog">
+            <EntityTypeMapping TypeName="CRMModel.Mylog">
+              <MappingFragment StoreEntitySet="Mylog">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="emp" ColumnName="emp" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="contents" ColumnName="contents" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MyRiCheng">
+            <EntityTypeMapping TypeName="CRMModel.MyRiCheng">
+              <MappingFragment StoreEntitySet="MyRiCheng">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="richengtime" ColumnName="richengtime" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="detail" ColumnName="detail" />
+                <ScalarProperty Name="emp" ColumnName="emp" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
