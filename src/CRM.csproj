@@ -336,7 +336,7 @@
     <Content Include="js\select2.min.js" />
     <Content Include="js\wysihtml5-0.3.0.js" />
     <Content Include="js\zh-CN.js" />
-    <Content Include="LogIn.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="login.html" />
     <Content Include="MainFrm.aspx" />
     <Content Include="PersonCentered\AddRiCheng.aspx" />
@@ -520,12 +520,12 @@
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="LogIn.aspx.cs">
-      <DependentUpon>LogIn.aspx</DependentUpon>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="LogIn.aspx.designer.cs">
-      <DependentUpon>LogIn.aspx</DependentUpon>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="MainFrm.aspx.cs">
       <DependentUpon>MainFrm.aspx</DependentUpon>
