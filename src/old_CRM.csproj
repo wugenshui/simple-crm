@@ -44,8 +44,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxPro">
-      <HintPath>..\..\..\ajax\9.2.17.1_DLL\AjaxPro.dll</HintPath>
+    <Reference Include="AjaxPro, Version=9.2.17.1, Culture=neutral, PublicKeyToken=4735ae9824c7d3ec">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\AjaxPro.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
