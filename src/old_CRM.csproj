@@ -338,7 +338,6 @@
     <Content Include="js\wysihtml5-0.3.0.js" />
     <Content Include="js\zh-CN.js" />
     <Content Include="Login.aspx" />
-    <Content Include="login.html" />
     <Content Include="MainFrm.aspx" />
     <Content Include="PersonCentered\AddRiCheng.aspx" />
     <Content Include="PersonCentered\AddRiZhi.aspx" />
@@ -764,7 +763,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>16154</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:9999/</IISUrl>
+          <IISUrl>http://localhost:9988/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

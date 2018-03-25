@@ -58,6 +58,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="js\cloud.js" />
+    <Content Include="js\jquery.js" />
+    <Content Include="js\jquery.min.js" />
     <Content Include="Login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -81,7 +84,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="css\" />
-    <Folder Include="js\" />
     <Folder Include="page\" />
   </ItemGroup>
   <PropertyGroup>

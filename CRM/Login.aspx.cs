@@ -9,25 +9,25 @@ namespace CRM
 {
     public partial class Login : System.Web.UI.Page
     {
-        SqlConnection Connection = new SqlConnection();
-        Employee employee = new Employee();
+        //SqlConnection Connection = new SqlConnection();
+        //Employee employee = new Employee();
         protected void Page_Load(object sender, EventArgs e)
         {
-            Connection.ConnectionString = ConfigurationManager.ConnectionStrings["CRMConnection"].ConnectionString;
+            //Connection.ConnectionString = ConfigurationManager.ConnectionStrings["CRMConnection"].ConnectionString;
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
             if (CheckAccount(inputName.Value.ToString(), inputPassword.Value.ToString()))
             {
-                Session["father"] = "";
-                Session["son"] = "";
-                Session["user"] = inputName.Value.ToString();
-                Session["password"] = inputPassword.Value.ToString();
+                Session["father"] = ""; // 父菜单
+                Session["son"] = "";    // 子菜单
+                Session["user"] = inputName.Value;  // 用户名
+                Session["password"] = inputPassword.Value;  // 密码
 
                 Response.Redirect("~/MainFrm.aspx");
-                employee.EmployeeName = Session["user"].ToString();
-                employee.Password = inputPassword.Value.ToString();
+                //employee.EmployeeName = Session["user"].ToString();
+                //employee.Password = inputPassword.Value.ToString();
             }
             else
             { Response.Write("<script>alert('用户名或密码输入错误!')</script>"); }
@@ -35,17 +35,17 @@ namespace CRM
         private bool CheckAccount(string emp, string password)
         {
             bool checkStatus = false;
-            string strSQL = "Select * From emppassword where emp='" + emp + "' and Password='" + password + "'";
-            DataSet ds = new DataSet();
-            SqlDataAdapter adapter = new SqlDataAdapter(strSQL, Connection);
+            //string strSQL = "Select * From emppassword where emp='" + emp + "' and Password='" + password + "'";
+            //DataSet ds = new DataSet();
+            //SqlDataAdapter adapter = new SqlDataAdapter(strSQL, Connection);
 
-            Connection.Open();
-            adapter.Fill(ds);
+            //Connection.Open();
+            //adapter.Fill(ds);
 
-            if (ds.Tables[0].Rows.Count > 0)
-            {
-                checkStatus = true;
-            }
+            //if (ds.Tables[0].Rows.Count > 0)
+            //{
+            //    checkStatus = true;
+            //}
 
             return checkStatus;
         }
