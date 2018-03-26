@@ -25,9 +25,18 @@ namespace EFDAL
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Access> Access { get; set; }
+        public virtual DbSet<Authority> Authority { get; set; }
+        public virtual DbSet<Company> Company { get; set; }
         public virtual DbSet<Customer> Customer { get; set; }
+        public virtual DbSet<CustomerLog> CustomerLog { get; set; }
+        public virtual DbSet<CustomerNoContact> CustomerNoContact { get; set; }
+        public virtual DbSet<CustomerVisit> CustomerVisit { get; set; }
+        public virtual DbSet<Employee> Employee { get; set; }
+        public virtual DbSet<EmpPassWord> EmpPassWord { get; set; }
         public virtual DbSet<Message> Message { get; set; }
         public virtual DbSet<Mylog> Mylog { get; set; }
         public virtual DbSet<MyRiCheng> MyRiCheng { get; set; }
+        public virtual DbSet<Team> Team { get; set; }
     }
 }
