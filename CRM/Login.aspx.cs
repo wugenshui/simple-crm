@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using DAL;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,8 @@ namespace CRM
         //Employee employee = new Employee();
         protected void Page_Load(object sender, EventArgs e)
         {
-            var aaa = new CRMEntities().Access.Where(o => o.ID > 10).Skip(10).Take(20);
+            var aaa = new CRMEntities().Access.Where(o => o.ID > 10).OrderBy(o => o.ID).Skip(10).Take(20);
+            var bbb = new EmpPassWordDAL().Get().OrderBy(o => o.ID).Skip(10).Take(20);
             //Connection.ConnectionString = ConfigurationManager.ConnectionStrings["CRMConnection"].ConnectionString;
         }
 

@@ -71,7 +71,9 @@
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="Login.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Login.aspx.cs">
@@ -96,6 +98,10 @@
     <Folder Include="page\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{bbf186cf-f111-41fe-9d1e-d8ac5036eb30}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{d2e2e6fb-3a00-42b1-8b08-c2e5570ec082}</Project>
       <Name>Model</Name>
