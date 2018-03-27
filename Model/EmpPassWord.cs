@@ -7,17 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EFDAL
+namespace Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Mylog
+    public partial class EmpPassWord
     {
-        public int id { get; set; }
+        public int ID { get; set; }
         public string emp { get; set; }
-        public string subject { get; set; }
-        public string contents { get; set; }
-        public Nullable<System.DateTime> createDate { get; set; }
+        public string password { get; set; }
     }
 }

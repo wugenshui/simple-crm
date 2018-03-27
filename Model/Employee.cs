@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EFDAL
+namespace Model
 {
     using System;
     using System.Collections.Generic;

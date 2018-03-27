@@ -7,21 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EFDAL
+namespace Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class CustomerVisit
+    public partial class Access
     {
         public int ID { get; set; }
-        public string CustomerID { get; set; }
-        public string Sourceform { get; set; }
-        public string Sourceemp { get; set; }
-        public Nullable<System.DateTime> createdate { get; set; }
-        public Nullable<System.DateTime> Visitdate { get; set; }
-        public string Visitemp { get; set; }
-        public string remark { get; set; }
-        public string Status { get; set; }
+        public string DisplayName { get; set; }
+        public string LinkURL { get; set; }
+        public string ID1 { get; set; }
+        public string ID2 { get; set; }
+        public string ProgramID { get; set; }
+        public string Class { get; set; }
     }
 }

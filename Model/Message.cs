@@ -7,19 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EFDAL
+namespace Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Company
+    public partial class Message
     {
-        public int ID { get; set; }
-        public string CompanyName { get; set; }
-        public string Owner { get; set; }
-        public string Phone { get; set; }
-        public string Website { get; set; }
-        public Nullable<System.DateTime> CreateDate { get; set; }
-        public string CompanyID { get; set; }
+        public int MessageID { get; set; }
+        public string Sender { get; set; }
+        public string Receiver { get; set; }
+        public string Subject { get; set; }
+        public string Mcontent { get; set; }
+        public Nullable<System.DateTime> Send_date { get; set; }
+        public string Mstatus { get; set; }
+        public string OrderID { get; set; }
     }
 }

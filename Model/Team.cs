@@ -7,19 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EFDAL
+namespace Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class MyRiCheng
+    public partial class Team
     {
         public int ID { get; set; }
-        public string Subject { get; set; }
-        public string richengtime { get; set; }
-        public string address { get; set; }
-        public string detail { get; set; }
-        public string emp { get; set; }
-        public Nullable<System.DateTime> createdate { get; set; }
+        public string Name { get; set; }
+        public string Owner { get; set; }
+        public string OwnerPhone { get; set; }
+        public string Slogan { get; set; }
+        public string Company { get; set; }
     }
 }

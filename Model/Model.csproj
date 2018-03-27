@@ -7,8 +7,8 @@
     <ProjectGuid>{D2E2E6FB-3A00-42B1-8B08-C2E5570EC082}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EFDAL</RootNamespace>
-    <AssemblyName>EFDAL</AssemblyName>
+    <RootNamespace>Model</RootNamespace>
+    <AssemblyName>Model</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

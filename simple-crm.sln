@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "old_CRM", "src\old_CRM.cspr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRM", "CRM\CRM.csproj", "{9C3A0E03-5AC3-4D30-B9CE-B39F81046D40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFDAL", "EFDAL\EFDAL.csproj", "{D2E2E6FB-3A00-42B1-8B08-C2E5570EC082}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{D2E2E6FB-3A00-42B1-8B08-C2E5570EC082}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

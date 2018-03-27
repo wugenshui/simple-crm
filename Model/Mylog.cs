@@ -7,19 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EFDAL
+namespace Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Access
+    public partial class Mylog
     {
-        public int ID { get; set; }
-        public string DisplayName { get; set; }
-        public string LinkURL { get; set; }
-        public string ID1 { get; set; }
-        public string ID2 { get; set; }
-        public string ProgramID { get; set; }
-        public string Class { get; set; }
+        public int id { get; set; }
+        public string emp { get; set; }
+        public string subject { get; set; }
+        public string contents { get; set; }
+        public Nullable<System.DateTime> createDate { get; set; }
     }
 }

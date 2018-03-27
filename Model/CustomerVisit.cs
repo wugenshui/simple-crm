@@ -7,18 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EFDAL
+namespace Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class CustomerLog
+    public partial class CustomerVisit
     {
         public int ID { get; set; }
         public string CustomerID { get; set; }
+        public string Sourceform { get; set; }
+        public string Sourceemp { get; set; }
+        public Nullable<System.DateTime> createdate { get; set; }
+        public Nullable<System.DateTime> Visitdate { get; set; }
+        public string Visitemp { get; set; }
+        public string remark { get; set; }
         public string Status { get; set; }
-        public string Remark { get; set; }
-        public string EMP { get; set; }
-        public Nullable<System.DateTime> LogDate { get; set; }
     }
 }

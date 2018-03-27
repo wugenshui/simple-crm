@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +14,7 @@ namespace CRM
         //Employee employee = new Employee();
         protected void Page_Load(object sender, EventArgs e)
         {
+            var aaa = new CRMEntities().Access.Where(o => o.ID > 10).Skip(10).Take(20);
             //Connection.ConnectionString = ConfigurationManager.ConnectionStrings["CRMConnection"].ConnectionString;
         }
 
@@ -35,6 +37,7 @@ namespace CRM
         private bool CheckAccount(string emp, string password)
         {
             bool checkStatus = false;
+
             //string strSQL = "Select * From emppassword where emp='" + emp + "' and Password='" + password + "'";
             //DataSet ds = new DataSet();
             //SqlDataAdapter adapter = new SqlDataAdapter(strSQL, Connection);

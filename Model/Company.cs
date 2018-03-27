@@ -7,16 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EFDAL
+namespace Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Authority
+    public partial class Company
     {
         public int ID { get; set; }
-        public string Name { get; set; }
-        public string ProgramID { get; set; }
-        public string FatherID { get; set; }
+        public string CompanyName { get; set; }
+        public string Owner { get; set; }
+        public string Phone { get; set; }
+        public string Website { get; set; }
+        public Nullable<System.DateTime> CreateDate { get; set; }
+        public string CompanyID { get; set; }
     }
 }
