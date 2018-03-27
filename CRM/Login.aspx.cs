@@ -1,4 +1,5 @@
-﻿using DAL;
+﻿using Common;
+using DAL;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -11,8 +12,6 @@ namespace CRM
 {
     public partial class Login : System.Web.UI.Page
     {
-        //SqlConnection Connection = new SqlConnection();
-        //Employee employee = new Employee();
         protected void Page_Load(object sender, EventArgs e)
         {
         }
@@ -30,7 +29,7 @@ namespace CRM
                 User user = _UserDAL.Get().FirstOrDefault(o => o.Username == username && o.Password == password);
                 if (user != null)
                 {
-                    Session["user"] = user;
+                    CommonHelper.User = user;
                     Response.Redirect("~/MainFrm.aspx");
                 }
                 else

@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\common.css" />
+    <Content Include="Index.aspx" />
     <Content Include="js\cloud.js" />
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.min.js" />
@@ -76,6 +77,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -98,6 +106,10 @@
     <Folder Include="page\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{5F2A7E12-E6CB-49E9-AC72-584DEAAF3F7C}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{bbf186cf-f111-41fe-9d1e-d8ac5036eb30}</Project>
       <Name>DAL</Name>
