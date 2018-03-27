@@ -9,18 +9,45 @@
 
 namespace Model
 {
+    /// <summary>
+    /// Message
+    /// </summary> 
     using System;
     using System.Collections.Generic;
     
     public partial class Message
     {
-        public int MessageID { get; set; }
-        public string Sender { get; set; }
-        public string Receiver { get; set; }
-        public string Subject { get; set; }
-        public string Mcontent { get; set; }
-        public Nullable<System.DateTime> Send_date { get; set; }
-        public string Mstatus { get; set; }
-        public string OrderID { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public int MessageID { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Sender { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Receiver { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Subject { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Mcontent { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public Nullable<System.DateTime> Send_date { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Mstatus { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string OrderID { get; set; }
     }
 }

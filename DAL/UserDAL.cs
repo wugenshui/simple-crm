@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class EmpPassWordDAL : BaseDal<EmpPassWord>
+    public class UserDAL : BaseDal<User>
     {
     }
 }

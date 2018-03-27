@@ -9,17 +9,41 @@
 
 namespace Model
 {
+    /// <summary>
+    /// Access
+    /// </summary> 
     using System;
     using System.Collections.Generic;
     
     public partial class Access
     {
-        public int ID { get; set; }
-        public string DisplayName { get; set; }
-        public string LinkURL { get; set; }
-        public string ID1 { get; set; }
-        public string ID2 { get; set; }
-        public string ProgramID { get; set; }
-        public string Class { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public int ID { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string DisplayName { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string LinkURL { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string ID1 { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string ID2 { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string ProgramID { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Class { get; set; }
     }
 }

@@ -9,17 +9,41 @@
 
 namespace Model
 {
+    /// <summary>
+    /// Company
+    /// </summary> 
     using System;
     using System.Collections.Generic;
     
     public partial class Company
     {
-        public int ID { get; set; }
-        public string CompanyName { get; set; }
-        public string Owner { get; set; }
-        public string Phone { get; set; }
-        public string Website { get; set; }
-        public Nullable<System.DateTime> CreateDate { get; set; }
-        public string CompanyID { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public int ID { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string CompanyName { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Owner { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Phone { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Website { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public Nullable<System.DateTime> CreateDate { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string CompanyID { get; set; }
     }
 }

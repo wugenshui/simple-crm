@@ -9,22 +9,61 @@
 
 namespace Model
 {
+    /// <summary>
+    /// CustomerNoContact
+    /// </summary> 
     using System;
     using System.Collections.Generic;
     
     public partial class CustomerNoContact
     {
-        public int ID { get; set; }
-        public string CustomerID { get; set; }
-        public string CustomerName { get; set; }
-        public string phone { get; set; }
-        public string QQ { get; set; }
-        public string Mail { get; set; }
-        public string CompanyOwner { get; set; }
-        public Nullable<System.DateTime> ContactDate { get; set; }
-        public string EMP { get; set; }
-        public Nullable<System.DateTime> CreateDate { get; set; }
-        public string Status { get; set; }
-        public string Remark { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public int ID { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string CustomerID { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string CustomerName { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string phone { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string QQ { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Mail { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string CompanyOwner { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public Nullable<System.DateTime> ContactDate { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string EMP { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public Nullable<System.DateTime> CreateDate { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Status { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Remark { get; set; }
     }
 }

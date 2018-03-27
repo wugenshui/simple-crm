@@ -9,16 +9,37 @@
 
 namespace Model
 {
+    /// <summary>
+    /// CustomerLog
+    /// </summary> 
     using System;
     using System.Collections.Generic;
     
     public partial class CustomerLog
     {
-        public int ID { get; set; }
-        public string CustomerID { get; set; }
-        public string Status { get; set; }
-        public string Remark { get; set; }
-        public string EMP { get; set; }
-        public Nullable<System.DateTime> LogDate { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public int ID { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string CustomerID { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Status { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Remark { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string EMP { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public Nullable<System.DateTime> LogDate { get; set; }
     }
 }

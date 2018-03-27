@@ -9,13 +9,25 @@
 
 namespace Model
 {
+    /// <summary>
+    /// 用户表
+    /// </summary> 
     using System;
     using System.Collections.Generic;
     
-    public partial class EmpPassWord
+    public partial class User
     {
-        public int ID { get; set; }
-        public string emp { get; set; }
-        public string password { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public int Id { get; set; }
+        /// <summary>
+    	/// 用户名
+    	/// </summary>
+    	public string Username { get; set; }
+        /// <summary>
+    	/// 密码
+    	/// </summary>
+    	public string Password { get; set; }
     }
 }

@@ -9,26 +9,77 @@
 
 namespace Model
 {
+    /// <summary>
+    /// Customer
+    /// </summary> 
     using System;
     using System.Collections.Generic;
     
     public partial class Customer
     {
-        public decimal ID { get; set; }
-        public string Customertype { get; set; }
-        public string CustomerName { get; set; }
-        public string CustomerPhone { get; set; }
-        public string CustomerQQ { get; set; }
-        public string mail { get; set; }
-        public string CustomerID { get; set; }
-        public string HomeAddress { get; set; }
-        public string Owner { get; set; }
-        public string contract { get; set; }
-        public string Status { get; set; }
-        public Nullable<System.DateTime> CreateDate { get; set; }
-        public string CreateEmp { get; set; }
-        public string ReturnVisit { get; set; }
-        public Nullable<System.DateTime> UpdateDate { get; set; }
-        public string OM { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public decimal ID { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Customertype { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string CustomerName { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string CustomerPhone { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string CustomerQQ { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string mail { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string CustomerID { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string HomeAddress { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Owner { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string contract { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Status { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public Nullable<System.DateTime> CreateDate { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string CreateEmp { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string ReturnVisit { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public Nullable<System.DateTime> UpdateDate { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string OM { get; set; }
     }
 }

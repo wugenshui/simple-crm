@@ -9,19 +9,49 @@
 
 namespace Model
 {
+    /// <summary>
+    /// CustomerVisit
+    /// </summary> 
     using System;
     using System.Collections.Generic;
     
     public partial class CustomerVisit
     {
-        public int ID { get; set; }
-        public string CustomerID { get; set; }
-        public string Sourceform { get; set; }
-        public string Sourceemp { get; set; }
-        public Nullable<System.DateTime> createdate { get; set; }
-        public Nullable<System.DateTime> Visitdate { get; set; }
-        public string Visitemp { get; set; }
-        public string remark { get; set; }
-        public string Status { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public int ID { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string CustomerID { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Sourceform { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Sourceemp { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public Nullable<System.DateTime> createdate { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public Nullable<System.DateTime> Visitdate { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Visitemp { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string remark { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Status { get; set; }
     }
 }

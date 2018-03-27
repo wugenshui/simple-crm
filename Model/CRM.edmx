@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CRMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CRMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--生成过程中发现错误:
 警告 6002: 表/视图“CRM.dbo.Access”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="Access">
@@ -134,16 +134,6 @@
           <Property Name="Photo" Type="image" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“CRM.dbo.EmpPassWord”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
-        <EntityType Name="EmpPassWord">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="emp" Type="nvarchar" MaxLength="50" />
-          <Property Name="password" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <!--生成过程中发现错误:
 警告 6002: 表/视图“CRM.dbo.Message”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="Message">
           <Key>
@@ -196,6 +186,16 @@
           <Property Name="OwnerPhone" Type="nvarchar" MaxLength="50" />
           <Property Name="Slogan" Type="nvarchar" MaxLength="50" />
           <Property Name="Company" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“CRM.dbo.User”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityContainer Name="CRMModelStoreContainer">
           <EntitySet Name="Access" EntityType="Self.Access" store:Type="Tables" store:Schema="dbo">
@@ -302,13 +302,6 @@
     [Employee].[Photo] AS [Photo]
     FROM [dbo].[Employee] AS [Employee]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="EmpPassWord" EntityType="Self.EmpPassWord" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [EmpPassWord].[ID] AS [ID], 
-    [EmpPassWord].[emp] AS [emp], 
-    [EmpPassWord].[password] AS [password]
-    FROM [dbo].[EmpPassWord] AS [EmpPassWord]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="Message" EntityType="Self.Message" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Message].[MessageID] AS [MessageID], 
@@ -351,9 +344,15 @@
     [Team].[Company] AS [Company]
     FROM [dbo].[Team] AS [Team]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="User" EntityType="Self.User" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [User].[Id] AS [Id], 
+    [User].[Username] AS [Username], 
+    [User].[Password] AS [Password]
+    FROM [dbo].[User] AS [User]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CRMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -469,14 +468,6 @@
           <Property Name="WorkStartDate" Type="DateTime" Precision="0" />
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <EntityType Name="EmpPassWord">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="emp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="Message">
           <Key>
             <PropertyRef Name="MessageID" />
@@ -532,12 +523,31 @@
           <EntitySet Name="CustomerNoContact" EntityType="Self.CustomerNoContact" />
           <EntitySet Name="CustomerVisit" EntityType="Self.CustomerVisit" />
           <EntitySet Name="Employee" EntityType="Self.Employee" />
-          <EntitySet Name="EmpPassWord" EntityType="Self.EmpPassWord" />
           <EntitySet Name="Message" EntityType="Self.Message" />
           <EntitySet Name="Mylog" EntityType="Self.Mylog" />
           <EntitySet Name="MyRiCheng" EntityType="Self.MyRiCheng" />
           <EntitySet Name="Team" EntityType="Self.Team" />
+          <EntitySet Name="User" EntityType="CRMModel.User" />
         </EntityContainer>
+        <EntityType Name="User">
+          <Documentation>
+            <Summary>用户表</Summary>
+          </Documentation>
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" >
+            <Documentation>
+              <Summary>用户名</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" >
+            <Documentation>
+              <Summary>密码</Summary>
+            </Documentation>
+          </Property>
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -664,15 +674,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="EmpPassWord">
-            <EntityTypeMapping TypeName="CRMModel.EmpPassWord">
-              <MappingFragment StoreEntitySet="EmpPassWord">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="emp" ColumnName="emp" />
-                <ScalarProperty Name="password" ColumnName="password" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Message">
             <EntityTypeMapping TypeName="CRMModel.Message">
               <MappingFragment StoreEntitySet="Message">
@@ -720,6 +721,15 @@
                 <ScalarProperty Name="OwnerPhone" ColumnName="OwnerPhone" />
                 <ScalarProperty Name="Slogan" ColumnName="Slogan" />
                 <ScalarProperty Name="Company" ColumnName="Company" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="CRMModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

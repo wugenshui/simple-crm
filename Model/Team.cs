@@ -9,16 +9,37 @@
 
 namespace Model
 {
+    /// <summary>
+    /// Team
+    /// </summary> 
     using System;
     using System.Collections.Generic;
     
     public partial class Team
     {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public string Owner { get; set; }
-        public string OwnerPhone { get; set; }
-        public string Slogan { get; set; }
-        public string Company { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public int ID { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Name { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Owner { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string OwnerPhone { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Slogan { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Company { get; set; }
     }
 }

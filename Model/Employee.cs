@@ -9,21 +9,57 @@
 
 namespace Model
 {
+    /// <summary>
+    /// Employee
+    /// </summary> 
     using System;
     using System.Collections.Generic;
     
     public partial class Employee
     {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public string Company { get; set; }
-        public string Team { get; set; }
-        public string Post { get; set; }
-        public string Supervisor { get; set; }
-        public string PhoneNumber { get; set; }
-        public string QQNumber { get; set; }
-        public string Status { get; set; }
-        public Nullable<System.DateTime> WorkStartDate { get; set; }
-        public byte[] Photo { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public int ID { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Name { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Company { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Team { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Post { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Supervisor { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string PhoneNumber { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string QQNumber { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Status { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public Nullable<System.DateTime> WorkStartDate { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public byte[] Photo { get; set; }
     }
 }

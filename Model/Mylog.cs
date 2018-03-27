@@ -9,15 +9,33 @@
 
 namespace Model
 {
+    /// <summary>
+    /// Mylog
+    /// </summary> 
     using System;
     using System.Collections.Generic;
     
     public partial class Mylog
     {
-        public int id { get; set; }
-        public string emp { get; set; }
-        public string subject { get; set; }
-        public string contents { get; set; }
-        public Nullable<System.DateTime> createDate { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public int id { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string emp { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string subject { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string contents { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public Nullable<System.DateTime> createDate { get; set; }
     }
 }

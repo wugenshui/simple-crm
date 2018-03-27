@@ -9,17 +9,41 @@
 
 namespace Model
 {
+    /// <summary>
+    /// MyRiCheng
+    /// </summary> 
     using System;
     using System.Collections.Generic;
     
     public partial class MyRiCheng
     {
-        public int ID { get; set; }
-        public string Subject { get; set; }
-        public string richengtime { get; set; }
-        public string address { get; set; }
-        public string detail { get; set; }
-        public string emp { get; set; }
-        public Nullable<System.DateTime> createdate { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public int ID { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Subject { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string richengtime { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string address { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string detail { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string emp { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public Nullable<System.DateTime> createdate { get; set; }
     }
 }

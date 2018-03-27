@@ -9,14 +9,29 @@
 
 namespace Model
 {
+    /// <summary>
+    /// Authority
+    /// </summary> 
     using System;
     using System.Collections.Generic;
     
     public partial class Authority
     {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public string ProgramID { get; set; }
-        public string FatherID { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public int ID { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Name { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string ProgramID { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string FatherID { get; set; }
     }
 }

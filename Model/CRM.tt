@@ -18,11 +18,16 @@ if (!typeMapper.VerifyCaseInsensitiveTypeUniqueness(typeMapper.GetAllGlobalItems
 
 WriteHeader(codeStringGenerator, fileManager);
 
+string summary=string.Empty;
 foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection))
 {
     fileManager.StartNewFile(entity.Name + ".cs");
     BeginNamespace(code);
+    summary = entity.Documentation == null ? entity.Name : entity.Documentation.Summary;
 #>
+/// <summary>
+/// <#=summary#>
+/// </summary> 
 <#=codeStringGenerator.UsingDirectives(inHeader: false)#>
 <#=codeStringGenerator.EntityClassOpening(entity)#>
 {
@@ -283,14 +288,15 @@ public class CodeStringGenerator
 
     public string Property(EdmProperty edmProperty)
     {
-        return string.Format(
-            CultureInfo.InvariantCulture,
-            "{0} {1} {2} {{ {3}get; {4}set; }}",
+        return string.Format(CultureInfo.InvariantCulture,
+            "/// <summary>\r\n\t/// {5}\r\n\t/// </summary>\r\n\t{0} {1} {2} {{ {3}get; {4}set; }}",
             Accessibility.ForProperty(edmProperty),
             _typeMapper.GetTypeName(edmProperty.TypeUsage),
             _code.Escape(edmProperty),
             _code.SpaceAfter(Accessibility.ForGetter(edmProperty)),
-            _code.SpaceAfter(Accessibility.ForSetter(edmProperty)));
+            _code.SpaceAfter(Accessibility.ForSetter(edmProperty)),
+            edmProperty.Documentation == null ? "" : edmProperty.Documentation.Summary
+            );
     }
 
     public string NavigationProperty(NavigationProperty navProp)
@@ -298,12 +304,14 @@ public class CodeStringGenerator
         var endType = _typeMapper.GetTypeName(navProp.ToEndMember.GetEntityType());
         return string.Format(
             CultureInfo.InvariantCulture,
-            "{0} {1} {2} {{ {3}get; {4}set; }}",
+            "/// <summary>\r\n\t/// {5}\r\n\t/// </summary>\r\n\t{0} {1} {2} {{ {3}get; {4}set; }}",
             AccessibilityAndVirtual(Accessibility.ForNavigationProperty(navProp)),
             navProp.ToEndMember.RelationshipMultiplicity == RelationshipMultiplicity.Many ? ("ICollection<" + endType + ">") : endType,
             _code.Escape(navProp),
             _code.SpaceAfter(Accessibility.ForGetter(navProp)),
-            _code.SpaceAfter(Accessibility.ForSetter(navProp)));
+            _code.SpaceAfter(Accessibility.ForSetter(navProp)),
+            navProp.Documentation == null ? "" : navProp.Documentation.Summary
+            );
     }
     
     public string AccessibilityAndVirtual(string accessibility)
@@ -410,14 +418,15 @@ public class CodeStringGenerator
             callParams);
     }
     
-    public string DbSet(EntitySet entitySet)
+    public string DbSet(EntitySet entitySet,System.Collections.Generic.IEnumerable<System.Data.Entity.Core.Metadata.Edm.GlobalItem> itemCollection)
     {
+    string summary = entitySet.ElementType.Documentation == null ? "(error message:not have summary in edmx.)" : entitySet.ElementType.Documentation.Summary;
         return string.Format(
             CultureInfo.InvariantCulture,
-            "{0} virtual DbSet<{1}> {2} {{ get; set; }}",
+            "/// <summary>\r\n\t/// {3}的集合\r\n\t/// </summary>\r\n\t{0} virtual DbSet<{1}> {2} {{ get; set; }}",
             Accessibility.ForReadOnlyProperty(entitySet),
             _typeMapper.GetTypeName(entitySet.ElementType),
-            _code.Escape(entitySet));
+            _code.Escape(entitySet), summary);
     }
 
     public string UsingDirectives(bool inHeader, bool includeCollections = true)
