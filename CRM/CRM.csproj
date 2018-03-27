@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\common.css" />
+    <Content Include="image\login\bg.png" />
     <Content Include="Index.aspx" />
     <Content Include="js\cloud.js" />
     <Content Include="js\jquery.js" />

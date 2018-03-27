@@ -9,12 +9,23 @@
     <script src="js/jquery.js"></script>
     <%-- 浮云效果 --%>
     <script src="js/cloud.js"></script>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            background: url('./image/login/bg.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .logintop {
+            height: 50px;
+        }
+    </style>
 </head>
 <body>
-    <div id="mainBody">
-        <div id="cloud1" class="cloud"></div>
-        <div id="cloud2" class="cloud"></div>
-    </div>
     <div class="logintop">
         <span>欢迎登录员工客户管理平台</span>
         <ul>
