@@ -11,7 +11,6 @@ namespace CRM.Class
     {
         public void Clear()
         {
-
             this.WorkStartDate = DateTime.Now;
             this.EmployeeName = null;
             this.CompanyName = null;
@@ -38,7 +37,7 @@ namespace CRM.Class
             set { this.companyName = value; }
 
         }
-        
+
         private string teamName; //团队
         public string TeamName
         {
@@ -123,7 +122,7 @@ namespace CRM.Class
             string strSQL = @"update emppassword set Password='" + newPassword + "' where emp='" + employee.EmployeeName + "' and Password='" + employee.Password + "'";
             DataSet ds = new DataSet();
             SqlDataAdapter adapter = new SqlDataAdapter(strSQL, connection);
-            
+
             try
             {
                 adapter.Fill(ds);
@@ -135,7 +134,7 @@ namespace CRM.Class
             }
             return "OK";
         }
-      
+
     }
-    
+
 }

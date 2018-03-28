@@ -120,11 +120,14 @@
         <EntityType Name="Employee">
           <Key>
             <PropertyRef Name="ID" />
+            
+            <PropertyRef Name="Company_ID" />
+            <PropertyRef Name="Team_ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="Company" Type="nvarchar" MaxLength="50" />
-          <Property Name="Team" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Company_ID" Type="int" Nullable="false" />
+          <Property Name="Team_ID" Type="int" Nullable="false" />
           <Property Name="Post" Type="nvarchar" MaxLength="50" />
           <Property Name="Supervisor" Type="nvarchar" MaxLength="50" />
           <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
@@ -192,10 +195,12 @@
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
+            
+            
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Username" Type="nvarchar" MaxLength="50" />
-          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityContainer Name="CRMModelStoreContainer">
           <EntitySet Name="Access" EntityType="Self.Access" store:Type="Tables" store:Schema="dbo">
@@ -291,8 +296,8 @@
             <DefiningQuery>SELECT 
     [Employee].[ID] AS [ID], 
     [Employee].[Name] AS [Name], 
-    [Employee].[Company] AS [Company], 
-    [Employee].[Team] AS [Team], 
+    [Employee].[Company_ID] AS [Company_ID], 
+    [Employee].[Team_ID] AS [Team_ID], 
     [Employee].[Post] AS [Post], 
     [Employee].[Supervisor] AS [Supervisor], 
     [Employee].[PhoneNumber] AS [PhoneNumber], 
@@ -453,14 +458,31 @@
           <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Employee">
+          <Documentation>
+            <Summary>员工表</Summary>
+          </Documentation>
           <Key>
             <PropertyRef Name="ID" />
+            <PropertyRef Name="Company_ID" />
+            <PropertyRef Name="Team_ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Company" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Team" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" >
+            <Documentation>
+              <Summary>姓名</Summary>
+            </Documentation>
+          </Property>
           <Property Name="Post" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Company_ID" Type="Int32" Nullable="false">
+            <Documentation>
+              <Summary>机构ID</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="Team_ID" Type="Int32" Nullable="false">
+            <Documentation>
+              <Summary>团队ID</Summary>
+            </Documentation>
+          </Property>
           <Property Name="Supervisor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="QQNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -537,12 +559,12 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" >
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" >
             <Documentation>
               <Summary>用户名</Summary>
             </Documentation>
           </Property>
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" >
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" >
             <Documentation>
               <Summary>密码</Summary>
             </Documentation>
@@ -660,10 +682,10 @@
           <EntitySetMapping Name="Employee">
             <EntityTypeMapping TypeName="CRMModel.Employee">
               <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Team_ID" ColumnName="Team_ID" />
+                <ScalarProperty Name="Company_ID" ColumnName="Company_ID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Company" ColumnName="Company" />
-                <ScalarProperty Name="Team" ColumnName="Team" />
                 <ScalarProperty Name="Post" ColumnName="Post" />
                 <ScalarProperty Name="Supervisor" ColumnName="Supervisor" />
                 <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />

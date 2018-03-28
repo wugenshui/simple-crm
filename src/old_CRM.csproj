@@ -414,11 +414,9 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="Class\ChineseDate.cs" />
-    <Compile Include="Class\Company.cs" />
     <Compile Include="Class\Customer.cs" />
     <Compile Include="Class\Employee.cs" />
     <Compile Include="Class\Logic.cs" />
-    <Compile Include="Class\Order.cs" />
     <Compile Include="customer\AddCustomer.aspx.cs">
       <DependentUpon>AddCustomer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

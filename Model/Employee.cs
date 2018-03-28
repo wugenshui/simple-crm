@@ -10,7 +10,7 @@
 namespace Model
 {
     /// <summary>
-    /// Employee
+    /// 员工表
     /// </summary> 
     using System;
     using System.Collections.Generic;
@@ -22,21 +22,21 @@ namespace Model
     	/// </summary>
     	public int ID { get; set; }
         /// <summary>
-    	/// 
+    	/// 姓名
     	/// </summary>
     	public string Name { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	public string Company { get; set; }
-        /// <summary>
-    	/// 
-    	/// </summary>
-    	public string Team { get; set; }
-        /// <summary>
-    	/// 
-    	/// </summary>
     	public string Post { get; set; }
+        /// <summary>
+    	/// 机构ID
+    	/// </summary>
+    	public int Company_ID { get; set; }
+        /// <summary>
+    	/// 团队ID
+    	/// </summary>
+    	public int Team_ID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
