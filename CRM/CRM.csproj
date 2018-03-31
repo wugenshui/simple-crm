@@ -68,7 +68,7 @@
   <ItemGroup>
     <Content Include="css\common.css" />
     <Content Include="image\login\bg.png" />
-    <Content Include="Index.aspx" />
+    <Content Include="Default.aspx" />
     <Content Include="js\cloud.js" />
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.min.js" />
@@ -78,12 +78,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Index.aspx.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Index.aspx.designer.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
