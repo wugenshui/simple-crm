@@ -69,6 +69,13 @@
     <Content Include="css\common.css" />
     <Content Include="image\login\bg.png" />
     <Content Include="Default.aspx" />
+    <Content Include="image\login\light.png" />
+    <Content Include="image\login\loginbox.png" />
+    <Content Include="image\login\loginlogo.png" />
+    <Content Include="image\login\loginpassword.png" />
+    <Content Include="image\login\loginuser.png" />
+    <Content Include="image\login\minilogo.png" />
+    <Content Include="image\login\shadow.png" />
     <Content Include="js\cloud.js" />
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.min.js" />
