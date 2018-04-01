@@ -16,6 +16,8 @@ namespace CRM
         SqlConnection Connection = new SqlConnection();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user"] == null)
+                Response.Redirect("./Login.aspx");
             Connection.ConnectionString = ConfigurationManager.ConnectionStrings["CRMConnection"].ConnectionString;
             StringBuilder strb = new StringBuilder();
             StringBuilder strb1 = new StringBuilder();
@@ -25,55 +27,55 @@ namespace CRM
             strb.Append(@"  <a href=""#""><i class=""icon-cog""></i> Settings</a>   ");
             strb.Append(@"  </div>");
 
-             Literal1.Text = strb.ToString();
+            Literal1.Text = strb.ToString();
 
-             DataSet ds = new DataSet();
-             string ss = Session["user"].ToString();
-             ds = GetProgramID(Session["user"].ToString());
-             bool flag = false;
-            bool flag1 =false;
+            DataSet ds = new DataSet();
+            string ss = Session["user"].ToString();
+            ds = GetProgramID(Session["user"].ToString());
+            bool flag = false;
+            bool flag1 = false;
             string collapseCount = "1";
-             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-             {
-                 if (ds.Tables[0].Rows[i]["ID1"].ToString().Length < 3)
-                 {
-                     if (flag1)//子节点结尾
-                     {
-                         strb1.Append(@"   </div>");//子节点结尾
-                         strb1.Append(@"   </div>");//子节点结尾
-                         strb1.Append(@"   </div>");//父节点结尾
-                     }
-                     flag = true;
-                     flag1 = false;
-                     strb1.Append(@"   <div class=""accordion-group"">");
-                     strb1.Append(@"   <div class=""accordion-heading"">");
-                     strb1.Append(@"   <a class=""accordion-toggle"" data-toggle=""collapse"" target=""ifrmMain"" href=""" + ds.Tables[0].Rows[i]["linkURL"].ToString() + @""" ><i class=""icon-dashboard""></i> <span>" + ds.Tables[0].Rows[i]["DisplayName"].ToString() + @"</span></a>");
-                     strb1.Append(@"   </div>");
+            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            {
+                if (ds.Tables[0].Rows[i]["ID1"].ToString().Length < 3)
+                {
+                    if (flag1)//子节点结尾
+                    {
+                        strb1.Append(@"   </div>");//子节点结尾
+                        strb1.Append(@"   </div>");//子节点结尾
+                        strb1.Append(@"   </div>");//父节点结尾
+                    }
+                    flag = true;
+                    flag1 = false;
+                    strb1.Append(@"   <div class=""accordion-group"">");
+                    strb1.Append(@"   <div class=""accordion-heading"">");
+                    strb1.Append(@"   <a class=""accordion-toggle"" data-toggle=""collapse"" target=""ifrmMain"" href=""" + ds.Tables[0].Rows[i]["linkURL"].ToString() + @""" ><i class=""icon-dashboard""></i> <span>" + ds.Tables[0].Rows[i]["DisplayName"].ToString() + @"</span></a>");
+                    strb1.Append(@"   </div>");
 
-                 }
-                 else if (flag && (!flag1))//子节点第一个
-                 {
-                     strb1.Append(@" <div id=""collapse" + collapseCount + @""" class=""accordion-body in collapse"" style=""height:auto"">");
-                     collapseCount = (Convert.ToInt16(collapseCount) + 1).ToString();
-                     flag1 = true;
-                     strb1.Append(@"    <div class=""accordion-inner"">");
-                     strb1.Append(@" <a class=""accordion-toggle"" target=""ifrmMain"" href=""" + ds.Tables[0].Rows[i]["linkURL"].ToString() + @"""><i class=""icon-star""></i>" + ds.Tables[0].Rows[i]["DisplayName"].ToString() + @"</a>");
-                 }
-                 else if (flag && (flag))//子节点第2345个
-                 {
-                     strb1.Append(@" <a class=""accordion-toggle"" target=""ifrmMain"" href=""" + ds.Tables[0].Rows[i]["linkURL"].ToString() + @"""><i class=""icon-star""></i>" + ds.Tables[0].Rows[i]["DisplayName"].ToString() + @"</a>");
-                 }
-                 if (i == ds.Tables[0].Rows.Count-1)
-                 {
-                     if (flag1)
-                     {
-                         strb1.Append(@"   </div>");//子节点大结尾
-                         strb1.Append(@"   </div>");//子节大点结尾
-                     }
-                         strb1.Append(@"   </div>");//父节大点结尾
-                 }
-             }
-             Literal2.Text = strb1.ToString();
+                }
+                else if (flag && (!flag1))//子节点第一个
+                {
+                    strb1.Append(@" <div id=""collapse" + collapseCount + @""" class=""accordion-body in collapse"" style=""height:auto"">");
+                    collapseCount = (Convert.ToInt16(collapseCount) + 1).ToString();
+                    flag1 = true;
+                    strb1.Append(@"    <div class=""accordion-inner"">");
+                    strb1.Append(@" <a class=""accordion-toggle"" target=""ifrmMain"" href=""" + ds.Tables[0].Rows[i]["linkURL"].ToString() + @"""><i class=""icon-star""></i>" + ds.Tables[0].Rows[i]["DisplayName"].ToString() + @"</a>");
+                }
+                else if (flag && (flag))//子节点第2345个
+                {
+                    strb1.Append(@" <a class=""accordion-toggle"" target=""ifrmMain"" href=""" + ds.Tables[0].Rows[i]["linkURL"].ToString() + @"""><i class=""icon-star""></i>" + ds.Tables[0].Rows[i]["DisplayName"].ToString() + @"</a>");
+                }
+                if (i == ds.Tables[0].Rows.Count - 1)
+                {
+                    if (flag1)
+                    {
+                        strb1.Append(@"   </div>");//子节点大结尾
+                        strb1.Append(@"   </div>");//子节大点结尾
+                    }
+                    strb1.Append(@"   </div>");//父节大点结尾
+                }
+            }
+            Literal2.Text = strb1.ToString();
 
         }
         private DataSet GetProgramID(string emp)
@@ -112,7 +114,7 @@ namespace CRM
             adapter.Fill(ds);
             if (ds.Tables[0].Rows.Count > 0)
             {
-                return ds.Tables[0].Rows[0]["DisplayName"].ToString()+","+ds.Tables[0].Rows[0]["LinkURL"].ToString();
+                return ds.Tables[0].Rows[0]["DisplayName"].ToString() + "," + ds.Tables[0].Rows[0]["LinkURL"].ToString();
             }
             else
             {

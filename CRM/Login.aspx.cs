@@ -26,7 +26,8 @@ namespace CRM
                 Session["son"] = "";    // 子菜单
 
                 UserDAL _UserDAL = new UserDAL();
-                User user = _UserDAL.Get().FirstOrDefault(o => o.Username == username && o.Password == password);
+                string md5password = MD5Helper.CreateMD5(password);
+                User user = _UserDAL.Get().FirstOrDefault(o => o.Username == username && o.Password == md5password);
                 if (user != null)
                 {
                     CommonHelper.User = user;
