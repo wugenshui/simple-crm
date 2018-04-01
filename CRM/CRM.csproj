@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\common.css" />
+    <Content Include="favicon.ico" />
     <Content Include="image\login\bg.png" />
     <Content Include="Default.aspx" />
     <Content Include="image\login\cloud.png" />

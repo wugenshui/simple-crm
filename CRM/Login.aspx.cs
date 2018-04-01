@@ -30,7 +30,7 @@ namespace CRM
                 if (user != null)
                 {
                     CommonHelper.User = user;
-                    Response.Redirect("~/MainFrm.aspx");
+                    Response.Redirect("./Default.aspx");
                 }
                 else
                     Response.Write("<script>alert('用户名或密码输入错误!')</script>");

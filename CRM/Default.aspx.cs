@@ -14,8 +14,7 @@ namespace CRM
         {
             if (CommonHelper.User == null)
                 Response.Redirect("./Login.aspx");
-            else
-                Response.Redirect("./Main.aspx");
+            Response.Write("123");
         }
     }
 }

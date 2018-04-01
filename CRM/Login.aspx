@@ -127,7 +127,7 @@
             }
     </style>
 </head>
-<body>
+<body onselectstart="return false;" >
     <div class="logintop">
         <span>欢迎登录员工客户管理平台</span>
         <ul class="fr">
