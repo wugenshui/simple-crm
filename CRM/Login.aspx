@@ -77,27 +77,46 @@
                 margin-bottom: 25px;
             }
 
-        .loginuser {
-            width: 299px;
+        .loginuser, .loginpwd {
+            width: 342px;
             height: 48px;
-            background: url('./image/login/loginuser.png') no-repeat;
-            border: none;
             line-height: 48px;
             padding-left: 44px;
             font-size: 14px;
+            border: none;
+        }
+
+        .loginuser {
+            background: url('./image/login/loginuser.png') no-repeat center center;
             font-weight: bold;
         }
 
         .loginpwd {
-            width: 299px;
-            height: 48px;
-            background: url('./image/login/loginpassword.png') no-repeat;
-            border: none;
-            line-height: 48px;
-            padding-left: 44px;
-            font-size: 14px;
+            background: url('./image/login/loginpassword.png') no-repeat center center;
             color: #90a2bc;
         }
+
+        .loginbtn {
+            width: 111px;
+            height: 35px;
+            background: rgb(60,149,200);
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #fff;
+            cursor: pointer;
+            line-height: 35px;
+        }
+
+        .loginbox ul li label {
+            margin-left: 44px;
+            color: #687f92;
+        }
+
+            .loginbox ul li label a {
+                color: #687f92;
+            }
     </style>
 </head>
 <body>
