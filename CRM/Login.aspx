@@ -9,7 +9,7 @@
     <link href="css/common.css" rel="stylesheet" />
     <script src="js/jquery.js"></script>
     <%-- 浮云效果 --%>
-    <%--<script src="js/cloud.js"></script>--%>
+    <script src="js/cloud.js"></script>
     <style>
         body {
             background: url('./image/login/light.png') no-repeat;

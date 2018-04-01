@@ -1,21 +1,39 @@
-
 // Cloud Float...
 var $main = $cloud = mainwidth = null;
 var offset1 = 450;
 var offset2 = 0;
 
 var offsetbg = 0;
-
 $(document).ready(
     function () {
         $body = $("body");
         $body.append('<div id="mainBody"><div id="cloud1" class="cloud"></div><div id="cloud2" class="cloud"></div></div>');
+
         $main = $("#mainBody");
+        $main.css("width", "100%");
+        $main.css("height", "100%");
+        $main.css("position", "absolute");
+        $main.css("z-index", "-1");
+
         $cloud1 = $("#cloud1");
+        setCloud($cloud1);
         $cloud2 = $("#cloud2");
+        setCloud($cloud2);
         mainwidth = $main.outerWidth();
     }
 );
+
+function setCloud(ele) {
+    ele.css("width", "100%");
+    ele.css("height", "100%");
+    ele.css("position", "absolute");
+    ele.css("height", "100%");
+    ele.css("top", "0");
+    ele.css("left", "0");
+    ele.css("z-index", "1");
+    ele.css("opacity", "0.5");
+    ele.css("background", "url(./image/login/cloud.png)  no-repeat");
+}
 
 /// 飘动
 setInterval(function flutter() {

@@ -69,6 +69,7 @@
     <Content Include="css\common.css" />
     <Content Include="image\login\bg.png" />
     <Content Include="Default.aspx" />
+    <Content Include="image\login\cloud.png" />
     <Content Include="image\login\light.png" />
     <Content Include="image\login\loginbox.png" />
     <Content Include="image\login\loginlogo.png" />

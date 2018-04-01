@@ -18,7 +18,7 @@
         });
     </script>
     <%-- 浮云效果 --%>
-    <%--<script src="js/cloud.js" type="text/javascript"></script>--%>
+    <script src="js/cloud.js" type="text/javascript"></script>
 </head>
 <body style="background-color: #1c77ac; background-image: url(images/light.png); background-repeat: no-repeat; background-position: center top; overflow: hidden;">
     <div id="mainBody">
