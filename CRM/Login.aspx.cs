@@ -27,7 +27,7 @@ namespace CRM
 
                 UserDAL _UserDAL = new UserDAL();
                 string md5password = MD5Helper.CreateMD5(password);
-                User user = _UserDAL.Get().FirstOrDefault(o => o.Username == username && o.Password == md5password);
+                User user = _UserDAL.Get().FirstOrDefault(o => o.LoginName == username && o.Password == md5password);
                 if (user != null)
                 {
                     CommonHelper.User = user;

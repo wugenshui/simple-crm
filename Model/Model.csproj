@@ -51,12 +51,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Access.cs">
-      <DependentUpon>CRM.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Authority.cs">
-      <DependentUpon>CRM.tt</DependentUpon>
-    </Compile>
     <Compile Include="Company.cs">
       <DependentUpon>CRM.tt</DependentUpon>
     </Compile>
@@ -87,9 +81,10 @@
     <Compile Include="CustomerVisit.cs">
       <DependentUpon>CRM.tt</DependentUpon>
     </Compile>
-    <Compile Include="Employee.cs">
+    <Compile Include="Menu.cs">
       <DependentUpon>CRM.tt</DependentUpon>
     </Compile>
+    <Compile Include="MenuTree.cs" />
     <Compile Include="Message.cs">
       <DependentUpon>CRM.tt</DependentUpon>
     </Compile>
@@ -104,6 +99,9 @@
       <DependentUpon>CRM.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
+      <DependentUpon>CRM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserAuthority.cs">
       <DependentUpon>CRM.tt</DependentUpon>
     </Compile>
   </ItemGroup>

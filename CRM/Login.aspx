@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>CRM客户管理系统</title>
+    <title>登录</title>
     <link href="css/common.css" rel="stylesheet" />
     <script src="js/jquery.js"></script>
     <%-- 浮云效果 --%>
@@ -127,7 +127,7 @@
             }
     </style>
 </head>
-<body onselectstart="return false;" >
+<body onselectstart="return false;">
     <div class="logintop">
         <span>欢迎登录员工客户管理平台</span>
         <ul class="fr">

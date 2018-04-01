@@ -1,4 +1,6 @@
 ﻿using Common;
+using DAL;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +12,22 @@ namespace CRM
 {
     public partial class Index : System.Web.UI.Page
     {
+        public string appName = CommonHelper.AppName;
+        public User user;
+        public List<MenuTree> menus;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (CommonHelper.User == null)
+            user = CommonHelper.User;
+            if (user == null)
                 Response.Redirect("./Login.aspx");
-            Response.Write("123");
+            menus = new MenuDAL().getMenuTree(user.ID);
+
+            //AuthorityDAL authority = new AuthorityDAL
+            //foreach (var item in collection)
+            //{
+
+            //}
         }
     }
 }

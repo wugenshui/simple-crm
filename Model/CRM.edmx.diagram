@@ -5,19 +5,18 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="d098d806ee0c4886bc20cb27b88aae59" Name="Diagram1">
-        <EntityTypeShape EntityType="CRMModel.Access" Width="1.5" PointX="2.75" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CRMModel.Authority" Width="1.5" PointX="4.75" PointY="6.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CRMModel.Company" Width="1.5" PointX="4.75" PointY="9.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CRMModel.Customer" Width="1.5" PointX="6.75" PointY="6.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CRMModel.CustomerLog" Width="1.5" PointX="6.75" PointY="11.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CRMModel.CustomerNoContact" Width="1.5" PointX="8.75" PointY="6.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CRMModel.CustomerVisit" Width="1.5" PointX="9" PointY="10.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="CRMModel.Employee" Width="1.5" PointX="6.125" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CRMModel.Message" Width="1.5" PointX="4.75" PointY="14.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CRMModel.Mylog" Width="1.5" PointX="10.75" PointY="9.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CRMModel.MyRiCheng" Width="1.5" PointX="7.625" PointY="14.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CRMModel.Team" Width="1.5" PointX="11" PointY="12.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CRMModel.User" Width="1.5" PointX="3.875" PointY="1.625" />
+        <EntityTypeShape EntityType="CRMModel.User" Width="1.5" PointX="5.25" PointY="2.25" />
+        <EntityTypeShape EntityType="CRMModel.Menu" Width="1.5" PointX="0.75" PointY="3.375" />
+        <EntityTypeShape EntityType="CRMModel.UserAuthority" Width="1.5" PointX="3.25" PointY="3.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

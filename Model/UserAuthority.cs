@@ -10,12 +10,12 @@
 namespace Model
 {
     /// <summary>
-    /// Access
+    /// UserAuthority
     /// </summary> 
     using System;
     using System.Collections.Generic;
     
-    public partial class Access
+    public partial class UserAuthority
     {
         /// <summary>
     	/// 
@@ -24,26 +24,10 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	public string DisplayName { get; set; }
+    	public int UserID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	public string LinkURL { get; set; }
-        /// <summary>
-    	/// 
-    	/// </summary>
-    	public string ID1 { get; set; }
-        /// <summary>
-    	/// 
-    	/// </summary>
-    	public string ID2 { get; set; }
-        /// <summary>
-    	/// 
-    	/// </summary>
-    	public string ProgramID { get; set; }
-        /// <summary>
-    	/// 
-    	/// </summary>
-    	public string Class { get; set; }
+    	public string LinkID { get; set; }
     }
 }

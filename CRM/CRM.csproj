@@ -68,6 +68,7 @@
   <ItemGroup>
     <Content Include="css\common.css" />
     <Content Include="favicon.ico" />
+    <Content Include="image\default\leftico.png" />
     <Content Include="image\login\bg.png" />
     <Content Include="Default.aspx" />
     <Content Include="image\login\cloud.png" />
@@ -82,6 +83,7 @@
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="Login.aspx" />
+    <Content Include="page\PersonCenter\ChangePassword.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -101,6 +103,13 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="page\PersonCenter\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="page\PersonCenter\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -112,9 +121,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="page\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{5F2A7E12-E6CB-49E9-AC72-584DEAAF3F7C}</Project>

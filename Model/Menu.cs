@@ -10,12 +10,12 @@
 namespace Model
 {
     /// <summary>
-    /// Authority
+    /// Menu
     /// </summary> 
     using System;
     using System.Collections.Generic;
     
-    public partial class Authority
+    public partial class Menu
     {
         /// <summary>
     	/// 
@@ -24,14 +24,22 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	public string Name { get; set; }
+    	public string LinkName { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	public string ProgramID { get; set; }
+    	public string LinkURL { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	public string FatherID { get; set; }
+    	public string LinkID { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string LinkPID { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Class { get; set; }
     }
 }

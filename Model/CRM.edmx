@@ -6,31 +6,6 @@
     <edmx:StorageModels>
     <Schema Namespace="CRMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--生成过程中发现错误:
-警告 6002: 表/视图“CRM.dbo.Access”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
-        <EntityType Name="Access">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DisplayName" Type="nvarchar" MaxLength="50" />
-          <Property Name="LinkURL" Type="nvarchar" MaxLength="50" />
-          <Property Name="ID1" Type="nvarchar" MaxLength="50" />
-          <Property Name="ID2" Type="nvarchar" MaxLength="50" />
-          <Property Name="ProgramID" Type="nvarchar" MaxLength="50" />
-          <Property Name="Class" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <!--生成过程中发现错误:
-警告 6002: 表/视图“CRM.dbo.Authority”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
-        <EntityType Name="Authority">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="ProgramID" Type="nvarchar" MaxLength="50" />
-          <Property Name="FatherID" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <!--生成过程中发现错误:
 警告 6002: 表/视图“CRM.dbo.Company”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="Company">
           <Key>
@@ -115,26 +90,16 @@
           <Property Name="remark" Type="nvarchar" MaxLength="50" />
           <Property Name="Status" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--生成过程中发现错误:
-警告 6002: 表/视图“CRM.dbo.Employee”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
-        <EntityType Name="Employee">
+        <EntityType Name="Menu">
           <Key>
             <PropertyRef Name="ID" />
-            
-            <PropertyRef Name="Company_ID" />
-            <PropertyRef Name="Team_ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Company_ID" Type="int" Nullable="false" />
-          <Property Name="Team_ID" Type="int" Nullable="false" />
-          <Property Name="Post" Type="nvarchar" MaxLength="50" />
-          <Property Name="Supervisor" Type="nvarchar" MaxLength="50" />
-          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
-          <Property Name="QQNumber" Type="nvarchar" MaxLength="50" />
-          <Property Name="Status" Type="nvarchar" MaxLength="50" />
-          <Property Name="WorkStartDate" Type="date" />
-          <Property Name="Photo" Type="image" />
+          <Property Name="LinkName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LinkURL" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LinkID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LinkPID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Class" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“CRM.dbo.Message”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -190,38 +155,38 @@
           <Property Name="Slogan" Type="nvarchar" MaxLength="50" />
           <Property Name="Company" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--生成过程中发现错误:
-警告 6002: 表/视图“CRM.dbo.User”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="User">
           <Key>
-            <PropertyRef Name="Id" />
-            
-            
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LoginName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Company_ID" Type="int" Nullable="false" />
+          <Property Name="Team_ID" Type="int" Nullable="false" />
+          <Property Name="Post" Type="nvarchar" MaxLength="50" />
+          <Property Name="Supervisor" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="WorkStartDate" Type="date" />
+          <Property Name="Photo" Type="image" />
+          <Property Name="State" Type="int" Nullable="false" />
+          <Property Name="isEnable" Type="bit" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“CRM.dbo.UserAuthority”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="UserAuthority">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="LinkID" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityContainer Name="CRMModelStoreContainer">
-          <EntitySet Name="Access" EntityType="Self.Access" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Access].[ID] AS [ID], 
-    [Access].[DisplayName] AS [DisplayName], 
-    [Access].[LinkURL] AS [LinkURL], 
-    [Access].[ID1] AS [ID1], 
-    [Access].[ID2] AS [ID2], 
-    [Access].[ProgramID] AS [ProgramID], 
-    [Access].[Class] AS [Class]
-    FROM [dbo].[Access] AS [Access]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Authority" EntityType="Self.Authority" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Authority].[ID] AS [ID], 
-    [Authority].[Name] AS [Name], 
-    [Authority].[ProgramID] AS [ProgramID], 
-    [Authority].[FatherID] AS [FatherID]
-    FROM [dbo].[Authority] AS [Authority]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Company" EntityType="Self.Company" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Company].[ID] AS [ID], 
@@ -292,21 +257,6 @@
     [CustomerVisit].[Status] AS [Status]
     FROM [dbo].[CustomerVisit] AS [CustomerVisit]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="Employee" EntityType="Self.Employee" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Employee].[ID] AS [ID], 
-    [Employee].[Name] AS [Name], 
-    [Employee].[Company_ID] AS [Company_ID], 
-    [Employee].[Team_ID] AS [Team_ID], 
-    [Employee].[Post] AS [Post], 
-    [Employee].[Supervisor] AS [Supervisor], 
-    [Employee].[PhoneNumber] AS [PhoneNumber], 
-    [Employee].[QQNumber] AS [QQNumber], 
-    [Employee].[Status] AS [Status], 
-    [Employee].[WorkStartDate] AS [WorkStartDate], 
-    [Employee].[Photo] AS [Photo]
-    FROM [dbo].[Employee] AS [Employee]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="Message" EntityType="Self.Message" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Message].[MessageID] AS [MessageID], 
@@ -349,39 +299,18 @@
     [Team].[Company] AS [Company]
     FROM [dbo].[Team] AS [Team]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="User" EntityType="Self.User" store:Type="Tables" store:Schema="dbo">
+          <EntitySet Name="UserAuthority" EntityType="Self.UserAuthority" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [User].[Id] AS [Id], 
-    [User].[Username] AS [Username], 
-    [User].[Password] AS [Password]
-    FROM [dbo].[User] AS [User]</DefiningQuery>
+    [UserAuthority].[ID] AS [ID], 
+    [UserAuthority].[UserID] AS [UserID], 
+    [UserAuthority].[LinkID] AS [LinkID]
+    FROM [dbo].[UserAuthority] AS [UserAuthority]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CRMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Access">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LinkURL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ID1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ID2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ProgramID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Class" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Authority">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ProgramID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FatherID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="Company">
           <Key>
             <PropertyRef Name="ID" />
@@ -457,39 +386,6 @@
           <Property Name="remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="Employee">
-          <Documentation>
-            <Summary>员工表</Summary>
-          </Documentation>
-          <Key>
-            <PropertyRef Name="ID" />
-            <PropertyRef Name="Company_ID" />
-            <PropertyRef Name="Team_ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" >
-            <Documentation>
-              <Summary>姓名</Summary>
-            </Documentation>
-          </Property>
-          <Property Name="Post" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Company_ID" Type="Int32" Nullable="false">
-            <Documentation>
-              <Summary>机构ID</Summary>
-            </Documentation>
-          </Property>
-          <Property Name="Team_ID" Type="Int32" Nullable="false">
-            <Documentation>
-              <Summary>团队ID</Summary>
-            </Documentation>
-          </Property>
-          <Property Name="Supervisor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="QQNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="WorkStartDate" Type="DateTime" Precision="0" />
-          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         <EntityType Name="Message">
           <Key>
             <PropertyRef Name="MessageID" />
@@ -537,38 +433,56 @@
           <Property Name="Company" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="CRMEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Access" EntityType="Self.Access" />
-          <EntitySet Name="Authority" EntityType="Self.Authority" />
           <EntitySet Name="Company" EntityType="Self.Company" />
           <EntitySet Name="Customer" EntityType="Self.Customer" />
           <EntitySet Name="CustomerLog" EntityType="Self.CustomerLog" />
           <EntitySet Name="CustomerNoContact" EntityType="Self.CustomerNoContact" />
           <EntitySet Name="CustomerVisit" EntityType="Self.CustomerVisit" />
-          <EntitySet Name="Employee" EntityType="Self.Employee" />
           <EntitySet Name="Message" EntityType="Self.Message" />
           <EntitySet Name="Mylog" EntityType="Self.Mylog" />
           <EntitySet Name="MyRiCheng" EntityType="Self.MyRiCheng" />
           <EntitySet Name="Team" EntityType="Self.Team" />
           <EntitySet Name="User" EntityType="CRMModel.User" />
+          <EntitySet Name="Menu" EntityType="CRMModel.Menu" />
+          <EntitySet Name="UserAuthority" EntityType="CRMModel.UserAuthority" />
         </EntityContainer>
         <EntityType Name="User">
-          <Documentation>
-            <Summary>用户表</Summary>
-          </Documentation>
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" >
-            <Documentation>
-              <Summary>用户名</Summary>
-            </Documentation>
-          </Property>
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" >
-            <Documentation>
-              <Summary>密码</Summary>
-            </Documentation>
-          </Property>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LoginName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Company_ID" Type="Int32" Nullable="false" />
+          <Property Name="Team_ID" Type="Int32" Nullable="false" />
+          <Property Name="Post" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Supervisor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WorkStartDate" Type="DateTime" Precision="0" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="State" Type="Int32" Nullable="false" />
+          <Property Name="isEnable" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LinkName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LinkURL" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LinkID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LinkPID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Class" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UserAuthority">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="LinkID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -576,29 +490,6 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="CRMModelStoreContainer" CdmEntityContainer="CRMEntities">
-          <EntitySetMapping Name="Access">
-            <EntityTypeMapping TypeName="CRMModel.Access">
-              <MappingFragment StoreEntitySet="Access">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
-                <ScalarProperty Name="LinkURL" ColumnName="LinkURL" />
-                <ScalarProperty Name="ID1" ColumnName="ID1" />
-                <ScalarProperty Name="ID2" ColumnName="ID2" />
-                <ScalarProperty Name="ProgramID" ColumnName="ProgramID" />
-                <ScalarProperty Name="Class" ColumnName="Class" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Authority">
-            <EntityTypeMapping TypeName="CRMModel.Authority">
-              <MappingFragment StoreEntitySet="Authority">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ProgramID" ColumnName="ProgramID" />
-                <ScalarProperty Name="FatherID" ColumnName="FatherID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Company">
             <EntityTypeMapping TypeName="CRMModel.Company">
               <MappingFragment StoreEntitySet="Company">
@@ -679,23 +570,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Employee">
-            <EntityTypeMapping TypeName="CRMModel.Employee">
-              <MappingFragment StoreEntitySet="Employee">
-                <ScalarProperty Name="Team_ID" ColumnName="Team_ID" />
-                <ScalarProperty Name="Company_ID" ColumnName="Company_ID" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Post" ColumnName="Post" />
-                <ScalarProperty Name="Supervisor" ColumnName="Supervisor" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-                <ScalarProperty Name="QQNumber" ColumnName="QQNumber" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="WorkStartDate" ColumnName="WorkStartDate" />
-                <ScalarProperty Name="Photo" ColumnName="Photo" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Message">
             <EntityTypeMapping TypeName="CRMModel.Message">
               <MappingFragment StoreEntitySet="Message">
@@ -749,9 +623,40 @@
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="CRMModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="isEnable" ColumnName="isEnable" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="WorkStartDate" ColumnName="WorkStartDate" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Supervisor" ColumnName="Supervisor" />
+                <ScalarProperty Name="Post" ColumnName="Post" />
+                <ScalarProperty Name="Team_ID" ColumnName="Team_ID" />
+                <ScalarProperty Name="Company_ID" ColumnName="Company_ID" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menu">
+            <EntityTypeMapping TypeName="CRMModel.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="LinkPID" ColumnName="LinkPID" />
+                <ScalarProperty Name="LinkID" ColumnName="LinkID" />
+                <ScalarProperty Name="LinkURL" ColumnName="LinkURL" />
+                <ScalarProperty Name="LinkName" ColumnName="LinkName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserAuthority">
+            <EntityTypeMapping TypeName="CRMModel.UserAuthority">
+              <MappingFragment StoreEntitySet="UserAuthority">
+                <ScalarProperty Name="LinkID" ColumnName="LinkID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

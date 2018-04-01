@@ -10,7 +10,7 @@
 namespace Model
 {
     /// <summary>
-    /// 用户表
+    /// User
     /// </summary> 
     using System;
     using System.Collections.Generic;
@@ -20,14 +20,54 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	public int Id { get; set; }
+    	public int ID { get; set; }
         /// <summary>
-    	/// 用户名
+    	/// 
     	/// </summary>
-    	public string Username { get; set; }
+    	public string UserName { get; set; }
         /// <summary>
-    	/// 密码
+    	/// 
+    	/// </summary>
+    	public string LoginName { get; set; }
+        /// <summary>
+    	/// 
     	/// </summary>
     	public string Password { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public int Company_ID { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public int Team_ID { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Post { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string Supervisor { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public string PhoneNumber { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public Nullable<System.DateTime> WorkStartDate { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public byte[] Photo { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public int State { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public Nullable<bool> isEnable { get; set; }
     }
 }
