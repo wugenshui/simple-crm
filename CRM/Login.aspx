@@ -49,32 +49,40 @@
             background: url('./image/login/bg.png') no-repeat center center fixed;
         }
 
-        .systemlogo {
-            background: url('./image/login/loginlogo.png') no-repeat center;
-            width: 100%;
-            height: 72px;
-            margin-top: 82px;
-            position: absolute;
-        }
 
-        .loginbox {
+
+        .centerbox {
             width: 700px;
-            height: 340px;
+            height: 410px;
             position: absolute;
             left: 50%;
             top: 50%;
             margin-left: -350px;
-            margin-top: -170px;
-            background: url('./image/login/loginbox.png') no-repeat;
+            margin-top: -220px;
         }
 
-            .loginbox ul {
+            .centerbox .systemlogo {
+                background: url('./image/login/loginlogo.png') no-repeat center;
+                width: 100%;
+                height: 70px;
+                position: absolute;
+            }
+
+            .centerbox ul {
                 margin-top: 88px;
                 margin-left: 285px;
             }
 
-            .loginbox li {
+            .centerbox li {
                 margin-bottom: 25px;
+            }
+
+            .centerbox .loginbox {
+                background: url('./image/login/loginbox.png') no-repeat;
+                width: 100%;
+                height: 340px;
+                position: absolute;
+                top: 70px;
             }
 
         .loginuser, .loginpwd {
@@ -109,12 +117,12 @@
             line-height: 35px;
         }
 
-        .loginbox ul li label {
+        .centerbox ul li label {
             margin-left: 44px;
             color: #687f92;
         }
 
-            .loginbox ul li label a {
+            .centerbox ul li label a {
                 color: #687f92;
             }
     </style>
@@ -129,22 +137,24 @@
         </ul>
     </div>
     <div class="loginbody">
-        <span class="systemlogo"></span>
-        <div class="loginbox">
-            <form id="loginform" runat="server">
-                <ul>
-                    <li>
-                        <input id="inputName" class="loginuser" runat="server" type="text" placeholder="用户名" /></li>
-                    <li>
-                        <input id="inputPassword" class="loginpwd" runat="server" type="password" placeholder="密码" /></li>
-                    <li>
-                        <asp:Button ID="Button1" type="submit" runat="server" class="loginbtn" Text="登录"
-                            OnClick="Button1_Click" Width="97px"></asp:Button>
-                        <label>
-                            <input name="" type="checkbox" value="" checked="checked" />记住密码</label><label><a href="#">忘记密码？</a></label>
-                    </li>
-                </ul>
-            </form>
+        <div class="centerbox">
+            <span class="systemlogo"></span>
+            <div class="loginbox">
+                <form id="loginform" runat="server">
+                    <ul>
+                        <li>
+                            <input id="inputName" class="loginuser" runat="server" type="text" placeholder="用户名" /></li>
+                        <li>
+                            <input id="inputPassword" class="loginpwd" runat="server" type="password" placeholder="密码" /></li>
+                        <li>
+                            <asp:Button ID="Button1" type="submit" runat="server" class="loginbtn" Text="登录"
+                                OnClick="Button1_Click" Width="97px"></asp:Button>
+                            <label>
+                                <input name="" type="checkbox" value="" checked="checked" />记住密码</label><label><a href="#">忘记密码？</a></label>
+                        </li>
+                    </ul>
+                </form>
+            </div>
         </div>
     </div>
 </body>
