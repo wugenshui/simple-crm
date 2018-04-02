@@ -16,6 +16,7 @@
             background-size: cover;
             background-color: #1c77ac;
             position: relative;
+            overflow: hidden;
         }
 
         .logintop {
@@ -86,7 +87,7 @@
             }
 
         .loginuser, .loginpwd {
-            width: 342px;
+            width: 343px;
             height: 48px;
             line-height: 48px;
             padding-left: 44px;
