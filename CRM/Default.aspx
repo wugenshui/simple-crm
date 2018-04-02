@@ -61,6 +61,17 @@
                 <i></i>
                 控制中心
             </div>
+            <dl>
+                <% foreach (var menu in menus)
+                    { %>
+                <dt style="background: url('<%=menu.Class %>');"><%=menu.LinkName %></dt>
+                <%foreach (var item in menu.Childs)
+                    { %>
+                <dd class="<%=item.Class %>"><%=item.LinkName %></dd>
+                <% } %>
+                <dd></dd>
+                <%  } %>
+            </dl>
         </div>
         <div class="main"></div>
     </div>
