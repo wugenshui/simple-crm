@@ -69,6 +69,10 @@
     <Content Include="css\common.css" />
     <Content Include="favicon.ico" />
     <Content Include="image\default\leftico.png" />
+    <Content Include="image\default\menu1.png" />
+    <Content Include="image\default\menu2.png" />
+    <Content Include="image\default\menu3.png" />
+    <Content Include="image\default\menu4.png" />
     <Content Include="image\login\bg.png" />
     <Content Include="Default.aspx" />
     <Content Include="image\login\cloud.png" />
