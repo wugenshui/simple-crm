@@ -61,20 +61,32 @@
             cursor: pointer;
         }
 
+        .menu dl.showChild dd {
+            display: block;
+        }
+
         .menu dl dd {
-            /*background: url('./image/default/list.gif') no-repeat 35px;*/
-            text-indent: 35px;
+            display: none;
             line-height: 35px;
             font-size: 14px;
             border-right: solid 1px #b7d5df;
             cursor: pointer;
+            position: relative;
         }
 
             .menu dl dd cite {
-                background: url('./image/default/list.gif') no-repeat;
+                background: url(./image/default/list.gif) no-repeat;
                 width: 12px;
                 height: 12px;
-                display: inline-block;
+                display: block;
+                float: left;
+                margin-left: 35px;
+                margin-top: 10px;
+                margin-right: 5px;
+            }
+
+            .menu dl dd a {
+                display: block;
             }
 
             .menu dl dd.active cite {
@@ -95,9 +107,8 @@
                     width: 6px;
                     height: 11px;
                     position: absolute;
-                    z-index: 10000;
-                    margin-left: 67px;
-                    margin-top: 13px;
+                    right: -1px;
+                    top: 13px;
                 }
 
         .main {
@@ -126,20 +137,20 @@
                 <i></i>
                 控制中心
             </div>
+            <% foreach (var menu in menus)
+                { %>
             <dl>
-                <% foreach (var menu in menus)
-                    { %>
                 <dt style="background-image: url('<%=menu.Class %>');"><%=menu.LinkName %></dt>
                 <%  foreach (var item in menu.Childs)
                     { %>
-                <dd class="<%=item.Class %>">
+                <dd>
                     <cite></cite>
                     <a href="<%=item.LinkURL %>" target="main"><%=item.LinkName %></a>
                     <i></i>
                 </dd>
                 <%  } %>
-                <% } %>
             </dl>
+            <% } %>
         </div>
         <div class="main">
             <iframe name="main"></iframe>
@@ -147,6 +158,17 @@
     </div>
 
     <script>
+        // 一级菜单点击
+        $(".menu dt").click(function () {
+            if ($(this).parent().hasClass("showChild")) {
+                $(this).parent().removeClass("showChild");
+            } else {
+                $(".showChild").removeClass("showChild");
+                $(this).parent().addClass("showChild");
+            }
+        });
+
+        // 二级菜单点击
         $(".menu dd").click(function () {
             $(".active").removeClass("active");
             $(this).addClass("active");
