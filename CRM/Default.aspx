@@ -114,7 +114,7 @@
 
         .main {
             position: absolute;
-            top: 0;
+            top: 15px;
             bottom: 0;
             left: 180px;
             right: 0;

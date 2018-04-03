@@ -8,15 +8,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>修改密码</title>
     <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../css/common.css" rel="stylesheet" />
+    <style>
+    </style>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                修改密码
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="form-group row">
+                        <label for="txtOld" class="col-sm-2 col-form-label text-right">原密码:</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="txtOld" name="txtOld" placeholder="原密码" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="txtNew" class="col-sm-2 col-form-label text-right">新密码:</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="txtNew" name="txtNew" placeholder="新密码" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="txtNewRepeat" class="col-sm-2 col-form-label text-right">重复输入新密码:</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="txtNewRepeat" placeholder="重复输入新密码" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button type="button" class="btn btn-primary" id="btnSave">保存</button>
+            </div>
         </div>
-    </form>
+
+        <div class="alert alert-warning alert-dismissible fade hide" role="alert">
+            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+  </button>
+        </div>
+    </div>
 
     <script src="../../Scripts/jquery-3.0.0.slim.js"></script>
     <script src="../../Scripts/umd/popper.min.js"></script>
     <script src="../../Scripts/bootstrap.min.js"></script>
+    <script>
+        $("#btnSave").click(function () {
+            var txtNew = $("#txtNew").val();
+            var txtNewRepeat = $("#txtNewRepeat").val();
+            if (txtNew != null && txtNew != "" && txtNew == txtNewRepeat) {
+                var data = $("form").serialize();
+            } else {
+                $(".alert").alert();
+            }
+        })
+    </script>
 </body>
 </html>
