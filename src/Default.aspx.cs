@@ -17,7 +17,7 @@ namespace CRM
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["user"] == null)
-                Response.Redirect("./Login.aspx");
+                Response.Redirect("<script language='javascript'>parent.window.location='./Default.aspx';</script>");
             Connection.ConnectionString = ConfigurationManager.ConnectionStrings["CRMConnection"].ConnectionString;
             StringBuilder strb = new StringBuilder();
             StringBuilder strb1 = new StringBuilder();

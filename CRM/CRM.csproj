@@ -91,7 +91,25 @@
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="Login.aspx" />
-    <Content Include="page\PersonCenter\ChangePassword.aspx" />
+    <Content Include="page\Customer\CustomerAdd.aspx" />
+    <Content Include="page\Customer\CustomerList.aspx" />
+    <Content Include="page\Customer\CustomerVisit.aspx" />
+    <Content Include="page\Employee\Authority.aspx" />
+    <Content Include="page\Employee\EmployeeAdd.aspx" />
+    <Content Include="page\Employee\EmployeeList.aspx" />
+    <Content Include="page\Organization\CompanyAdd.aspx" />
+    <Content Include="page\Organization\CompanyList.aspx" />
+    <Content Include="page\Organization\TeamAdd.aspx" />
+    <Content Include="page\Organization\TeamList.aspx" />
+    <Content Include="page\PersonCenter\CompanyInfo.aspx" />
+    <Content Include="page\PersonCenter\HotNews.aspx" />
+    <Content Include="page\PersonCenter\PasswordChange.aspx" />
+    <Content Include="page\PersonCenter\Schedule.aspx" />
+    <Content Include="page\PersonCenter\UserInfo.aspx" />
+    <Content Include="page\PersonCenter\WorkLog.aspx" />
+    <Content Include="page\Report\CompanyRankingList.aspx" />
+    <Content Include="page\Report\PersonRankingList.aspx" />
+    <Content Include="page\Report\TeamRankingList.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -111,12 +129,138 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="page\PersonCenter\ChangePassword.aspx.cs">
-      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    <Compile Include="page\Customer\CustomerAdd.aspx.cs">
+      <DependentUpon>CustomerAdd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="page\PersonCenter\ChangePassword.aspx.designer.cs">
-      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    <Compile Include="page\Customer\CustomerAdd.aspx.designer.cs">
+      <DependentUpon>CustomerAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="page\Customer\CustomerList.aspx.cs">
+      <DependentUpon>CustomerList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="page\Customer\CustomerList.aspx.designer.cs">
+      <DependentUpon>CustomerList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="page\Customer\CustomerVisit.aspx.cs">
+      <DependentUpon>CustomerVisit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="page\Customer\CustomerVisit.aspx.designer.cs">
+      <DependentUpon>CustomerVisit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="page\Employee\Authority.aspx.cs">
+      <DependentUpon>Authority.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="page\Employee\Authority.aspx.designer.cs">
+      <DependentUpon>Authority.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="page\Employee\EmployeeAdd.aspx.cs">
+      <DependentUpon>EmployeeAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="page\Employee\EmployeeAdd.aspx.designer.cs">
+      <DependentUpon>EmployeeAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="page\Employee\EmployeeList.aspx.cs">
+      <DependentUpon>EmployeeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="page\Employee\EmployeeList.aspx.designer.cs">
+      <DependentUpon>EmployeeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="page\Organization\CompanyAdd.aspx.cs">
+      <DependentUpon>CompanyAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="page\Organization\CompanyAdd.aspx.designer.cs">
+      <DependentUpon>CompanyAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="page\Organization\CompanyList.aspx.cs">
+      <DependentUpon>CompanyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="page\Organization\CompanyList.aspx.designer.cs">
+      <DependentUpon>CompanyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="page\Organization\TeamAdd.aspx.cs">
+      <DependentUpon>TeamAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="page\Organization\TeamAdd.aspx.designer.cs">
+      <DependentUpon>TeamAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="page\Organization\TeamList.aspx.cs">
+      <DependentUpon>TeamList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="page\Organization\TeamList.aspx.designer.cs">
+      <DependentUpon>TeamList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="page\PersonCenter\CompanyInfo.aspx.cs">
+      <DependentUpon>CompanyInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="page\PersonCenter\CompanyInfo.aspx.designer.cs">
+      <DependentUpon>CompanyInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="page\PersonCenter\HotNews.aspx.cs">
+      <DependentUpon>HotNews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="page\PersonCenter\HotNews.aspx.designer.cs">
+      <DependentUpon>HotNews.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="page\PersonCenter\PasswordChange.aspx.cs">
+      <DependentUpon>PasswordChange.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="page\PersonCenter\PasswordChange.aspx.designer.cs">
+      <DependentUpon>PasswordChange.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="page\PersonCenter\Schedule.aspx.cs">
+      <DependentUpon>Schedule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="page\PersonCenter\Schedule.aspx.designer.cs">
+      <DependentUpon>Schedule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="page\PersonCenter\UserInfo.aspx.cs">
+      <DependentUpon>UserInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="page\PersonCenter\UserInfo.aspx.designer.cs">
+      <DependentUpon>UserInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="page\PersonCenter\WorkLog.aspx.cs">
+      <DependentUpon>WorkLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="page\PersonCenter\WorkLog.aspx.designer.cs">
+      <DependentUpon>WorkLog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="page\Report\CompanyRankingList.aspx.cs">
+      <DependentUpon>CompanyRankingList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="page\Report\CompanyRankingList.aspx.designer.cs">
+      <DependentUpon>CompanyRankingList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="page\Report\PersonRankingList.aspx.cs">
+      <DependentUpon>PersonRankingList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="page\Report\PersonRankingList.aspx.designer.cs">
+      <DependentUpon>PersonRankingList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="page\Report\TeamRankingList.aspx.cs">
+      <DependentUpon>TeamRankingList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="page\Report\TeamRankingList.aspx.designer.cs">
+      <DependentUpon>TeamRankingList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
