@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Common;
+using DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,17 @@ namespace CRM.page.PersonCenter
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.RequestType == "POST")
+            {
+                if (Request.Form["type"] == "change" && MD5Helper.CreateMD5(Request.Form["txtOld"]) == CommonHelper.User.Password)
+                {
+                    CommonHelper.User.Password = MD5Helper.CreateMD5(Request.Form["txtNew"]);
+                    UserDAL _UserDAL = new UserDAL();
+                    _UserDAL.Update(CommonHelper.User);
 
+                    Response.Write("保存成功");
+                }
+            }
         }
     }
 }

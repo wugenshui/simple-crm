@@ -56,14 +56,21 @@
     <script src="../../Scripts/jquery-3.0.0.slim.js"></script>
     <script src="../../Scripts/umd/popper.min.js"></script>
     <script src="../../Scripts/bootstrap.min.js"></script>
+    <script src="../../js/layer3.1.1/layer.js"></script>
     <script>
         $("#btnSave").click(function () {
             var txtNew = $("#txtNew").val();
             var txtNewRepeat = $("#txtNewRepeat").val();
-            if (txtNew != null && txtNew != "" && txtNew == txtNewRepeat) {
-                var data = $("form").serialize();
+            if (txtNew != null && txtNew != "") {
+                if (txtNew == txtNewRepeat) {
+                    var data = $("form").serialize();
+                    data.type = "change";
+                    $.post("?type=", data);
+                } else {
+                    layer.alert('重复输入新密码有误！');
+                }
             } else {
-                $(".alert").alert();
+                layer.alert('新密码不能为空！');
             }
         })
     </script>

@@ -98,6 +98,15 @@
     <Content Include="js\cloud.js" />
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.min.js" />
+    <Content Include="js\layer3.1.1\layer.js" />
+    <Content Include="js\layer3.1.1\mobile\layer.js" />
+    <Content Include="js\layer3.1.1\mobile\need\layer.css" />
+    <Content Include="js\layer3.1.1\theme\default\icon-ext.png" />
+    <Content Include="js\layer3.1.1\theme\default\icon.png" />
+    <Content Include="js\layer3.1.1\theme\default\layer.css" />
+    <Content Include="js\layer3.1.1\theme\default\loading-0.gif" />
+    <Content Include="js\layer3.1.1\theme\default\loading-1.gif" />
+    <Content Include="js\layer3.1.1\theme\default\loading-2.gif" />
     <Content Include="Login.aspx" />
     <Content Include="page\Customer\CustomerAdd.aspx" />
     <Content Include="page\Customer\CustomerList.aspx" />
