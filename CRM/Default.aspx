@@ -49,7 +49,7 @@
                 float: left;
             }
 
-        .menu dl dt {
+        .root-menu > li > div {
             background: rgb(212,231,240);
             background-repeat: no-repeat;
             line-height: 35px;
@@ -62,17 +62,20 @@
             cursor: pointer;
         }
 
-        .menu dl dd {
+        .second-menu {
             display: none;
-            line-height: 35px;
-            height: 35px;
-            font-size: 14px;
-            border-right: solid 1px #b7d5df;
-            cursor: pointer;
-            position: relative;
         }
 
-            .menu dl dd cite {
+            .second-menu li {
+                line-height: 35px;
+                height: 35px;
+                font-size: 14px;
+                border-right: solid 1px #b7d5df;
+                cursor: pointer;
+                position: relative;
+            }
+
+            .second-menu cite {
                 background: url(./image/default/list.gif) no-repeat;
                 width: 12px;
                 height: 12px;
@@ -83,24 +86,24 @@
                 margin-right: 5px;
             }
 
-            .menu dl dd a {
+            .second-menu a {
                 display: block;
             }
 
-            .menu dl dd.active cite {
+            .second-menu li.active cite {
                 background: url('./image/default/whitelist.gif') no-repeat;
             }
 
-            .menu dl dd.active {
+            .second-menu li.active {
                 background: url('./image/default/active.png') no-repeat;
                 background-size: cover;
             }
 
-                .menu dl dd.active a {
+                .second-menu li.active a {
                     color: white;
                 }
 
-                .menu dl dd.active i {
+                .second-menu li.active i {
                     background: url(./image/default/sj.png) no-repeat;
                     width: 6px;
                     height: 11px;
@@ -137,17 +140,21 @@
             </div>
             <% foreach (var menu in menus)
                 { %>
-            <dl>
-                <dt style="background-image: url('<%=menu.Class %>');"><%=menu.LinkName %></dt>
-                <%  foreach (var item in menu.Childs)
-                    { %>
-                <dd>
-                    <cite></cite>
-                    <a href="<%=item.LinkURL %>" target="main"><%=item.LinkName %></a>
-                    <i></i>
-                </dd>
-                <%  } %>
-            </dl>
+            <ul class="root-menu">
+                <li>
+                    <div style="background-image: url('<%=menu.Class %>');"><%=menu.LinkName %></div>
+                    <ul class="second-menu">
+                        <%  foreach (var item in menu.Childs)
+                            { %>
+                        <li>
+                            <cite></cite>
+                            <a href="<%=item.LinkURL %>" target="main"><%=item.LinkName %></a>
+                            <i></i>
+                        </li>
+                        <%  } %>
+                    </ul>
+                </li>
+            </ul>
             <% } %>
         </div>
         <div class="main">
@@ -157,8 +164,9 @@
 
     <script>
         // 一级菜单点击
-        $(".menu dt").click(function () {
-            var ele = $(this).parent().children("dd");
+        $(".root-menu > li > div").click(function () {
+            $('.root-menu > li > div').next().slideUp(); // 全部收起
+            var ele = $(this).next();
             if (ele.is(':visible')) {
                 ele.slideUp();
             } else {
@@ -167,7 +175,7 @@
         });
 
         // 二级菜单点击
-        $(".menu dd").click(function () {
+        $(".second-menu li").click(function () {
             $(".active").removeClass("active");
             $(this).addClass("active");
         });
