@@ -56,18 +56,16 @@
             font-weight: bold;
             font-size: 14px;
             border-right: solid 1px #b7d5df;
+            border-bottom: solid 1px #b7d5df;
             background-position: 10px;
             text-indent: 35px;
             cursor: pointer;
         }
 
-        .menu dl.showChild dd {
-            display: block;
-        }
-
         .menu dl dd {
             display: none;
             line-height: 35px;
+            height: 35px;
             font-size: 14px;
             border-right: solid 1px #b7d5df;
             cursor: pointer;
@@ -127,7 +125,7 @@
             }
     </style>
 </head>
-<body>
+<body onselectstart="return false;">
     <div class="header">
         <span><%=user.UserName %></span>
     </div>
@@ -160,11 +158,11 @@
     <script>
         // 一级菜单点击
         $(".menu dt").click(function () {
-            if ($(this).parent().hasClass("showChild")) {
-                $(this).parent().removeClass("showChild");
+            var ele = $(this).parent().children("dd");
+            if (ele.is(':visible')) {
+                ele.slideUp();
             } else {
-                $(".showChild").removeClass("showChild");
-                $(this).parent().addClass("showChild");
+                ele.slideDown();
             }
         });
 
