@@ -6,6 +6,7 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title><%=appName %></title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="css/common.css" rel="stylesheet" />
     <script src="js/jquery.js"></script>
     <style>
@@ -14,13 +15,26 @@
         }
 
         .header {
-            height: 70px;
-            background-color: lightblue;
+            height: 50px;
+            background-color: #0e90d2;
+            color: #eee;
         }
+
+            .header h4 {
+                float: left;
+                margin-left: 20px;
+                line-height: 50px;
+            }
+
+            .header h5 {
+                float: right;
+                margin-right: 20px;
+                line-height: 50px;
+            }
 
         .center {
             position: absolute;
-            top: 70px;
+            top: 52px;
             bottom: 0;
             left: 0;
             right: 0;
@@ -114,7 +128,7 @@
 
         .main {
             position: absolute;
-            top: 15px;
+            top: 0;
             bottom: 0;
             left: 180px;
             right: 0;
@@ -129,10 +143,13 @@
     </style>
 </head>
 <body onselectstart="return false;">
+    <%-- 顶部导航栏 --%>
     <div class="header">
-        <span><%=user.UserName %></span>
+        <h4><%=Common.CommonHelper.AppName %></h4>
+        <h5><%=user.UserName %></h5>
     </div>
     <div class="center">
+        <%-- 左侧菜单 --%>
         <div class="menu">
             <div class="menutop">
                 <i></i>
@@ -157,6 +174,7 @@
             </ul>
             <% } %>
         </div>
+        <%-- 右侧页面主体 --%>
         <div class="main">
             <iframe name="main"></iframe>
         </div>
