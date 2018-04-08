@@ -109,6 +109,7 @@
     <Content Include="js\layer3.1.1\theme\default\loading-1.gif" />
     <Content Include="js\layer3.1.1\theme\default\loading-2.gif" />
     <Content Include="Login.aspx" />
+    <Content Include="Logout.aspx" />
     <Content Include="page\Customer\CustomerAdd.aspx" />
     <Content Include="page\Customer\CustomerList.aspx" />
     <Content Include="page\Customer\CustomerVisit.aspx" />
@@ -169,6 +170,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="page\Customer\CustomerAdd.aspx.cs">
       <DependentUpon>CustomerAdd.aspx</DependentUpon>

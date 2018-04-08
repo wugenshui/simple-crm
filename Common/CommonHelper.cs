@@ -14,8 +14,33 @@ namespace Common
         /// </summary>
         public static User User
         {
-            get { return HttpContext.Current.Session["user"] as User; }
-            set { HttpContext.Current.Session["user"] = value; }
+            get
+            {
+                User _User = HttpContext.Current.Session["user"] as User;
+                if (_User == null)
+                {
+                    RedirectLogin();
+                }
+                return HttpContext.Current.Session["user"] as User;
+            }
+            set
+            {
+                HttpContext.Current.Session["user"] = value;
+                if (value == null)
+                {
+                    RedirectLogin();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 跳转至登陆页面
+        /// </summary>
+        private static void RedirectLogin()
+        {
+            string script = "<script>if(location.pathname=='/Default.aspx'){top.location.href='./Login.aspx';}else{top.location.href='../../Login.aspx';}</script>";
+            HttpContext.Current.Response.Write(script);
+            HttpContext.Current.Response.End();
         }
 
         /// <summary>

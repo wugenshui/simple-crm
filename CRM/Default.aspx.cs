@@ -18,8 +18,6 @@ namespace CRM
         protected void Page_Load(object sender, EventArgs e)
         {
             user = CommonHelper.User;
-            if (user == null)
-                Response.Redirect("./Login.aspx");
             menus = new MenuDAL().getMenuTree(user.ID);
 
             //AuthorityDAL authority = new AuthorityDAL

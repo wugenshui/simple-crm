@@ -143,7 +143,7 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">设置</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">退出</a>
+                        <a class="dropdown-item" href="./Logout.aspx">退出</a>
                     </div>
                 </li>
                 <li class="nav-item">
