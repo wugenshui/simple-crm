@@ -8,7 +8,9 @@
     <title><%=appName %></title>
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="css/common.css" rel="stylesheet" />
-    <script src="js/jquery.js"></script>
+    <script src="Scripts/jquery-3.0.0.js"></script>
+    <script src="Scripts/umd/popper.min.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
     <style>
         body {
             overflow: hidden;
@@ -30,6 +32,7 @@
                 float: right;
                 margin-right: 20px;
                 line-height: 50px;
+                cursor: pointer;
             }
 
         .center {
@@ -146,7 +149,15 @@
     <%-- 顶部导航栏 --%>
     <div class="header">
         <h4><%=Common.CommonHelper.AppName %></h4>
-        <h5><%=user.UserName %></h5>
+        <h5>开启全屏</h5>
+        <div class="dropdown">
+            <h5 class="dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=user.UserName %></h5>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <a class="dropdown-item" href="#">资料</a>
+                <a class="dropdown-item" href="#">设置</a>
+                <a class="dropdown-item" href="#">退出</a>
+            </div>
+        </div>
     </div>
     <div class="center">
         <%-- 左侧菜单 --%>
