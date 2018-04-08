@@ -159,17 +159,17 @@
                 <i></i>
                 控制中心
             </div>
-            <% foreach (var menu in menus)
+            <% for (int i = 0; i < menus.Count; i++)
                 { %>
             <ul class="root-menu">
                 <li>
-                    <div style="background-image: url('<%=menu.Class %>');"><%=menu.LinkName %></div>
-                    <ul class="second-menu">
-                        <%  foreach (var item in menu.Childs)
+                    <div style="background-image: url('<%=menus[i].Class %>');"><%=menus[i].LinkName %></div>
+                    <ul class="second-menu" <%= (i == 0) ? "style=\"display: block;\"" : ""  %>>
+                        <%  foreach (var item in menus[i].Childs)
                             { %>
                         <li>
                             <cite></cite>
-                            <a href="<%=item.LinkURL %>" target="main"><%=item.LinkName %></a>
+                            <a href="<%=item.LinkURL %>" target="mainIframe"><%=item.LinkName %></a>
                             <i></i>
                         </li>
                         <%  } %>
@@ -180,7 +180,7 @@
         </div>
         <%-- 右侧页面主体 --%>
         <div class="main">
-            <iframe name="main"></iframe>
+            <iframe name="mainIframe"></iframe>
         </div>
     </div>
 
