@@ -33,17 +33,19 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th scope="col">序号</th>
                             <th scope="col">标题</th>
                             <th scope="col">日期</th>
                             <th scope="col">操作</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <% foreach (var item in logs)
+                        <% for (int i = 0; i < logs.Count; i++)
                             { %>
                         <tr>
-                            <th scope="row"><%=item.Title %></th>
-                            <td><%=item.CreateTime %></td>
+                            <th scope="row"><%=i+1 %></th>
+                            <td><%=logs[i].Title %></td>
+                            <td><%=logs[i].CreateTime %></td>
                             <td>
                                 <button type="button" class="btn btn-outline-success btn-xs">编辑</button>
                                 <button type="button" class="btn btn-outline-danger btn-xs">删除</button>
