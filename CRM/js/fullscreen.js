@@ -1,5 +1,5 @@
 ﻿var selector = "#fullscreeBtn";
-window.isflsgrn = false;//ie11以下是否进入全屏标志，true为全屏状态，false为非全屏状态
+window.isflsgrn = false;//ie11以下是否进入全屏标志，true为全屏状态，false为非全屏状态  ie11以下浏览器不支持
 window.ieIsfSceen = false;//ie11是否进入全屏标志，true为全屏状态，false为非全屏状态
 //跨浏览器返回当前 document 是否进入了可以请求全屏模式的状态
 function fullscreenEnable() {
@@ -22,9 +22,10 @@ var fScreen = function () {
     else if (ele.webkitRequestFullScreen) {
         ele.webkitRequestFullScreen();
     } else {    //对不支持全屏API浏览器的处理，隐藏不需要显示的元素
-        window.parent.hideTopBottom();
-        isflsgrn = true;
-        $(selector).text("退出全屏");
+        console.log("不支持全屏");
+        //window.parent.hideTopBottom();
+        //isflsgrn = true;
+        //$(selector).text("退出全屏");
     }
 }
 //退出全屏
@@ -41,15 +42,14 @@ var cfScreen = function () {
     else if (document.webkitCancelFullScreen) {
         document.webkitCancelFullScreen();
     } else {
-        window.parent.showTopBottom();
-        isflsgrn = false;
-        $(selector).text("开启全屏");
+        //window.parent.showTopBottom();
+        //isflsgrn = false;
+        //$(selector).text("开启全屏");
     }
 }
 //全屏按钮点击事件
 $(function () {
     $(selector).click(function () {
-        debugger;
         var isfScreen = fullscreenEnable();
         if (!isfScreen && isflsgrn == false) {
             if (ieIsfSceen == true) {
