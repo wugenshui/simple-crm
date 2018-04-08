@@ -20,6 +20,7 @@
             </div>
             <div class="card-body">
                 <form>
+                    <input name="type" value="change" hidden="hidden" />
                     <div class="form-group row">
                         <label for="txtOld" class="col-sm-2 col-form-label text-right">原密码:</label>
                         <div class="col-sm-10">
@@ -44,16 +45,9 @@
                 <button type="button" class="btn btn-primary" id="btnSave">保存</button>
             </div>
         </div>
-
-        <div class="alert alert-warning alert-dismissible fade hide" role="alert">
-            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-  </button>
-        </div>
     </div>
 
-    <script src="../../Scripts/jquery-3.0.0.slim.js"></script>
+    <script src="../../Scripts/jquery-3.0.0.min.js"></script>
     <script src="../../Scripts/umd/popper.min.js"></script>
     <script src="../../Scripts/bootstrap.min.js"></script>
     <script src="../../js/layer3.1.1/layer.js"></script>
@@ -64,8 +58,9 @@
             if (txtNew != null && txtNew != "") {
                 if (txtNew == txtNewRepeat) {
                     var data = $("form").serialize();
-                    data.type = "change";
-                    $.post("?type=", data);
+                    $.post("", data).always(function (response) {
+                        layer.alert(response);
+                    });
                 } else {
                     layer.alert('重复输入新密码有误！');
                 }

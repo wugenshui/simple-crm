@@ -15,13 +15,22 @@ namespace CRM.page.PersonCenter
         {
             if (Request.RequestType == "POST")
             {
-                if (Request.Form["type"] == "change" && MD5Helper.CreateMD5(Request.Form["txtOld"]) == CommonHelper.User.Password)
+                if (Request.Form["type"] == "change")
                 {
-                    CommonHelper.User.Password = MD5Helper.CreateMD5(Request.Form["txtNew"]);
-                    UserDAL _UserDAL = new UserDAL();
-                    _UserDAL.Update(CommonHelper.User);
+                    if (MD5Helper.CreateMD5(Request.Form["txtOld"]) == CommonHelper.User.Password)
+                    {
+                        CommonHelper.User.Password = MD5Helper.CreateMD5(Request.Form["txtNew"]);
+                        UserDAL _UserDAL = new UserDAL();
+                        _UserDAL.Update(CommonHelper.User);
 
-                    Response.Write("保存成功");
+                        Response.Write("保存成功");
+                        Response.End();
+                    }
+                    else
+                    {
+                        Response.Write("原密码校验错误！");
+                        Response.End();
+                    }
                 }
             }
         }
