@@ -12,7 +12,6 @@ namespace CRM
 {
     public partial class Index : System.Web.UI.Page
     {
-        public string appName = CommonHelper.AppName;
         public User user;
         public List<MenuTree> menus;
 

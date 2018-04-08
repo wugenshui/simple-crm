@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title><%=appName %></title>
+    <title><%=Common.CommonHelper.AppName %></title>
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="css/common.css" rel="stylesheet" />
     <script src="Scripts/jquery-3.0.0.js"></script>
@@ -17,28 +17,9 @@
             overflow: hidden;
         }
 
-        .header {
-            height: 50px;
-            background-color: #0e90d2;
-            color: #eee;
-        }
-
-            .header h4 {
-                float: left;
-                margin-left: 20px;
-                line-height: 50px;
-            }
-
-            .header h6 {
-                float: right;
-                margin-right: 20px;
-                line-height: 50px;
-                cursor: pointer;
-            }
-
         .center {
             position: absolute;
-            top: 52px;
+            top: 60px;
             bottom: 0;
             left: 0;
             right: 0;
@@ -148,18 +129,29 @@
 </head>
 <body onselectstart="return false;">
     <%-- 顶部导航栏 --%>
-    <div class="header">
-        <h4><%=Common.CommonHelper.AppName %></h4>
-        <h6 id="fullscreeBtn">开启全屏</h6>
-        <div class="dropdown">
-            <h6 class="dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=user.UserName %></h6>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <a class="dropdown-item" href="#">资料</a>
-                <a class="dropdown-item" href="#">设置</a>
-                <a class="dropdown-item" href="#">退出</a>
-            </div>
+    <nav class="navbar navbar-expand navbar-dark" style="background-color: #0e90d2;">
+        <a class="navbar-brand" href="#"><%=Common.CommonHelper.AppName %></a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">待办任务</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=user.UserName %></a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">资料</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">设置</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">退出</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" id="fullscreeBtn" href="javascript:return void;">开启全屏</a>
+                </li>
+            </ul>
         </div>
-    </div>
+    </nav>
     <div class="center">
         <%-- 左侧菜单 --%>
         <div class="menu">

@@ -7,6 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>登录</title>
     <link href="css/common.css" rel="stylesheet" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
     <script src="js/jquery.js"></script>
     <%-- 浮云效果 --%>
     <script src="js/cloud.js"></script>
@@ -131,7 +132,7 @@
 <body onselectstart="return false;">
     <div class="logintop">
         <span>欢迎登录员工客户管理平台</span>
-        <ul class="fr">
+        <ul class="float-right">
             <li><a href="#">客服</a></li>
             <li><a href="#">帮助</a></li>
             <li><a href="#">关于</a></li>

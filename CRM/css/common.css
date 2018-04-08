@@ -20,12 +20,3 @@ a {
     color: #000;
     outline: none;
 }
-
-/* 常用 */
-.fl {
-    float: left;
-}
-
-.fr {
-    float: right;
-}
