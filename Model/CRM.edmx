@@ -117,18 +117,6 @@
           <Property Name="OrderID" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“CRM.dbo.Mylog”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
-        <EntityType Name="Mylog">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="emp" Type="nvarchar" MaxLength="50" />
-          <Property Name="subject" Type="nvarchar" MaxLength="100" />
-          <Property Name="contents" Type="text" />
-          <Property Name="createDate" Type="datetime" />
-        </EntityType>
-        <!--生成过程中发现错误:
 警告 6002: 表/视图“CRM.dbo.MyRiCheng”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="MyRiCheng">
           <Key>
@@ -183,6 +171,18 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="LinkID" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“CRM.dbo.WorkLog”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="WorkLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" />
+          <Property Name="Content" Type="text" />
+          <Property Name="CreateTime" Type="datetime" />
         </EntityType>
         <EntityContainer Name="CRMModelStoreContainer">
           <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
@@ -269,15 +269,6 @@
     [Message].[OrderID] AS [OrderID]
     FROM [dbo].[Message] AS [Message]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="Mylog" EntityType="Self.Mylog" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Mylog].[id] AS [id], 
-    [Mylog].[emp] AS [emp], 
-    [Mylog].[subject] AS [subject], 
-    [Mylog].[contents] AS [contents], 
-    [Mylog].[createDate] AS [createDate]
-    FROM [dbo].[Mylog] AS [Mylog]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="MyRiCheng" EntityType="Self.MyRiCheng" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [MyRiCheng].[ID] AS [ID], 
@@ -305,6 +296,15 @@
     [UserAuthority].[UserID] AS [UserID], 
     [UserAuthority].[LinkID] AS [LinkID]
     FROM [dbo].[UserAuthority] AS [UserAuthority]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="WorkLog" EntityType="Self.WorkLog" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [WorkLog].[Id] AS [Id], 
+    [WorkLog].[UserId] AS [UserId], 
+    [WorkLog].[Title] AS [Title], 
+    [WorkLog].[Content] AS [Content], 
+    [WorkLog].[CreateTime] AS [CreateTime]
+    FROM [dbo].[WorkLog] AS [WorkLog]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -399,16 +399,6 @@
           <Property Name="Mstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="OrderID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="Mylog">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="emp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="subject" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="contents" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="createDate" Type="DateTime" Precision="3" />
-        </EntityType>
         <EntityType Name="MyRiCheng">
           <Key>
             <PropertyRef Name="ID" />
@@ -439,12 +429,12 @@
           <EntitySet Name="CustomerNoContact" EntityType="Self.CustomerNoContact" />
           <EntitySet Name="CustomerVisit" EntityType="Self.CustomerVisit" />
           <EntitySet Name="Message" EntityType="Self.Message" />
-          <EntitySet Name="Mylog" EntityType="Self.Mylog" />
           <EntitySet Name="MyRiCheng" EntityType="Self.MyRiCheng" />
           <EntitySet Name="Team" EntityType="Self.Team" />
           <EntitySet Name="User" EntityType="CRMModel.User" />
-          <EntitySet Name="Menu" EntityType="CRMModel.Menu" />
           <EntitySet Name="UserAuthority" EntityType="CRMModel.UserAuthority" />
+          <EntitySet Name="Menu" EntityType="CRMModel.Menu" />
+          <EntitySet Name="WorkLog" EntityType="CRMModel.WorkLog" />
         </EntityContainer>
         <EntityType Name="User">
           <Key>
@@ -464,6 +454,15 @@
           <Property Name="State" Type="Int32" Nullable="false" />
           <Property Name="isEnable" Type="Boolean" />
         </EntityType>
+        <EntityType Name="UserAuthority">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="LinkID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="Menu">
           <Key>
             <PropertyRef Name="ID" />
@@ -475,14 +474,15 @@
           <Property Name="LinkPID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Class" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="UserAuthority">
+        <EntityType Name="WorkLog">
           <Key>
-            <PropertyRef Name="ID" />
-            <PropertyRef Name="UserID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserID" Type="Int32" Nullable="false" />
-          <Property Name="LinkID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -584,17 +584,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Mylog">
-            <EntityTypeMapping TypeName="CRMModel.Mylog">
-              <MappingFragment StoreEntitySet="Mylog">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="emp" ColumnName="emp" />
-                <ScalarProperty Name="subject" ColumnName="subject" />
-                <ScalarProperty Name="contents" ColumnName="contents" />
-                <ScalarProperty Name="createDate" ColumnName="createDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="MyRiCheng">
             <EntityTypeMapping TypeName="CRMModel.MyRiCheng">
               <MappingFragment StoreEntitySet="MyRiCheng">
@@ -639,6 +628,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="UserAuthority">
+            <EntityTypeMapping TypeName="CRMModel.UserAuthority">
+              <MappingFragment StoreEntitySet="UserAuthority">
+                <ScalarProperty Name="LinkID" ColumnName="LinkID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Menu">
             <EntityTypeMapping TypeName="CRMModel.Menu">
               <MappingFragment StoreEntitySet="Menu">
@@ -651,12 +649,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="UserAuthority">
-            <EntityTypeMapping TypeName="CRMModel.UserAuthority">
-              <MappingFragment StoreEntitySet="UserAuthority">
-                <ScalarProperty Name="LinkID" ColumnName="LinkID" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
+          <EntitySetMapping Name="WorkLog">
+            <EntityTypeMapping TypeName="CRMModel.WorkLog">
+              <MappingFragment StoreEntitySet="WorkLog">
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

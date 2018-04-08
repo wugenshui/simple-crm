@@ -88,9 +88,6 @@
     <Compile Include="Message.cs">
       <DependentUpon>CRM.tt</DependentUpon>
     </Compile>
-    <Compile Include="Mylog.cs">
-      <DependentUpon>CRM.tt</DependentUpon>
-    </Compile>
     <Compile Include="MyRiCheng.cs">
       <DependentUpon>CRM.tt</DependentUpon>
     </Compile>
@@ -102,6 +99,9 @@
       <DependentUpon>CRM.tt</DependentUpon>
     </Compile>
     <Compile Include="UserAuthority.cs">
+      <DependentUpon>CRM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkLog.cs">
       <DependentUpon>CRM.tt</DependentUpon>
     </Compile>
   </ItemGroup>

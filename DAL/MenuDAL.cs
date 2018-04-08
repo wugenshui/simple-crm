@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class MenuDAL : BaseDal<Menu>
+    public class MenuDAL : BaseDAL<Menu>
     {
         /// <summary>
         /// 获取菜单树
@@ -19,7 +19,7 @@ namespace DAL
             List<MenuTree> menuTree = new List<MenuTree>();
 
             var menus = new MenuDAL().Get();
-            var authoritys = new UserAuthorityDAL().Get(o => o.UserID == userId).OrderBy(o => o.LinkID).ToList().Distinct();
+            var authoritys = new UserAuthorityDAL().Get().Where(o => o.UserID == userId).OrderBy(o => o.LinkID).ToList().Distinct();
             var firstMenu = menus.Where(o => o.LinkPID == "0");
             foreach (Menu menu in firstMenu)
             {

@@ -10,6 +10,6 @@
 namespace CRM.page.PersonCenter {
     
     
-    public partial class WorkLog {
+    public partial class WorkLogList {
     }
 }

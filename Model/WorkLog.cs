@@ -10,32 +10,32 @@
 namespace Model
 {
     /// <summary>
-    /// Mylog
+    /// WorkLog
     /// </summary> 
     using System;
     using System.Collections.Generic;
     
-    public partial class Mylog
+    public partial class WorkLog
     {
         /// <summary>
     	/// 
     	/// </summary>
-    	public int id { get; set; }
+    	public int Id { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	public string emp { get; set; }
+    	public Nullable<int> UserId { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	public string subject { get; set; }
+    	public string Title { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	public string contents { get; set; }
+    	public string Content { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	public Nullable<System.DateTime> createDate { get; set; }
+    	public Nullable<System.DateTime> CreateTime { get; set; }
     }
 }

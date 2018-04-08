@@ -124,7 +124,7 @@
     <Content Include="page\PersonCenter\PasswordChange.aspx" />
     <Content Include="page\PersonCenter\Schedule.aspx" />
     <Content Include="page\PersonCenter\UserInfo.aspx" />
-    <Content Include="page\PersonCenter\WorkLog.aspx" />
+    <Content Include="page\PersonCenter\WorkLogList.aspx" />
     <Content Include="page\Report\CompanyRankingList.aspx" />
     <Content Include="page\Report\PersonRankingList.aspx" />
     <Content Include="page\Report\TeamRankingList.aspx" />
@@ -147,10 +147,6 @@
     <Content Include="Scripts\jquery-3.0.0.min.js" />
     <Content Include="Scripts\jquery-3.0.0.slim.js" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
-    <Content Include="Scripts\popper-utils.js" />
-    <Content Include="Scripts\popper-utils.min.js" />
-    <Content Include="Scripts\popper.js" />
-    <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
@@ -279,12 +275,12 @@
     <Compile Include="page\PersonCenter\UserInfo.aspx.designer.cs">
       <DependentUpon>UserInfo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="page\PersonCenter\WorkLog.aspx.cs">
-      <DependentUpon>WorkLog.aspx</DependentUpon>
+    <Compile Include="page\PersonCenter\WorkLogList.aspx.cs">
+      <DependentUpon>WorkLogList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="page\PersonCenter\WorkLog.aspx.designer.cs">
-      <DependentUpon>WorkLog.aspx</DependentUpon>
+    <Compile Include="page\PersonCenter\WorkLogList.aspx.designer.cs">
+      <DependentUpon>WorkLogList.aspx</DependentUpon>
     </Compile>
     <Compile Include="page\Report\CompanyRankingList.aspx.cs">
       <DependentUpon>CompanyRankingList.aspx</DependentUpon>
@@ -318,10 +314,6 @@
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
     <Content Include="Scripts\umd\popper-utils.js.map" />
     <Content Include="Scripts\README.md" />
-    <Content Include="Scripts\popper.min.js.map" />
-    <Content Include="Scripts\popper.js.map" />
-    <Content Include="Scripts\popper-utils.min.js.map" />
-    <Content Include="Scripts\popper-utils.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

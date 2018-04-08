@@ -9,7 +9,7 @@ using System.Web;
 
 namespace DAL
 {
-    public class BaseDal<T> where T : class
+    public class BaseDAL<T> where T : class
     {
         /// <summary>  
         /// 获取线程内唯一的dbContext对象  
@@ -33,7 +33,7 @@ namespace DAL
         /// 获取实体
         /// </summary>
         /// <returns></returns>
-        public DbSet<T> Get(Expression<Func<T, bool>> filter = null)
+        public IQueryable<T> Get()
         {
             DbContext db = GetDbContext();
 

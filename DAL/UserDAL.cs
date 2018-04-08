@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class UserDAL : BaseDal<User>
+    public class UserDAL : BaseDAL<User>
     {
     }
 }

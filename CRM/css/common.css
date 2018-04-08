@@ -20,3 +20,10 @@ a {
     color: #000;
     outline: none;
 }
+
+.btn-xs {
+    padding: 0.03rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+}
