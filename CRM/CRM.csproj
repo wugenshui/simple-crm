@@ -96,6 +96,7 @@
     <Content Include="image\login\minilogo.png" />
     <Content Include="image\login\shadow.png" />
     <Content Include="js\cloud.js" />
+    <Content Include="js\fullscreen.js" />
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="js\layer3.1.1\layer.js" />
