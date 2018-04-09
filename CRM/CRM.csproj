@@ -125,6 +125,7 @@
     <Content Include="page\PersonCenter\PasswordChange.aspx" />
     <Content Include="page\PersonCenter\Schedule.aspx" />
     <Content Include="page\PersonCenter\UserInfo.aspx" />
+    <Content Include="page\PersonCenter\WorkLogEdit.aspx" />
     <Content Include="page\PersonCenter\WorkLogList.aspx" />
     <Content Include="page\Report\CompanyRankingList.aspx" />
     <Content Include="page\Report\PersonRankingList.aspx" />
@@ -152,6 +153,10 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="wangEditor-3.1.0\wangEditor.css" />
+    <Content Include="wangEditor-3.1.0\wangEditor.js" />
+    <Content Include="wangEditor-3.1.0\wangEditor.min.css" />
+    <Content Include="wangEditor-3.1.0\wangEditor.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -283,6 +288,13 @@
     <Compile Include="page\PersonCenter\UserInfo.aspx.designer.cs">
       <DependentUpon>UserInfo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="page\PersonCenter\WorkLogEdit.aspx.cs">
+      <DependentUpon>WorkLogEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="page\PersonCenter\WorkLogEdit.aspx.designer.cs">
+      <DependentUpon>WorkLogEdit.aspx</DependentUpon>
+    </Compile>
     <Compile Include="page\PersonCenter\WorkLogList.aspx.cs">
       <DependentUpon>WorkLogList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -322,6 +334,8 @@
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
     <Content Include="Scripts\umd\popper-utils.js.map" />
     <Content Include="Scripts\README.md" />
+    <Content Include="wangEditor-3.1.0\fonts\w-e-icon.woff" />
+    <Content Include="wangEditor-3.1.0\wangEditor.min.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
