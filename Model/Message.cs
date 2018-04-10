@@ -20,7 +20,7 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	public int MessageID { get; set; }
+    	public int ID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>

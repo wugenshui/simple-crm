@@ -5,8 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="CRMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--生成过程中发现错误:
-警告 6002: 表/视图“CRM.dbo.Company”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="Company">
           <Key>
             <PropertyRef Name="ID" />
@@ -19,8 +17,6 @@
           <Property Name="CreateDate" Type="date" />
           <Property Name="CompanyID" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--生成过程中发现错误:
-警告 6002: 表/视图“CRM.dbo.Customer”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="ID" />
@@ -42,8 +38,6 @@
           <Property Name="UpdateDate" Type="datetime" />
           <Property Name="OM" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--生成过程中发现错误:
-警告 6002: 表/视图“CRM.dbo.CustomerLog”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="CustomerLog">
           <Key>
             <PropertyRef Name="ID" />
@@ -55,8 +49,6 @@
           <Property Name="EMP" Type="varchar" MaxLength="50" />
           <Property Name="LogDate" Type="datetime" />
         </EntityType>
-        <!--生成过程中发现错误:
-警告 6002: 表/视图“CRM.dbo.CustomerNoContact”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="CustomerNoContact">
           <Key>
             <PropertyRef Name="ID" />
@@ -74,8 +66,6 @@
           <Property Name="Status" Type="nvarchar" MaxLength="50" />
           <Property Name="Remark" Type="nvarchar" MaxLength="150" />
         </EntityType>
-        <!--生成过程中发现错误:
-警告 6002: 表/视图“CRM.dbo.CustomerVisit”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="CustomerVisit">
           <Key>
             <PropertyRef Name="ID" />
@@ -101,13 +91,11 @@
           <Property Name="LinkPID" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Class" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--生成过程中发现错误:
-警告 6002: 表/视图“CRM.dbo.Message”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="Message">
           <Key>
-            <PropertyRef Name="MessageID" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="MessageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Sender" Type="nvarchar" MaxLength="50" />
           <Property Name="Receiver" Type="nvarchar" MaxLength="50" />
           <Property Name="Subject" Type="nvarchar" MaxLength="50" />
@@ -116,8 +104,6 @@
           <Property Name="Mstatus" Type="nvarchar" MaxLength="50" />
           <Property Name="OrderID" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--生成过程中发现错误:
-警告 6002: 表/视图“CRM.dbo.MyRiCheng”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="MyRiCheng">
           <Key>
             <PropertyRef Name="ID" />
@@ -161,19 +147,14 @@
           <Property Name="State" Type="int" Nullable="false" />
           <Property Name="isEnable" Type="bit" />
         </EntityType>
-        <!--生成过程中发现错误:
-警告 6002: 表/视图“CRM.dbo.UserAuthority”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="UserAuthority">
           <Key>
             <PropertyRef Name="ID" />
-            <PropertyRef Name="UserID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="LinkID" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--生成过程中发现错误:
-警告 6002: 表/视图“CRM.dbo.WorkLog”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="WorkLog">
           <Key>
             <PropertyRef Name="Id" />
@@ -185,101 +166,17 @@
           <Property Name="CreateTime" Type="datetime" />
         </EntityType>
         <EntityContainer Name="CRMModelStoreContainer">
+          <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerLog" EntityType="Self.CustomerLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerNoContact" EntityType="Self.CustomerNoContact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerVisit" EntityType="Self.CustomerVisit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MyRiCheng" EntityType="Self.MyRiCheng" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Company" EntityType="Self.Company" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Company].[ID] AS [ID], 
-    [Company].[CompanyName] AS [CompanyName], 
-    [Company].[Owner] AS [Owner], 
-    [Company].[Phone] AS [Phone], 
-    [Company].[Website] AS [Website], 
-    [Company].[CreateDate] AS [CreateDate], 
-    [Company].[CompanyID] AS [CompanyID]
-    FROM [dbo].[Company] AS [Company]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Customer" EntityType="Self.Customer" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Customer].[ID] AS [ID], 
-    [Customer].[Customertype] AS [Customertype], 
-    [Customer].[CustomerName] AS [CustomerName], 
-    [Customer].[CustomerPhone] AS [CustomerPhone], 
-    [Customer].[CustomerQQ] AS [CustomerQQ], 
-    [Customer].[mail] AS [mail], 
-    [Customer].[CustomerID] AS [CustomerID], 
-    [Customer].[HomeAddress] AS [HomeAddress], 
-    [Customer].[Owner] AS [Owner], 
-    [Customer].[contract] AS [contract], 
-    [Customer].[Status] AS [Status], 
-    [Customer].[CreateDate] AS [CreateDate], 
-    [Customer].[CreateEmp] AS [CreateEmp], 
-    [Customer].[ReturnVisit] AS [ReturnVisit], 
-    [Customer].[UpdateDate] AS [UpdateDate], 
-    [Customer].[OM] AS [OM]
-    FROM [dbo].[Customer] AS [Customer]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="CustomerLog" EntityType="Self.CustomerLog" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [CustomerLog].[ID] AS [ID], 
-    [CustomerLog].[CustomerID] AS [CustomerID], 
-    [CustomerLog].[Status] AS [Status], 
-    [CustomerLog].[Remark] AS [Remark], 
-    [CustomerLog].[EMP] AS [EMP], 
-    [CustomerLog].[LogDate] AS [LogDate]
-    FROM [dbo].[CustomerLog] AS [CustomerLog]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="CustomerNoContact" EntityType="Self.CustomerNoContact" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [CustomerNoContact].[ID] AS [ID], 
-    [CustomerNoContact].[CustomerID] AS [CustomerID], 
-    [CustomerNoContact].[CustomerName] AS [CustomerName], 
-    [CustomerNoContact].[phone] AS [phone], 
-    [CustomerNoContact].[QQ] AS [QQ], 
-    [CustomerNoContact].[Mail] AS [Mail], 
-    [CustomerNoContact].[CompanyOwner] AS [CompanyOwner], 
-    [CustomerNoContact].[ContactDate] AS [ContactDate], 
-    [CustomerNoContact].[EMP] AS [EMP], 
-    [CustomerNoContact].[CreateDate] AS [CreateDate], 
-    [CustomerNoContact].[Status] AS [Status], 
-    [CustomerNoContact].[Remark] AS [Remark]
-    FROM [dbo].[CustomerNoContact] AS [CustomerNoContact]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="CustomerVisit" EntityType="Self.CustomerVisit" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [CustomerVisit].[ID] AS [ID], 
-    [CustomerVisit].[CustomerID] AS [CustomerID], 
-    [CustomerVisit].[Sourceform] AS [Sourceform], 
-    [CustomerVisit].[Sourceemp] AS [Sourceemp], 
-    [CustomerVisit].[createdate] AS [createdate], 
-    [CustomerVisit].[Visitdate] AS [Visitdate], 
-    [CustomerVisit].[Visitemp] AS [Visitemp], 
-    [CustomerVisit].[remark] AS [remark], 
-    [CustomerVisit].[Status] AS [Status]
-    FROM [dbo].[CustomerVisit] AS [CustomerVisit]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Message" EntityType="Self.Message" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Message].[MessageID] AS [MessageID], 
-    [Message].[Sender] AS [Sender], 
-    [Message].[Receiver] AS [Receiver], 
-    [Message].[Subject] AS [Subject], 
-    [Message].[Mcontent] AS [Mcontent], 
-    [Message].[Send_date] AS [Send_date], 
-    [Message].[Mstatus] AS [Mstatus], 
-    [Message].[OrderID] AS [OrderID]
-    FROM [dbo].[Message] AS [Message]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="MyRiCheng" EntityType="Self.MyRiCheng" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [MyRiCheng].[ID] AS [ID], 
-    [MyRiCheng].[Subject] AS [Subject], 
-    [MyRiCheng].[richengtime] AS [richengtime], 
-    [MyRiCheng].[address] AS [address], 
-    [MyRiCheng].[detail] AS [detail], 
-    [MyRiCheng].[emp] AS [emp], 
-    [MyRiCheng].[createdate] AS [createdate]
-    FROM [dbo].[MyRiCheng] AS [MyRiCheng]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="UserAuthority" EntityType="Self.UserAuthority" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkLog" EntityType="Self.WorkLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Team" EntityType="Self.Team" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Team].[ID] AS [ID], 
@@ -289,22 +186,6 @@
     [Team].[Slogan] AS [Slogan], 
     [Team].[Company] AS [Company]
     FROM [dbo].[Team] AS [Team]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="UserAuthority" EntityType="Self.UserAuthority" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [UserAuthority].[ID] AS [ID], 
-    [UserAuthority].[UserID] AS [UserID], 
-    [UserAuthority].[LinkID] AS [LinkID]
-    FROM [dbo].[UserAuthority] AS [UserAuthority]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="WorkLog" EntityType="Self.WorkLog" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [WorkLog].[Id] AS [Id], 
-    [WorkLog].[UserId] AS [UserId], 
-    [WorkLog].[Title] AS [Title], 
-    [WorkLog].[Content] AS [Content], 
-    [WorkLog].[CreateTime] AS [CreateTime]
-    FROM [dbo].[WorkLog] AS [WorkLog]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -386,19 +267,6 @@
           <Property Name="remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="Message">
-          <Key>
-            <PropertyRef Name="MessageID" />
-          </Key>
-          <Property Name="MessageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Sender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Receiver" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Mcontent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Send_date" Type="DateTime" Precision="3" />
-          <Property Name="Mstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="OrderID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="MyRiCheng">
           <Key>
             <PropertyRef Name="ID" />
@@ -428,13 +296,13 @@
           <EntitySet Name="CustomerLog" EntityType="Self.CustomerLog" />
           <EntitySet Name="CustomerNoContact" EntityType="Self.CustomerNoContact" />
           <EntitySet Name="CustomerVisit" EntityType="Self.CustomerVisit" />
-          <EntitySet Name="Message" EntityType="Self.Message" />
           <EntitySet Name="MyRiCheng" EntityType="Self.MyRiCheng" />
           <EntitySet Name="Team" EntityType="Self.Team" />
           <EntitySet Name="User" EntityType="CRMModel.User" />
-          <EntitySet Name="UserAuthority" EntityType="CRMModel.UserAuthority" />
           <EntitySet Name="Menu" EntityType="CRMModel.Menu" />
           <EntitySet Name="WorkLog" EntityType="CRMModel.WorkLog" />
+          <EntitySet Name="Message" EntityType="CRMModel.Message" />
+          <EntitySet Name="UserAuthority" EntityType="CRMModel.UserAuthority" />
         </EntityContainer>
         <EntityType Name="User">
           <Key>
@@ -453,15 +321,6 @@
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="State" Type="Int32" Nullable="false" />
           <Property Name="isEnable" Type="Boolean" />
-        </EntityType>
-        <EntityType Name="UserAuthority">
-          <Key>
-            <PropertyRef Name="ID" />
-            <PropertyRef Name="UserID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserID" Type="Int32" Nullable="false" />
-          <Property Name="LinkID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Menu">
           <Key>
@@ -483,6 +342,27 @@
           <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="CreateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Receiver" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mcontent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Send_date" Type="DateTime" Precision="3" />
+          <Property Name="Mstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrderID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UserAuthority">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="LinkID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -570,20 +450,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Message">
-            <EntityTypeMapping TypeName="CRMModel.Message">
-              <MappingFragment StoreEntitySet="Message">
-                <ScalarProperty Name="MessageID" ColumnName="MessageID" />
-                <ScalarProperty Name="Sender" ColumnName="Sender" />
-                <ScalarProperty Name="Receiver" ColumnName="Receiver" />
-                <ScalarProperty Name="Subject" ColumnName="Subject" />
-                <ScalarProperty Name="Mcontent" ColumnName="Mcontent" />
-                <ScalarProperty Name="Send_date" ColumnName="Send_date" />
-                <ScalarProperty Name="Mstatus" ColumnName="Mstatus" />
-                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="MyRiCheng">
             <EntityTypeMapping TypeName="CRMModel.MyRiCheng">
               <MappingFragment StoreEntitySet="MyRiCheng">
@@ -628,15 +494,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="UserAuthority">
-            <EntityTypeMapping TypeName="CRMModel.UserAuthority">
-              <MappingFragment StoreEntitySet="UserAuthority">
-                <ScalarProperty Name="LinkID" ColumnName="LinkID" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Menu">
             <EntityTypeMapping TypeName="CRMModel.Menu">
               <MappingFragment StoreEntitySet="Menu">
@@ -657,6 +514,29 @@
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Message">
+            <EntityTypeMapping TypeName="CRMModel.Message">
+              <MappingFragment StoreEntitySet="Message">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="Mstatus" ColumnName="Mstatus" />
+                <ScalarProperty Name="Send_date" ColumnName="Send_date" />
+                <ScalarProperty Name="Mcontent" ColumnName="Mcontent" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Receiver" ColumnName="Receiver" />
+                <ScalarProperty Name="Sender" ColumnName="Sender" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserAuthority">
+            <EntityTypeMapping TypeName="CRMModel.UserAuthority">
+              <MappingFragment StoreEntitySet="UserAuthority">
+                <ScalarProperty Name="LinkID" ColumnName="LinkID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -10,13 +10,13 @@
         <EntityTypeShape EntityType="CRMModel.CustomerLog" Width="1.5" PointX="6.75" PointY="11.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CRMModel.CustomerNoContact" Width="1.5" PointX="8.75" PointY="6.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CRMModel.CustomerVisit" Width="1.5" PointX="9" PointY="10.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="CRMModel.Message" Width="1.5" PointX="4.75" PointY="14.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CRMModel.MyRiCheng" Width="1.5" PointX="7.625" PointY="14.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CRMModel.Team" Width="1.5" PointX="11" PointY="12.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CRMModel.User" Width="1.5" PointX="4.75" PointY="2.875" />
-        <EntityTypeShape EntityType="CRMModel.UserAuthority" Width="1.5" PointX="3.125" PointY="4" />
         <EntityTypeShape EntityType="CRMModel.Menu" Width="1.5" PointX="1.5" PointY="3.75" />
         <EntityTypeShape EntityType="CRMModel.WorkLog" Width="1.5" PointX="2.875" PointY="1" />
+        <EntityTypeShape EntityType="CRMModel.Message" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="CRMModel.UserAuthority" Width="1.5" PointX="3.125" PointY="3.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

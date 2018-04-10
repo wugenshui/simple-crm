@@ -10,34 +10,27 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div id="div1">
-            <p>欢迎使用 wangEditor 富文本编辑器</p>
-        </div>
+        <div id="editContainer"></div>
 
         <script type="text/javascript">
             var E = window.wangEditor;
-            var editor = new E('#div1');
+            var editor = new E('#editContainer');
             editor.customConfig.uploadImgShowBase64 = true;   // 使用 base64 保存图片
             editor.customConfig.emotions = [
                 {
-                    // tab 的标题
                     title: 'emoji',
                     // type -> 'emoji' / 'image'
                     type: 'emoji',
-                    // content -> 数组
                     content: '😀 😃 😄 😁 😆 😅 😂 😊 😇 🙂 🙃 😉 😌 😍 😘 😗 😙 😚 😋 😜 😝 😛 🤑 🤗 🤓 😎 😏 😒 😞 😔 😟 😕 🙁  😣 😖 😫 😩 😤 😠 😡 😶 😐 😑 😯 😦 😧 😮 😲 😵 😳 😱 😨 😰 😢 😥 😭 😓 😪 😴 🙄 🤔 😬 🤐'.split(/\s/)
                 },
                 {
-                    // tab 的标题
-                    title: 'emoji手势',
-                    // type -> 'emoji' / 'image'
+                    title: '手势',
                     type: 'emoji',
-                    // content -> 数组
                     content: ['🙌', '👏', '👋', '👍', '👎', '👊', '✊', '️👌', '✋', '👐', '💪', '🙏', '️👆', '👇', '👈', '👉', '🖕', '🖐', '🤘']
                 }
             ];
             editor.create();
-    </script>
+        </script>
     </form>
 </body>
 </html>

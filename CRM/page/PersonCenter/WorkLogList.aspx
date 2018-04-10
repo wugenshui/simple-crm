@@ -11,6 +11,7 @@
     <script src="../../Scripts/jquery-3.0.0.js"></script>
     <script src="../../Scripts/umd/popper.js"></script>
     <script src="../../Scripts/bootstrap.js"></script>
+    <script src="../../js/layer3.1.1/layer.js"></script>
 </head>
 <body>
     <div class="container-fluid">
@@ -47,8 +48,8 @@
                             <td><%=logs[i].Title %></td>
                             <td><%=logs[i].CreateTime %></td>
                             <td>
-                                <button type="button" class="btn btn-outline-success btn-xs">编辑</button>
-                                <button type="button" class="btn btn-outline-danger btn-xs">删除</button>
+                                <button type="button" class="btn btn-outline-success btn-xs" onclick="edit(<%=logs[i].Id %>)">编辑</button>
+                                <button type="button" class="btn btn-outline-danger btn-xs" onclick="del(<%=logs[i].Id %>)">删除</button>
                             </td>
                         </tr>
                         <% } %>
@@ -59,5 +60,19 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function edit(id) {
+            open("WorkLogEdit.aspx?id=" + id, "mainIframe");
+        }
+
+        function del(id) {
+            $.get("?type=del&id=" + id).always(function (response) {
+                layer.alert(response, function () {
+                    location.reload();
+                });
+            })
+        }
+    </script>
 </body>
 </html>
