@@ -14,81 +14,47 @@
           <Property Name="Owner" Type="nvarchar" MaxLength="50" />
           <Property Name="Phone" Type="nvarchar" MaxLength="50" />
           <Property Name="Website" Type="nvarchar" MaxLength="100" />
-          <Property Name="CreateDate" Type="date" />
-          <Property Name="CompanyID" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateTime" Type="date" />
+          <Property Name="BusinessLicence" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Customertype" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerType" Type="nvarchar" MaxLength="50" />
           <Property Name="CustomerName" Type="nvarchar" MaxLength="50" />
           <Property Name="CustomerPhone" Type="nvarchar" MaxLength="50" />
           <Property Name="CustomerQQ" Type="nvarchar" MaxLength="50" />
-          <Property Name="mail" Type="nvarchar" MaxLength="50" />
-          <Property Name="CustomerID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mail" Type="nvarchar" MaxLength="50" />
+          <Property Name="IDCard" Type="nvarchar" MaxLength="50" />
           <Property Name="HomeAddress" Type="nvarchar" MaxLength="50" />
           <Property Name="Owner" Type="nvarchar" MaxLength="50" />
-          <Property Name="contract" Type="nvarchar" MaxLength="50" />
-          <Property Name="Status" Type="nvarchar" MaxLength="50" />
-          <Property Name="CreateDate" Type="datetime" />
-          <Property Name="CreateEmp" Type="nvarchar" MaxLength="50" />
-          <Property Name="ReturnVisit" Type="nvarchar" MaxLength="50" />
-          <Property Name="UpdateDate" Type="datetime" />
-          <Property Name="OM" Type="nvarchar" MaxLength="50" />
+          <Property Name="Contract" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="CreaterID" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="CustomerLog">
+        <EntityType Name="CustomerOperate">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CustomerID" Type="varchar" MaxLength="50" />
-          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="OperatorID" Type="varchar" MaxLength="50" />
+          <Property Name="State" Type="varchar" MaxLength="50" />
           <Property Name="Remark" Type="varchar" MaxLength="250" />
-          <Property Name="EMP" Type="varchar" MaxLength="50" />
-          <Property Name="LogDate" Type="datetime" />
-        </EntityType>
-        <EntityType Name="CustomerNoContact">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CustomerID" Type="nvarchar" MaxLength="50" />
-          <Property Name="CustomerName" Type="nvarchar" MaxLength="50" />
-          <Property Name="phone" Type="nvarchar" MaxLength="50" />
-          <Property Name="QQ" Type="nvarchar" MaxLength="50" />
-          <Property Name="Mail" Type="nvarchar" MaxLength="50" />
-          <Property Name="CompanyOwner" Type="nvarchar" MaxLength="50" />
-          <Property Name="ContactDate" Type="date" />
-          <Property Name="EMP" Type="nvarchar" MaxLength="50" />
-          <Property Name="CreateDate" Type="datetime" />
-          <Property Name="Status" Type="nvarchar" MaxLength="50" />
-          <Property Name="Remark" Type="nvarchar" MaxLength="150" />
-        </EntityType>
-        <EntityType Name="CustomerVisit">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CustomerID" Type="nvarchar" MaxLength="50" />
-          <Property Name="Sourceform" Type="nvarchar" MaxLength="50" />
-          <Property Name="Sourceemp" Type="nvarchar" MaxLength="50" />
-          <Property Name="createdate" Type="datetime" />
-          <Property Name="Visitdate" Type="datetime" />
-          <Property Name="Visitemp" Type="nvarchar" MaxLength="50" />
-          <Property Name="remark" Type="nvarchar" MaxLength="50" />
-          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="OperatorTime" Type="datetime" />
         </EntityType>
         <EntityType Name="Menu">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="LinkName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="LinkURL" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="LinkID" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="LinkPID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MenuName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MenuURL" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MenuID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MenuPID" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Class" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Message">
@@ -96,38 +62,36 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Sender" Type="nvarchar" MaxLength="50" />
-          <Property Name="Receiver" Type="nvarchar" MaxLength="50" />
+          <Property Name="SenderID" Type="int" />
+          <Property Name="ReceiverID" Type="int" />
           <Property Name="Subject" Type="nvarchar" MaxLength="50" />
-          <Property Name="Mcontent" Type="text" />
-          <Property Name="Send_date" Type="datetime" />
-          <Property Name="Mstatus" Type="nvarchar" MaxLength="50" />
-          <Property Name="OrderID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Content" Type="text" />
+          <Property Name="SendTime" Type="datetime" />
+          <Property Name="State" Type="int" />
+          <Property Name="Num" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="MyRiCheng">
+        <EntityType Name="Schedule">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Subject" Type="nvarchar" MaxLength="50" />
-          <Property Name="richengtime" Type="nvarchar" MaxLength="50" />
-          <Property Name="address" Type="nvarchar" MaxLength="50" />
-          <Property Name="detail" Type="text" />
-          <Property Name="emp" Type="nvarchar" MaxLength="50" />
-          <Property Name="createdate" Type="datetime" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Time" Type="datetime" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Detail" Type="text" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
         </EntityType>
-        <!--生成过程中发现错误:
-警告 6002: 表/视图“CRM.dbo.Team”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="Team">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="Owner" Type="nvarchar" MaxLength="50" />
-          <Property Name="OwnerPhone" Type="nvarchar" MaxLength="50" />
-          <Property Name="Slogan" Type="nvarchar" MaxLength="50" />
-          <Property Name="Company" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Leader" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LeaderPhone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Slogan" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CompanyID" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -137,15 +101,15 @@
           <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LoginName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Company_ID" Type="int" Nullable="false" />
-          <Property Name="Team_ID" Type="int" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="TeamID" Type="int" Nullable="false" />
           <Property Name="Post" Type="nvarchar" MaxLength="50" />
           <Property Name="Supervisor" Type="nvarchar" MaxLength="50" />
           <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
           <Property Name="WorkStartDate" Type="date" />
           <Property Name="Photo" Type="image" />
           <Property Name="State" Type="int" Nullable="false" />
-          <Property Name="isEnable" Type="bit" />
+          <Property Name="IsEnable" Type="bit" />
         </EntityType>
         <EntityType Name="UserAuthority">
           <Key>
@@ -153,45 +117,65 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserID" Type="int" Nullable="false" />
-          <Property Name="LinkID" Type="nvarchar" MaxLength="50" />
+          <Property Name="MenuID" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="WorkLog">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserId" Type="int" />
-          <Property Name="Title" Type="nvarchar" MaxLength="100" />
-          <Property Name="Content" Type="text" />
-          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Content" Type="text" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityContainer Name="CRMModelStoreContainer">
           <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CustomerLog" EntityType="Self.CustomerLog" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CustomerNoContact" EntityType="Self.CustomerNoContact" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CustomerVisit" EntityType="Self.CustomerVisit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerOperate" EntityType="Self.CustomerOperate" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="MyRiCheng" EntityType="Self.MyRiCheng" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Schedule" EntityType="Self.Schedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Team" EntityType="Self.Team" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserAuthority" EntityType="Self.UserAuthority" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WorkLog" EntityType="Self.WorkLog" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Team" EntityType="Self.Team" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Team].[ID] AS [ID], 
-    [Team].[Name] AS [Name], 
-    [Team].[Owner] AS [Owner], 
-    [Team].[OwnerPhone] AS [OwnerPhone], 
-    [Team].[Slogan] AS [Slogan], 
-    [Team].[Company] AS [Company]
-    FROM [dbo].[Team] AS [Team]</DefiningQuery>
-          </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CRMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CRMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="UserAuthority" EntityType="CRMModel.UserAuthority" />
+          <EntitySet Name="Menu" EntityType="CRMModel.Menu" />
+          <EntitySet Name="Company" EntityType="CRMModel.Company" />
+          <EntitySet Name="Customer" EntityType="CRMModel.Customer" />
+          <EntitySet Name="CustomerOperate" EntityType="CRMModel.CustomerOperate" />
+          <EntitySet Name="Message" EntityType="CRMModel.Message" />
+          <EntitySet Name="Schedule" EntityType="CRMModel.Schedule" />
+          <EntitySet Name="Team" EntityType="CRMModel.Team" />
+          <EntitySet Name="WorkLog" EntityType="CRMModel.WorkLog" />
+          <EntitySet Name="User" EntityType="CRMModel.User" />
+        </EntityContainer>
+        <EntityType Name="UserAuthority">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="MenuID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MenuName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MenuURL" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MenuID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MenuPID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Class" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="Company">
           <Key>
             <PropertyRef Name="ID" />
@@ -201,109 +185,84 @@
           <Property Name="Owner" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Website" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="CreateDate" Type="DateTime" Precision="0" />
-          <Property Name="CompanyID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="0" />
+          <Property Name="BusinessLicence" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Customertype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CustomerPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CustomerQQ" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CustomerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IDCard" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="HomeAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Owner" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="contract" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CreateDate" Type="DateTime" Precision="3" />
-          <Property Name="CreateEmp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ReturnVisit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
-          <Property Name="OM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contract" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreaterID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="CustomerLog">
+        <EntityType Name="CustomerOperate">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CustomerID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OperatorID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Remark" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="EMP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="LogDate" Type="DateTime" Precision="3" />
+          <Property Name="OperatorTime" Type="DateTime" Precision="3" />
         </EntityType>
-        <EntityType Name="CustomerNoContact">
+        <EntityType Name="Message">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CustomerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="QQ" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CompanyOwner" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ContactDate" Type="DateTime" Precision="0" />
-          <Property Name="EMP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CreateDate" Type="DateTime" Precision="3" />
-          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Remark" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="CustomerVisit">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CustomerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Sourceform" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Sourceemp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="createdate" Type="DateTime" Precision="3" />
-          <Property Name="Visitdate" Type="DateTime" Precision="3" />
-          <Property Name="Visitemp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="MyRiCheng">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SenderID" Type="Int32" />
+          <Property Name="ReceiverID" Type="Int32" />
           <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="richengtime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="emp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="createdate" Type="DateTime" Precision="3" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SendTime" Type="DateTime" Precision="3" />
+          <Property Name="State" Type="Int32" />
+          <Property Name="Num" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Subject" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Detail" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="Team">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Owner" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="OwnerPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Slogan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Company" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Leader" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LeaderPhone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Slogan" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityContainer Name="CRMEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Company" EntityType="Self.Company" />
-          <EntitySet Name="Customer" EntityType="Self.Customer" />
-          <EntitySet Name="CustomerLog" EntityType="Self.CustomerLog" />
-          <EntitySet Name="CustomerNoContact" EntityType="Self.CustomerNoContact" />
-          <EntitySet Name="CustomerVisit" EntityType="Self.CustomerVisit" />
-          <EntitySet Name="MyRiCheng" EntityType="Self.MyRiCheng" />
-          <EntitySet Name="Team" EntityType="Self.Team" />
-          <EntitySet Name="User" EntityType="CRMModel.User" />
-          <EntitySet Name="Menu" EntityType="CRMModel.Menu" />
-          <EntitySet Name="WorkLog" EntityType="CRMModel.WorkLog" />
-          <EntitySet Name="Message" EntityType="CRMModel.Message" />
-          <EntitySet Name="UserAuthority" EntityType="CRMModel.UserAuthority" />
-        </EntityContainer>
+        <EntityType Name="WorkLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="ID" />
@@ -312,57 +271,15 @@
           <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LoginName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Company_ID" Type="Int32" Nullable="false" />
-          <Property Name="Team_ID" Type="Int32" Nullable="false" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="TeamID" Type="Int32" Nullable="false" />
           <Property Name="Post" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Supervisor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="WorkStartDate" Type="DateTime" Precision="0" />
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="State" Type="Int32" Nullable="false" />
-          <Property Name="isEnable" Type="Boolean" />
-        </EntityType>
-        <EntityType Name="Menu">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LinkName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LinkURL" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LinkID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LinkPID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Class" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="WorkLog">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserId" Type="Int32" />
-          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="CreateTime" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="Message">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Sender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Receiver" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Mcontent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Send_date" Type="DateTime" Precision="3" />
-          <Property Name="Mstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="OrderID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="UserAuthority">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserID" Type="Int32" Nullable="false" />
-          <Property Name="LinkID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsEnable" Type="Boolean" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -370,126 +287,11 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="CRMModelStoreContainer" CdmEntityContainer="CRMEntities">
-          <EntitySetMapping Name="Company">
-            <EntityTypeMapping TypeName="CRMModel.Company">
-              <MappingFragment StoreEntitySet="Company">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
-                <ScalarProperty Name="Owner" ColumnName="Owner" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Website" ColumnName="Website" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Customer">
-            <EntityTypeMapping TypeName="CRMModel.Customer">
-              <MappingFragment StoreEntitySet="Customer">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Customertype" ColumnName="Customertype" />
-                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
-                <ScalarProperty Name="CustomerPhone" ColumnName="CustomerPhone" />
-                <ScalarProperty Name="CustomerQQ" ColumnName="CustomerQQ" />
-                <ScalarProperty Name="mail" ColumnName="mail" />
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="HomeAddress" ColumnName="HomeAddress" />
-                <ScalarProperty Name="Owner" ColumnName="Owner" />
-                <ScalarProperty Name="contract" ColumnName="contract" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="CreateEmp" ColumnName="CreateEmp" />
-                <ScalarProperty Name="ReturnVisit" ColumnName="ReturnVisit" />
-                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
-                <ScalarProperty Name="OM" ColumnName="OM" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CustomerLog">
-            <EntityTypeMapping TypeName="CRMModel.CustomerLog">
-              <MappingFragment StoreEntitySet="CustomerLog">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-                <ScalarProperty Name="EMP" ColumnName="EMP" />
-                <ScalarProperty Name="LogDate" ColumnName="LogDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CustomerNoContact">
-            <EntityTypeMapping TypeName="CRMModel.CustomerNoContact">
-              <MappingFragment StoreEntitySet="CustomerNoContact">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
-                <ScalarProperty Name="phone" ColumnName="phone" />
-                <ScalarProperty Name="QQ" ColumnName="QQ" />
-                <ScalarProperty Name="Mail" ColumnName="Mail" />
-                <ScalarProperty Name="CompanyOwner" ColumnName="CompanyOwner" />
-                <ScalarProperty Name="ContactDate" ColumnName="ContactDate" />
-                <ScalarProperty Name="EMP" ColumnName="EMP" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CustomerVisit">
-            <EntityTypeMapping TypeName="CRMModel.CustomerVisit">
-              <MappingFragment StoreEntitySet="CustomerVisit">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="Sourceform" ColumnName="Sourceform" />
-                <ScalarProperty Name="Sourceemp" ColumnName="Sourceemp" />
-                <ScalarProperty Name="createdate" ColumnName="createdate" />
-                <ScalarProperty Name="Visitdate" ColumnName="Visitdate" />
-                <ScalarProperty Name="Visitemp" ColumnName="Visitemp" />
-                <ScalarProperty Name="remark" ColumnName="remark" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="MyRiCheng">
-            <EntityTypeMapping TypeName="CRMModel.MyRiCheng">
-              <MappingFragment StoreEntitySet="MyRiCheng">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Subject" ColumnName="Subject" />
-                <ScalarProperty Name="richengtime" ColumnName="richengtime" />
-                <ScalarProperty Name="address" ColumnName="address" />
-                <ScalarProperty Name="detail" ColumnName="detail" />
-                <ScalarProperty Name="emp" ColumnName="emp" />
-                <ScalarProperty Name="createdate" ColumnName="createdate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Team">
-            <EntityTypeMapping TypeName="CRMModel.Team">
-              <MappingFragment StoreEntitySet="Team">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Owner" ColumnName="Owner" />
-                <ScalarProperty Name="OwnerPhone" ColumnName="OwnerPhone" />
-                <ScalarProperty Name="Slogan" ColumnName="Slogan" />
-                <ScalarProperty Name="Company" ColumnName="Company" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="CRMModel.User">
-              <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="isEnable" ColumnName="isEnable" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Photo" ColumnName="Photo" />
-                <ScalarProperty Name="WorkStartDate" ColumnName="WorkStartDate" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-                <ScalarProperty Name="Supervisor" ColumnName="Supervisor" />
-                <ScalarProperty Name="Post" ColumnName="Post" />
-                <ScalarProperty Name="Team_ID" ColumnName="Team_ID" />
-                <ScalarProperty Name="Company_ID" ColumnName="Company_ID" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <EntitySetMapping Name="UserAuthority">
+            <EntityTypeMapping TypeName="CRMModel.UserAuthority">
+              <MappingFragment StoreEntitySet="UserAuthority">
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -498,10 +300,93 @@
             <EntityTypeMapping TypeName="CRMModel.Menu">
               <MappingFragment StoreEntitySet="Menu">
                 <ScalarProperty Name="Class" ColumnName="Class" />
-                <ScalarProperty Name="LinkPID" ColumnName="LinkPID" />
-                <ScalarProperty Name="LinkID" ColumnName="LinkID" />
-                <ScalarProperty Name="LinkURL" ColumnName="LinkURL" />
-                <ScalarProperty Name="LinkName" ColumnName="LinkName" />
+                <ScalarProperty Name="MenuPID" ColumnName="MenuPID" />
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="MenuURL" ColumnName="MenuURL" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Company">
+            <EntityTypeMapping TypeName="CRMModel.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="BusinessLicence" ColumnName="BusinessLicence" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customer">
+            <EntityTypeMapping TypeName="CRMModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="CreaterID" ColumnName="CreaterID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Contract" ColumnName="Contract" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="HomeAddress" ColumnName="HomeAddress" />
+                <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="CustomerQQ" ColumnName="CustomerQQ" />
+                <ScalarProperty Name="CustomerPhone" ColumnName="CustomerPhone" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerType" ColumnName="CustomerType" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerOperate">
+            <EntityTypeMapping TypeName="CRMModel.CustomerOperate">
+              <MappingFragment StoreEntitySet="CustomerOperate">
+                <ScalarProperty Name="OperatorTime" ColumnName="OperatorTime" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="OperatorID" ColumnName="OperatorID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Message">
+            <EntityTypeMapping TypeName="CRMModel.Message">
+              <MappingFragment StoreEntitySet="Message">
+                <ScalarProperty Name="Num" ColumnName="Num" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="SendTime" ColumnName="SendTime" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="ReceiverID" ColumnName="ReceiverID" />
+                <ScalarProperty Name="SenderID" ColumnName="SenderID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schedule">
+            <EntityTypeMapping TypeName="CRMModel.Schedule">
+              <MappingFragment StoreEntitySet="Schedule">
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Team">
+            <EntityTypeMapping TypeName="CRMModel.Team">
+              <MappingFragment StoreEntitySet="Team">
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="Slogan" ColumnName="Slogan" />
+                <ScalarProperty Name="LeaderPhone" ColumnName="LeaderPhone" />
+                <ScalarProperty Name="Leader" ColumnName="Leader" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -512,30 +397,26 @@
                 <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
                 <ScalarProperty Name="Content" ColumnName="Content" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Message">
-            <EntityTypeMapping TypeName="CRMModel.Message">
-              <MappingFragment StoreEntitySet="Message">
-                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
-                <ScalarProperty Name="Mstatus" ColumnName="Mstatus" />
-                <ScalarProperty Name="Send_date" ColumnName="Send_date" />
-                <ScalarProperty Name="Mcontent" ColumnName="Mcontent" />
-                <ScalarProperty Name="Subject" ColumnName="Subject" />
-                <ScalarProperty Name="Receiver" ColumnName="Receiver" />
-                <ScalarProperty Name="Sender" ColumnName="Sender" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="UserAuthority">
-            <EntityTypeMapping TypeName="CRMModel.UserAuthority">
-              <MappingFragment StoreEntitySet="UserAuthority">
-                <ScalarProperty Name="LinkID" ColumnName="LinkID" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="CRMModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="WorkStartDate" ColumnName="WorkStartDate" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Supervisor" ColumnName="Supervisor" />
+                <ScalarProperty Name="Post" ColumnName="Post" />
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -20,11 +20,11 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	public int Id { get; set; }
+    	public int ID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	public Nullable<int> UserId { get; set; }
+    	public int UserID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
@@ -36,6 +36,6 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	public Nullable<System.DateTime> CreateTime { get; set; }
+    	public System.DateTime CreateTime { get; set; }
     }
 }

@@ -24,19 +24,19 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	public string LinkName { get; set; }
+    	public string MenuName { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	public string LinkURL { get; set; }
+    	public string MenuURL { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	public string LinkID { get; set; }
+    	public string MenuID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	public string LinkPID { get; set; }
+    	public string MenuPID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>

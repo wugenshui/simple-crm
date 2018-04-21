@@ -24,11 +24,11 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	public string Sender { get; set; }
+    	public Nullable<int> SenderID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	public string Receiver { get; set; }
+    	public Nullable<int> ReceiverID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
@@ -36,18 +36,18 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	public string Mcontent { get; set; }
+    	public string Content { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	public Nullable<System.DateTime> Send_date { get; set; }
+    	public Nullable<System.DateTime> SendTime { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	public string Mstatus { get; set; }
+    	public Nullable<int> State { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	public string OrderID { get; set; }
+    	public string Num { get; set; }
     }
 }

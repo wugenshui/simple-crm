@@ -28,11 +28,11 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	public string Owner { get; set; }
+    	public string Leader { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	public string OwnerPhone { get; set; }
+    	public string LeaderPhone { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
@@ -40,6 +40,6 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	public string Company { get; set; }
+    	public string CompanyID { get; set; }
     }
 }

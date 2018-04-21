@@ -10,12 +10,12 @@
 namespace Model
 {
     /// <summary>
-    /// CustomerLog
+    /// Schedule
     /// </summary> 
     using System;
     using System.Collections.Generic;
     
-    public partial class CustomerLog
+    public partial class Schedule
     {
         /// <summary>
     	/// 
@@ -24,22 +24,26 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	public string CustomerID { get; set; }
+    	public string Subject { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	public string Status { get; set; }
+    	public System.DateTime Time { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	public string Remark { get; set; }
+    	public string Address { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	public string EMP { get; set; }
+    	public string Detail { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	public Nullable<System.DateTime> LogDate { get; set; }
+    	public int UserID { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	public System.DateTime CreateTime { get; set; }
     }
 }

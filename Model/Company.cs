@@ -40,10 +40,10 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	public Nullable<System.DateTime> CreateDate { get; set; }
+    	public Nullable<System.DateTime> CreateTime { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	public string CompanyID { get; set; }
+    	public string BusinessLicence { get; set; }
     }
 }

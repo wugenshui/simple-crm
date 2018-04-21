@@ -24,7 +24,7 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	public string Customertype { get; set; }
+    	public string CustomerType { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
@@ -40,11 +40,11 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	public string mail { get; set; }
+    	public string Mail { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	public string CustomerID { get; set; }
+    	public string IDCard { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
@@ -56,30 +56,18 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	public string contract { get; set; }
+    	public string Contract { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	public string Status { get; set; }
+    	public string State { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	public Nullable<System.DateTime> CreateDate { get; set; }
+    	public Nullable<System.DateTime> CreateTime { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	public string CreateEmp { get; set; }
-        /// <summary>
-    	/// 
-    	/// </summary>
-    	public string ReturnVisit { get; set; }
-        /// <summary>
-    	/// 
-    	/// </summary>
-    	public Nullable<System.DateTime> UpdateDate { get; set; }
-        /// <summary>
-    	/// 
-    	/// </summary>
-    	public string OM { get; set; }
+    	public string CreaterID { get; set; }
     }
 }

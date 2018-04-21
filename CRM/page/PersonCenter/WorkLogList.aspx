@@ -48,8 +48,8 @@
                             <td><%=logs[i].Title %></td>
                             <td><%=logs[i].CreateTime %></td>
                             <td>
-                                <button type="button" class="btn btn-outline-success btn-xs" onclick="edit(<%=logs[i].Id %>)">编辑</button>
-                                <button type="button" class="btn btn-outline-danger btn-xs" onclick="del(<%=logs[i].Id %>)">删除</button>
+                                <button type="button" class="btn btn-outline-success btn-xs" onclick="edit(<%=logs[i].ID %>)">编辑</button>
+                                <button type="button" class="btn btn-outline-danger btn-xs" onclick="del(<%=logs[i].ID %>)">删除</button>
                             </td>
                         </tr>
                         <% } %>

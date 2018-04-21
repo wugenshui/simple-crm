@@ -28,6 +28,6 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	public string LinkID { get; set; }
+    	public string MenuID { get; set; }
     }
 }

@@ -163,13 +163,13 @@
                 { %>
             <ul class="root-menu">
                 <li>
-                    <div style="background-image: url('<%=menus[i].Class %>');"><%=menus[i].LinkName %></div>
+                    <div style="background-image: url('<%=menus[i].Class %>');"><%=menus[i].MenuName %></div>
                     <ul class="second-menu" <%= (i == 0) ? "style=\"display: block;\"" : ""  %>>
                         <%  foreach (var item in menus[i].Childs)
                             { %>
                         <li>
                             <cite></cite>
-                            <a href="<%=item.LinkURL %>" target="mainIframe"><%=item.LinkName %></a>
+                            <a href="<%=item.MenuURL %>" target="mainIframe"><%=item.MenuName %></a>
                             <i></i>
                         </li>
                         <%  } %>

@@ -7,8 +7,8 @@ namespace Model
 {
     public class MenuTree
     {
-        public string LinkName { get; set; }
-        public string LinkURL { get; set; }
+        public string MenuName { get; set; }
+        public string MenuURL { get; set; }
         public string Class { get; set; }
         public List<MenuTree> Childs { get; set; }
     }

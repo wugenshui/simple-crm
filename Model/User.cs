@@ -36,11 +36,11 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	public int Company_ID { get; set; }
+    	public int CompanyID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	public int Team_ID { get; set; }
+    	public int TeamID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
@@ -68,6 +68,6 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	public Nullable<bool> isEnable { get; set; }
+    	public Nullable<bool> IsEnable { get; set; }
     }
 }

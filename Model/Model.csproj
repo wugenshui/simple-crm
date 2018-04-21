@@ -72,13 +72,7 @@
     <Compile Include="Customer.cs">
       <DependentUpon>CRM.tt</DependentUpon>
     </Compile>
-    <Compile Include="CustomerLog.cs">
-      <DependentUpon>CRM.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CustomerNoContact.cs">
-      <DependentUpon>CRM.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CustomerVisit.cs">
+    <Compile Include="CustomerOperate.cs">
       <DependentUpon>CRM.tt</DependentUpon>
     </Compile>
     <Compile Include="Menu.cs">
@@ -88,10 +82,10 @@
     <Compile Include="Message.cs">
       <DependentUpon>CRM.tt</DependentUpon>
     </Compile>
-    <Compile Include="MyRiCheng.cs">
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Schedule.cs">
       <DependentUpon>CRM.tt</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Team.cs">
       <DependentUpon>CRM.tt</DependentUpon>
     </Compile>
