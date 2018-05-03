@@ -20,12 +20,8 @@ namespace CRMWebApi.Controllers
         [HttpGet]
         public IHttpActionResult get()
         {
-            JsonSerializerSettings settings = new JsonSerializerSettings();
-            // 驼峰式大小写
-            settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-            //settings.ContractResolver = new DefaultContractResolver();
             Student student = new Student() { Name = "张三", age = 18 };
-            return Json(student, settings);
+            return Json(student);
         }
     }
 }
