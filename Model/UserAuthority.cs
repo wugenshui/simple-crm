@@ -13,7 +13,7 @@ namespace Model
     /// UserAuthority
     /// </summary> 
     using System;
-    using System.Collections.Generic;using Newtonsoft.Json;
+    using System.Collections.Generic;
     using Newtonsoft.Json;
     
     public partial class UserAuthority
@@ -21,17 +21,17 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("ID")]
+    	[JsonProperty("iD")]
     	public int ID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("UserID")]
+    	[JsonProperty("userID")]
     	public int UserID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("MenuID")]
+    	[JsonProperty("menuID")]
     	public string MenuID { get; set; }
     }
 }

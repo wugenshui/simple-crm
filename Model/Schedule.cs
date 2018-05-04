@@ -13,7 +13,7 @@ namespace Model
     /// Schedule
     /// </summary> 
     using System;
-    using System.Collections.Generic;using Newtonsoft.Json;
+    using System.Collections.Generic;
     using Newtonsoft.Json;
     
     public partial class Schedule
@@ -21,37 +21,37 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("ID")]
+    	[JsonProperty("iD")]
     	public int ID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("Subject")]
+    	[JsonProperty("subject")]
     	public string Subject { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("Time")]
+    	[JsonProperty("time")]
     	public System.DateTime Time { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("Address")]
+    	[JsonProperty("address")]
     	public string Address { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("Detail")]
+    	[JsonProperty("detail")]
     	public string Detail { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("UserID")]
+    	[JsonProperty("userID")]
     	public int UserID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("CreateTime")]
+    	[JsonProperty("createTime")]
     	public System.DateTime CreateTime { get; set; }
     }
 }

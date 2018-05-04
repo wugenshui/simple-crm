@@ -13,7 +13,7 @@ namespace Model
     /// Customer
     /// </summary> 
     using System;
-    using System.Collections.Generic;using Newtonsoft.Json;
+    using System.Collections.Generic;
     using Newtonsoft.Json;
     
     public partial class Customer
@@ -21,67 +21,67 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("ID")]
+    	[JsonProperty("iD")]
     	public decimal ID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("CustomerType")]
+    	[JsonProperty("customerType")]
     	public string CustomerType { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("CustomerName")]
+    	[JsonProperty("customerName")]
     	public string CustomerName { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("CustomerPhone")]
+    	[JsonProperty("customerPhone")]
     	public string CustomerPhone { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("CustomerQQ")]
+    	[JsonProperty("customerQQ")]
     	public string CustomerQQ { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("Mail")]
+    	[JsonProperty("mail")]
     	public string Mail { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("IDCard")]
+    	[JsonProperty("iDCard")]
     	public string IDCard { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("HomeAddress")]
+    	[JsonProperty("homeAddress")]
     	public string HomeAddress { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("Owner")]
+    	[JsonProperty("owner")]
     	public string Owner { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("Contract")]
+    	[JsonProperty("contract")]
     	public string Contract { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("State")]
+    	[JsonProperty("state")]
     	public string State { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("CreateTime")]
+    	[JsonProperty("createTime")]
     	public Nullable<System.DateTime> CreateTime { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("CreaterID")]
+    	[JsonProperty("createrID")]
     	public string CreaterID { get; set; }
     }
 }

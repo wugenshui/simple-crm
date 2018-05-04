@@ -286,6 +286,11 @@ public class CodeStringGenerator
         _ef = ef;
     }
 
+	public string firstLower(string s)
+	{
+		return s.Substring(0,1).ToLower()+s.Substring(1);
+	}
+
     public string Property(EdmProperty edmProperty)
     {
         return string.Format(CultureInfo.InvariantCulture,
@@ -296,7 +301,7 @@ public class CodeStringGenerator
             _code.SpaceAfter(Accessibility.ForGetter(edmProperty)),
             _code.SpaceAfter(Accessibility.ForSetter(edmProperty)),
             edmProperty.Documentation == null ? "" : edmProperty.Documentation.Summary,
-			_code.Escape(edmProperty)
+			firstLower(_code.Escape(edmProperty))
             );
     }
 
@@ -435,11 +440,10 @@ public class CodeStringGenerator
         return inHeader == string.IsNullOrEmpty(_code.VsNamespaceSuggestion())
             ? string.Format(
                 CultureInfo.InvariantCulture,
-                "{0}using System;{1}{2}" +
-                "{2}",
+                "{0}using System;{1}{2}{3}",
                 inHeader ? Environment.NewLine : "",
                 includeCollections ? (Environment.NewLine + "using System.Collections.Generic;") : "",
-				"using Newtonsoft.Json;" + Environment.NewLine,
+				Environment.NewLine + "using Newtonsoft.Json;",
                 inHeader ? "" : Environment.NewLine)
             : "";
     }

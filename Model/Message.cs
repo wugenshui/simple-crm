@@ -13,7 +13,7 @@ namespace Model
     /// Message
     /// </summary> 
     using System;
-    using System.Collections.Generic;using Newtonsoft.Json;
+    using System.Collections.Generic;
     using Newtonsoft.Json;
     
     public partial class Message
@@ -21,42 +21,42 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("ID")]
+    	[JsonProperty("iD")]
     	public int ID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("SenderID")]
+    	[JsonProperty("senderID")]
     	public Nullable<int> SenderID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("ReceiverID")]
+    	[JsonProperty("receiverID")]
     	public Nullable<int> ReceiverID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("Subject")]
+    	[JsonProperty("subject")]
     	public string Subject { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("Content")]
+    	[JsonProperty("content")]
     	public string Content { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("SendTime")]
+    	[JsonProperty("sendTime")]
     	public Nullable<System.DateTime> SendTime { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("State")]
+    	[JsonProperty("state")]
     	public Nullable<int> State { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("Num")]
+    	[JsonProperty("num")]
     	public string Num { get; set; }
     }
 }

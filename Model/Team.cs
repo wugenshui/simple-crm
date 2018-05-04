@@ -13,7 +13,7 @@ namespace Model
     /// Team
     /// </summary> 
     using System;
-    using System.Collections.Generic;using Newtonsoft.Json;
+    using System.Collections.Generic;
     using Newtonsoft.Json;
     
     public partial class Team
@@ -21,32 +21,32 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("ID")]
+    	[JsonProperty("iD")]
     	public int ID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("Name")]
+    	[JsonProperty("name")]
     	public string Name { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("Leader")]
+    	[JsonProperty("leader")]
     	public string Leader { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("LeaderPhone")]
+    	[JsonProperty("leaderPhone")]
     	public string LeaderPhone { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("Slogan")]
+    	[JsonProperty("slogan")]
     	public string Slogan { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("CompanyID")]
+    	[JsonProperty("companyID")]
     	public string CompanyID { get; set; }
     }
 }

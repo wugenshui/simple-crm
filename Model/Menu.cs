@@ -13,7 +13,7 @@ namespace Model
     /// Menu
     /// </summary> 
     using System;
-    using System.Collections.Generic;using Newtonsoft.Json;
+    using System.Collections.Generic;
     using Newtonsoft.Json;
     
     public partial class Menu
@@ -21,32 +21,32 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("ID")]
+    	[JsonProperty("iD")]
     	public int ID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("MenuName")]
+    	[JsonProperty("menuName")]
     	public string MenuName { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("MenuURL")]
+    	[JsonProperty("menuURL")]
     	public string MenuURL { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("MenuID")]
+    	[JsonProperty("menuID")]
     	public string MenuID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("MenuPID")]
+    	[JsonProperty("menuPID")]
     	public string MenuPID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("Class")]
+    	[JsonProperty("class")]
     	public string Class { get; set; }
     }
 }

@@ -15,38 +15,43 @@ namespace Model
     using System;
     using System.Collections.Generic;
     using Newtonsoft.Json;
-
+    
     public partial class Company
     {
         /// <summary>
     	/// 
     	/// </summary>
-        [JsonProperty("id")]
-        public int ID { get; set; }
-
+    	[JsonProperty("iD")]
+    	public int ID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("companyName")]
     	public string CompanyName { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("owner")]
     	public string Owner { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("phone")]
     	public string Phone { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("website")]
     	public string Website { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("createTime")]
     	public Nullable<System.DateTime> CreateTime { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("businessLicence")]
     	public string BusinessLicence { get; set; }
     }
 }

@@ -13,7 +13,7 @@ namespace Model
     /// CustomerOperate
     /// </summary> 
     using System;
-    using System.Collections.Generic;using Newtonsoft.Json;
+    using System.Collections.Generic;
     using Newtonsoft.Json;
     
     public partial class CustomerOperate
@@ -21,32 +21,32 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("ID")]
+    	[JsonProperty("iD")]
     	public int ID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("CustomerID")]
+    	[JsonProperty("customerID")]
     	public string CustomerID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("OperatorID")]
+    	[JsonProperty("operatorID")]
     	public string OperatorID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("State")]
+    	[JsonProperty("state")]
     	public string State { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("Remark")]
+    	[JsonProperty("remark")]
     	public string Remark { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("OperatorTime")]
+    	[JsonProperty("operatorTime")]
     	public Nullable<System.DateTime> OperatorTime { get; set; }
     }
 }

@@ -13,7 +13,7 @@ namespace Model
     /// User
     /// </summary> 
     using System;
-    using System.Collections.Generic;using Newtonsoft.Json;
+    using System.Collections.Generic;
     using Newtonsoft.Json;
     
     public partial class User
@@ -21,67 +21,67 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("ID")]
+    	[JsonProperty("iD")]
     	public int ID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("UserName")]
+    	[JsonProperty("userName")]
     	public string UserName { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("LoginName")]
+    	[JsonProperty("loginName")]
     	public string LoginName { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("Password")]
+    	[JsonProperty("password")]
     	public string Password { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("CompanyID")]
+    	[JsonProperty("companyID")]
     	public int CompanyID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("TeamID")]
+    	[JsonProperty("teamID")]
     	public int TeamID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("Post")]
+    	[JsonProperty("post")]
     	public string Post { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("Supervisor")]
+    	[JsonProperty("supervisor")]
     	public string Supervisor { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("PhoneNumber")]
+    	[JsonProperty("phoneNumber")]
     	public string PhoneNumber { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("WorkStartDate")]
+    	[JsonProperty("workStartDate")]
     	public Nullable<System.DateTime> WorkStartDate { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("Photo")]
+    	[JsonProperty("photo")]
     	public byte[] Photo { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("State")]
+    	[JsonProperty("state")]
     	public int State { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("IsEnable")]
+    	[JsonProperty("isEnable")]
     	public Nullable<bool> IsEnable { get; set; }
     }
 }
