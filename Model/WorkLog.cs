@@ -13,29 +13,35 @@ namespace Model
     /// WorkLog
     /// </summary> 
     using System;
-    using System.Collections.Generic;
+    using System.Collections.Generic;using Newtonsoft.Json;
+    using Newtonsoft.Json;
     
     public partial class WorkLog
     {
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("ID")]
     	public int ID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("UserID")]
     	public int UserID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("Title")]
     	public string Title { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("Content")]
     	public string Content { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("CreateTime")]
     	public System.DateTime CreateTime { get; set; }
     }
 }

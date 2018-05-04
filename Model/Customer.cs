@@ -13,61 +13,75 @@ namespace Model
     /// Customer
     /// </summary> 
     using System;
-    using System.Collections.Generic;
+    using System.Collections.Generic;using Newtonsoft.Json;
+    using Newtonsoft.Json;
     
     public partial class Customer
     {
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("ID")]
     	public decimal ID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("CustomerType")]
     	public string CustomerType { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("CustomerName")]
     	public string CustomerName { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("CustomerPhone")]
     	public string CustomerPhone { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("CustomerQQ")]
     	public string CustomerQQ { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("Mail")]
     	public string Mail { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("IDCard")]
     	public string IDCard { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("HomeAddress")]
     	public string HomeAddress { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("Owner")]
     	public string Owner { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("Contract")]
     	public string Contract { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("State")]
     	public string State { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("CreateTime")]
     	public Nullable<System.DateTime> CreateTime { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("CreaterID")]
     	public string CreaterID { get; set; }
     }
 }

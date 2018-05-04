@@ -13,41 +13,50 @@ namespace Model
     /// Message
     /// </summary> 
     using System;
-    using System.Collections.Generic;
+    using System.Collections.Generic;using Newtonsoft.Json;
+    using Newtonsoft.Json;
     
     public partial class Message
     {
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("ID")]
     	public int ID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("SenderID")]
     	public Nullable<int> SenderID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("ReceiverID")]
     	public Nullable<int> ReceiverID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("Subject")]
     	public string Subject { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("Content")]
     	public string Content { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("SendTime")]
     	public Nullable<System.DateTime> SendTime { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("State")]
     	public Nullable<int> State { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("Num")]
     	public string Num { get; set; }
     }
 }

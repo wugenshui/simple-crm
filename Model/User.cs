@@ -13,61 +13,75 @@ namespace Model
     /// User
     /// </summary> 
     using System;
-    using System.Collections.Generic;
+    using System.Collections.Generic;using Newtonsoft.Json;
+    using Newtonsoft.Json;
     
     public partial class User
     {
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("ID")]
     	public int ID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("UserName")]
     	public string UserName { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("LoginName")]
     	public string LoginName { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("Password")]
     	public string Password { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("CompanyID")]
     	public int CompanyID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("TeamID")]
     	public int TeamID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("Post")]
     	public string Post { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("Supervisor")]
     	public string Supervisor { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("PhoneNumber")]
     	public string PhoneNumber { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("WorkStartDate")]
     	public Nullable<System.DateTime> WorkStartDate { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("Photo")]
     	public byte[] Photo { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("State")]
     	public int State { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("IsEnable")]
     	public Nullable<bool> IsEnable { get; set; }
     }
 }

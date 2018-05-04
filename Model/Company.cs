@@ -14,13 +14,16 @@ namespace Model
     /// </summary> 
     using System;
     using System.Collections.Generic;
-    
+    using Newtonsoft.Json;
+
     public partial class Company
     {
         /// <summary>
     	/// 
     	/// </summary>
-    	public int ID { get; set; }
+        [JsonProperty("id")]
+        public int ID { get; set; }
+
         /// <summary>
     	/// 
     	/// </summary>

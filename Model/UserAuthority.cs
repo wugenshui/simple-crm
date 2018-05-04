@@ -13,21 +13,25 @@ namespace Model
     /// UserAuthority
     /// </summary> 
     using System;
-    using System.Collections.Generic;
+    using System.Collections.Generic;using Newtonsoft.Json;
+    using Newtonsoft.Json;
     
     public partial class UserAuthority
     {
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("ID")]
     	public int ID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("UserID")]
     	public int UserID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("MenuID")]
     	public string MenuID { get; set; }
     }
 }

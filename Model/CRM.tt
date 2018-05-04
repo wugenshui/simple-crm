@@ -289,13 +289,14 @@ public class CodeStringGenerator
     public string Property(EdmProperty edmProperty)
     {
         return string.Format(CultureInfo.InvariantCulture,
-            "/// <summary>\r\n\t/// {5}\r\n\t/// </summary>\r\n\t{0} {1} {2} {{ {3}get; {4}set; }}",
+            "/// <summary>\r\n\t/// {5}\r\n\t/// </summary>\r\n\t[JsonProperty(\"{6}\")]\r\n\t{0} {1} {2} {{ {3}get; {4}set; }}",
             Accessibility.ForProperty(edmProperty),
             _typeMapper.GetTypeName(edmProperty.TypeUsage),
             _code.Escape(edmProperty),
             _code.SpaceAfter(Accessibility.ForGetter(edmProperty)),
             _code.SpaceAfter(Accessibility.ForSetter(edmProperty)),
-            edmProperty.Documentation == null ? "" : edmProperty.Documentation.Summary
+            edmProperty.Documentation == null ? "" : edmProperty.Documentation.Summary,
+			_code.Escape(edmProperty)
             );
     }
 
@@ -434,10 +435,11 @@ public class CodeStringGenerator
         return inHeader == string.IsNullOrEmpty(_code.VsNamespaceSuggestion())
             ? string.Format(
                 CultureInfo.InvariantCulture,
-                "{0}using System;{1}" +
+                "{0}using System;{1}{2}" +
                 "{2}",
                 inHeader ? Environment.NewLine : "",
                 includeCollections ? (Environment.NewLine + "using System.Collections.Generic;") : "",
+				"using Newtonsoft.Json;" + Environment.NewLine,
                 inHeader ? "" : Environment.NewLine)
             : "";
     }
