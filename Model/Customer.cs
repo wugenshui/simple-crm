@@ -21,8 +21,8 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("iD")]
-    	public decimal ID { get; set; }
+    	[JsonProperty("id")]
+    	public decimal Id { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
@@ -51,8 +51,8 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("iDCard")]
-    	public string IDCard { get; set; }
+    	[JsonProperty("idcard")]
+    	public string Idcard { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
@@ -81,7 +81,7 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("createrID")]
-    	public string CreaterID { get; set; }
+    	[JsonProperty("createrId")]
+    	public string CreaterId { get; set; }
     }
 }

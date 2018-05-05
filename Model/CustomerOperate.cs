@@ -21,18 +21,18 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("iD")]
-    	public int ID { get; set; }
+    	[JsonProperty("id")]
+    	public int Id { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("customerID")]
-    	public string CustomerID { get; set; }
+    	[JsonProperty("customerId")]
+    	public string CustomerId { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("operatorID")]
-    	public string OperatorID { get; set; }
+    	[JsonProperty("operatorId")]
+    	public string OperatorId { get; set; }
         /// <summary>
     	/// 
     	/// </summary>

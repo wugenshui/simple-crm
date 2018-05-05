@@ -18,7 +18,7 @@ namespace CRM
         protected void Page_Load(object sender, EventArgs e)
         {
             user = CommonHelper.User;
-            menus = new MenuDAL().getMenuTree(user.ID);
+            menus = new MenuDAL().getMenuTree(user.Id);
 
             //AuthorityDAL authority = new AuthorityDAL
             //foreach (var item in collection)

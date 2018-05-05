@@ -21,13 +21,13 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("iD")]
-    	public int ID { get; set; }
+    	[JsonProperty("id")]
+    	public int Id { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("userID")]
-    	public int UserID { get; set; }
+    	[JsonProperty("userId")]
+    	public int UserId { get; set; }
         /// <summary>
     	/// 
     	/// </summary>

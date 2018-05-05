@@ -21,8 +21,8 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("iD")]
-    	public int ID { get; set; }
+    	[JsonProperty("id")]
+    	public int Id { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
@@ -46,7 +46,7 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("companyID")]
-    	public string CompanyID { get; set; }
+    	[JsonProperty("companyId")]
+    	public string CompanyId { get; set; }
     }
 }

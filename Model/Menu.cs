@@ -21,8 +21,8 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("iD")]
-    	public int ID { get; set; }
+    	[JsonProperty("id")]
+    	public int Id { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
@@ -31,18 +31,18 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("menuURL")]
-    	public string MenuURL { get; set; }
+    	[JsonProperty("menuUrl")]
+    	public string MenuUrl { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("menuID")]
-    	public string MenuID { get; set; }
+    	[JsonProperty("menuId")]
+    	public string MenuId { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("menuPID")]
-    	public string MenuPID { get; set; }
+    	[JsonProperty("menuPid")]
+    	public string MenuPid { get; set; }
         /// <summary>
     	/// 
     	/// </summary>

@@ -19,26 +19,26 @@ namespace DAL
             List<MenuTree> menuTree = new List<MenuTree>();
 
             var menus = new MenuDAL().Get();
-            var authoritys = new UserAuthorityDAL().Get().Where(o => o.UserID == userId).OrderBy(o => o.MenuID).ToList().Distinct();
-            var firstMenu = menus.Where(o => o.MenuPID == "0");
+            var authoritys = new UserAuthorityDAL().Get().Where(o => o.UserId == userId).OrderBy(o => o.MenuId).ToList().Distinct();
+            var firstMenu = menus.Where(o => o.MenuPid == "0");
             foreach (Menu menu in firstMenu)
             {
-                if (authoritys.Where(o => o.MenuID == menu.MenuID).Count() > 0)
+                if (authoritys.Where(o => o.MenuId == menu.MenuId).Count() > 0)
                 {
                     MenuTree first = new MenuTree();
                     List<MenuTree> childs = new List<MenuTree>();
                     first.MenuName = menu.MenuName;
-                    first.MenuURL = menu.MenuURL;
+                    first.MenuURL = menu.MenuUrl;
                     first.Class = menu.Class;
                     first.Childs = childs;
 
-                    foreach (Menu item in menus.Where(o => o.MenuPID == menu.MenuID))
+                    foreach (Menu item in menus.Where(o => o.MenuPid == menu.MenuId))
                     {
-                        if (authoritys.Where(o => o.MenuID == item.MenuID).Count() > 0)
+                        if (authoritys.Where(o => o.MenuId == item.MenuId).Count() > 0)
                         {
                             MenuTree second = new MenuTree();
                             second.MenuName = item.MenuName;
-                            second.MenuURL = item.MenuURL;
+                            second.MenuURL = item.MenuUrl;
                             second.Class = item.Class;
                             childs.Add(second);
                         }

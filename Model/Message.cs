@@ -21,18 +21,18 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("iD")]
-    	public int ID { get; set; }
+    	[JsonProperty("id")]
+    	public int Id { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("senderID")]
-    	public Nullable<int> SenderID { get; set; }
+    	[JsonProperty("senderId")]
+    	public Nullable<int> SenderId { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("receiverID")]
-    	public Nullable<int> ReceiverID { get; set; }
+    	[JsonProperty("receiverId")]
+    	public Nullable<int> ReceiverId { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
