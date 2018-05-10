@@ -11,6 +11,7 @@ namespace CRMWebApi.Controllers
 {
     public class UserController : ApiController
     {
+        [AllowAnonymous]
         public IHttpActionResult get()
         {
             Company com = new Company();
