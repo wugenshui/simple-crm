@@ -115,12 +115,12 @@ export default {
 
 .centerbox {
   width: 700px;
-  height: 410px;
-  position: absolute;
+  height: 400px;
+  position: fixed;
   left: 50%;
   top: 50%;
   margin-left: -350px;
-  margin-top: -220px;
+  margin-top: -200px;
 }
 
 .centerbox .systemlogo {

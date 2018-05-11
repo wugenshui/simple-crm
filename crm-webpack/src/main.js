@@ -10,6 +10,7 @@ import "iview/dist/styles/iview.css"
 import "./style/common.css"
 import common from "./common.js"
 import store from "./store.js"
+import "bootstrap/dist/css/bootstrap.css"
 
 Vue.config.productionTip = false
 Vue.use(VurRouter)
