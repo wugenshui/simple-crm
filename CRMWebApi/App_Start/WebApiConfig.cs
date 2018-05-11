@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace CRMWebApi
 {
@@ -9,6 +10,8 @@ namespace CRMWebApi
     {
         public static void Register(HttpConfiguration config)
         {
+            // 允许跨域访问
+            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
             // Web API 配置和服务
             config.Filters.Add(new AuthorizeFilter());
             // Web API 路由
