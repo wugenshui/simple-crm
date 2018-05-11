@@ -18,18 +18,11 @@ namespace CRMWebApi
             //url获取token  
             var content = actionContext.Request.Properties["MS_HttpContext"] as HttpContextBase;
             var token = content.Request.Headers["Token"];
-            if (!string.IsNullOrEmpty(token))
+            if (!string.IsNullOrEmpty(token) && ValidateTicket(token))
             {
-                if (ValidateTicket(token))
-                {
-                    base.IsAuthorized(actionContext);
-                }
-                else
-                {
-                    HandleUnauthorizedRequest(actionContext);
-                }
+                base.IsAuthorized(actionContext);
             }
-            else //如果取不到身份验证信息，并且不允许匿名访问，则返回未验证401  
+            else
             {
                 var attributes = actionContext.ActionDescriptor.GetCustomAttributes<AllowAnonymousAttribute>().OfType<AllowAnonymousAttribute>();
                 bool isAnonymous = attributes.Any(a => a is AllowAnonymousAttribute);

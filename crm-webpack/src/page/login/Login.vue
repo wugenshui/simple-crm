@@ -21,9 +21,9 @@
           <form id="loginform" runat="server">
             <ul>
               <li>
-                <input id="inputName" class="loginuser" runat="server" type="text" placeholder="用户名" /></li>
+                <input id="inputName" class="loginuser" v-model="loginForm.username" type="text" placeholder="用户名" /></li>
               <li>
-                <input id="inputPassword" class="loginpwd" runat="server" type="password" placeholder="密码" /></li>
+                <input id="inputPassword" class="loginpwd" v-model="loginForm.password" type="password" placeholder="密码" /></li>
               <li>
                 <button type="submit" class="loginbtn" @click="loginClick" Width="97px">登录</button>
                 <label>
@@ -43,7 +43,31 @@
 <script>
 export default {
   data: function() {
-    return {}
+    return {
+      loginForm: {
+        username: "",
+        password: ""
+      }
+    }
+  },
+  methods: {
+    loginClick() {
+      localStorage.setItem("crm-username", this.loginForm.username)
+      localStorage.setItem("crm-password", this.loginForm.password)
+      this.$ajax.post("login", this.loginForm).then(res => {
+        if (res.data.state == true) {
+          this.$store.commit("setToken", res.data.msg.token)
+          this.$store.commit("setUser", res.data.msg.user)
+          this.$ajax.get("user/1").then(res => {
+            console.log(res.data)
+          })
+        }
+      })
+    }
+  },
+  mounted() {
+    this.loginForm.username = localStorage.getItem("crm-username")
+    this.loginForm.password = localStorage.getItem("crm-password")
   }
 }
 </script>

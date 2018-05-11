@@ -79,6 +79,7 @@
     <Compile Include="CustomerOperate.cs">
       <DependentUpon>CRM.tt</DependentUpon>
     </Compile>
+    <Compile Include="LoginForm.cs" />
     <Compile Include="Menu.cs">
       <DependentUpon>CRM.tt</DependentUpon>
     </Compile>

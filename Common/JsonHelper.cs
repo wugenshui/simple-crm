@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace oa_server
+namespace common
 {
     public class JsonHelper
     {

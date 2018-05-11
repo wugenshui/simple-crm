@@ -1,4 +1,5 @@
-﻿using Common;
+﻿using common;
+using Common;
 using DAL;
 using Model;
 using System;
@@ -16,17 +17,19 @@ namespace CRMWebApi.Controllers
         UserDAL _UserDAL = new UserDAL();
 
         [AllowAnonymous]
-        [HttpGet]
-        public IHttpActionResult Login(string username, string password)
+        [HttpPost]
+        public IHttpActionResult Login(LoginForm loginForm)
         {
             AjaxResult result = new AjaxResult();
-            string md5Password = MD5Helper.CreateMD5(password);
-            bool isExist = _UserDAL.IsExist(o => o.LoginName == username && o.Password == md5Password);
-            if (isExist)
+            string md5Password = MD5Helper.CreateMD5(loginForm.password);
+            User user = _UserDAL.Get().FirstOrDefault(o => o.LoginName == loginForm.username && o.Password == md5Password);
+            if (user != null)
             {
-                string userData = string.Format("{0}&{1}", username, password);
-                FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(0, username, DateTime.Now, DateTime.Now.AddDays(1), true, userData);
-                result.msg = FormsAuthentication.Encrypt(ticket);
+                user.Password = "";
+                string userData = JsonHelper.JsonSerialize(user);
+                FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(0, loginForm.username, DateTime.Now, DateTime.Now.AddDays(1), true, userData);
+                var model = new { token = FormsAuthentication.Encrypt(ticket), user = user };
+                result.msg = model;
             }
             else
             {
@@ -34,17 +37,6 @@ namespace CRMWebApi.Controllers
                 result.msg = "用户登陆校验失败！";
             }
             return Json(result);
-        }
-
-        public class UserInfo
-        {
-            public bool bRes { get; set; }
-
-            public string UserName { get; set; }
-
-            public string Password { get; set; }
-
-            public string Ticket { get; set; }
         }
     }
 }
