@@ -6,7 +6,12 @@
 
 <script>
 export default {
-  name: "App"
+  name: "App",
+  mounted() {
+    if (this.$store.state.token == null || this.$store.state.token.length == 0) {
+      this.$router.push("./login")
+    }
+  }
 }
 </script>
 

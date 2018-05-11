@@ -21,13 +21,13 @@
           <form id="loginform" runat="server">
             <ul>
               <li>
-                <input id="inputName" class="loginuser" v-model="loginForm.username" type="text" placeholder="用户名" /></li>
+                <input class="loginuser" v-model="loginForm.username" type="text" placeholder="用户名" /></li>
               <li>
-                <input id="inputPassword" class="loginpwd" v-model="loginForm.password" type="password" placeholder="密码" /></li>
+                <input class="loginpwd" v-model="loginForm.password" type="password" placeholder="密码" /></li>
               <li>
-                <button type="submit" class="loginbtn" @click="loginClick" Width="97px">登录</button>
+                <button type="submit" class="loginbtn" @click="loginClick">登录</button>
                 <label>
-                  <input name="" type="checkbox" value="" checked="checked" />记住密码</label>
+                  <input type="checkbox" v-model="isRemember" />记住密码</label>
                 <label>
                   <a href="#">忘记密码？</a>
                 </label>
@@ -47,27 +47,30 @@ export default {
       loginForm: {
         username: "",
         password: ""
-      }
+      },
+      isRemember: true
     }
   },
   methods: {
     loginClick() {
       localStorage.setItem("crm-username", this.loginForm.username)
       localStorage.setItem("crm-password", this.loginForm.password)
+      localStorage.setItem("crm-remember", this.isRemember)
       this.$ajax.post("login", this.loginForm).then(res => {
         if (res.data.state == true) {
           this.$store.commit("setToken", res.data.msg.token)
           this.$store.commit("setUser", res.data.msg.user)
-          this.$ajax.get("user/1").then(res => {
-            console.log(res.data)
-          })
+          this.$router.push("/")
         }
       })
     }
   },
   mounted() {
-    this.loginForm.username = localStorage.getItem("crm-username")
-    this.loginForm.password = localStorage.getItem("crm-password")
+    this.isRemember = localStorage.getItem("crm-remember") != "false"
+    if (this.isRemember) {
+      this.loginForm.username = localStorage.getItem("crm-username")
+      this.loginForm.password = localStorage.getItem("crm-password")
+    }
   }
 }
 </script>
