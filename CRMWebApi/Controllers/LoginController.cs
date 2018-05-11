@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Common;
+using DAL;
+using Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -10,34 +13,27 @@ namespace CRMWebApi.Controllers
 {
     public class LoginController : ApiController
     {
+        UserDAL _UserDAL = new UserDAL();
+
         [AllowAnonymous]
         [HttpGet]
-        public object Login(string username, string password)
+        public IHttpActionResult Login(string username, string password)
         {
-            if (!ValidateUser(username, password))
+            AjaxResult result = new AjaxResult();
+            string md5Password = MD5Helper.CreateMD5(password);
+            bool isExist = _UserDAL.IsExist(o => o.LoginName == username && o.Password == md5Password);
+            if (isExist)
             {
-                return new { bRes = false };
-            }
-            FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(0, username, DateTime.Now,
-                            DateTime.Now.AddHours(1), true, string.Format("{0}&{1}", username, password),
-                            FormsAuthentication.FormsCookiePath);
-            //返回登录结果、用户信息、用户验证票据信息
-            var oUser = new UserInfo { bRes = true, UserName = username, Password = password, Ticket = FormsAuthentication.Encrypt(ticket) };
-            //将身份信息保存在session中，验证当前请求是否是有效请求
-            //HttpContext.Current.Session[username] = oUser;
-            return oUser;
-        }
-
-        private bool ValidateUser(string strUser, string strPwd)
-        {
-            if (strUser == "admin" && strPwd == "123456")
-            {
-                return true;
+                string userData = string.Format("{0}&{1}", username, password);
+                FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(0, username, DateTime.Now, DateTime.Now.AddDays(1), true, userData);
+                result.msg = FormsAuthentication.Encrypt(ticket);
             }
             else
             {
-                return false;
+                result.state = false;
+                result.msg = "用户登陆校验失败！";
             }
+            return Json(result);
         }
 
         public class UserInfo
