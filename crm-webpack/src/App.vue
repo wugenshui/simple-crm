@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view/>
+    <transition enter-active-class="bounceInLeft" leave-active-class="bounceOutRight">
+      <router-view/>
+    </transition>
   </div>
 </template>
 
@@ -19,5 +21,6 @@ export default {
 #app {
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 </style>

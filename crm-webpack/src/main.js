@@ -11,6 +11,7 @@ import "./style/common.css"
 import common from "./common.js"
 import store from "./store.js"
 import "bootstrap/dist/css/bootstrap.css"
+import "vue2-animate/dist/vue2-animate.min.css"
 
 Vue.config.productionTip = false
 Vue.use(VurRouter)
