@@ -1,8 +1,8 @@
 <template>
     <div>
-        <nav class="navbar navbar-expand navbar-dark" style="background-color: #0e90d2;">
-            <a class="navbar-brand" href="#">CRM客户管理系统</a>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <nav style="">
+            <a class="title" href="#">CRM客户管理系统</a>
+            <div class="float-right">
                 <Dropdown class="text-white">
                     <a href="javascript:void(0)">
                         待办任务
@@ -46,8 +46,19 @@ export default {
 </script>
 
 <style scoped>
+nav {
+  background-color: #0e90d2;
+  height: 48px;
+  line-height: 48px;
+}
+
+.title {
+  font-size: 1.25rem;
+  text-indent: 50px;
+  margin-left: 30px;
+}
+
 a {
   color: white;
-  padding-top: 5px;
 }
 </style>
