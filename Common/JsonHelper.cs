@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace common
+namespace Common
 {
     public class JsonHelper
     {

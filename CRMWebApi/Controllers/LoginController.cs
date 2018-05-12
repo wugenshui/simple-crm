@@ -1,5 +1,4 @@
-﻿using common;
-using Common;
+﻿using Common;
 using DAL;
 using Model;
 using System;
