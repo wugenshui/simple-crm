@@ -25,7 +25,7 @@
               <li>
                 <input class="loginpwd" v-model="loginForm.password" type="password" placeholder="密码" /></li>
               <li>
-                <button type="submit" class="loginbtn" @click="loginClick">登录</button>
+                <button type="button" class="loginbtn" @click="loginClick">登录</button>
                 <label>
                   <input type="checkbox" v-model="isRemember" />记住密码</label>
                 <label>
@@ -126,7 +126,7 @@ export default {
   margin-top: -200px;
 }
 
-.centerbox .systemlogo {
+.centerbox .sysntemlogo {
   background: url("../../image/login/loginlogo.png") no-repeat center;
   width: 100%;
   height: 70px;

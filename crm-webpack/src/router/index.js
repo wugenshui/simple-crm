@@ -1,12 +1,11 @@
 import Vue from "vue"
 import Router from "vue-router"
-import HelloWorld from "@/components/HelloWorld"
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    { path: "/", name: "HelloWorld", component: HelloWorld },
-    { path: "/login", name: "Login", component: resolve => require(["../page/login/Login.vue"], resolve) }
+    { path: "/", name: "default", component: resolve => require(["../page/default/Default.vue"], resolve) },
+    { path: "/login", name: "login", component: resolve => require(["../page/login/Login.vue"], resolve) }
   ]
 })
