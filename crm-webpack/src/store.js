@@ -1,5 +1,10 @@
 import Vue from "vue"
 import Vuex from "vuex"
+import VuexPersistence from "vuex-persist"
+
+const vuexLocal = new VuexPersistence({
+  storage: window.localStorage
+})
 
 Vue.use(Vuex)
 const store = new Vuex.Store({
@@ -23,7 +28,8 @@ const store = new Vuex.Store({
     setToken(state, token) {
       state.token = token
     }
-  }
+  },
+  plugins: [vuexLocal.plugin]
 })
 
 // this.$store.state.user;
