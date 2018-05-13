@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "bootstrap": "^4.1.1",
     "circular-json": "^0.5.4",
     "iview": "^2.13.1",
     "vue": "^2.5.2",

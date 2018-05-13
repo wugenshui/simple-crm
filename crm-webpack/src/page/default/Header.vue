@@ -3,12 +3,12 @@
         <nav style="">
             <a class="title" href="#">CRM客户管理系统</a>
             <div class="float-right">
-                <Dropdown class="text-white">
+                <Dropdown>
                     <a href="javascript:void(0)">
                         待办任务
                     </a>
                 </Dropdown>
-                <Dropdown class="text-white" @on-click="logout">
+                <Dropdown @on-click="logout">
                     <a href="javascript:void(0)">
                         {{ '用户' }}
                         <Icon type="arrow-down-b"></Icon>
@@ -19,7 +19,7 @@
                         <DropdownItem name="logout">退出</DropdownItem>
                     </DropdownMenu>
                 </Dropdown>
-                <Dropdown class="text-white">
+                <Dropdown>
                     <a href="javascript:void(0)">
                         开启全屏
                     </a>
@@ -60,5 +60,9 @@ nav {
 
 a {
   color: white;
+}
+
+.ivu-dropdown {
+  margin-right: 10px;
 }
 </style>
