@@ -149,13 +149,13 @@
           <EntitySet Name="Company" EntityType="CRMModel.Company" />
           <EntitySet Name="Customer" EntityType="CRMModel.Customer" />
           <EntitySet Name="CustomerOperate" EntityType="CRMModel.CustomerOperate" />
-          <EntitySet Name="Menu" EntityType="CRMModel.Menu" />
           <EntitySet Name="Message" EntityType="CRMModel.Message" />
           <EntitySet Name="Schedule" EntityType="CRMModel.Schedule" />
           <EntitySet Name="Team" EntityType="CRMModel.Team" />
           <EntitySet Name="User" EntityType="CRMModel.User" />
           <EntitySet Name="UserAuthority" EntityType="CRMModel.UserAuthority" />
           <EntitySet Name="WorkLog" EntityType="CRMModel.WorkLog" />
+          <EntitySet Name="Menu" EntityType="CRMModel.Menu" />
         </EntityContainer>
         <EntityType Name="Company">
           <Key>
@@ -197,17 +197,6 @@
           <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Remark" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="OperatorTime" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="Menu">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MenuName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MenuUrl" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MenuId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MenuPid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Class" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Message">
           <Key>
@@ -281,6 +270,17 @@
           <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MenuName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MenuUrl" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MenuId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MenuPid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Class" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -327,18 +327,6 @@
                 <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="OperatorId" ColumnName="OperatorId" />
                 <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Menu">
-            <EntityTypeMapping TypeName="CRMModel.Menu">
-              <MappingFragment StoreEntitySet="Menu">
-                <ScalarProperty Name="Class" ColumnName="Class" />
-                <ScalarProperty Name="MenuPid" ColumnName="MenuPid" />
-                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
-                <ScalarProperty Name="MenuUrl" ColumnName="MenuUrl" />
-                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -417,6 +405,18 @@
                 <ScalarProperty Name="Content" ColumnName="Content" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menu">
+            <EntityTypeMapping TypeName="CRMModel.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="MenuPid" ColumnName="MenuPid" />
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="MenuUrl" ColumnName="MenuUrl" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -1,24 +1,26 @@
 <template>
-    <div class="menu">
-        <div class="menutop">
-            <i></i>
-            控制中心
-        </div>
-        <ul class="root-menu" v-for="(father,index) in menus" :key="index">
-            <li>
-                <div :style="'background-image: url('+ father.Class +');'"> {{ father.MenuName }}</div>
-                <ul class="second-menu" :style="index==0 ? display:block">
-                    <li v-for="(son,index) in father.Childs" :key="index">
-                        <cite></cite>
-                        <a :href="son.MenuURL" target="mainIframe">
-                            {{ son.MenuName }}
-                        </a>
-                        <i></i>
-                    </li>
-                </ul>
-            </li>
-        </ul>
+  <div class="menu">
+    <div class="menutop">
+      <i></i>
+      控制中心
     </div>
+    <ul class="root-menu" v-for="(father,index) in menus" :key="index">
+      <li>
+        <div :class="father._class" @click="togglemenu(father)"> {{ father.name }}</div>
+        <transition name="fadeDown" :duration="{ enter: 200, leave: 10 }" mode="out-in">
+          <ul class="second-menu" v-show="father.showChild">
+            <li v-for="(son,index) in father.childs" :key="index">
+              <cite></cite>
+              <a :href="son.url" target="mainIframe">
+                {{ son.name }}
+              </a>
+              <i></i>
+            </li>
+          </ul>
+        </transition>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -27,11 +29,42 @@ export default {
     return {
       menus: []
     }
+  },
+  mounted() {
+    this.$ajax.get("menu").then(res => {
+      this.menus = res.data
+    })
+  },
+  methods: {
+    togglemenu(father) {
+      if (!father.showChild) {
+        for (var i = 0; i < this.menus.length; i++) {
+          this.menus[i].showChild = false
+        }
+        father.showChild = true
+      }
+    }
   }
 }
 </script>
 
 <style scoped>
+.menu1 {
+  background-image: url("../../image/default/menu1.png");
+}
+
+.menu2 {
+  background-image: url("../../image/default/menu2.png");
+}
+
+.menu3 {
+  background-image: url("../../image/default/menu3.png");
+}
+
+.menu4 {
+  background-image: url("../../image/default/menu4.png");
+}
+
 .menu {
   width: 180px;
   height: 100%;
@@ -56,7 +89,7 @@ export default {
 }
 
 .root-menu > li > div {
-  background: rgb(212, 231, 240);
+  background-color: rgb(212, 231, 240);
   background-repeat: no-repeat;
   line-height: 35px;
   font-weight: bold;
@@ -66,10 +99,6 @@ export default {
   background-position: 10px;
   text-indent: 35px;
   cursor: pointer;
-}
-
-.second-menu {
-  display: none;
 }
 
 .second-menu li {

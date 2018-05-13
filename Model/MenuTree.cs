@@ -7,9 +7,10 @@ namespace Model
 {
     public class MenuTree
     {
-        public string MenuName { get; set; }
-        public string MenuURL { get; set; }
-        public string Class { get; set; }
-        public List<MenuTree> Childs { get; set; }
+        public string name { get; set; }
+        public string url { get; set; }
+        public string _class { get; set; }
+        public List<MenuTree> childs { get; set; }
+        public bool showChild { get; set; }
     }
 }
