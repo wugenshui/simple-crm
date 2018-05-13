@@ -42,6 +42,8 @@ export default {
           this.menus[i].showChild = false
         }
         father.showChild = true
+      } else {
+        father.showChild = false
       }
     }
   }

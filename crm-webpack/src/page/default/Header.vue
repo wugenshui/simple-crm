@@ -48,8 +48,8 @@ export default {
 <style scoped>
 nav {
   background-color: #0e90d2;
-  height: 48px;
-  line-height: 48px;
+  height: 56px;
+  line-height: 56px;
 }
 
 .title {
