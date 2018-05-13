@@ -30,7 +30,7 @@ namespace CRM
                 User user = _UserDAL.Get().FirstOrDefault(o => o.LoginName == username && o.Password == md5password);
                 if (user != null)
                 {
-                    CommonHelper.User = user;
+                    CommonHelper.old_User = user;
                     Response.Redirect("./Default.aspx");
                 }
                 else

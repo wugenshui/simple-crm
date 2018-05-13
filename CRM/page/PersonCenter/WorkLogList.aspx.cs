@@ -25,7 +25,7 @@ namespace CRM.page.PersonCenter
                 Response.Write("删除成功！");
                 Response.End();
             }
-            logs = _WorkLogDAL.Get().Where(o => o.UserId == CommonHelper.User.Id).ToList();
+            logs = _WorkLogDAL.Get().Where(o => o.UserId == CommonHelper.old_User.Id).ToList();
         }
     }
 }

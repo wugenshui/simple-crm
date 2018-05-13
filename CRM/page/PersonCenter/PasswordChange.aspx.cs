@@ -17,11 +17,11 @@ namespace CRM.page.PersonCenter
             {
                 if (Request.Form["type"] == "change")
                 {
-                    if (MD5Helper.CreateMD5(Request.Form["txtOld"]) == CommonHelper.User.Password)
+                    if (MD5Helper.CreateMD5(Request.Form["txtOld"]) == CommonHelper.old_User.Password)
                     {
-                        CommonHelper.User.Password = MD5Helper.CreateMD5(Request.Form["txtNew"]);
+                        CommonHelper.old_User.Password = MD5Helper.CreateMD5(Request.Form["txtNew"]);
                         UserDAL _UserDAL = new UserDAL();
-                        _UserDAL.Update(CommonHelper.User);
+                        _UserDAL.Update(CommonHelper.old_User);
 
                         Response.Write("保存成功");
                         Response.End();

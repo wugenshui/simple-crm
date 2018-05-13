@@ -17,7 +17,7 @@ namespace CRMWebApi.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public IHttpActionResult Login(LoginForm loginForm)
+        public IHttpActionResult Login([FromBody]LoginForm loginForm)
         {
             AjaxResult result = new AjaxResult();
             string md5Password = MD5Helper.CreateMD5(loginForm.password);
