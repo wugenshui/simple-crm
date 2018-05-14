@@ -17,7 +17,6 @@ export default {
   mounted() {
     var mainwidth = document.getElementById("app").clientWidth
     this.timer = setInterval(() => {
-      console.log("浮云")
       if (this.offset1 >= mainwidth) {
         this.offset1 = -580
       }
