@@ -37,10 +37,13 @@
         </div>
       </div>
     </div>
+    <Cloud></Cloud>
   </div>
 </template>
 
 <script>
+import Cloud from "../../components/Cloud.vue"
+
 export default {
   data: function() {
     return {
@@ -71,6 +74,9 @@ export default {
       this.loginForm.username = localStorage.getItem("crm-username")
       this.loginForm.password = localStorage.getItem("crm-password")
     }
+  },
+  components: {
+    Cloud
   }
 }
 </script>
@@ -124,6 +130,7 @@ export default {
   top: 50%;
   margin-left: -350px;
   margin-top: -200px;
+  z-index: 2;
 }
 
 .centerbox .sysntemlogo {
