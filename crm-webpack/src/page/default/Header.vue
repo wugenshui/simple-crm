@@ -20,8 +20,8 @@
                     </DropdownMenu>
                 </Dropdown>
                 <Dropdown>
-                    <a href="javascript:void(0)">
-                        开启全屏
+                    <a href="javascript:void(0)" @click="fullscreenToggle">
+                        {{ isFullScreen ? '退出全屏' : '开启全屏' }}
                     </a>
                 </Dropdown>
             </div>
@@ -32,7 +32,9 @@
 <script>
 export default {
   data: function() {
-    return {}
+    return {
+      isFullScreen: false
+    }
   },
   methods: {
     logout(name) {
@@ -40,7 +42,57 @@ export default {
         this.$store.commit("setToken", "")
         this.$router.push("./login")
       }
+    },
+    // 全屏切换
+    fullscreenToggle() {
+      var isfScreen = document.fullscreenEnabled || window.fullScreen || document.webkitIsFullScreen
+      if (this.isFullScreen) {
+        // 是全屏状态
+        this.existFullscreen()
+      } else {
+        this.fullscreen()
+      }
+    },
+    // 全屏
+    fullscreen() {
+      var ele = document.documentElement
+      if (ele.requestFullscreen) {
+        ele.requestFullscreen()
+      } else if (ele.msRequestFullscreen) {
+        ele.msRequestFullscreen()
+        ieIsfSceen = true
+      } else if (ele.mozRequestFullScreen) {
+        ele.mozRequestFullScreen()
+      } else if (ele.webkitRequestFullScreen) {
+        ele.webkitRequestFullScreen()
+      } else {
+        console.log("不支持全屏")
+      }
+    },
+    // 退出全屏
+    existFullscreen() {
+      if (document.exitFullscreen) {
+        document.exitFullscreen()
+      } else if (document.msExitFullscreen) {
+        document.msExitFullscreen()
+      } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen()
+      } else if (document.webkitCancelFullScreen) {
+        document.webkitCancelFullScreen()
+      } else {
+        console.log("不支持全屏")
+      }
+    },
+    // 全屏状态切换
+    stateChange() {
+      this.isFullScreen = !this.isFullScreen
     }
+  },
+  mounted() {
+    document.addEventListener("fullscreenchange", this.stateChange)
+    document.addEventListener("webkitfullscreenchange", this.stateChange)
+    document.addEventListener("mozfullscreenchange", this.stateChange)
+    document.addEventListener("MSFullscreenChange", this.stateChange)
   }
 }
 </script>
