@@ -3,7 +3,7 @@
     <TopHeader></TopHeader>
     <div class="center">
       <LeftMenu></LeftMenu>
-      <div class="main"></div>
+      <router-view class="main"></router-view>
     </div>
   </div>
 </template>
@@ -30,5 +30,14 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+.main {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 180px;
+  right: 0;
+  padding: 10px;
 }
 </style>
