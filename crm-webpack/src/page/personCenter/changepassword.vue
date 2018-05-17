@@ -18,7 +18,7 @@
                 </Form>
             </div>
             <div class="panel-footer">
-                <Button type="primary" @click="change">保存</Button>
+                <Button type="primary" @click="change" :disabled="!canSave">保存</Button>
             </div>
         </div>
     </div>
@@ -43,6 +43,11 @@ export default {
           common.info(res.data.msg)
         }
       })
+    }
+  },
+  computed: {
+    canSave() {
+      return this.form.txtOld.length > 0 && this.form.txtNew.length > 0 && this.form.txtNew == this.form.txtNewRepeat
     }
   }
 }
