@@ -30,9 +30,8 @@ Axios.interceptors.response.use(
     iview.Spin.hide()
     if (response.data.state != null && response.data.state === false && response.data.msg != null) {
       common.error(response.data.msg)
-    } else {
-      return response
     }
+    return response
   },
   error => {
     iview.Spin.hide()

@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import common from "../../common.js"
 export default {
   data: function() {
     return {
@@ -37,7 +38,7 @@ export default {
   },
   methods: {
     change() {
-      this.$ajax.put("password").then(res => {
+      this.$ajax.put("password", this.form).then(res => {
         if (res.data.state == true) {
           common.info(res.data.msg)
         }
@@ -48,4 +49,5 @@ export default {
 </script>
 
 <style scoped>
+
 </style>
