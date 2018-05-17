@@ -28,8 +28,13 @@ Axios.interceptors.request.use(function(config) {
 Axios.interceptors.response.use(
   response => {
     iview.Spin.hide()
-    if (response.data.state != null && response.data.state === false && response.data.msg != null) {
-      common.error(response.data.msg)
+    // 特殊的AjaxResult 返回格式处理
+    if (response.data.state != null && response.data.msg != null) {
+      if (response.data.state === false) {
+        common.error(response.data.msg)
+      } else {
+        common.info(response.data.msg)
+      }
     }
     return response
   },

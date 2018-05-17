@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <TopHeader></TopHeader>
     <div class="center">
       <LeftMenu></LeftMenu>
@@ -39,5 +39,6 @@ export default {
   left: 180px;
   right: 0;
   padding: 10px;
+  overflow: auto;
 }
 </style>

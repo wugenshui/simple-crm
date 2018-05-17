@@ -7,16 +7,21 @@ export default new Router({
   routes: [
     {
       path: "/",
-      name: "default",
+      name: "Default",
       component: resolve => require(["../page/default/Default.vue"], resolve),
       children: [
         {
-          path: "/changepassword",
-          name: "changepassword",
-          component: resolve => require(["../page/personCenter/changepassword.vue"], resolve)
+          path: "/PasswordChange",
+          name: "PasswordChange",
+          component: resolve => require(["../page/personCenter/PasswordChange.vue"], resolve)
+        },
+        {
+          path: "/WorkLogList",
+          name: "WorkLogList",
+          component: resolve => require(["../page/personCenter/WorkLogList.vue"], resolve)
         }
       ]
     },
-    { path: "/login", name: "login", component: resolve => require(["../page/login/Login.vue"], resolve) }
+    { path: "/Login", name: "Login", component: resolve => require(["../page/login/Login.vue"], resolve) }
   ]
 })

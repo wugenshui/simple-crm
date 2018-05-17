@@ -8,6 +8,7 @@ body {
   line-height: 1.5;
   color: #212529;
   background-color: #fff;
+  overflow: hidden;
 }
 
 * {
@@ -32,6 +33,12 @@ a {
   font-size: 0.875rem;
   line-height: 1.5;
   border-radius: 0.2rem;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 /* #region bootstrap tool */
@@ -72,6 +79,11 @@ a {
   width: 1110px;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
+  margin: 0 auto;
+}
+
+.panel-big {
+  width: 98%;
   margin: 0 auto;
 }
 
