@@ -26,7 +26,6 @@
                         </FormItem>
                         </Col>
                     </Row>
-
                 </Form>
                 <table class="table">
                     <colgroup>

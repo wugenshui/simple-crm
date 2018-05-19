@@ -11,7 +11,7 @@
           <ul class="second-menu" v-show="father.showChild">
             <li v-for="(son,index) in father.childs" :key="index">
               <cite></cite>
-              <a :href="son.url" target="mainIframe">
+              <a href="javascript:void(0)" @click="$router.push(son.url)">
                 {{ son.name }}
               </a>
               <i></i>
