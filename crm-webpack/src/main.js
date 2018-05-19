@@ -11,6 +11,7 @@ import "./style/common.css"
 import common from "./common.js"
 import store from "./store.js"
 import "vue2-animate/dist/vue2-animate.min.css"
+import "./filter.js"
 
 Vue.config.productionTip = false
 Vue.use(VurRouter)
@@ -29,7 +30,7 @@ Axios.interceptors.response.use(
   response => {
     iview.Spin.hide()
     // 特殊的AjaxResult 返回格式处理
-    if (response.data.state != null && response.data.msg != null) {
+    if (response.data.state != null && typeof response.data.msg == "string") {
       if (response.data.state === false) {
         common.error(response.data.msg)
       } else {

@@ -30,16 +30,19 @@
                 </Form>
                 <table class="table">
                     <colgroup>
-                        <col width="634">
-                        <col width="634">
+                        <col width="60px">
+                        <col width="">
+                        <col width="">
                     </colgroup>
                     <tr>
+                        <th>序号</th>
                         <th>标题</th>
                         <th>更新时间</th>
                     </tr>
                     <tr v-for="(log,index) in data" :key="index">
+                        <td>{{ index + 1 }}</td>
                         <td>{{ log.title }}</td>
-                        <td>{{ log.createTime }}</td>
+                        <td>{{ log.createTime | time }}</td>
                     </tr>
                 </table>
             </div>

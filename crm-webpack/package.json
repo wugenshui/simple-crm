@@ -12,6 +12,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "circular-json": "^0.5.4",
+    "dayjs": "^1.6.2",
     "iview": "^2.13.1",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
