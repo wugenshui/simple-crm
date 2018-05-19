@@ -14,7 +14,6 @@ namespace CRMWebApi.Controllers
     {
         WorkLogDAL _WorkLogDAL = new WorkLogDAL();
 
-        [ResponseType(typeof(IQueryable<WorkLog>))]
         public IHttpActionResult Get(string title = "", DateTime? date = null, int pageSize = 20, int pageIndex = 1)
         {
             IQueryable<WorkLog> logs = null;
@@ -28,11 +27,14 @@ namespace CRMWebApi.Controllers
             {
                 logs = logs.Where(o => o.Title.Contains(title));
             }
+            int total = logs.Count();
             logs = logs.OrderBy(o => o.CreateTime)
                 .Skip(pageSize * (pageIndex - 1))
                 .Take(pageSize);
 
-            return Json(logs);
+            var result = new { logs = logs, total = total };
+
+            return Json(result);
         }
     }
 }

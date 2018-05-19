@@ -15,7 +15,7 @@
                         </Col>
                         <Col span="6">
                         <FormItem prop="txtTime" label="日期">
-                            <DatePicker type="date" v-model="form.txtTime"></DatePicker>
+                            <DatePicker type="date" v-model="form.txtTime" format="yyyy-MM-dd"></DatePicker>
                         </FormItem>
                         </Col>
                         <Col span="3" offset="9">
@@ -40,7 +40,7 @@
                         <th>更新时间</th>
                         <th>操作</th>
                     </tr>
-                    <tr v-for="(log,index) in data" :key="index">
+                    <tr v-for="(log,index) in logs" :key="index">
                         <td class="text-center">{{ index + 1 }}</td>
                         <td>{{ log.title }}</td>
                         <td>{{ log.createTime | time }}</td>
@@ -51,31 +51,49 @@
                     </tr>
                 </table>
             </div>
-            <div class="panel-footer">
-                分页
+            <div class="panel-footer text-right">
+                <Page :total="total" :current="pageIndex" :page-size="pageSize" :show-total="true" @on-change="pageChange"></Page>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import dayjs from "dayjs"
 import common from "../../common.js"
 export default {
   data: function() {
     return {
       form: {
         txtTitle: "",
-        txtTime: "",
-        pageIndex:1
+        txtTime: ""
       },
-      data: []
+      pageIndex: 1,
+      pageSize: 10,
+      total: 0,
+      logs: []
     }
   },
   methods: {
     search() {
-      this.$ajax.get("worklog?title="+this.form.txtTitle+"&date="+this.form.txtTime+"&pageIndex="+this.form.pageIndex).then(res => {
-        this.data = res.data
+      var date = this.form.txtTime ? dayjs(this.form.txtTime).format("YYYY-MM-DD") : ""
+      var url =
+        "worklog?title=" +
+        this.form.txtTitle +
+        "&date=" +
+        date +
+        "&pageIndex=" +
+        this.pageIndex +
+        "&pageSize=" +
+        this.pageSize
+      this.$ajax.get(url).then(res => {
+        this.logs = res.data.logs
+        this.total = res.data.total
       })
+    },
+    pageChange(index) {
+      this.pageIndex = index
+      this.search()
     }
   },
   mounted() {
