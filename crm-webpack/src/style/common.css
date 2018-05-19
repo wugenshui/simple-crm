@@ -65,6 +65,10 @@ a {
   background-color: rgba(0, 0, 0, 0.075);
 }
 
+.table .text-center {
+  padding-left: 0;
+}
+
 /* #endregion */
 
 /* #region bootstrap tool */

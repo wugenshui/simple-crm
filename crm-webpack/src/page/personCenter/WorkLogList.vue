@@ -35,14 +35,19 @@
                         <col width="">
                     </colgroup>
                     <tr>
-                        <th>序号</th>
+                        <th class="text-center">序号</th>
                         <th>标题</th>
                         <th>更新时间</th>
+                        <th>操作</th>
                     </tr>
                     <tr v-for="(log,index) in data" :key="index">
-                        <td>{{ index + 1 }}</td>
+                        <td class="text-center">{{ index + 1 }}</td>
                         <td>{{ log.title }}</td>
                         <td>{{ log.createTime | time }}</td>
+                        <td>
+                            <Button type="success" size="small">编辑</Button>
+                            <Button type="error" size="small">删除</Button>
+                        </td>
                     </tr>
                 </table>
             </div>
@@ -60,14 +65,15 @@ export default {
     return {
       form: {
         txtTitle: "",
-        txtTime: ""
+        txtTime: "",
+        pageIndex:1
       },
       data: []
     }
   },
   methods: {
     search() {
-      this.$ajax.get("worklog", this.form).then(res => {
+      this.$ajax.get("worklog?title="+this.form.txtTitle+"&date="+this.form.txtTime+"&pageIndex="+this.form.pageIndex).then(res => {
         this.data = res.data
       })
     }

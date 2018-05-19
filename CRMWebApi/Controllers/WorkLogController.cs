@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Description;
 
 namespace CRMWebApi.Controllers
 {
@@ -13,9 +14,23 @@ namespace CRMWebApi.Controllers
     {
         WorkLogDAL _WorkLogDAL = new WorkLogDAL();
 
-        public IHttpActionResult Get()
+        [ResponseType(typeof(IQueryable<WorkLog>))]
+        public IHttpActionResult Get(string title = "", DateTime? date = null, int pageSize = 20, int pageIndex = 1)
         {
-            var logs = _WorkLogDAL.Get();
+            IQueryable<WorkLog> logs = null;
+            logs = _WorkLogDAL.Get();
+            if (date != null)
+            {
+                DateTime tomorrow = date.Value.AddDays(1);
+                logs = logs.Where(o => o.CreateTime >= date.Value && o.CreateTime <= tomorrow);
+            }
+            if (!string.IsNullOrWhiteSpace(title))
+            {
+                logs = logs.Where(o => o.Title.Contains(title));
+            }
+            logs = logs.OrderBy(o => o.CreateTime)
+                .Skip(pageSize * (pageIndex - 1))
+                .Take(pageSize);
 
             return Json(logs);
         }
