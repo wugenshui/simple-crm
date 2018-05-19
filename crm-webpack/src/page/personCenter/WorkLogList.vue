@@ -9,17 +9,16 @@
                     <Row>
                         <Col span="6">
                         <FormItem prop="txtTitle" label="标题">
-                            <Input type="text" v-model="form.txtTitle" placeholder="Username">
+                            <Input type="text" v-model="form.txtTitle">
                             </Input>
                         </FormItem>
                         </Col>
                         <Col span="6">
-                        <FormItem prop="txtTime" label="时间">
-                            <Input type="date" v-model="form.txtTime" placeholder="Password">
-                            </Input>
+                        <FormItem prop="txtTime" label="日期">
+                            <DatePicker type="date" v-model="form.txtTime"></DatePicker>
                         </FormItem>
                         </Col>
-                        <Col span="4" offset="8">
+                        <Col span="3" offset="9">
                         <FormItem>
                             <FormItem>
                                 <Button type="primary" @click="search">查询</Button>
@@ -29,7 +28,20 @@
                     </Row>
 
                 </Form>
-                <Table :columns="columns" :data="data"></Table>
+                <table class="table">
+                    <colgroup>
+                        <col width="634">
+                        <col width="634">
+                    </colgroup>
+                    <tr>
+                        <th>标题</th>
+                        <th>更新时间</th>
+                    </tr>
+                    <tr v-for="(log,index) in data" :key="index">
+                        <td>{{ log.title }}</td>
+                        <td>{{ log.createTime }}</td>
+                    </tr>
+                </table>
             </div>
             <div class="panel-footer">
                 分页
@@ -47,16 +59,6 @@ export default {
         txtTitle: "",
         txtTime: ""
       },
-      columns: [
-        {
-          title: "标题",
-          key: "title"
-        },
-        {
-          title: "日期",
-          key: "createTime"
-        }
-      ],
       data: []
     }
   },
@@ -74,5 +76,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

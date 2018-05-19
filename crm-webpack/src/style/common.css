@@ -41,6 +41,32 @@ a {
   overflow: hidden;
 }
 
+/* #region table */
+
+.table {
+  width: 100%;
+  margin-bottom: 10px;
+  border-spacing: 0;
+}
+
+.table td,
+.table th {
+  border: 1px solid #e9eaec;
+  line-height: 48px;
+  padding-left: 18px;
+  text-align: left;
+}
+
+.table tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.table tr:hover {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+/* #endregion */
+
 /* #region bootstrap tool */
 .clearfix::after {
   display: block;
