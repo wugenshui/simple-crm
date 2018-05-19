@@ -9,8 +9,7 @@
                     <Row>
                         <Col span="6">
                         <FormItem prop="txtTitle" label="标题">
-                            <Input type="text" v-model="form.txtTitle">
-                            </Input>
+                            <Input type="text" v-model="form.txtTitle" />
                         </FormItem>
                         </Col>
                         <Col span="6">
