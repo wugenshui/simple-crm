@@ -7,10 +7,10 @@
             <div class="panel-body">
                 <Form ref="form" :label-width="80">
                     <FormItem label="日志标题">
-                        <Input type="text" v-model="title" />
+                        <Input type="text" v-model="data.title" />
                     </FormItem>
                     <FormItem label="日志内容">
-                        <DatePicker type="date" v-model="content" format="yyyy-MM-dd"></DatePicker>
+                        <editor class="editor" :value="data.content" :setting="editorSetting" @input="(content)=> data.content = content"></editor>
                     </FormItem>
                 </Form>
             </div>
@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import editor from "../../components/Editor.vue"
+
 export default {
   data: function() {
     return {
@@ -33,8 +35,14 @@ export default {
       pageIndex: 1,
       pageSize: 10,
       total: 0,
-      logs: []
+      logs: [],
+      editorSetting: {
+        height: 400
+      }
     }
+  },
+  components: {
+    editor: editor
   }
 }
 </script>
