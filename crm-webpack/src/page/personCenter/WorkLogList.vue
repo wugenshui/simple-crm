@@ -21,7 +21,7 @@
                         <FormItem>
                             <FormItem>
                                 <Button type="primary" @click="search">查询</Button>
-                                <Button type="success" @click="add">新增</Button>
+                                <Button type="success" @click="$router.push('worklogedit')">新增</Button>
                             </FormItem>
                         </FormItem>
                         </Col>
@@ -54,6 +54,7 @@
                 <Page :total="total" :current="pageIndex" :page-size="pageSize" :show-total="true" @on-change="pageChange"></Page>
             </div>
         </div>
+        <router-view class="container"></router-view>
     </div>
 </template>
 
