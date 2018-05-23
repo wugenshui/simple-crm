@@ -8,22 +8,22 @@ export default new Router({
     {
       path: "/",
       name: "Default",
-      component: resolve => require(["./page/default/Default.vue"], resolve),
+      component: () => import("./page/default/Default.vue"),
       children: [
         {
           path: "/PasswordChange",
           name: "PasswordChange",
-          component: resolve => require(["./page/personCenter/PasswordChange.vue"], resolve)
+          component: () => import("./page/personCenter/PasswordChange.vue")
         },
         {
           path: "/WorkLogList",
           name: "WorkLogList",
-          component: resolve => require(["./page/personCenter/WorkLogList.vue"], resolve)
+          component: () => import("./page/personCenter/WorkLogList.vue")
         },
         {
           path: "/WorkLogEdit",
           name: "WorkLogEdit",
-          component: resolve => require(["./page/personCenter/WorkLogEdit.vue"], resolve)
+          component: () => import("./page/personCenter/WorkLogEdit.vue")
         }
       ]
     },
