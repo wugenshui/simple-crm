@@ -10,11 +10,12 @@
                         <Input type="text" v-model="data.title" />
                     </FormItem>
                     <FormItem label="日志内容">
-                        <editor class="editor" :value="data.content" :setting="editorSetting" @input="(content)=> data.content = content"></editor>
+                        <editor class="editor" :value="data.content" @input="(content)=> data.content = content"></editor>
                     </FormItem>
                 </Form>
             </div>
-            <div class="panel-footer text-right">
+            <div class="panel-footer text-left">
+                <Button type="primary" @click="save" :disabled="!canSave">保存</Button>
             </div>
         </div>
     </div>
@@ -22,7 +23,7 @@
 
 <script>
 import editor from "../../components/Editor.vue"
-
+import common from "../../common.js"
 export default {
   data: function() {
     return {
@@ -35,10 +36,17 @@ export default {
       pageIndex: 1,
       pageSize: 10,
       total: 0,
-      logs: [],
-      editorSetting: {
-        height: 400
-      }
+      logs: []
+    }
+  },
+  methods: {
+    save() {
+      this.$ajax.post("worklog", this.data)
+    }
+  },
+  computed: {
+    canSave() {
+      return this.data.title.length > 0 && this.data.content.length > 0
     }
   },
   components: {

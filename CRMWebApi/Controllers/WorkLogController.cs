@@ -1,4 +1,5 @@
-﻿using DAL;
+﻿using Common;
+using DAL;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -34,6 +35,19 @@ namespace CRMWebApi.Controllers
 
             var result = new { logs = logs, total = total };
 
+            return Json(result);
+        }
+
+        [HttpPost]
+        [ResponseType(typeof(AjaxResult))]
+        public IHttpActionResult Post(WorkLog log)
+        {
+            AjaxResult result = new AjaxResult();
+            log.UserId = CommonHelper.User.Id;
+            log.CreateTime = DateTime.Now;
+            _WorkLogDAL.Add(log);
+
+            result.msg = "保存成功";
             return Json(result);
         }
     }
