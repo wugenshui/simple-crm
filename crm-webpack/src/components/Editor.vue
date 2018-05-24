@@ -1,14 +1,10 @@
 <template>
-    <textarea :id="id" :value="value"></textarea>
+  <textarea :id="id" :value="value"></textarea>
 </template>
 
 <script>
 // Import TinyMCE
 import tinymce from "tinymce"
-import "tinymce/themes/modern"
-import "tinymce/plugins/paste"
-import "tinymce/plugins/link"
-import "tinymce/skins/lightgray/skin.min.css"
 
 const INIT = 0
 const CHANGED = 2
@@ -23,7 +19,6 @@ export default {
   },
   watch: {
     value: function(val) {
-      console.log("init " + val)
       if (this.status == INIT || tinymce.activeEditor.getContent() != val) {
         tinymce.activeEditor.setContent(val)
       }
@@ -41,6 +36,7 @@ export default {
     const _this = this
     const setting = {
       selector: "#" + _this.id,
+      height: 350,
       language: "zh_CN",
       init_instance_callback: function(editor) {
         EDITOR = editor
