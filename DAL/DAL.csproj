@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseDal.cs" />
+    <Compile Include="CompanyDAL.cs" />
     <Compile Include="MenuDAL.cs" />
     <Compile Include="UserAuthorityDAL.cs" />
     <Compile Include="UserDAL.cs" />

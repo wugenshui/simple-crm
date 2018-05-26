@@ -64,7 +64,7 @@ namespace CRMWebApi.Controllers
             log.CreateTime = DateTime.Now;
             _WorkLogDAL.Update(log);
 
-            result.msg = "保存成功";
+            result.msg = "修改成功";
             return Json(result);
         }
 
