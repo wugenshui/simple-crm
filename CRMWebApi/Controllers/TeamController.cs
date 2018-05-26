@@ -11,29 +11,24 @@ using System.Web.Http.Description;
 
 namespace CRMWebApi.Controllers
 {
-    public class CompanyController : ApiController
+    public class TeamController : ApiController
     {
-        CompanyDAL _CompanyDAL = new CompanyDAL();
-
-        public IHttpActionResult Get()
-        {
-            return Json(_CompanyDAL.Get());
-        }
+        TeamDAL _TeamDAL = new TeamDAL();
 
         public IHttpActionResult Get(int id)
         {
-            return Json(_CompanyDAL.Get().FirstOrDefault(o => o.Id == id));
+            return Json(_TeamDAL.Get().FirstOrDefault(o => o.Id == id));
         }
 
         public IHttpActionResult Get(string name, int pageSize = 20, int pageIndex = 1)
         {
-            IQueryable<Company> list = _CompanyDAL.Get();
+            IQueryable<Team> list = _TeamDAL.Get();
             if (!string.IsNullOrWhiteSpace(name))
             {
-                list = list.Where(o => o.CompanyName.Contains(name));
+                list = list.Where(o => o.Name.Contains(name));
             }
             int total = list.Count();
-            list = list.OrderByDescending(o => o.CreateTime)
+            list = list.OrderByDescending(o => o.Id)
                 .Skip(pageSize * (pageIndex - 1))
                 .Take(pageSize);
 
@@ -44,11 +39,10 @@ namespace CRMWebApi.Controllers
 
         [HttpPost]
         [ResponseType(typeof(AjaxResult))]
-        public IHttpActionResult Post(Company model)
+        public IHttpActionResult Post(Team model)
         {
             AjaxResult result = new AjaxResult();
-            model.CreateTime = DateTime.Now;
-            _CompanyDAL.Add(model);
+            _TeamDAL.Add(model);
 
             result.msg = "保存成功";
             return Json(result);
@@ -56,11 +50,10 @@ namespace CRMWebApi.Controllers
 
         [HttpPut]
         [ResponseType(typeof(AjaxResult))]
-        public IHttpActionResult Put(Company model)
+        public IHttpActionResult Put(Team model)
         {
             AjaxResult result = new AjaxResult();
-            model.CreateTime = DateTime.Now;
-            _CompanyDAL.Update(model);
+            _TeamDAL.Update(model);
 
             result.msg = "修改成功";
             return Json(result);
@@ -71,10 +64,10 @@ namespace CRMWebApi.Controllers
         public IHttpActionResult Delete(int id)
         {
             AjaxResult result = new AjaxResult();
-            Company model = _CompanyDAL.Get().FirstOrDefault(o => o.Id == id);
+            Team model = _TeamDAL.Get().FirstOrDefault(o => o.Id == id);
             if (model != null)
             {
-                _CompanyDAL.Delete(model);
+                _TeamDAL.Delete(model);
             }
 
             result.msg = "删除成功";
