@@ -44,8 +44,8 @@
                         <td>{{ log.title }}</td>
                         <td>{{ log.createTime | time }}</td>
                         <td>
-                            <Button type="success" size="small">编辑</Button>
-                            <Button type="error" size="small">删除</Button>
+                            <Button type="success" size="small" @click="$router.push('worklogedit?id='+log.id)">编辑</Button>
+                            <Button type="error" size="small" @click="del(log.id)">删除</Button>
                         </td>
                     </tr>
                 </table>
@@ -92,6 +92,11 @@ export default {
     pageChange(index) {
       this.pageIndex = index
       this.search()
+    },
+    del(id) {
+      this.$ajax.delete("worklog/" + id).then(() => {
+        this.search()
+      })
     }
   },
   mounted() {

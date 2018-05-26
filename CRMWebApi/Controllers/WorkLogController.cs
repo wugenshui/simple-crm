@@ -15,6 +15,11 @@ namespace CRMWebApi.Controllers
     {
         WorkLogDAL _WorkLogDAL = new WorkLogDAL();
 
+        public IHttpActionResult Get(int id)
+        {
+            return Json(_WorkLogDAL.Get().FirstOrDefault(o => o.Id == id));
+        }
+
         public IHttpActionResult Get(string title = "", DateTime? date = null, int pageSize = 20, int pageIndex = 1)
         {
             IQueryable<WorkLog> logs = null;
@@ -29,7 +34,7 @@ namespace CRMWebApi.Controllers
                 logs = logs.Where(o => o.Title.Contains(title));
             }
             int total = logs.Count();
-            logs = logs.OrderBy(o => o.CreateTime)
+            logs = logs.OrderByDescending(o => o.CreateTime)
                 .Skip(pageSize * (pageIndex - 1))
                 .Take(pageSize);
 
@@ -48,6 +53,33 @@ namespace CRMWebApi.Controllers
             _WorkLogDAL.Add(log);
 
             result.msg = "保存成功";
+            return Json(result);
+        }
+
+        [HttpPut]
+        [ResponseType(typeof(AjaxResult))]
+        public IHttpActionResult Put(WorkLog log)
+        {
+            AjaxResult result = new AjaxResult();
+            log.CreateTime = DateTime.Now;
+            _WorkLogDAL.Update(log);
+
+            result.msg = "保存成功";
+            return Json(result);
+        }
+
+        [HttpDelete]
+        [ResponseType(typeof(AjaxResult))]
+        public IHttpActionResult Delete(int id)
+        {
+            AjaxResult result = new AjaxResult();
+            WorkLog log = _WorkLogDAL.Get().FirstOrDefault(o => o.Id == id);
+            if (log != null)
+            {
+                _WorkLogDAL.Delete(log);
+            }
+
+            result.msg = "删除成功";
             return Json(result);
         }
     }

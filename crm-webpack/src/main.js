@@ -30,7 +30,7 @@ Axios.interceptors.response.use(
   response => {
     iview.Spin.hide()
     // 特殊的AjaxResult 返回格式处理
-    if (response.data.state != null && typeof response.data.msg == "string") {
+    if (response.data != null && response.data.state != null && typeof response.data.msg == "string") {
       if (response.data.state === false) {
         common.error(response.data.msg)
       } else {
