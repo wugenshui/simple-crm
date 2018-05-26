@@ -2,7 +2,7 @@
     <div>
         <div class="panel panel-big">
             <div class="panel-header">
-                工作日志
+                添加公司
             </div>
             <div class="panel-body">
                 <Form ref="form" :label-width="80" :model="data" :rules="rules">
