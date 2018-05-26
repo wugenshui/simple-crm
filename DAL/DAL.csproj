@@ -60,6 +60,10 @@
     <Compile Include="WorkLogDAL.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{5F2A7E12-E6CB-49E9-AC72-584DEAAF3F7C}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{d2e2e6fb-3a00-42b1-8b08-c2e5570ec082}</Project>
       <Name>Model</Name>

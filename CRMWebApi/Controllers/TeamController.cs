@@ -3,6 +3,7 @@ using DAL;
 using Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -22,17 +23,9 @@ namespace CRMWebApi.Controllers
 
         public IHttpActionResult Get(string name, int pageSize = 20, int pageIndex = 1)
         {
-            IQueryable<Team> list = _TeamDAL.Get();
-            if (!string.IsNullOrWhiteSpace(name))
-            {
-                list = list.Where(o => o.Name.Contains(name));
-            }
-            int total = list.Count();
-            list = list.OrderByDescending(o => o.Id)
-                .Skip(pageSize * (pageIndex - 1))
-                .Take(pageSize);
+            DataTable data = _TeamDAL.Get(name, pageSize, pageIndex);
 
-            var result = new { list = list, total = total };
+            var result = new { list = data, total = data.Rows.Count };
 
             return Json(result);
         }
