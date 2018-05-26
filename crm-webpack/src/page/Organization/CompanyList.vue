@@ -7,12 +7,12 @@
             <div class="panel-body">
                 <Form ref="form" :label-width="80">
                     <Row>
-                        <Col span="12">
+                        <Col span="6">
                         <FormItem label="公司名称">
                             <Input type="text" v-model="filtername" />
                         </FormItem>
                         </Col>
-                        <Col span="5" offset="7">
+                        <Col span="4" offset="14">
                         <FormItem>
                             <FormItem>
                                 <Button type="primary" @click="search">查询</Button>
@@ -29,16 +29,24 @@
                     </colgroup>
                     <tr>
                         <th class="text-center">序号</th>
-                        <th>标题</th>
-                        <th>更新时间</th>
+                        <th>公司名称</th>
+                        <th>法人代表</th>
+                        <th>电话</th>
+                        <th>公司网站</th>
+                        <th>成立时间</th>
+                        <th>营业执照</th>
                         <th>操作</th>
                     </tr>
                     <tr v-for="(data,index) in datas" :key="index">
                         <td class="text-center">{{ index + 1 }}</td>
-                        <td>{{ log.title }}</td>
-                        <td>{{ log.createTime | time }}</td>
+                        <td>{{ data.companyName }}</td>
+                        <td>{{ data.owner }}</td>
+                        <td>{{ data.phone }}</td>
+                        <td>{{ data.website }}</td>
+                        <td>{{ data.createTime | date }}</td>
+                        <td>{{ data.businessLicence }}</td>
                         <td>
-                            <Button type="success" size="small" @click="$router.push('worklogedit?id='+data.id)">编辑</Button>
+                            <Button type="success" size="small" @click="$router.push('companyadd?id='+data.id)">编辑</Button>
                             <Button type="error" size="small" @click="del(data.id)">删除</Button>
                         </td>
                     </tr>
@@ -68,17 +76,9 @@ export default {
   methods: {
     search() {
       var date = this.filterTime ? dayjs(this.filterTime).format("YYYY-MM-DD") : ""
-      var url =
-        "worklog?title=" +
-        this.filterTitle +
-        "&date=" +
-        date +
-        "&pageIndex=" +
-        this.pageIndex +
-        "&pageSize=" +
-        this.pageSize
+      var url = "company?name=" + this.filtername + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize
       this.$ajax.get(url).then(res => {
-        this.logs = res.data.logs
+        this.datas = res.data.companys
         this.total = res.data.total
       })
     },
@@ -87,7 +87,7 @@ export default {
       this.search()
     },
     del(id) {
-      this.$ajax.delete("worklog/" + id).then(() => {
+      this.$ajax.delete("company/" + id).then(() => {
         this.search()
       })
     }

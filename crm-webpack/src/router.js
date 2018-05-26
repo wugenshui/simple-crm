@@ -24,6 +24,16 @@ export default new Router({
           path: "/WorkLogEdit",
           name: "WorkLogEdit",
           component: () => import("./page/personCenter/WorkLogEdit.vue")
+        },
+        {
+          path: "/CompanyList",
+          name: "CompanyList",
+          component: () => import("./page/Organization/CompanyList.vue")
+        },
+        {
+          path: "/CompanyAdd",
+          name: "CompanyAdd",
+          component: () => import("./page/Organization/CompanyAdd.vue")
         }
       ]
     },

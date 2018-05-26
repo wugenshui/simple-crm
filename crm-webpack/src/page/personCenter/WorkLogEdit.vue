@@ -36,8 +36,7 @@ export default {
       filterTime: "",
       pageIndex: 1,
       pageSize: 10,
-      total: 0,
-      logs: []
+      total: 0
     }
   },
   methods: {
