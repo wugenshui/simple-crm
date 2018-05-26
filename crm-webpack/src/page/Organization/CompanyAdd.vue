@@ -1,38 +1,38 @@
 <template>
-    <div>
-        <div class="panel panel-big">
-            <div class="panel-header">
-                添加公司
-            </div>
-            <div class="panel-body">
-                <Form ref="form" :label-width="80" :model="data" :rules="rules">
-                    <FormItem label="公司名称" prop="companyName">
-                        <Input type="text" v-model="data.companyName" />
-                    </FormItem>
-                    <FormItem label="法人代表" prop="owner">
-                        <Input type="text" v-model="data.owner" />
-                    </FormItem>
-                    <FormItem label="电话" prop="phone">
-                        <Input type="text" v-model="data.phone" />
-                    </FormItem>
-                    <FormItem label="公司网站" prop="website">
-                        <Input type="text" v-model="data.website" />
-                    </FormItem>
-                    <FormItem label="成立时间" prop="createTime">
-                        <DatePicker type="date" v-model="data.createTime"></DatePicker>
-                    </FormItem>
-                    <FormItem label="营业执照" prop="businessLicence">
-                        <Input type="text" v-model="data.businessLicence" />
-                    </FormItem>
-                </Form>
-            </div>
-            <div class="panel-footer text-left">
-                <Button type="primary" @click="save">保存</Button>
-                <Button type="ghost" @click="reset">重置</Button>
-                <Button v-if="$route.query.id" type="ghost" @click="$router.go(-1)">返回</Button>
-            </div>
-        </div>
+  <div>
+    <div class="panel panel-big">
+      <div class="panel-header">
+        添加公司
+      </div>
+      <div class="panel-body">
+        <Form ref="form" :label-width="80" :model="data" :rules="rules">
+          <FormItem label="公司名称" prop="companyName">
+            <Input type="text" v-model="data.companyName" />
+          </FormItem>
+          <FormItem label="法人代表" prop="owner">
+            <Input type="text" v-model="data.owner" />
+          </FormItem>
+          <FormItem label="电话" prop="phone">
+            <Input type="text" v-model="data.phone" />
+          </FormItem>
+          <FormItem label="公司网站" prop="website">
+            <Input type="text" v-model="data.website" />
+          </FormItem>
+          <FormItem label="成立时间" prop="createTime">
+            <DatePicker type="date" v-model="data.createTime"></DatePicker>
+          </FormItem>
+          <FormItem label="营业执照" prop="businessLicence">
+            <Input type="text" v-model="data.businessLicence" />
+          </FormItem>
+        </Form>
+      </div>
+      <div class="panel-footer text-left">
+        <Button type="primary" @click="save">保存</Button>
+        <Button type="ghost" @click="reset">重置</Button>
+        <Button v-if="$route.query.id" type="ghost" @click="$router.go(-1)">返回</Button>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -71,7 +71,7 @@ export default {
           if (this.data.id > 0) {
             this.$ajax.put("company", this.data).then(res => {
               if (res.data.state) {
-                this.$refs["form"].resetFields()
+                this.$router.go(-1)
               }
             })
           } else {

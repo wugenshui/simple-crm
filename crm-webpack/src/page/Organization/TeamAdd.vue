@@ -16,7 +16,7 @@
             <Input type="text" v-model="data.leaderPhone" />
           </FormItem>
           <FormItem label="团队口号" prop="slogan">
-            <Input type="text" v-model="data.slogan" />
+            <Input type="textarea" v-model="data.slogan" :autosize="true" />
           </FormItem>
           <FormItem label="所属公司" prop="companyId">
             <Select v-model="data.companyId">
@@ -69,7 +69,7 @@ export default {
           if (this.data.id > 0) {
             this.$ajax.put("team", this.data).then(res => {
               if (res.data.state) {
-                this.$refs["form"].resetFields()
+                this.$router.go(-1)
               }
             })
           } else {
