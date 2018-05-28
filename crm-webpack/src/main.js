@@ -2,7 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from "vue"
 import App from "./App"
-import router from "./router"
+import router from "./router.js"
 import Axios from "axios"
 import iview from "iview"
 import VurRouter from "vue-router"
@@ -30,7 +30,7 @@ Axios.interceptors.response.use(
   response => {
     iview.Spin.hide()
     // 特殊的AjaxResult 返回格式处理
-    if (response.data.state != null && typeof response.data.msg == "string") {
+    if (response.data != null && response.data.state != null && typeof response.data.msg == "string") {
       if (response.data.state === false) {
         common.error(response.data.msg)
       } else {

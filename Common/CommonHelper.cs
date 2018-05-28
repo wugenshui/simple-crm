@@ -11,30 +11,6 @@ namespace Common
     public class CommonHelper
     {
         /// <summary>
-        /// 当前登陆用户,待删除方法
-        /// </summary>
-        public static User old_User
-        {
-            get
-            {
-                User _User = HttpContext.Current.Session["user"] as User;
-                if (_User == null)
-                {
-                    RedirectLogin();
-                }
-                return HttpContext.Current.Session["user"] as User;
-            }
-            set
-            {
-                HttpContext.Current.Session["user"] = value;
-                if (value == null)
-                {
-                    RedirectLogin();
-                }
-            }
-        }
-
-        /// <summary>
         /// 当前登陆用户
         /// </summary>
         public static User User

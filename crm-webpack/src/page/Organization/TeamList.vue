@@ -1,0 +1,100 @@
+<template>
+    <div>
+        <div class="panel panel-big">
+            <div class="panel-header">
+                团队列表
+            </div>
+            <div class="panel-body">
+                <Form ref="form" :label-width="80">
+                    <Row>
+                        <Col span="6">
+                        <FormItem label="团队名称">
+                            <Input type="text" v-model="filtername" />
+                        </FormItem>
+                        </Col>
+                        <Col span="4" offset="14">
+                        <FormItem>
+                            <FormItem>
+                                <Button type="primary" @click="search">查询</Button>
+                            </FormItem>
+                        </FormItem>
+                        </Col>
+                    </Row>
+                </Form>
+                <table class="table">
+                    <colgroup>
+                        <col width="60px">
+                        <col width="">
+                        <col width="">
+                    </colgroup>
+                    <tr>
+                        <th class="text-center">序号</th>
+                        <th>团队名称</th>
+                        <th>团队负责人</th>
+                        <th>负责人电话</th>
+                        <th>团队口号</th>
+                        <th>所属公司</th>
+                        <th>操作</th>
+                    </tr>
+                    <tr v-for="(data,index) in datas" :key="index">
+                        <td class="text-center">{{ index + 1 }}</td>
+                        <td>{{ data.name }}</td>
+                        <td>{{ data.leader }}</td>
+                        <td>{{ data.leaderPhone }}</td>
+                        <td>{{ data.slogan }}</td>
+                        <td>{{ data.companyName }}</td>
+                        <td>
+                            <Button type="success" size="small" @click="$router.push('teamadd?id='+data.id)">编辑</Button>
+                            <Button type="error" size="small" @click="del(data.id)">删除</Button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="panel-footer text-right">
+                <Page :total="total" :current="pageIndex" :page-size="pageSize" :show-total="true" @on-change="pageChange"></Page>
+            </div>
+        </div>
+        <router-view class="container"></router-view>
+    </div>
+</template>
+
+<script>
+import dayjs from "dayjs"
+import common from "../../common.js"
+export default {
+  data: function() {
+    return {
+      filtername: "",
+      pageIndex: 1,
+      pageSize: 10,
+      total: 0,
+      datas: []
+    }
+  },
+  methods: {
+    search() {
+      var date = this.filterTime ? dayjs(this.filterTime).format("YYYY-MM-DD") : ""
+      var url = "team?name=" + this.filtername + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize
+      this.$ajax.get(url).then(res => {
+        this.datas = res.data.list
+        this.total = res.data.total
+      })
+    },
+    pageChange(index) {
+      this.pageIndex = index
+      this.search()
+    },
+    del(id) {
+      this.$ajax.delete("team/" + id).then(() => {
+        this.search()
+      })
+    }
+  },
+  mounted() {
+    this.search()
+  }
+}
+</script>
+
+<style scoped>
+</style>
