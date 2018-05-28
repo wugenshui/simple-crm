@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.Collections;
 using System.Configuration;
 
-namespace common
+namespace Common
 {
     /// <summary> 
     /// SqlServer数据访问帮助类 

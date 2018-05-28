@@ -44,6 +44,16 @@ export default new Router({
           path: "/TeamAdd",
           name: "TeamAdd",
           component: () => import("./page/Organization/TeamAdd.vue")
+        },
+        {
+          path: "/EmployeeList",
+          name: "EmployeeList",
+          component: () => import("./page/Employee/EmployeeList.vue")
+        },
+        {
+          path: "/EmployeeAdd",
+          name: "EmployeeAdd",
+          component: () => import("./page/Employee/EmployeeAdd.vue")
         }
       ]
     },
