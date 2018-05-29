@@ -82,8 +82,10 @@ export default {
       this.search()
     },
     del(id) {
-      this.$ajax.delete("team/" + id).then(() => {
-        this.search()
+      common.confirm("是否确认删除？", () => {
+        this.$ajax.delete("team/" + id).then(() => {
+          this.search()
+        })
       })
     }
   },
