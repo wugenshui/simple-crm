@@ -103,8 +103,8 @@
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="CompanyId" Type="int" Nullable="false" />
           <Property Name="TeamId" Type="int" Nullable="false" />
-          <Property Name="Post" Type="nvarchar" MaxLength="50" />
-          <Property Name="Supervisor" Type="nvarchar" MaxLength="50" />
+          <Property Name="PostId" Type="int" Nullable="false" />
+          <Property Name="SupervisorId" Type="int" Nullable="false" />
           <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
           <Property Name="WorkStartDate" Type="date" />
           <Property Name="Photo" Type="image" />
@@ -152,10 +152,10 @@
           <EntitySet Name="Message" EntityType="CRMModel.Message" />
           <EntitySet Name="Schedule" EntityType="CRMModel.Schedule" />
           <EntitySet Name="Team" EntityType="CRMModel.Team" />
-          <EntitySet Name="User" EntityType="CRMModel.User" />
           <EntitySet Name="UserAuthority" EntityType="CRMModel.UserAuthority" />
           <EntitySet Name="WorkLog" EntityType="CRMModel.WorkLog" />
           <EntitySet Name="Menu" EntityType="CRMModel.Menu" />
+          <EntitySet Name="User" EntityType="CRMModel.User" />
         </EntityContainer>
         <EntityType Name="Company">
           <Key>
@@ -234,24 +234,6 @@
           <Property Name="Slogan" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CompanyId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LoginName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CompanyId" Type="Int32" Nullable="false" />
-          <Property Name="TeamId" Type="Int32" Nullable="false" />
-          <Property Name="Post" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Supervisor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="WorkStartDate" Type="DateTime" Precision="0" />
-          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="State" Type="Int32" Nullable="false" />
-          <Property Name="IsEnable" Type="Boolean" />
-        </EntityType>
         <EntityType Name="UserAuthority">
           <Key>
             <PropertyRef Name="Id" />
@@ -280,6 +262,24 @@
           <Property Name="MenuId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MenuPid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Class" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LoginName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+          <Property Name="TeamId" Type="Int32" Nullable="false" />
+          <Property Name="PostId" Type="Int32" Nullable="false" />
+          <Property Name="SupervisorId" Type="Int32" Nullable="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WorkStartDate" Type="DateTime" Precision="0" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="State" Type="Int32" Nullable="false" />
+          <Property Name="IsEnable" Type="Boolean" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -370,25 +370,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="CRMModel.User">
-              <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Photo" ColumnName="Photo" />
-                <ScalarProperty Name="WorkStartDate" ColumnName="WorkStartDate" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-                <ScalarProperty Name="Supervisor" ColumnName="Supervisor" />
-                <ScalarProperty Name="Post" ColumnName="Post" />
-                <ScalarProperty Name="TeamId" ColumnName="TeamId" />
-                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="UserAuthority">
             <EntityTypeMapping TypeName="CRMModel.UserAuthority">
               <MappingFragment StoreEntitySet="UserAuthority">
@@ -417,6 +398,25 @@
                 <ScalarProperty Name="MenuId" ColumnName="MenuId" />
                 <ScalarProperty Name="MenuUrl" ColumnName="MenuUrl" />
                 <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="CRMModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="WorkStartDate" ColumnName="WorkStartDate" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SupervisorId" ColumnName="SupervisorId" />
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

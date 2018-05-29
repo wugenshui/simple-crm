@@ -110,9 +110,15 @@ a {
 
 .panel {
   width: 1110px;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
+  border: 1px solid #e9eaec;
   margin: 0 auto;
+  background: white;
+  border-radius: 4px;
+}
+
+.panel:hover {
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+  border-color: #eee;
 }
 
 .panel-big {
@@ -122,9 +128,10 @@ a {
 
 .panel-header {
   height: 50px;
+  font-weight: bold;
   line-height: 50px;
   text-indent: 20px;
-  background-color: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid #e9eaec;
 }
 
 .panel-body {
@@ -132,9 +139,10 @@ a {
 }
 
 .panel-footer {
+  border-top: 1px solid #e9eaec;
   padding: 0.75rem 1.25rem;
-  background-color: rgba(0, 0, 0, 0.03);
-  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  /* background-color: rgba(0, 0, 0, 0.03); */
+  /* border-top: 1px solid rgba(0, 0, 0, 0.125); */
 }
 
 /* #endregion */

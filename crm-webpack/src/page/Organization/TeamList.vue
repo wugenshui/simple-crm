@@ -6,20 +6,20 @@
             </div>
             <div class="panel-body">
                 <Form ref="form" :label-width="80">
-                    <Row>
-                        <Col span="6">
-                        <FormItem label="团队名称">
-                            <Input type="text" v-model="filtername" />
-                        </FormItem>
-                        </Col>
-                        <Col span="4" offset="14">
-                        <FormItem>
-                            <FormItem>
-                                <Button type="primary" @click="search">查询</Button>
+                    <i-row>
+                        <i-col span="6">
+                            <FormItem label="团队名称">
+                                <Input type="text" v-model="filtername" />
                             </FormItem>
-                        </FormItem>
-                        </Col>
-                    </Row>
+                        </i-col>
+                        <i-col span="4" offset="14">
+                            <FormItem>
+                                <FormItem>
+                                    <Button type="primary" @click="search">查询</Button>
+                                </FormItem>
+                            </FormItem>
+                        </i-col>
+                    </i-row>
                 </Form>
                 <table class="table">
                     <colgroup>

@@ -26,7 +26,7 @@ export default {
 <style scoped>
 .center {
   position: absolute;
-  top: 60px;
+  top: 56px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -40,5 +40,6 @@ export default {
   right: 0;
   padding: 10px;
   overflow: auto;
+  background-color: #f0f0f0;
 }
 </style>

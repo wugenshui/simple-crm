@@ -51,13 +51,13 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("post")]
-    	public string Post { get; set; }
+    	[JsonProperty("postId")]
+    	public int PostId { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("supervisor")]
-    	public string Supervisor { get; set; }
+    	[JsonProperty("supervisorId")]
+    	public int SupervisorId { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
