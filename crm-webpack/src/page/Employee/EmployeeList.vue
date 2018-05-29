@@ -48,7 +48,7 @@
                         <td>{{ data.supervisor }}</td>
                         <td>{{ data.phoneNumber }}</td>
                         <td class="text-center">
-                            <i-switch size="default" v-model="data.ssEnable"></i-switch>
+                            <i-switch size="default" v-model="data.isEnable"></i-switch>
                         </td>
                         <td>{{ data.workStartDate | date }}</td>
                         <td>
@@ -67,6 +67,7 @@
 </template>
 
 <script>
+import common from "../../common.js"
 export default {
   data: function() {
     return {
