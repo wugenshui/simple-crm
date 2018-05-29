@@ -14,5 +14,13 @@ export default {
       desc: msg,
       duration: 4.5
     })
+  },
+  confirm(msg, onOk, onCancel) {
+    iview.Modal.confirm({
+      title: "确认",
+      content: msg,
+      onOk,
+      onCancel
+    })
   }
 }

@@ -15,7 +15,7 @@
                         <i-col span="4" offset="14">
                             <FormItem>
                                 <FormItem>
-                                    <Button type="primary" @click="search">查询</Button>
+                                    <Button type="primary" @click="search" icon="search">查询</Button>
                                 </FormItem>
                             </FormItem>
                         </i-col>
@@ -46,8 +46,8 @@
                         <td>{{ data.createTime | date }}</td>
                         <td>{{ data.businessLicence }}</td>
                         <td>
-                            <Button type="success" size="small" @click="$router.push('companyadd?id='+data.id)">编辑</Button>
-                            <Button type="error" size="small" @click="del(data.id)">删除</Button>
+                            <Button type="success" size="small" @click="$router.push('companyadd?id='+data.id)" icon="edit">编辑</Button>
+                            <Button type="error" size="small" @click="del(data.id)" icon="trash-a">删除</Button>
                         </td>
                     </tr>
                 </table>

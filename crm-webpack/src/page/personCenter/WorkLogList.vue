@@ -6,26 +6,26 @@
             </div>
             <div class="panel-body">
                 <Form ref="form" :label-width="80">
-                    <Row>
-                        <Col span="6">
-                        <FormItem label="标题">
-                            <Input type="text" v-model="filterTitle" />
-                        </FormItem>
-                        </Col>
-                        <Col span="6">
-                        <FormItem label="日期">
-                            <DatePicker type="date" v-model="filterTime" format="yyyy-MM-dd"></DatePicker>
-                        </FormItem>
-                        </Col>
-                        <Col span="5" offset="7">
-                        <FormItem>
-                            <FormItem>
-                                <Button type="primary" @click="search">查询</Button>
-                                <Button type="success" @click="$router.push('worklogedit')">新增</Button>
+                    <i-row>
+                        <i-col span="6">
+                            <FormItem label="标题">
+                                <Input type="text" v-model="filterTitle" />
                             </FormItem>
-                        </FormItem>
-                        </Col>
-                    </Row>
+                        </i-col>
+                        <i-col span="6">
+                            <FormItem label="日期">
+                                <DatePicker type="date" v-model="filterTime" format="yyyy-MM-dd"></DatePicker>
+                            </FormItem>
+                        </i-col>
+                        <i-col span="5" offset="7">
+                            <FormItem>
+                                <FormItem>
+                                    <Button type="primary" @click="search" icon="search">查询</Button>
+                                    <Button type="success" @click="$router.push('worklogedit')" icon="android-add-circle">新增</Button>
+                                </FormItem>
+                            </FormItem>
+                        </i-col>
+                    </i-row>
                 </Form>
                 <table class="table">
                     <colgroup>
@@ -44,8 +44,8 @@
                         <td>{{ log.title }}</td>
                         <td>{{ log.createTime | time }}</td>
                         <td>
-                            <Button type="success" size="small" @click="$router.push('worklogedit?id='+log.id)">编辑</Button>
-                            <Button type="error" size="small" @click="del(log.id)">删除</Button>
+                            <Button type="success" size="small" @click="$router.push('worklogedit?id='+log.id)" icon="edit">编辑</Button>
+                            <Button type="error" size="small" @click="del(log.id)" icon="trash-a">删除</Button>
                         </td>
                     </tr>
                 </table>
@@ -94,8 +94,10 @@ export default {
       this.search()
     },
     del(id) {
-      this.$ajax.delete("worklog/" + id).then(() => {
-        this.search()
+      common.confirm("是否确认删除？", () => {
+        this.$ajax.delete("worklog/" + id).then(() => {
+          this.search()
+        })
       })
     }
   },

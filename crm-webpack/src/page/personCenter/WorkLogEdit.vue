@@ -25,6 +25,7 @@
 <script>
 import editor from "../../components/Editor.vue"
 import common from "../../common.js"
+import dayjs from "dayjs"
 export default {
   data: function() {
     return {
@@ -42,9 +43,17 @@ export default {
   methods: {
     save() {
       if (this.data.id > 0) {
-        this.$ajax.put("worklog", this.data)
+        this.$ajax.put("worklog", this.data).then(res => {
+          if (res.data.state) {
+            this.$router.go(-1)
+          }
+        })
       } else {
-        this.$ajax.post("worklog", this.data)
+        this.$ajax.post("worklog", this.data).then(res => {
+          if (res.data.state) {
+            this.$router.go(-1)
+          }
+        })
       }
     }
   },
@@ -55,6 +64,8 @@ export default {
           this.data = res.data
         }
       })
+    } else {
+      this.data.title = dayjs().format("YYYY-MM-DD") + " 工作日志"
     }
   },
   computed: {
