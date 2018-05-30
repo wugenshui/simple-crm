@@ -54,6 +54,16 @@ export default new Router({
           path: "/EmployeeAdd",
           name: "EmployeeAdd",
           component: () => import("./page/Employee/EmployeeAdd.vue")
+        },
+        {
+          path: "/CustomerList",
+          name: "CustomerList",
+          component: () => import("./page/Customer/CustomerList.vue")
+        },
+        {
+          path: "/CustomerAdd",
+          name: "CustomerAdd",
+          component: () => import("./page/Customer/CustomerAdd.vue")
         }
       ]
     },
