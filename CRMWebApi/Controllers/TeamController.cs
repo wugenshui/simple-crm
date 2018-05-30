@@ -16,6 +16,11 @@ namespace CRMWebApi.Controllers
     {
         TeamDAL _TeamDAL = new TeamDAL();
 
+        public IHttpActionResult Get()
+        {
+            return Json(_TeamDAL.Get());
+        }
+
         public IHttpActionResult Get(int id)
         {
             return Json(_TeamDAL.Get().FirstOrDefault(o => o.Id == id));

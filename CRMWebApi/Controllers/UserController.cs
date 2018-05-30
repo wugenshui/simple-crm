@@ -17,6 +17,11 @@ namespace CRMWebApi.Controllers
     {
         UserDAL _UserDAL = new UserDAL();
 
+        public IHttpActionResult Get()
+        {
+            return Json(_UserDAL.Get());
+        }
+
         public IHttpActionResult Get(int id)
         {
             return Json(_UserDAL.Get().FirstOrDefault(o => o.Id == id));
@@ -35,6 +40,7 @@ namespace CRMWebApi.Controllers
         public IHttpActionResult Post(User model)
         {
             AjaxResult result = new AjaxResult();
+            model.Password = MD5Helper.CreateMD5(model.Password);
             _UserDAL.Add(model);
 
             result.msg = "保存成功";

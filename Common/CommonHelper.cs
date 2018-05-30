@@ -32,16 +32,6 @@ namespace Common
         }
 
         /// <summary>
-        /// 跳转至登陆页面
-        /// </summary>
-        private static void RedirectLogin()
-        {
-            string script = "<script>if(location.pathname=='/Default.aspx'){top.location.href='./Login.aspx';}else{top.location.href='../../Login.aspx';}</script>";
-            HttpContext.Current.Response.Write(script);
-            HttpContext.Current.Response.End();
-        }
-
-        /// <summary>
         /// 系统名称
         /// </summary>
         public static string AppName

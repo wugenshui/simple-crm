@@ -33,11 +33,11 @@
                         <th>所属公司</th>
                         <th>所属团队</th>
                         <th>职位</th>
-                        <th>主管</th>
                         <th>电话</th>
-                        <th class="text-center">是否启用</th>
                         <th>入职时间</th>
+                        <th>主管</th>
                         <th>操作</th>
+                        <th class="text-center">是否启用</th>
                     </tr>
                     <tr v-for="(data,index) in datas" :key="index">
                         <td class="text-center">{{ index + 1 }}</td>
@@ -45,15 +45,15 @@
                         <td>{{ data.companyName }}</td>
                         <td>{{ data.teamName }}</td>
                         <td>{{ data.postId | post }}</td>
-                        <td>{{ data.supervisor }}</td>
                         <td>{{ data.phoneNumber }}</td>
+                        <td>{{ data.workStartDate | date }}</td>
+                        <td>{{ data.supervisor }}</td>
+                        <td>
+                            <Button type="success" size="small" @click="$router.push('employeeadd?id='+data.id)" icon="edit">编辑</Button>
+                            <Button type="error" size="small" @click="del(data.id)" icon="trash-a">删除</Button>
+                        </td>
                         <td class="text-center">
                             <i-switch size="default" v-model="data.isEnable"></i-switch>
-                        </td>
-                        <td>{{ data.workStartDate | date }}</td>
-                        <td>
-                            <Button type="success" size="small" @click="$router.push('teamadd?id='+data.id)" icon="edit">编辑</Button>
-                            <Button type="error" size="small" @click="del(data.id)" icon="trash-a">删除</Button>
                         </td>
                     </tr>
                 </table>
