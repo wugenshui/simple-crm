@@ -67,7 +67,7 @@ namespace Model
     	/// 
     	/// </summary>
     	[JsonProperty("workStartDate")]
-    	public Nullable<System.DateTime> WorkStartDate { get; set; }
+    	public System.DateTime WorkStartDate { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
@@ -82,6 +82,6 @@ namespace Model
     	/// 
     	/// </summary>
     	[JsonProperty("isEnable")]
-    	public Nullable<bool> IsEnable { get; set; }
+    	public bool IsEnable { get; set; }
     }
 }

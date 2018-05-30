@@ -53,7 +53,7 @@
                             <Button type="error" size="small" @click="del(data.id)" icon="trash-a">删除</Button>
                         </td>
                         <td class="text-center">
-                            <i-switch size="default" v-model="data.isEnable"></i-switch>
+                            <i-switch size="default" v-model="data.isEnable" @on-change="isEnableChange(data)"></i-switch>
                         </td>
                     </tr>
                 </table>
@@ -96,6 +96,9 @@ export default {
           this.search()
         })
       })
+    },
+    isEnableChange(data) {
+      this.$ajax.put("userenable", data)
     }
   },
   mounted() {

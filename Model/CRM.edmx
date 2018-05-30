@@ -106,10 +106,10 @@
           <Property Name="PostId" Type="int" Nullable="false" />
           <Property Name="SupervisorId" Type="int" Nullable="false" />
           <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
-          <Property Name="WorkStartDate" Type="date" />
+          <Property Name="WorkStartDate" Type="date" Nullable="false" />
           <Property Name="Photo" Type="image" />
           <Property Name="State" Type="int" Nullable="false" />
-          <Property Name="IsEnable" Type="bit" />
+          <Property Name="IsEnable" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="UserAuthority">
           <Key>
@@ -276,10 +276,10 @@
           <Property Name="PostId" Type="Int32" Nullable="false" />
           <Property Name="SupervisorId" Type="Int32" Nullable="false" />
           <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="WorkStartDate" Type="DateTime" Precision="0" />
+          <Property Name="WorkStartDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="State" Type="Int32" Nullable="false" />
-          <Property Name="IsEnable" Type="Boolean" />
+          <Property Name="IsEnable" Type="Boolean" Nullable="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>

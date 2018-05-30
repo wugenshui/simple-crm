@@ -25,11 +25,22 @@ namespace DAL
             return user;
         }
 
+        public User changeState(User user)
+        {
+            DbContext db = GetDbContext();
+            DbEntityEntry<User> entry = db.Entry(user);
+            entry.State = EntityState.Unchanged;
+            entry.Property(t => t.IsEnable).IsModified = true;
+
+            db.SaveChanges();
+            return user;
+        }
+
         public DataTable Get(string name, int pageSize, int pageIndex)
         {
             DataTable data = new DataTable();
             string sql = @" SELECT 
-	                            u.id, u.userName, u.phoneNumber, u.workStartDate, u.photo, u.state, u.isEnable, u.postId, 
+	                            u.id, u.userName,u.loginName,'' AS password, u.phoneNumber, u.workStartDate, u.photo, u.state, u.isEnable, u.postId, 
 	                            c.companyName, t.name AS teamName, s.userName AS supervisor
                             FROM [User] u
                             LEFT JOIN [User] s ON s.Id=u.SupervisorId
