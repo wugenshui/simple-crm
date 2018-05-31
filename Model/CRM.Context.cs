@@ -26,7 +26,6 @@ namespace Model
         }
     
         public virtual DbSet<Company> Company { get; set; }
-        public virtual DbSet<Customer> Customer { get; set; }
         public virtual DbSet<CustomerOperate> CustomerOperate { get; set; }
         public virtual DbSet<Message> Message { get; set; }
         public virtual DbSet<Schedule> Schedule { get; set; }
@@ -35,5 +34,6 @@ namespace Model
         public virtual DbSet<WorkLog> WorkLog { get; set; }
         public virtual DbSet<Menu> Menu { get; set; }
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<Customer> Customer { get; set; }
     }
 }

@@ -22,7 +22,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CustomerType" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerType" Type="int" />
           <Property Name="CustomerName" Type="nvarchar" MaxLength="50" />
           <Property Name="CustomerPhone" Type="nvarchar" MaxLength="50" />
           <Property Name="CustomerQQ" Type="nvarchar" MaxLength="50" />
@@ -31,7 +31,7 @@
           <Property Name="HomeAddress" Type="nvarchar" MaxLength="50" />
           <Property Name="Owner" Type="nvarchar" MaxLength="50" />
           <Property Name="Contract" Type="nvarchar" MaxLength="50" />
-          <Property Name="State" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="int" />
           <Property Name="CreateTime" Type="datetime" />
           <Property Name="CreaterId" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -147,7 +147,6 @@
       <Schema Namespace="CRMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="CRMEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Company" EntityType="CRMModel.Company" />
-          <EntitySet Name="Customer" EntityType="CRMModel.Customer" />
           <EntitySet Name="CustomerOperate" EntityType="CRMModel.CustomerOperate" />
           <EntitySet Name="Message" EntityType="CRMModel.Message" />
           <EntitySet Name="Schedule" EntityType="CRMModel.Schedule" />
@@ -156,6 +155,7 @@
           <EntitySet Name="WorkLog" EntityType="CRMModel.WorkLog" />
           <EntitySet Name="Menu" EntityType="CRMModel.Menu" />
           <EntitySet Name="User" EntityType="CRMModel.User" />
+          <EntitySet Name="Customer" EntityType="CRMModel.Customer" />
         </EntityContainer>
         <EntityType Name="Company">
           <Key>
@@ -168,24 +168,6 @@
           <Property Name="Website" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="CreateTime" Type="DateTime" Precision="0" />
           <Property Name="BusinessLicence" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Customer">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CustomerType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CustomerPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CustomerQQ" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Idcard" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="HomeAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Owner" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Contract" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CreateTime" Type="DateTime" Precision="3" />
-          <Property Name="CreaterId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="CustomerOperate">
           <Key>
@@ -281,6 +263,24 @@
           <Property Name="State" Type="Int32" Nullable="false" />
           <Property Name="IsEnable" Type="Boolean" Nullable="false" />
         </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerType" Type="Int32" />
+          <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerQQ" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Idcard" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HomeAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Owner" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contract" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="Int32" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreaterId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -296,25 +296,6 @@
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Owner" ColumnName="Owner" />
                 <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Customer">
-            <EntityTypeMapping TypeName="CRMModel.Customer">
-              <MappingFragment StoreEntitySet="Customer">
-                <ScalarProperty Name="CreaterId" ColumnName="CreaterId" />
-                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Contract" ColumnName="Contract" />
-                <ScalarProperty Name="Owner" ColumnName="Owner" />
-                <ScalarProperty Name="HomeAddress" ColumnName="HomeAddress" />
-                <ScalarProperty Name="Idcard" ColumnName="Idcard" />
-                <ScalarProperty Name="Mail" ColumnName="Mail" />
-                <ScalarProperty Name="CustomerQQ" ColumnName="CustomerQQ" />
-                <ScalarProperty Name="CustomerPhone" ColumnName="CustomerPhone" />
-                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
-                <ScalarProperty Name="CustomerType" ColumnName="CustomerType" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -417,6 +398,25 @@
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="LoginName" ColumnName="LoginName" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customer">
+            <EntityTypeMapping TypeName="CRMModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="CreaterId" ColumnName="CreaterId" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Contract" ColumnName="Contract" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="HomeAddress" ColumnName="HomeAddress" />
+                <ScalarProperty Name="Idcard" ColumnName="Idcard" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="CustomerQQ" ColumnName="CustomerQQ" />
+                <ScalarProperty Name="CustomerPhone" ColumnName="CustomerPhone" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerType" ColumnName="CustomerType" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

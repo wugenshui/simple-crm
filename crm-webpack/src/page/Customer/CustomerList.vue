@@ -2,7 +2,7 @@
     <div>
         <div class="panel panel-big">
             <div class="panel-header">
-                客户列表
+                员工列表
             </div>
             <div class="panel-body">
                 <Tabs value="0" type="card">
@@ -29,38 +29,31 @@
                     </i-row>
                 </Form>
                 <table class="table">
-                    <colgroup>
-                        <col width="60px">
-                        <col width="">
-                        <col width="">
-                    </colgroup>
                     <tr>
-                        <th class="text-center">序号</th>
+                        <th class="text-center">表单号</th>
+                        <th>更新时间</th>
                         <th>姓名</th>
-                        <th>所属公司</th>
-                        <th>所属团队</th>
-                        <th>职位</th>
-                        <th>电话</th>
-                        <th>入职时间</th>
-                        <th>主管</th>
+                        <th>手机</th>
+                        <th>QQ</th>
+                        <th>邮箱</th>
+                        <th>客户类型</th>
+                        <th>状态</th>
+                        <th>合同附件</th>
                         <th>操作</th>
-                        <th class="text-center">是否启用</th>
                     </tr>
                     <tr v-for="(data,index) in datas" :key="index">
-                        <td class="text-center">{{ index + 1 }}</td>
-                        <td>{{ data.userName }}</td>
-                        <td>{{ data.companyName }}</td>
-                        <td>{{ data.teamName }}</td>
-                        <td>{{ data.postId | post }}</td>
-                        <td>{{ data.phoneNumber }}</td>
-                        <td>{{ data.workStartDate | date }}</td>
-                        <td>{{ data.supervisor }}</td>
+                        <td class="text-center">{{ data.id }}</td>
+                        <td>{{ data.createTime | time }}</td>
+                        <td>{{ data.customerName }}</td>
+                        <td>{{ data.customerPhone }}</td>
+                        <td>{{ data.customerQQ }}</td>
+                        <td>{{ data.mail }}</td>
+                        <td>{{ data.customerType | customerType }}</td>
+                        <td>{{ data.state | customerState }}</td>
+                        <td>{{ data.contract }}</td>
                         <td>
                             <Button type="success" size="small" @click="$router.push('employeeadd?id='+data.id)" icon="edit">编辑</Button>
                             <Button type="error" size="small" @click="del(data.id)" icon="trash-a">删除</Button>
-                        </td>
-                        <td class="text-center">
-                            <i-switch size="default" v-model="data.isEnable" @on-change="isEnableChange(data)"></i-switch>
                         </td>
                     </tr>
                 </table>
@@ -87,7 +80,7 @@ export default {
   },
   methods: {
     search() {
-      var url = "user?name=" + this.filtername + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize
+      var url = "customer?name=" + this.filtername + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize
       this.$ajax.get(url).then(res => {
         this.datas = res.data.list
         this.total = res.data.total
@@ -103,9 +96,6 @@ export default {
           this.search()
         })
       })
-    },
-    isEnableChange(data) {
-      this.$ajax.put("userenable", data)
     }
   },
   mounted() {

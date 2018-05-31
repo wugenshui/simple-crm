@@ -27,7 +27,7 @@ namespace Model
     	/// 
     	/// </summary>
     	[JsonProperty("customerType")]
-    	public string CustomerType { get; set; }
+    	public Nullable<int> CustomerType { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
@@ -72,7 +72,7 @@ namespace Model
     	/// 
     	/// </summary>
     	[JsonProperty("state")]
-    	public string State { get; set; }
+    	public Nullable<int> State { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
