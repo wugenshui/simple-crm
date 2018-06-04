@@ -12,10 +12,13 @@ import common from "./common.js"
 import store from "./store.js"
 import "vue2-animate/dist/vue2-animate.min.css"
 import "./filter.js"
+import ElementUI from "element-ui"
+import "element-ui/lib/theme-chalk/index.css"
 
 Vue.config.productionTip = false
 Vue.use(VurRouter)
-Vue.use(iview)
+// Vue.use(iview)
+Vue.use(ElementUI)
 
 Vue.prototype.$ajax = Axios
 Axios.defaults.baseURL = "http://localhost:10086/api"
