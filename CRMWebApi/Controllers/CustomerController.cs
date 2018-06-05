@@ -26,9 +26,9 @@ namespace CRMWebApi.Controllers
             return Json(_CustomerDAL.Get().FirstOrDefault(o => o.Id == id));
         }
 
-        public IHttpActionResult Get(string name, int pageSize = 20, int pageIndex = 1)
+        public IHttpActionResult Get(string name, int type, int pageSize = 20, int pageIndex = 1)
         {
-            DataTable data = _CustomerDAL.Get(name, pageSize, pageIndex);
+            DataTable data = _CustomerDAL.Get(name, type, pageSize, pageIndex);
             int total = _CustomerDAL.GetCount(name);
 
             var result = new { list = data, total = total };

@@ -5,8 +5,8 @@
                 员工列表
             </div>
             <div class="panel-body">
-                <Tabs value="0" type="card" v-model="filtertype" @tab-click="search">
-                    <TabPane :label="tab.label" :name="tab.name" v-for="tab in tabs" :key="tab.name">
+                <el-tabs v-model="filtertype" @tab-click="search">
+                    <el-tab-pane :label="tab.label" :name="tab.name" v-for="tab in tabs" :key="tab.name">
                         <Form ref="form" :label-width="80">
                             <i-row>
                                 <i-col span="6">
@@ -52,8 +52,8 @@
                                 </td>
                             </tr>
                         </table>
-                    </TabPane>
-                </Tabs>
+                    </el-tab-pane>
+                </el-tabs>
             </div>
             <div class="panel-footer text-right">
                 <Page :total="total" :current="pageIndex" :page-size="pageSize" :show-total="true" @on-change="pageChange"></Page>
@@ -69,14 +69,14 @@ export default {
   data: function() {
     return {
       tabs: [
-        { label: "客户列表", name: -1 },
-        { label: "未确认用户", name: 0.1 },
-        { label: "已确认用户", name: 1 },
-        { label: "已联系客户", name: 3 },
-        { label: "已完成客户", name: 4 }
+        { label: "客户列表", name: "-1" },
+        { label: "未确认用户", name: "0" }, // name为0不行
+        { label: "已确认用户", name: "1" },
+        { label: "已联系客户", name: "3" },
+        { label: "已完成客户", name: "4" }
       ],
       filtername: "",
-      filtertype: -1,
+      filtertype: "-1",
       pageIndex: 1,
       pageSize: 10,
       total: 0,
