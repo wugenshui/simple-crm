@@ -17,13 +17,19 @@ import "element-ui/lib/theme-chalk/index.css"
 
 Vue.config.productionTip = false
 Vue.use(VurRouter)
-// Vue.use(iview)
 Vue.use(ElementUI)
 
 Vue.prototype.$ajax = Axios
 Axios.defaults.baseURL = "http://localhost:10086/api"
+let loading
 Axios.interceptors.request.use(function(config) {
-  iview.Spin.show()
+  loading = ElementUI.Loading.service({
+    lock: true,
+    text: "加载中...",
+    spinner: "el-icon-loading",
+    background: "rgba(0, 0, 0, 0.7)",
+    target: document.querySelector(".main")
+  })
   if (store != null && store.state.token != null) {
     config.headers.Token = store.state.token
   }
@@ -31,7 +37,9 @@ Axios.interceptors.request.use(function(config) {
 })
 Axios.interceptors.response.use(
   response => {
-    iview.Spin.hide()
+    Vue.nextTick(() => {
+      loading.close()
+    })
     // 特殊的AjaxResult 返回格式处理
     if (response.data != null && response.data.state != null && typeof response.data.msg == "string") {
       if (response.data.state === false) {
@@ -43,7 +51,9 @@ Axios.interceptors.response.use(
     return response
   },
   error => {
-    iview.Spin.hide()
+    Vue.nextTick(() => {
+      loading.close()
+    })
     if (error.response != null) {
       if (error.response.status == 401) {
         // 权限过期，处理

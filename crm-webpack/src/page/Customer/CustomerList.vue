@@ -8,20 +8,20 @@
                 <el-tabs v-model="filtertype" @tab-click="search">
                     <el-tab-pane :label="tab.label" :name="tab.name" v-for="tab in tabs" :key="tab.name">
                         <Form ref="form" :label-width="80">
-                            <i-row>
-                                <i-col span="6">
-                                    <FormItem label="员工姓名">
+                            <el-row>
+                                <el-col span="6">
+                                    <el-form-item label="员工姓名">
                                         <Input type="text" v-model="filtername" />
-                                    </FormItem>
-                                </i-col>
-                                <i-col span="4" offset="14">
-                                    <FormItem>
-                                        <FormItem>
+                                    </el-form-item>
+                                </el-col>
+                                <el-col span="4" offset="14">
+                                    <el-form-item>
+                                        <el-form-item>
                                             <Button type="primary" @click="search" icon="search">查询</Button>
-                                        </FormItem>
-                                    </FormItem>
-                                </i-col>
-                            </i-row>
+                                        </el-form-item>
+                                    </el-form-item>
+                                </el-col>
+                            </el-row>
                         </Form>
                         <table class="table">
                             <tr>

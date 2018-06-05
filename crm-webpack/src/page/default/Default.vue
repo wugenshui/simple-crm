@@ -3,7 +3,9 @@
     <TopHeader></TopHeader>
     <div class="center">
       <LeftMenu></LeftMenu>
-      <router-view class="main"></router-view>
+      <div class="main">
+        <router-view></router-view>
+      </div>
     </div>
   </div>
 </template>
@@ -39,7 +41,10 @@ export default {
   left: 180px;
   right: 0;
   padding: 10px;
-  overflow: auto;
   background-color: #f0f0f0;
+}
+
+.main > div {
+  overflow: auto;
 }
 </style>

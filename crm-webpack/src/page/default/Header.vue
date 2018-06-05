@@ -1,32 +1,32 @@
 <template>
-    <div>
-        <nav style="">
-            <a class="title" href="#">CRM客户管理系统</a>
-            <div class="float-right">
-                <Dropdown>
-                    <a href="javascript:void(0)">
-                        待办任务
-                    </a>
-                </Dropdown>
-                <Dropdown @on-click="logout">
-                    <a href="javascript:void(0)">
-                        {{ '用户' }}
-                        <Icon type="arrow-down-b"></Icon>
-                    </a>
-                    <DropdownMenu slot="list">
-                        <DropdownItem name="info">资料</DropdownItem>
-                        <DropdownItem name="setting">设置</DropdownItem>
-                        <DropdownItem name="logout">退出</DropdownItem>
-                    </DropdownMenu>
-                </Dropdown>
-                <Dropdown>
-                    <a href="javascript:void(0)" @click="fullscreenToggle">
-                        {{ isFullScreen ? '退出全屏' : '开启全屏' }}
-                    </a>
-                </Dropdown>
-            </div>
-        </nav>
-    </div>
+  <div>
+    <nav style="">
+      <a class="title" href="#">CRM客户管理系统</a>
+      <div class="float-right">
+        <el-dropdown>
+          <span class="el-dropdown-link">
+            待办任务
+          </span>
+        </el-dropdown>
+        <el-dropdown @command="handleCommand">
+          <span class="el-dropdown-link">
+            {{ '用户' }}
+            <i class="el-icon-arrow-down"></i>
+          </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item command="info">用户资料</el-dropdown-item>
+            <el-dropdown-item command="setting">系统设置</el-dropdown-item>
+            <el-dropdown-item command="logout">退出系统</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+        <el-dropdown>
+          <span class="el-dropdown-link" @click="fullscreenToggle">
+            {{ isFullScreen ? '退出全屏' : '开启全屏' }}
+          </span>
+        </el-dropdown>
+      </div>
+    </nav>
+  </div>
 </template>
 
 <script>
@@ -37,8 +37,9 @@ export default {
     }
   },
   methods: {
-    logout(name) {
-      if (name == "logout") {
+    handleCommand(command) {
+      debugger
+      if (command == "logout") {
         this.$store.commit("setToken", "")
         this.$router.push("./login")
       }
@@ -110,8 +111,10 @@ nav {
   margin-left: 30px;
 }
 
-a {
+a,
+.el-dropdown-link {
   color: white;
+  cursor: pointer;
 }
 
 .ivu-dropdown {
