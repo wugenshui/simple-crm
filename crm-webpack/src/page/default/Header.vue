@@ -3,11 +3,11 @@
     <nav style="">
       <a class="title" href="#">CRM客户管理系统</a>
       <div class="float-right">
-        <el-dropdown>
-          <span class="el-dropdown-link">
-            待办任务
-          </span>
-        </el-dropdown>
+        <!-- <el-dropdown> -->
+        <a>
+          待办任务
+        </a>
+        <!-- </el-dropdown> -->
         <el-dropdown @command="handleCommand">
           <span class="el-dropdown-link">
             {{ '用户' }}
@@ -19,11 +19,14 @@
             <el-dropdown-item command="logout">退出系统</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
-        <el-dropdown>
+        <a @click="fullscreenToggle">
+          {{ isFullScreen ? '退出全屏' : '开启全屏' }}
+        </a>
+        <!-- <el-dropdown>
           <span class="el-dropdown-link" @click="fullscreenToggle">
             {{ isFullScreen ? '退出全屏' : '开启全屏' }}
           </span>
-        </el-dropdown>
+        </el-dropdown> -->
       </div>
     </nav>
   </div>
@@ -38,7 +41,6 @@ export default {
   },
   methods: {
     handleCommand(command) {
-      debugger
       if (command == "logout") {
         this.$store.commit("setToken", "")
         this.$router.push("./login")
@@ -115,6 +117,8 @@ a,
 .el-dropdown-link {
   color: white;
   cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px;
 }
 
 .ivu-dropdown {
