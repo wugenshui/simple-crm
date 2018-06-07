@@ -7,12 +7,12 @@
             <div class="panel-body">
                 <el-form ref="form" label-width="80px">
                     <el-row>
-                        <el-col span="6">
+                        <el-col :span="6">
                             <el-form-item label="团队名称">
                                 <el-input type="text" size="small" v-model="filtername" />
                             </el-form-item>
                         </el-col>
-                        <el-col span="4" offset="14">
+                        <el-col :span="4" :offset="14">
                             <el-form-item>
                                 <el-form-item>
                                     <el-button type="primary" size="small" @click="search" icon="el-icon-search">查询</el-button>

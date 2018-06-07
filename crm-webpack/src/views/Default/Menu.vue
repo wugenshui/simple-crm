@@ -1,25 +1,22 @@
 <template>
   <div class="menu">
-    <div class="menutop">
-      <i></i>
-      控制中心
-    </div>
-    <ul class="root-menu" v-for="(father,index) in menus" :key="index">
-      <li>
-        <div :class="father._class" @click="togglemenu(father)"> {{ father.name }}</div>
-        <transition name="fadeDown" :duration="{ enter: 200, leave: 10 }" mode="out-in">
-          <ul class="second-menu" v-show="father.showChild">
-            <li v-for="(son,index) in father.childs" :key="index">
-              <cite></cite>
-              <a href="javascript:void(0)" @click="$router.push(son.url)">
-                {{ son.name }}
-              </a>
-              <i></i>
-            </li>
-          </ul>
-        </transition>
-      </li>
-    </ul>
+    <el-menu @open="handleOpen" @close="handleClose" :collapse="isCollapse" :unique-opened="true" background-color="#304156" text-color="#bfcbd9">
+      <el-menu-item index="0">
+        <i class="el-icon-menu"></i>
+        <span slot="title">
+          <router-link to="/">首页</router-link>
+        </span>
+      </el-menu-item>
+      <el-submenu v-for="(father,index) in menus" :key="index" :index="father.name">
+        <template slot="title">
+          <i :class="father._class"></i>
+          <span slot="title">{{ father.name }}</span>
+        </template>
+        <el-menu-item v-for="(son,index) in father.childs" :key="index" :index="son.url">
+          <router-link :to="son.url">{{ son.name }}</router-link>
+        </el-menu-item>
+      </el-submenu>
+    </el-menu>
   </div>
 </template>
 
@@ -27,7 +24,8 @@
 export default {
   data: function() {
     return {
-      menus: []
+      menus: [],
+      isCollapse: false
     }
   },
   mounted() {
@@ -45,11 +43,45 @@ export default {
       } else {
         father.showChild = false
       }
-    }
+    },
+    handleOpen() {},
+    handleClose() {}
   }
 }
 </script>
 
+<style>
+.el-submenu__title > i {
+  width: 30px;
+  height: 18px;
+  display: inline-block;
+  background-repeat: no-repeat;
+}
+
+.menu .el-menu {
+  width: 186px;
+}
+
+.menu a {
+  width: 100%;
+  height: 100%;
+  color: rgb(191, 203, 217);
+  display: inline-block;
+}
+
+.menu .el-submenu {
+  margin-bottom: -1px;
+}
+
+.menu .el-menu-item.is-active a {
+  color: #409eff;
+}
+
+.menu .el-submenu__title {
+  border-bottom: 1px solid rgb(38, 52, 69);
+  border-top: 1px solid rgb(38, 52, 69);
+}
+</style>
 <style scoped>
 .menu1 {
   background-image: url("../../image/default/menu1.png");
@@ -71,81 +103,5 @@ export default {
   width: 180px;
   height: 100%;
   background: #f0f9fd;
-}
-
-.menutop {
-  height: 40px;
-  line-height: 40px;
-  color: #fff;
-  background: rgb(63, 150, 201);
-}
-
-.menutop i {
-  margin-left: 8px;
-  margin-top: 10px;
-  margin-right: 8px;
-  background: url("../../image/default/leftico.png") no-repeat;
-  width: 20px;
-  height: 20px;
-  float: left;
-}
-
-.root-menu > li > div {
-  background-color: rgb(212, 231, 240);
-  background-repeat: no-repeat;
-  line-height: 35px;
-  font-weight: bold;
-  font-size: 14px;
-  border-right: solid 1px #b7d5df;
-  border-bottom: solid 1px #b7d5df;
-  background-position: 10px;
-  text-indent: 35px;
-  cursor: pointer;
-}
-
-.second-menu li {
-  line-height: 35px;
-  height: 35px;
-  font-size: 14px;
-  border-right: solid 1px #b7d5df;
-  cursor: pointer;
-  position: relative;
-}
-
-.second-menu cite {
-  background: url("../../image/default/list.gif") no-repeat;
-  width: 12px;
-  height: 12px;
-  display: block;
-  float: left;
-  margin-left: 35px;
-  margin-top: 10px;
-  margin-right: 5px;
-}
-
-.second-menu a {
-  display: block;
-}
-
-.second-menu li.active cite {
-  background: url("../../image//default/whitelist.gif") no-repeat;
-}
-
-.second-menu li.active {
-  background: url("../../image/default/active.png") no-repeat;
-  background-size: cover;
-}
-
-.second-menu li.active a {
-  color: white;
-}
-
-.second-menu li.active i {
-  background: url("../../image/default/sj.png") no-repeat;
-  width: 6px;
-  height: 11px;
-  position: absolute;
-  right: -1px;
-  top: 13px;
 }
 </style>
