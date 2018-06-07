@@ -29,7 +29,7 @@ namespace CRMWebApi.Controllers
         public IHttpActionResult Get(string name, int type, int pageSize = 20, int pageIndex = 1)
         {
             DataTable data = _CustomerDAL.Get(name, type, pageSize, pageIndex);
-            int total = _CustomerDAL.GetCount(name);
+            int total = _CustomerDAL.GetCount(name, type);
 
             var result = new { list = data, total = total };
 

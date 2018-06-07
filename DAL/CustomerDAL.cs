@@ -33,13 +33,18 @@ namespace DAL
             return data;
         }
 
-        public int GetCount(string name)
+        public int GetCount(string name, int type)
         {
             int result = 0;
             string sql = @" SELECT Count(*) FROM Customer WHERE CustomerName LIKE @name";
+            if (type >= 0)
+            {
+                sql += " AND customerType=@customerType ";
+            }
             SqlParameter[] param = new SqlParameter[]
             {
                 new SqlParameter("name","%" + name + "%"),
+                new SqlParameter("customerType",type),
             };
             object counter = SqlHelper.ExecuteScalar(sql, CommandType.Text, param);
             int.TryParse(counter.ToString(), out result);

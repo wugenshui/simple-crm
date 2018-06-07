@@ -5,18 +5,18 @@
         工作日志
       </div>
       <div class="panel-body">
-        <Form ref="form" :label-width="80">
-          <FormItem label="日志标题">
-            <Input type="text" v-model="data.title" />
-          </FormItem>
-          <FormItem label="日志内容">
-            <editor class="editor" :value="data.content" @input="(content)=> data.content = content"></editor>
-          </FormItem>
-        </Form>
+        <el-form ref="form" :label-width="80">
+          <el-form-item label="日志标题">
+            <el-input type="text" v-model="data.title" />
+          </el-form-item>
+          <el-form-item label="日志内容">
+            <editor class="editor" :value="data.content" @input="(content)=>data.content=content"></editor>
+          </el-form-item>
+        </el-form>
       </div>
       <div class="panel-footer text-left">
-        <Button type="primary" @click="save" :disabled="!canSave">保存</Button>
-        <Button type="ghost" @click="$router.go(-1)">返回</Button>
+        <el-button type="primary" @click="save" :disabled="!canSave">保存</el-button>
+        <el-button type="ghost" @click="$router.go(-1)">返回</el-button>
       </div>
     </div>
   </div>

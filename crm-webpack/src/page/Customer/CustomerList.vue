@@ -2,27 +2,27 @@
     <div>
         <div class="panel panel-big">
             <div class="panel-header">
-                员工列表
+                客户列表
             </div>
             <div class="panel-body">
-                <el-tabs v-model="filtertype" @tab-click="search">
+                <el-tabs v-model="filtertype" @tab-click="tabChange">
                     <el-tab-pane :label="tab.label" :name="tab.name" v-for="tab in tabs" :key="tab.name">
-                        <Form ref="form" :label-width="80">
+                        <el-form ref="form" label-width="80px">
                             <el-row>
-                                <el-col span="6">
-                                    <el-form-item label="员工姓名">
-                                        <Input type="text" v-model="filtername" />
+                                <el-col :span="6">
+                                    <el-form-item label="客户姓名">
+                                        <el-input type="text" size="small" v-model="filtername" />
                                     </el-form-item>
                                 </el-col>
-                                <el-col span="4" offset="14">
+                                <el-col :span="4" :offset="14">
                                     <el-form-item>
                                         <el-form-item>
-                                            <Button type="primary" @click="search" icon="search">查询</Button>
+                                            <el-button type="primary" size="small" @click="search" icon="el-icon-search">查询</el-button>
                                         </el-form-item>
                                     </el-form-item>
                                 </el-col>
                             </el-row>
-                        </Form>
+                        </el-form>
                         <table class="table">
                             <tr>
                                 <th class="text-center">表单号</th>
@@ -47,8 +47,8 @@
                                 <td>{{ data.state | customerState }}</td>
                                 <td>{{ data.contract }}</td>
                                 <td>
-                                    <Button type="success" size="small" @click="$router.push('employeeadd?id='+data.id)" icon="edit">编辑</Button>
-                                    <Button type="error" size="small" @click="del(data.id)" icon="trash-a">删除</Button>
+                                    <el-button type="success" size="mini" @click="$router.push('employeeadd?id='+data.id)" icon="el-icon-edit">编辑</el-button>
+                                    <el-button type="error" size="mini" @click="del(data.id)" icon="el-icon-delete">删除</el-button>
                                 </td>
                             </tr>
                         </table>
@@ -56,7 +56,7 @@
                 </el-tabs>
             </div>
             <div class="panel-footer text-right">
-                <Page :total="total" :current="pageIndex" :page-size="pageSize" :show-total="true" @on-change="pageChange"></Page>
+                <el-pagination :current-page="pageIndex" :total="total" :page-size="pageSize" :show-total="true" @current-change="pageChange" background layout="total, prev, pager, next"></el-pagination>
             </div>
         </div>
         <router-view class="container"></router-view>
@@ -98,6 +98,10 @@ export default {
         this.datas = res.data.list
         this.total = res.data.total
       })
+    },
+    tabChange() {
+      this.pageIndex = 1
+      this.search()
     },
     pageChange(index) {
       this.pageIndex = index

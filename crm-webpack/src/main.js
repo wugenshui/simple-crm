@@ -21,15 +21,19 @@ Vue.use(ElementUI)
 
 Vue.prototype.$ajax = Axios
 Axios.defaults.baseURL = "http://localhost:10086/api"
-let loading
+let loading = []
 Axios.interceptors.request.use(function(config) {
-  loading = ElementUI.Loading.service({
-    lock: true,
-    text: "加载中...",
-    spinner: "el-icon-loading",
-    background: "rgba(0, 0, 0, 0.7)",
-    target: document.querySelector(".main")
-  })
+  if (loading.length <= 0) {
+    loading.push(
+      ElementUI.Loading.service({
+        lock: true,
+        text: "加载中...",
+        spinner: "el-icon-loading",
+        background: "rgba(0, 0, 0, 0.7)",
+        target: document.querySelector(".main")
+      })
+    )
+  }
   if (store != null && store.state.token != null) {
     config.headers.Token = store.state.token
   }
@@ -37,9 +41,10 @@ Axios.interceptors.request.use(function(config) {
 })
 Axios.interceptors.response.use(
   response => {
-    Vue.nextTick(() => {
-      loading.close()
-    })
+    if (loading.length > 0) {
+      loading[0].close()
+      loading.length--
+    }
     // 特殊的AjaxResult 返回格式处理
     if (response.data != null && response.data.state != null && typeof response.data.msg == "string") {
       if (response.data.state === false) {
@@ -51,9 +56,10 @@ Axios.interceptors.response.use(
     return response
   },
   error => {
-    Vue.nextTick(() => {
-      loading.close()
-    })
+    if (loading.length > 0) {
+      loading[0].close()
+      loading.length--
+    }
     if (error.response != null) {
       if (error.response.status == 401) {
         // 权限过期，处理

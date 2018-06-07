@@ -5,56 +5,51 @@
         业务人员资料
       </div>
       <div class="panel-body">
-        <Form ref="form" :label-width="100" :model="data" :rules="rules">
-          <FormItem label="姓名" prop="userName">
-            <Input type="text" v-model="data.userName" />
-          </FormItem>
-          <FormItem label="登录名" prop="loginName">
-            <Input type="text" v-model="data.loginName" />
-          </FormItem>
-          <FormItem label="密码" prop="password">
-            <Input type="password" v-model="data.password" :readonly="data.id > 0" />
-          </FormItem>
-          <FormItem label="所属公司" prop="companyId">
-            <Select v-model.number="data.companyId">
-              <Option v-for="c in companys" :value="c.id" :key="c.id">{{ c.companyName }}</Option>
-            </Select>
-          </FormItem>
-          <FormItem label="所属团队" prop="teamId">
-            <Select v-model.number="data.teamId">
-              <Option v-for="t in teams" :value="t.id" :key="t.id">{{ t.name }}</Option>
-            </Select>
-          </FormItem>
-          <FormItem label="所属团队" prop="teamId">
-            <Select v-model.number="data.teamId">
-              <Option v-for="t in teams" :value="t.id" :key="t.id">{{ t.name }}</Option>
-            </Select>
-          </FormItem>
-          <FormItem label="职位" prop="postId">
-            <Select v-model.number="data.postId">
-              <Option v-for="p in posts" :value="p.value" :key="p.value">{{ p.label }}</Option>
-            </Select>
-          </FormItem>
-          <FormItem label="电话" prop="phoneNumber">
-            <Input type="text" v-model="data.phoneNumber" />
-          </FormItem>
-          <FormItem label="入职时间" prop="workStartDate">
-            <DatePicker type="date" v-model="data.workStartDate"></DatePicker>
-          </FormItem>
-          <FormItem label="主管" prop="supervisorId">
-            <Select v-model.number="data.supervisorId" clearable>
-              <Option v-for="u in users" :value="u.id" :key="u.id">{{ u.userName }}</Option>
-            </Select>
-          </FormItem>
-          <FormItem label="是否启用" prop="isEnable">
-            <i-switch size="default" v-model="data.isEnable"></i-switch>
-          </FormItem>
-        </Form>
+        <el-form ref="form" label-width="100px" :model="data" :rules="rules">
+          <el-form-item label="姓名" prop="userName">
+            <el-input type="text" v-model="data.userName" />
+          </el-form-item>
+          <el-form-item label="登录名" prop="loginName">
+            <el-input type="text" v-model="data.loginName" />
+          </el-form-item>
+          <el-form-item label="密码" prop="password">
+            <el-input type="password" v-model="data.password" :readonly="data.id > 0" />
+          </el-form-item>
+          <el-form-item label="所属公司" prop="companyId">
+            <el-select v-model.number="data.companyId">
+              <el-option v-for="c in companys" :value="c.id" :key="c.id" :label="c.companyName"></el-option>
+            </el-select>
+          </el-form-item>
+          <el-form-item label="所属团队" prop="teamId">
+            <el-select v-model.number="data.teamId">
+              <el-option v-for="t in teams" :value="t.id" :key="t.id" :label="t.name"></el-option>
+            </el-select>
+          </el-form-item>
+          <el-form-item label="职位" prop="postId">
+            <el-select v-model.number="data.postId">
+              <el-option v-for="p in posts" :value="p.value" :key="p.value" :label="p.label"></el-option>
+            </el-select>
+          </el-form-item>
+          <el-form-item label="电话" prop="phoneNumber">
+            <el-input type="text" v-model="data.phoneNumber" />
+          </el-form-item>
+          <el-form-item label="入职时间" prop="workStartDate">
+            <el-date-picker type="date" v-model="data.workStartDate"></el-date-picker>
+          </el-form-item>
+          <el-form-item label="主管" prop="supervisorId">
+            <el-select v-model.number="data.supervisorId" clearable>
+              <el-option v-for="u in users" :value="u.id" :key="u.id" :label="u.userName"></el-option>
+            </el-select>
+          </el-form-item>
+          <el-form-item label="是否启用" prop="isEnable">
+            <el-switch size="default" v-model="data.isEnable"></el-switch>
+          </el-form-item>
+        </el-form>
       </div>
       <div class="panel-footer text-left">
-        <Button type="primary" @click="save">保存</Button>
-        <Button type="ghost" @click="reset">重置</Button>
-        <Button v-if="$route.query.id" type="ghost" @click="$router.go(-1)">返回</Button>
+        <el-button type="primary" @click="save">保存</el-button>
+        <el-button type="ghost" @click="reset">重置</el-button>
+        <el-button v-if="$route.query.id" type="ghost" @click="$router.go(-1)">返回</el-button>
       </div>
     </div>
   </div>
@@ -70,9 +65,9 @@ export default {
         userName: "",
         loginName: "",
         password: "",
-        companyId: 0,
-        teamId: 0,
-        postId: 0,
+        companyId: null,
+        teamId: null,
+        postId: null,
         phoneNumber: "",
         workStartDate: "",
         supervisor: "",

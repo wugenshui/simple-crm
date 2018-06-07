@@ -5,20 +5,20 @@
         修改密码
       </div>
       <div class="panel-body">
-        <Form :model="form" :label-width="120">
-          <FormItem label="原密码">
-            <Input v-model="form.txtOld" type="password"></Input>
-          </FormItem>
-          <FormItem label="新密码">
-            <Input v-model="form.txtNew" type="password"></Input>
-          </FormItem>
-          <FormItem label="重复输入新密码">
-            <Input v-model="form.txtNewRepeat" type="password"></Input>
-          </FormItem>
-        </Form>
+        <el-form :model="form" label-width="120px">
+          <el-form-item label="原密码">
+            <el-input v-model="form.txtOld" type="password"></el-input>
+          </el-form-item>
+          <el-form-item label="新密码">
+            <el-input v-model="form.txtNew" type="password"></el-input>
+          </el-form-item>
+          <el-form-item label="重复输入新密码">
+            <el-input v-model="form.txtNewRepeat" type="password"></el-input>
+          </el-form-item>
+        </el-form>
       </div>
       <div class="panel-footer">
-        <Button type="primary" @click="change" :disabled="!canSave">保存</Button>
+        <el-button type="primary" @click="change" :disabled="!canSave">保存</el-button>
       </div>
     </div>
   </div>
@@ -50,5 +50,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

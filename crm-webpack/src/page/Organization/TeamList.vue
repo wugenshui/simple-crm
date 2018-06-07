@@ -5,22 +5,22 @@
                 团队列表
             </div>
             <div class="panel-body">
-                <Form ref="form" :label-width="80">
-                    <i-row>
-                        <i-col span="6">
-                            <FormItem label="团队名称">
-                                <Input type="text" v-model="filtername" />
-                            </FormItem>
-                        </i-col>
-                        <i-col span="4" offset="14">
-                            <FormItem>
-                                <FormItem>
-                                    <Button type="primary" @click="search" icon="search">查询</Button>
-                                </FormItem>
-                            </FormItem>
-                        </i-col>
-                    </i-row>
-                </Form>
+                <el-form ref="form" label-width="80px">
+                    <el-row>
+                        <el-col span="6">
+                            <el-form-item label="团队名称">
+                                <el-input type="text" size="small" v-model="filtername" />
+                            </el-form-item>
+                        </el-col>
+                        <el-col span="4" offset="14">
+                            <el-form-item>
+                                <el-form-item>
+                                    <el-button type="primary" size="small" @click="search" icon="el-icon-search">查询</el-button>
+                                </el-form-item>
+                            </el-form-item>
+                        </el-col>
+                    </el-row>
+                </el-form>
                 <table class="table">
                     <colgroup>
                         <col width="60px">
@@ -44,14 +44,14 @@
                         <td>{{ data.slogan }}</td>
                         <td>{{ data.companyName }}</td>
                         <td>
-                            <Button type="success" size="small" @click="$router.push('teamadd?id='+data.id)" icon="edit">编辑</Button>
-                            <Button type="error" size="small" @click="del(data.id)" icon="trash-a">删除</Button>
+                            <el-button type="success" size="mini" @click="$router.push('teamadd?id='+data.id)" icon="el-icon-edit">编辑</el-button>
+                            <el-button type="error" size="mini" @click="del(data.id)" icon="el-icon-delete">删除</el-button>
                         </td>
                     </tr>
                 </table>
             </div>
             <div class="panel-footer text-right">
-                <Page :total="total" :current="pageIndex" :page-size="pageSize" :show-total="true" @on-change="pageChange"></Page>
+                <el-pagination :current-page="pageIndex" :total="total" :page-size="pageSize" :show-total="true" @current-change="pageChange" background layout="total, prev, pager, next"></el-pagination>
             </div>
         </div>
         <router-view class="container"></router-view>

@@ -5,30 +5,30 @@
         添加团队
       </div>
       <div class="panel-body">
-        <Form ref="form" :label-width="100" :model="data" :rules="rules">
-          <FormItem label="团队名称" prop="name">
-            <Input type="text" v-model="data.name" />
-          </FormItem>
-          <FormItem label="团队负责人" prop="leader">
-            <Input type="text" v-model="data.leader" />
-          </FormItem>
-          <FormItem label="负责人电话" prop="leaderPhone">
-            <Input type="text" v-model="data.leaderPhone" />
-          </FormItem>
-          <FormItem label="团队口号" prop="slogan">
-            <Input type="textarea" v-model="data.slogan" :autosize="true" />
-          </FormItem>
-          <FormItem label="所属公司" prop="companyId">
-            <Select v-model="data.companyId">
-              <Option v-for="c in companys" :value="c.id+''" :key="c.id">{{ c.companyName }}</Option>
-            </Select>
-          </FormItem>
-        </Form>
+        <el-form ref="form" label-width="100px" :model="data" :rules="rules">
+          <el-form-item label="团队名称" prop="name">
+            <el-input type="text" v-model="data.name" />
+          </el-form-item>
+          <el-form-item label="团队负责人" prop="leader">
+            <el-input type="text" v-model="data.leader" />
+          </el-form-item>
+          <el-form-item label="负责人电话" prop="leaderPhone">
+            <el-input type="text" v-model="data.leaderPhone" />
+          </el-form-item>
+          <el-form-item label="团队口号" prop="slogan">
+            <el-input type="textarea" v-model="data.slogan" :autosize="true" />
+          </el-form-item>
+          <el-form-item label="所属公司" prop="companyId">
+            <el-select v-model="data.companyId">
+              <el-option v-for="c in companys" :value="c.id+''" :key="c.id" :label="c.companyName"></el-option>
+            </el-select>
+          </el-form-item>
+        </el-form>
       </div>
       <div class="panel-footer text-left">
-        <Button type="primary" @click="save">保存</Button>
-        <Button type="ghost" @click="reset">重置</Button>
-        <Button v-if="$route.query.id" type="ghost" @click="$router.go(-1)">返回</Button>
+        <el-button type="primary" @click="save">保存</el-button>
+        <el-button type="ghost" @click="reset">重置</el-button>
+        <el-button v-if="$route.query.id" type="ghost" @click="$router.go(-1)">返回</el-button>
       </div>
     </div>
   </div>
@@ -45,7 +45,7 @@ export default {
         leader: "",
         leaderPhone: "",
         slogan: "",
-        companyId: 0
+        companyId: null
       },
       rules: {
         name: [{ required: true, message: "团队名称不能为空!", trigger: "blur" }],

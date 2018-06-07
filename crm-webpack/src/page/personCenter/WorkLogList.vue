@@ -5,28 +5,28 @@
                 工作日志
             </div>
             <div class="panel-body">
-                <Form ref="form" :label-width="80">
-                    <i-row>
-                        <i-col span="6">
-                            <FormItem label="标题">
-                                <Input type="text" v-model="filterTitle" />
-                            </FormItem>
-                        </i-col>
-                        <i-col span="6">
-                            <FormItem label="日期">
-                                <DatePicker type="date" v-model="filterTime" format="yyyy-MM-dd"></DatePicker>
-                            </FormItem>
-                        </i-col>
-                        <i-col span="5" offset="7">
-                            <FormItem>
-                                <FormItem>
-                                    <Button type="primary" @click="search" icon="search">查询</Button>
-                                    <Button type="success" @click="$router.push('worklogedit')" icon="android-add-circle">新增</Button>
-                                </FormItem>
-                            </FormItem>
-                        </i-col>
-                    </i-row>
-                </Form>
+                <el-form ref="form" label-width="80px">
+                    <el-row>
+                        <el-col :span="6">
+                            <el-form-item label="标题">
+                                <el-input type="text" size="small" v-model="filterTitle" />
+                            </el-form-item>
+                        </el-col>
+                        <el-col :span="6">
+                            <el-form-item label="日期">
+                                <el-date-picker type="date" size="small" v-model="filterTime" format="yyyy-MM-dd" value-format="yyyy-MM-dd"></el-date-picker>
+                            </el-form-item>
+                        </el-col>
+                        <el-col :span="6" :offset="6">
+                            <el-form-item>
+                                <el-form-item>
+                                    <el-button type="primary" size="small" @click="search" icon="el-icon-search">查询</el-button>
+                                    <el-button type="success" size="small" @click="$router.push('worklogedit')" icon="el-icon-circle-plus-outline">新增</el-button>
+                                </el-form-item>
+                            </el-form-item>
+                        </el-col>
+                    </el-row>
+                </el-form>
                 <table class="table">
                     <colgroup>
                         <col width="60px">
@@ -44,14 +44,14 @@
                         <td>{{ log.title }}</td>
                         <td>{{ log.createTime | time }}</td>
                         <td>
-                            <Button type="success" size="small" @click="$router.push('worklogedit?id='+log.id)" icon="edit">编辑</Button>
-                            <Button type="error" size="small" @click="del(log.id)" icon="trash-a">删除</Button>
+                            <el-button type="success" size="mini" @click="$router.push('worklogedit?id='+log.id)" icon="el-icon-edit">编辑</el-button>
+                            <el-button type="error" size="mini" @click="del(log.id)" icon="el-icon-delete">删除</el-button>
                         </td>
                     </tr>
                 </table>
             </div>
             <div class="panel-footer text-right">
-                <Page :total="total" :current="pageIndex" :page-size="pageSize" :show-total="true" @on-change="pageChange"></Page>
+                <el-pagination :current-page="pageIndex" :total="total" :page-size="pageSize" @current-change="pageChange" background layout="total, prev, pager, next"></el-pagination>
             </div>
         </div>
         <router-view class="container"></router-view>
@@ -59,7 +59,6 @@
 </template>
 
 <script>
-import dayjs from "dayjs"
 import common from "../../common.js"
 export default {
   data: function() {
@@ -74,12 +73,11 @@ export default {
   },
   methods: {
     search() {
-      var date = this.filterTime ? dayjs(this.filterTime).format("YYYY-MM-DD") : ""
       var url =
         "worklog?title=" +
         this.filterTitle +
         "&date=" +
-        date +
+        this.filterTime +
         "&pageIndex=" +
         this.pageIndex +
         "&pageSize=" +
