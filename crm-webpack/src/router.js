@@ -8,65 +8,65 @@ export default new Router({
     {
       path: "/",
       name: "Default",
-      component: () => import("./page/default/Default.vue"),
+      component: () => import("./views/default/Default.vue"),
       children: [
         {
           path: "/PasswordChange",
           name: "PasswordChange",
-          component: () => import("./page/personCenter/PasswordChange.vue")
+          component: () => import("./views/personCenter/PasswordChange.vue")
         },
         {
           path: "/WorkLogList",
           name: "WorkLogList",
-          component: () => import("./page/personCenter/WorkLogList.vue")
+          component: () => import("./views/personCenter/WorkLogList.vue")
         },
         {
           path: "/WorkLogEdit",
           name: "WorkLogEdit",
-          component: () => import("./page/personCenter/WorkLogEdit.vue")
+          component: () => import("./views/personCenter/WorkLogEdit.vue")
         },
         {
           path: "/CompanyList",
           name: "CompanyList",
-          component: () => import("./page/Organization/CompanyList.vue")
+          component: () => import("./views/Organization/CompanyList.vue")
         },
         {
           path: "/CompanyAdd",
           name: "CompanyAdd",
-          component: () => import("./page/Organization/CompanyAdd.vue")
+          component: () => import("./views/Organization/CompanyAdd.vue")
         },
         {
           path: "/TeamList",
           name: "TeamList",
-          component: () => import("./page/Organization/TeamList.vue")
+          component: () => import("./views/Organization/TeamList.vue")
         },
         {
           path: "/TeamAdd",
           name: "TeamAdd",
-          component: () => import("./page/Organization/TeamAdd.vue")
+          component: () => import("./views/Organization/TeamAdd.vue")
         },
         {
           path: "/EmployeeList",
           name: "EmployeeList",
-          component: () => import("./page/Employee/EmployeeList.vue")
+          component: () => import("./views/Employee/EmployeeList.vue")
         },
         {
           path: "/EmployeeAdd",
           name: "EmployeeAdd",
-          component: () => import("./page/Employee/EmployeeAdd.vue")
+          component: () => import("./views/Employee/EmployeeAdd.vue")
         },
         {
           path: "/CustomerList",
           name: "CustomerList",
-          component: () => import("./page/Customer/CustomerList.vue")
+          component: () => import("./views/Customer/CustomerList.vue")
         },
         {
           path: "/CustomerAdd",
           name: "CustomerAdd",
-          component: () => import("./page/Customer/CustomerAdd.vue")
+          component: () => import("./views/Customer/CustomerAdd.vue")
         }
       ]
     },
-    { path: "/Login", name: "Login", component: resolve => require(["./page/login/Login.vue"], resolve) }
+    { path: "/Login", name: "Login", component: resolve => require(["./views/login/Login.vue"], resolve) }
   ]
 })
