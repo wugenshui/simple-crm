@@ -1,26 +1,29 @@
 <template>
   <div class="container">
-    <TopHeader></TopHeader>
+    <AppHeader></AppHeader>
     <div class="center">
-      <LeftMenu></LeftMenu>
-      <div class="main">
-        <router-view></router-view>
-      </div>
+      <AppMenu></AppMenu>
+      <TagsOpened class="tag"></TagsOpened>
+      <keep-alive>
+        <router-view class="main"></router-view>
+      </keep-alive>
     </div>
   </div>
 </template>
 
 <script>
-import TopHeader from "./Header.vue"
-import LeftMenu from "./Menu.vue"
+import AppHeader from "./Header.vue"
+import AppMenu from "./Menu.vue"
+import TagsOpened from "./TagsOpened.vue"
 
 export default {
   data: function() {
     return {}
   },
   components: {
-    TopHeader,
-    LeftMenu
+    AppHeader,
+    AppMenu,
+    TagsOpened
   }
 }
 </script>
@@ -34,17 +37,25 @@ export default {
   right: 0;
 }
 
-.main {
+.tag {
   position: absolute;
   top: 0;
+  height: 50px;
+  left: 180px;
+  right: 0;
+  padding: 10px;
+  background-color: #fff;
+  overflow-y: auto;
+}
+
+.main {
+  position: absolute;
+  top: 50px;
   bottom: 0;
   left: 180px;
   right: 0;
   padding: 10px;
   background-color: #f0f0f0;
-}
-
-.main > div {
-  overflow: auto;
+  overflow-y: auto;
 }
 </style>
