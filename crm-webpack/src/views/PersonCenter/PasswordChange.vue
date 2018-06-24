@@ -27,6 +27,7 @@
 <script>
 import common from "../../common.js"
 export default {
+  name: "PasswordChange",
   data: function() {
     return {
       form: {

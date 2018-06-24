@@ -27,6 +27,7 @@ import editor from "../../components/Editor.vue"
 import common from "../../common.js"
 import dayjs from "dayjs"
 export default {
+  name: "WorkLogEdit",
   data: function() {
     return {
       data: {

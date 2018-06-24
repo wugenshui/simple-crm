@@ -17,6 +17,7 @@ import AppMenu from "./Menu.vue"
 import TagsOpened from "./TagsOpened.vue"
 
 export default {
+  name: "Default",
   data: function() {
     return {}
   },
@@ -44,8 +45,9 @@ export default {
   left: 180px;
   right: 0;
   padding: 10px;
-  background-color: #fff;
-  overflow-y: auto;
+  background-color: #eee;
+  overflow-x: auto;
+  border-bottom: 1px solid #ccc;
 }
 
 .main {
@@ -55,7 +57,7 @@ export default {
   left: 180px;
   right: 0;
   padding: 10px;
-  background-color: #f0f0f0;
+  background-color: #fff;
   overflow-y: auto;
 }
 </style>

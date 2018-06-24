@@ -1,20 +1,21 @@
 <template>
-    <div class="tag-nav">
-        <el-tag ref="scrollBar">
-            <router-link ref="tag" class="tag-nav-item" :class="isActive(item) ? 'cur' : ''" v-for="(item, index) in tagNavList" :to="item.path" :key="index">
-                {{item.title}}
-                <span class='el-icon-close' @click.prevent.stop="closeTheTag(item, index)"></span>
-            </router-link>
-        </el-tag>
-    </div>
+  <div class="tag-nav">
+    <ScrollBar ref="scrollBar">
+      <router-link ref="tag" class="tag-nav-item" :class="isActive(item) ? 'cur' : ''" v-for="(item, index) in tagNavList" :to="item.path" :key="index">
+        {{item.title}}
+        <span class='el-icon-close' @click.prevent.stop="closeTheTag(item, index)"></span>
+      </router-link>
+    </ScrollBar>
+  </div>
 </template>
 
 <script>
+import ScrollBar from "../../components/ScrollBar.vue"
 export default {
   data() {
     return {
       defaultPage: "/home",
-      tagNavList: ["/home"]
+      tagNavList: []
     }
   },
   computed: {},
@@ -31,11 +32,14 @@ export default {
   methods: {
     addTagNav() {
       // 如果需要缓存则必须使用组件自身的name，而不是router的name
-      this.tagNavList.push({
-        name: this.$router.getMatchedComponents()[1].name,
-        path: this.$route.path,
-        title: this.$route.meta.name
-      })
+      const name = this.$router.getMatchedComponents()[1].name
+      if (this.tagNavList != null && this.tagNavList.find(o => o.name == name) == null) {
+        this.tagNavList.push({
+          name: name,
+          path: this.$route.path,
+          title: this.$route.meta.name
+        })
+      }
     },
     isActive(item) {
       return item.path === this.$route.path
@@ -65,11 +69,14 @@ export default {
         }
       })
     }
+  },
+  components: {
+    ScrollBar
   }
 }
 </script>
 
-<style scoped>
+<style lang="stylus" scoped>
 .tag-nav {
   position: absolute;
   top: 0;
@@ -79,6 +86,7 @@ export default {
   background: #eee;
   border-bottom: 1px solid #ccc;
 }
+
 .tag-nav-item {
   display: inline-block;
   position: relative;
@@ -89,27 +97,31 @@ export default {
   border: 1px solid #ccc;
   background: #fff;
   text-decoration: none;
-}
-.tag-nav-item span {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  text-align: center;
-  transition: all 0.3s ease;
-  transform-origin: 100% 50%;
-}
-.tag-nav-item span:before {
-  transform: scale(0.4);
-  display: inline-block;
-}
-.tag-nav-item span:hover {
-  background-color: #b4bccc;
-  color: #fff;
-}
-.tag-nav-item.cur {
-  background: #42b983;
-  border: none;
-  color: #fff;
+
+  span {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    text-align: center;
+    transition: all 0.3s ease;
+    transform-origin: 100% 50%;
+
+    &:before {
+      transform: scale(0.4);
+      display: inline-block;
+    }
+
+    &:hover {
+      background-color: #b4bccc;
+      color: #fff;
+    }
+  }
+
+  &.cur {
+    background: #42b983;
+    border: none;
+    color: #fff;
+  }
 }
 </style>
 
