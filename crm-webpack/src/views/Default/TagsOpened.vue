@@ -12,9 +12,10 @@
 <script>
 import ScrollBar from "../../components/ScrollBar.vue"
 export default {
+  name: "TagsOpened",
   data() {
     return {
-      defaultPage: "/home",
+      defaultPage: "/",
       tagNavList: []
     }
   },
@@ -32,13 +33,16 @@ export default {
   methods: {
     addTagNav() {
       // 如果需要缓存则必须使用组件自身的name，而不是router的name
-      const name = this.$router.getMatchedComponents()[1].name
-      if (this.tagNavList != null && this.tagNavList.find(o => o.name == name) == null) {
-        this.tagNavList.push({
-          name: name,
-          path: this.$route.path,
-          title: this.$route.meta.name
-        })
+      const components = this.$router.getMatchedComponents()
+      if (this.$route.meta.keepAlive && components.length >= 2) {
+        const name = components[1].name
+        if (this.tagNavList != null && this.tagNavList.find(o => o.name == name) == null) {
+          this.tagNavList.push({
+            name: name,
+            path: this.$route.path,
+            title: this.$route.meta.name
+          })
+        }
       }
     },
     isActive(item) {
@@ -47,13 +51,14 @@ export default {
     closeTheTag(item, index) {
       // 当关闭当前页面的Tag时，则自动加载前一个Tag所属的页面
       // 如果没有前一个Tag，则加载默认页面
-      this.$store.commit("tagNav/removeTagNav", item)
       if (this.$route.path == item.path) {
         if (index) {
           this.$router.push(this.tagNavList[index - 1].path)
+          this.tagNavList.splice(index, 1)
         } else {
           this.$router.push(this.defaultPage)
-          if (this.$route.path == "/home") {
+          this.tagNavList.splice(index, 1)
+          if (this.$route.path == "/") {
             this.addTagNav()
           }
         }

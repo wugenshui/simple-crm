@@ -5,8 +5,9 @@
       <AppMenu></AppMenu>
       <TagsOpened class="tag"></TagsOpened>
       <keep-alive>
-        <router-view class="main"></router-view>
+        <router-view class="main" v-if="$route.meta.keepAlive"></router-view>
       </keep-alive>
+      <router-view class="main" v-if="!$route.meta.keepAlive"></router-view>
     </div>
   </div>
 </template>

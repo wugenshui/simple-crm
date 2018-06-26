@@ -5,7 +5,7 @@
         工作日志
       </div>
       <div class="panel-body">
-        <el-form ref="form" :label-width="80">
+        <el-form ref="form" label-width="80px">
           <el-form-item label="日志标题">
             <el-input type="text" v-model="data.title" />
           </el-form-item>
