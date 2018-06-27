@@ -15,13 +15,19 @@ export default {
   name: "TagsOpened",
   data() {
     return {
-      defaultPage: "/",
+      defaultPage: {
+        name: "UserInfo",
+        path: "/UserInfo",
+        title: "首页"
+      },
       tagNavList: []
     }
   },
   computed: {},
   mounted() {
     // 首次加载时将默认页面加入缓存
+    this.tagNavList.push(this.defaultPage)
+    this.$router.push(this.defaultPage.path)
     this.addTagNav()
   },
   watch: {
@@ -56,7 +62,7 @@ export default {
           this.$router.push(this.tagNavList[index - 1].path)
           this.tagNavList.splice(index, 1)
         } else {
-          this.$router.push(this.defaultPage)
+          this.$router.push(this.defaultPage.path)
           this.tagNavList.splice(index, 1)
           if (this.$route.path == "/") {
             this.addTagNav()

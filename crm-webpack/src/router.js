@@ -20,7 +20,8 @@ export default new Router({
         {
           path: "/UserInfo",
           name: "UserInfo",
-          component: () => import("./views/personCenter/UserInfo.vue")
+          component: () => import("./views/personCenter/UserInfo.vue"),
+          meta: { name: "用户信息", keepAlive: true }
         },
         {
           path: "/WorkLogList",
