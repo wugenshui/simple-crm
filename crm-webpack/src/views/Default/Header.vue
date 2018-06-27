@@ -110,7 +110,6 @@ nav {
 .title {
   font-size: 1.25rem;
   text-indent: 50px;
-  margin-left: 30px;
 }
 
 a,
@@ -119,6 +118,8 @@ a,
   cursor: pointer;
   font-size: 16px;
   margin-right: 10px;
+  height: 56px;
+  display: inline-block;
 }
 
 .ivu-dropdown {

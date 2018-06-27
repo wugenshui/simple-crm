@@ -5,7 +5,7 @@
         工作日志
       </div>
       <div class="panel-body">
-        <el-form ref="form" :label-width="80">
+        <el-form ref="form" label-width="80px">
           <el-form-item label="日志标题">
             <el-input type="text" v-model="data.title" />
           </el-form-item>
@@ -27,6 +27,7 @@ import editor from "../../components/Editor.vue"
 import common from "../../common.js"
 import dayjs from "dayjs"
 export default {
+  name: "WorkLogEdit",
   data: function() {
     return {
       data: {

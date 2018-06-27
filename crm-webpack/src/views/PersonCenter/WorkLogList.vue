@@ -61,6 +61,7 @@
 <script>
 import common from "../../common.js"
 export default {
+  name: "WorkLogList",
   data: function() {
     return {
       filterTitle: "",

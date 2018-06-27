@@ -64,6 +64,7 @@
 import dayjs from "dayjs"
 import common from "../../common.js"
 export default {
+  name: "CompanyList",
   data: function() {
     return {
       filtername: "",

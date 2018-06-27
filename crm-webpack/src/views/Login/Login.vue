@@ -45,6 +45,7 @@
 import Cloud from "../../components/Cloud.vue"
 
 export default {
+  name:"Login",
   data: function() {
     return {
       loginForm: {

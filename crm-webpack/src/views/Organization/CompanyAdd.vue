@@ -38,6 +38,7 @@
 <script>
 import common from "../../common.js"
 export default {
+  name: "CompanyAdd",
   data: function() {
     return {
       data: {

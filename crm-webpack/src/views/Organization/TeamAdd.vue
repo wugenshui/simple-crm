@@ -36,7 +36,9 @@
 
 <script>
 import common from "../../common.js"
+
 export default {
+  name: "TeamAdd",
   data: function() {
     return {
       data: {

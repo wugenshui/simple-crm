@@ -69,6 +69,7 @@
 <script>
 import common from "../../common.js"
 export default {
+  name: "EmployeeList",
   data: function() {
     return {
       filtername: "",

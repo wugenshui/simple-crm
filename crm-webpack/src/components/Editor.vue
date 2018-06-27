@@ -10,6 +10,7 @@ const INIT = 0
 const CHANGED = 2
 var EDITOR = null
 export default {
+  name: "Editor",
   props: {
     value: {
       type: String,
@@ -33,6 +34,7 @@ export default {
   },
   methods: {},
   mounted: function() {
+    console.log("mounted")
     const _this = this
     const setting = {
       selector: "#" + _this.id,
@@ -49,7 +51,6 @@ export default {
       plugins: []
     }
     Object.assign(setting, _this.setting)
-
     tinymce.init(setting)
   },
   beforeDestroy: function() {

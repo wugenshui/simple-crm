@@ -60,6 +60,7 @@
 
 <script>
 export default {
+  name: "TeamList",
   data: function() {
     return {
       filtername: "",

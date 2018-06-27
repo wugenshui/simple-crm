@@ -58,6 +58,7 @@
 <script>
 import common from "../../common.js"
 export default {
+  name: "EmployeeAdd",
   data: function() {
     return {
       data: {
