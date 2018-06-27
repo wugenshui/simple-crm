@@ -18,7 +18,7 @@ export default {
       defaultPage: {
         name: "UserInfo",
         path: "/UserInfo",
-        title: "首页"
+        title: "个人资料"
       },
       tagNavList: []
     }

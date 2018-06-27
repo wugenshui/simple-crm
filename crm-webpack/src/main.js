@@ -12,10 +12,12 @@ import "vue2-animate/dist/vue2-animate.min.css"
 import "./filter.js"
 import ElementUI from "element-ui"
 import "element-ui/lib/theme-chalk/index.css"
+import VCharts from "v-charts"
 
 Vue.config.productionTip = false
 Vue.use(VurRouter)
 Vue.use(ElementUI)
+Vue.use(VCharts)
 
 Vue.prototype.$ajax = Axios
 Axios.defaults.baseURL = "http://localhost:10086/api"
