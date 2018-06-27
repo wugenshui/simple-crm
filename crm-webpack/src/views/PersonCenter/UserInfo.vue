@@ -13,6 +13,9 @@
           <a href="#">修改资料</a>
         </div>
       </div>
+      <div class="pie">
+        <ve-pie :data="pieData" :settings="pieSetting" height="350px"></ve-pie>
+      </div>
     </div>
     <div class="bottom">
       <div class="panel panel-big">
@@ -20,7 +23,7 @@
           业绩走势图
         </div>
         <div class="panel-body">
-          <ve-line :data="chartData" :settings="chartSettings" :grid="grid" height="500px"></ve-line>
+          <ve-line :data="chartData" :settings="chartSettings" :grid="grid"></ve-line>
         </div>
       </div>
     </div>
@@ -45,6 +48,11 @@ export default {
       yAxisName: ["访问用户"],
       xAxisType: "time"
     }
+    this.pieSetting = {
+      dataType: function(v) {
+        return v + "人"
+      }
+    }
     return {
       chartData: {
         columns: ["date", "PV", "Order", "Percent"],
@@ -55,6 +63,15 @@ export default {
           { date: "2018-01-05", PV: 1723, Order: 1423, Percent: 0.49 },
           { date: "2018-01-10", PV: 3792, Order: 3492, Percent: 0.323 },
           { date: "2018-01-20", PV: 4593, Order: 4293, Percent: 0.78 }
+        ]
+      },
+      pieData: {
+        columns: ["职位", "人数"],
+        rows: [
+          { 职位: "总经理", 人数: 1 },
+          { 职位: "经理", 人数: 12 },
+          { 职位: "干部", 人数: 27 },
+          { 职位: "员工", 人数: 100 }
         ]
       }
     }
@@ -76,6 +93,7 @@ export default {
     height: 220px;
     text-align: center;
     padding: 10px;
+    float: left;
 
     img {
       width: 100px;
@@ -123,11 +141,17 @@ export default {
       }
     }
   }
+
+  .pie {
+    width: 400px;
+    heigth: 400px;
+    float: right;
+  }
 }
 
 .bottom {
   position: absolute;
-  top: 240px;
+  top: 360px;
   left: 10px;
   right: 10px;
   bottom: 10px;
