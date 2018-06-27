@@ -16,6 +16,11 @@ export default new Router({
           component: () => import("./views/personCenter/PasswordChange.vue")
         },
         {
+          path: "/UserInfo",
+          name: "UserInfo",
+          component: () => import("./views/personCenter/UserInfo.vue")
+        },
+        {
           path: "/WorkLogList",
           name: "WorkLogList",
           component: () => import("./views/personCenter/WorkLogList.vue")
