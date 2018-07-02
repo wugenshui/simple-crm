@@ -1,7 +1,10 @@
 <template>
   <div>
-    <div class="top">
-      <div class="user-info">
+    <div class="panel user-info">
+      <div class="panel-header">
+        个人资料
+      </div>
+      <div class="panel-body">
         <img src="../../image/default/profile.png" alt="头像">
         <div class="split">
           <span class="triangle"></span>
@@ -13,18 +16,21 @@
           <a href="#">修改资料</a>
         </div>
       </div>
-      <div class="pie">
+    </div>
+    <div class="panel pie">
+      <div class="panel-header">
+        机构组成
+      </div>
+      <div class="panel-body">
         <ve-pie :data="pieData" :settings="pieSetting" height="350px"></ve-pie>
       </div>
     </div>
-    <div class="bottom">
-      <div class="panel panel-big">
-        <div class="panel-header">
-          业绩走势图
-        </div>
-        <div class="panel-body">
-          <ve-line :data="chartData" :settings="chartSettings" :grid="grid"></ve-line>
-        </div>
+    <div class="panel panel-big">
+      <div class="panel-header">
+        业绩走势图
+      </div>
+      <div class="panel-body">
+        <ve-line :data="chartData" :settings="chartSettings" :grid="grid"></ve-line>
       </div>
     </div>
   </div>
@@ -80,84 +86,67 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.top {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  height: 220px;
+.user-info {
+  width: 220px;
+  height: 420px;
+  float: left;
 
-  .user-info {
-    border: 1px solid lightgray;
-    width: 220px;
-    height: 220px;
-    text-align: center;
-    padding: 10px;
-    float: left;
+  img {
+    width: 200px;
+  }
 
-    img {
-      width: 100px;
+  .split {
+    margin: 15px auto;
+    border-bottom: 1px solid lightgray;
+    position: relative;
+    width: 200px;
+
+    .triangle {
+      position: absolute;
+      top: -8px;
+      left: 100px;
+      width: 0;
+      height: 0;
+      border: 4px solid #e8e8e8;
+      border-color: transparent transparent #e8e8e8 transparent;
     }
 
-    .split {
-      margin: 15px auto;
-      border-bottom: 1px solid lightgray;
-      position: relative;
-      width: 150px;
-
-      .triangle {
-        position: absolute;
-        top: -8px;
-        left: 76px;
-        width: 0;
-        height: 0;
-        border: 4px solid #e8e8e8;
-        border-color: transparent transparent #e8e8e8 transparent;
-      }
-
-      .triangle-mask {
-        top: -6px;
-        border: 4px solid #FFFFFF;
-        border-color: transparent transparent #FFFFFF transparent;
-      }
-    }
-
-    .dark {
-      color: #bcbcbc;
-    }
-
-    .link {
-      margin-top: 8px;
-
-      a {
-        padding-left: 10px;
-        padding-right: 10px;
-        margin: 0;
-
-        &.first {
-          border-right: 1px dashed lightgray;
-          margin-right: -2px;
-        }
-      }
+    .triangle-mask {
+      top: -6px;
+      border: 4px solid #FFFFFF;
+      border-color: transparent transparent #FFFFFF transparent;
     }
   }
 
-  .pie {
-    width: 400px;
-    heigth: 400px;
-    float: right;
+  .dark {
+    color: #bcbcbc;
+    text-align: center;
+  }
+
+  .link {
+    margin-top: 8px;
+
+    a {
+      padding-left: 10px;
+      padding-right: 10px;
+      margin: 0;
+
+      &.first {
+        border-right: 1px dashed lightgray;
+        margin-right: -2px;
+      }
+    }
   }
 }
 
-.bottom {
-  position: absolute;
-  top: 360px;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
+.pie {
+  margin-left: 230px;
+  height: 420px;
+  width: auto;
+  margin-bottom: 10px;
+}
 
-  .panel-big {
-    width: 100%;
-  }
+.panel-big {
+  width: 100%;
 }
 </style>
