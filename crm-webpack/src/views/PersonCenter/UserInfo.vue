@@ -25,7 +25,7 @@
         <ve-pie :data="pieData" :settings="pieSetting" height="350px"></ve-pie>
       </div>
     </div>
-    <div class="panel panel-big">
+    <div class="panel line">
       <div class="panel-header">
         业绩走势图
       </div>
@@ -146,7 +146,7 @@ export default {
   margin-bottom: 10px;
 }
 
-.panel-big {
+.line {
   width: 100%;
 }
 </style>
