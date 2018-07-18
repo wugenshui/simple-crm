@@ -64,7 +64,7 @@ export default {
         } else {
           this.$router.push(this.defaultPage.path)
           this.tagNavList.splice(index, 1)
-          if (this.$route.path == "/") {
+          if (this.tagNavList.length <= 0) {
             this.addTagNav()
           }
         }
@@ -117,7 +117,7 @@ export default {
     text-align: center;
     transition: all 0.3s ease;
     transform-origin: 100% 50%;
-    
+
     &:hover {
       background-color: #b4bccc;
       color: #fff;
