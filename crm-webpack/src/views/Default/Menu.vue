@@ -50,7 +50,8 @@ export default {
 
 <style>
 .menu .el-menu {
-  width: 201px;
+  width: 200px;
+  overflow: hidden;
 }
 
 /* .menu a {
