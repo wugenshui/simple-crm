@@ -2,7 +2,7 @@
   <div class="menu">
     <el-menu @open="handleOpen" @close="handleClose" :collapse="isCollapse" :unique-opened="true" background-color="#304156" text-color="#bfcbd9">
       <el-menu-item index="0">
-        <i class="el-icon-menu"></i>
+        <i class="icon icon-home"></i>
         <span slot="title">
           <router-link to="/">首页</router-link>
         </span>
@@ -51,13 +51,6 @@ export default {
 </script>
 
 <style>
-.el-submenu__title > i {
-  width: 30px;
-  height: 18px;
-  display: inline-block;
-  background-repeat: no-repeat;
-}
-
 .menu .el-menu {
   width: 186px;
 }
