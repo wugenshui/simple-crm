@@ -58,6 +58,7 @@
 <script>
 import common from "../../common.js"
 export default {
+  name: "CustomerAdd",
   data: function() {
     return {
       data: {

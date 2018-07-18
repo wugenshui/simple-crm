@@ -66,6 +66,7 @@
 <script>
 import common from "../../common.js"
 export default {
+  name: "CustomerList",
   data: function() {
     return {
       tabs: [
