@@ -23,3 +23,5 @@ const customerState = ["未确认", "已确认", "已分配", "已联系", "已�
 Vue.filter("customerState", value => {
   return value < customerState.length ? customerState[value] : ""
 })
+
+export { posts, customerType, customerState }

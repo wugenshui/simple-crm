@@ -6,50 +6,42 @@
       </div>
       <div class="panel-body">
         <el-form ref="form" label-width="100px" :model="data" :rules="rules">
-          <el-form-item label="姓名" prop="userName">
-            <el-input type="text" v-model="data.userName" />
+          <el-form-item label="客户类型" prop="customerType">
+            <el-radio-group v-model="data.customerType">
+              <el-radio v-for="(type,index) in customerType" :label="index" :key="index">{{ type }}</el-radio>
+            </el-radio-group>
           </el-form-item>
-          <el-form-item label="登录名" prop="loginName">
-            <el-input type="text" v-model="data.loginName" />
+          <el-form-item label="客户名称" prop="customerName">
+            <el-input type="text" v-model="data.customerName" />
           </el-form-item>
-          <el-form-item label="密码" prop="password">
-            <el-input type="password" v-model="data.password" :readonly="data.id > 0" />
+          <el-form-item label="电话" prop="customerPhone">
+            <el-input type="text" v-model="data.customerPhone" />
           </el-form-item>
-          <el-form-item label="所属公司" prop="companyId">
-            <el-select v-model.number="data.companyId">
-              <el-option v-for="c in companys" :value="c.id" :key="c.id" :label="c.companyName"></el-option>
-            </el-select>
+          <el-form-item label="QQ" prop="customerQQ">
+            <el-input v-model.number="data.customerQQ"></el-input>
           </el-form-item>
-          <el-form-item label="所属团队" prop="teamId">
-            <el-select v-model.number="data.teamId">
-              <el-option v-for="t in teams" :value="t.id" :key="t.id" :label="t.name"></el-option>
-            </el-select>
+          <el-form-item label="邮箱" prop="mail">
+            <el-input v-model.number="data.mail"></el-input>
           </el-form-item>
-          <el-form-item label="职位" prop="postId">
-            <el-select v-model.number="data.postId">
-              <el-option v-for="p in posts" :value="p.value" :key="p.value" :label="p.label"></el-option>
-            </el-select>
+          <el-form-item label="身份证号码" prop="idcard">
+            <el-input v-model="data.idcard" />
           </el-form-item>
-          <el-form-item label="电话" prop="phoneNumber">
-            <el-input type="text" v-model="data.phoneNumber" />
+          <el-form-item label="家庭住址" prop="homeAddress">
+            <el-input type="text" v-model="data.workStartDate"></el-input>
           </el-form-item>
-          <el-form-item label="入职时间" prop="workStartDate">
-            <el-date-picker type="date" v-model="data.workStartDate"></el-date-picker>
-          </el-form-item>
-          <el-form-item label="主管" prop="supervisorId">
-            <el-select v-model.number="data.supervisorId" clearable>
+          <el-form-item label="所属业务" prop="owner">
+            <el-select v-model.number="data.owner" clearable>
               <el-option v-for="u in users" :value="u.id" :key="u.id" :label="u.userName"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="是否启用" prop="isEnable">
-            <el-switch size="default" v-model="data.isEnable"></el-switch>
+          <el-form-item label="合同附件上传" prop="contract">
+            <el-switch size="default" v-model="data.contract"></el-switch>
           </el-form-item>
         </el-form>
       </div>
       <div class="panel-footer text-left">
         <el-button type="primary" @click="save">保存</el-button>
         <el-button type="ghost" @click="reset">重置</el-button>
-        <el-button v-if="$route.query.id" type="ghost" @click="$router.go(-1)">返回</el-button>
       </div>
     </div>
   </div>
@@ -57,35 +49,32 @@
 
 <script>
 import common from "../../common.js"
+import { customerType } from "../../filter.js"
 export default {
   name: "CustomerAdd",
   data: function() {
     return {
       data: {
         id: 0,
-        userName: "",
-        loginName: "",
-        password: "",
-        companyId: null,
-        teamId: null,
-        postId: null,
-        phoneNumber: "",
-        workStartDate: "",
-        supervisor: "",
-        isEnable: true
+        customerType: "",
+        customerName: "",
+        customerPhone: "",
+        customerQQ: null,
+        mail: null,
+        idcard: null,
+        homeAddress: "",
+        owner: "",
+        contract: ""
       },
       rules: {
-        userName: [{ required: true, message: "姓名不能为空!", trigger: "blur" }],
-        loginName: [{ required: true, message: "登录名不能为空!", trigger: "blur" }],
-        password: [{ required: true, message: "密码不能为空!", trigger: "blur" }],
-        companyId: [{ required: true, type: "number", message: "所属公司不能为空!", trigger: "blur" }],
-        teamId: [{ required: true, type: "number", message: "所属团队不能为空!", trigger: "blur" }],
-        postId: [{ required: true, type: "number", message: "职位不能为空!", trigger: "blur" }],
-        phoneNumber: [{ required: true, message: "电话不能为空!", trigger: "blur" }],
-        workStartDate: [{ required: true, type: "date", message: "入职时间不能为空!", trigger: "change" }],
-        supervisorId: [{ required: true, type: "number", message: "主管不能为空!", trigger: "blur" }]
+        customerType: [{ required: true, message: "客户类型不能为空!", trigger: "change" }],
+        customerName: [{ required: true, message: "客户名称不能为空!", trigger: "blur" }],
+        customerPhone: [{ required: true, message: "电话不能为空!", trigger: "blur" }],
+        mail: [{ required: true, type: "number", message: "邮箱不能为空!", trigger: "blur" }],
+        idcard: [{ required: true, type: "number", message: "身份证号码不能为空!", trigger: "blur" }],
+        homeAddress: [{ required: true, type: "number", message: "家庭住址不能为空!", trigger: "blur" }],
+        owner: [{ required: true, message: "所属业务不能为空!", trigger: "change" }]
       },
-      posts: [{ value: 0, label: "业务" }, { value: 1, label: "主管" }, { value: 2, label: "经理" }],
       companys: [],
       teams: [],
       users: [],
@@ -93,7 +82,8 @@ export default {
       filterTime: "",
       pageIndex: 1,
       pageSize: 10,
-      total: 0
+      total: 0,
+      customerType: customerType
     }
   },
   methods: {
