@@ -55,7 +55,7 @@ export default {
   position: absolute;
   top: 50px;
   bottom: 0;
-  left: 180px;
+  left: 201px;
   right: 0;
   padding: 10px;
   background-color: #fff;

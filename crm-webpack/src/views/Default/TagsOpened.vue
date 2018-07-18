@@ -91,7 +91,8 @@ export default {
 .tag-nav {
   position: absolute;
   top: 0;
-  width: 100%;
+  left: 201px;
+  right: 0;
   height: 51px;
   padding: 10px;
   background: #eee;
