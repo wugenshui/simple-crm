@@ -3,7 +3,7 @@
     <ScrollBar ref="scrollBar">
       <router-link ref="tag" class="tag-nav-item" :class="isActive(item) ? 'cur' : ''" v-for="(item, index) in tagNavList" :to="item.path" :key="index">
         {{item.title}}
-        <span class='el-icon-close' @click.prevent.stop="closeTheTag(item, index)"></span>
+        <span class='icon icon-delete' @click.prevent.stop="closeTheTag(item, index)"></span>
       </router-link>
     </ScrollBar>
   </div>
@@ -117,12 +117,7 @@ export default {
     text-align: center;
     transition: all 0.3s ease;
     transform-origin: 100% 50%;
-
-    &:before {
-      transform: scale(0.4);
-      display: inline-block;
-    }
-
+    
     &:hover {
       background-color: #b4bccc;
       color: #fff;
