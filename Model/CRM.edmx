@@ -29,7 +29,7 @@
           <Property Name="Mail" Type="nvarchar" MaxLength="50" />
           <Property Name="Idcard" Type="nvarchar" MaxLength="50" />
           <Property Name="HomeAddress" Type="nvarchar" MaxLength="50" />
-          <Property Name="Owner" Type="nvarchar" MaxLength="50" />
+          <Property Name="OwnerID" Type="int" />
           <Property Name="Contract" Type="nvarchar" MaxLength="50" />
           <Property Name="State" Type="int" />
           <Property Name="CreateTime" Type="datetime" />
@@ -275,7 +275,7 @@
           <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Idcard" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="HomeAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Owner" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OwnerID" Type="Int32" />
           <Property Name="Contract" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="State" Type="Int32" />
           <Property Name="CreateTime" Type="DateTime" Precision="3" />
@@ -409,7 +409,7 @@
                 <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
                 <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="Contract" ColumnName="Contract" />
-                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
                 <ScalarProperty Name="HomeAddress" ColumnName="HomeAddress" />
                 <ScalarProperty Name="Idcard" ColumnName="Idcard" />
                 <ScalarProperty Name="Mail" ColumnName="Mail" />

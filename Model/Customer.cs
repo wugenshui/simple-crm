@@ -61,8 +61,8 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("owner")]
-    	public string Owner { get; set; }
+    	[JsonProperty("ownerID")]
+    	public Nullable<int> OwnerID { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
