@@ -26,8 +26,6 @@ export default {
   computed: {},
   mounted() {
     // 首次加载时将默认页面加入缓存
-    this.tagNavList.push(this.defaultPage)
-    this.$router.push(this.defaultPage.path)
     this.addTagNav()
   },
   watch: {
