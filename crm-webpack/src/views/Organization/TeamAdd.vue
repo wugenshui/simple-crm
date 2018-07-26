@@ -71,7 +71,7 @@ export default {
           if (this.data.id > 0) {
             this.$ajax.put("team", this.data).then(res => {
               if (res.data.state) {
-                this.$router.go(-1)
+                this.$router.push("teamlist")
               }
             })
           } else {
