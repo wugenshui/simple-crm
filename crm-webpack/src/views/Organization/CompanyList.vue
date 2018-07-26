@@ -79,7 +79,7 @@ export default {
       var date = this.filterTime ? dayjs(this.filterTime).format("YYYY-MM-DD") : ""
       var url = "company?name=" + this.filtername + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize
       this.$ajax.get(url).then(res => {
-        this.datas = res.data.list
+        this.datas = res.data.data
         this.total = res.data.total
       })
     },

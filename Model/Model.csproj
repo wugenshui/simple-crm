@@ -54,7 +54,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AjaxResult.cs" />
     <Compile Include="Company.cs">
       <DependentUpon>CRM.tt</DependentUpon>
     </Compile>

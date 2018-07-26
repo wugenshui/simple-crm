@@ -61,8 +61,8 @@ export default {
   mounted() {
     if (this.$route.query.id != null) {
       this.$ajax.get("worklog/" + this.$route.query.id).then(res => {
-        if (res.data != null) {
-          this.data = res.data
+        if (res.data.data) {
+          this.data = res.data.data
         }
       })
     } else {

@@ -74,7 +74,7 @@ export default {
     search() {
       var url = "team?name=" + this.filtername + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize
       this.$ajax.get(url).then(res => {
-        this.datas = res.data.list
+        this.datas = res.data.data
         this.total = res.data.total
       })
     },

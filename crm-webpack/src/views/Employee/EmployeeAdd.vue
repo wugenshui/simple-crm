@@ -122,20 +122,18 @@ export default {
   },
   mounted() {
     this.$ajax.get("company").then(res => {
-      this.companys = res.data
+      this.companys = res.data.data
       if (this.$route.query.id != null) {
         this.$ajax.get("user/" + this.$route.query.id).then(res => {
-          if (res.data != null) {
-            this.data = res.data
-          }
+          this.data = res.data.data
         })
       }
     })
     this.$ajax.get("team").then(res => {
-      this.teams = res.data
+      this.teams = res.data.data
     })
     this.$ajax.get("user").then(res => {
-      this.users = res.data
+      this.users = res.data.data
     })
   }
 }

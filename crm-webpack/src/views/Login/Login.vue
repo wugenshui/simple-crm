@@ -61,9 +61,9 @@ export default {
       localStorage.setItem("crm-password", this.loginForm.password)
       localStorage.setItem("crm-remember", this.isRemember)
       this.$ajax.post("login", this.loginForm).then(res => {
-        if (res.data.state == true) {
-          this.$store.commit("setToken", res.data.msg.token)
-          this.$store.commit("setUser", res.data.msg.user)
+        if (res.data.state) {
+          this.$store.commit("setToken", res.data.data.token)
+          this.$store.commit("setUser", res.data.data.user)
           this.$router.push("/")
         }
       })

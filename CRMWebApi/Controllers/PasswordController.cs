@@ -1,4 +1,5 @@
 ﻿using Common;
+using CRMWebApi.Models;
 using DAL;
 using Model;
 using System;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Description;
 
 namespace CRMWebApi.Controllers
 {
@@ -15,9 +17,10 @@ namespace CRMWebApi.Controllers
         UserDAL _UserDAL = new UserDAL();
 
         [HttpPut]
+        [ResponseType(typeof(AjaxStringResult))]
         public IHttpActionResult change([FromBody]dynamic password)
         {
-            AjaxResult result = new AjaxResult();
+            AjaxStringResult result = new AjaxStringResult();
             User user = CommonHelper.User;
             string oldPassword = MD5Helper.CreateMD5(password.txtOld.ToString());
             if (!string.IsNullOrWhiteSpace(oldPassword))
@@ -28,24 +31,24 @@ namespace CRMWebApi.Controllers
                     {
                         user.Password = MD5Helper.CreateMD5(password.txtNew.ToString());
                         _UserDAL.changePassword(user);
-                        result.msg = "密码修改成功！";
+                        result.data = "密码修改成功！";
                     }
                     else
                     {
                         result.state = false;
-                        result.msg = "新密码不能为空！";
+                        result.error = "新密码不能为空！";
                     }
                 }
                 else
                 {
                     result.state = false;
-                    result.msg = "原密码校验失败！";
+                    result.error = "原密码校验失败！";
                 }
             }
             else
             {
                 result.state = false;
-                result.msg = "原密码不能为空！";
+                result.error = "原密码不能为空！";
             }
 
             return Json(result);

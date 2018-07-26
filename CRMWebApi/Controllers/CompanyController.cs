@@ -1,4 +1,5 @@
 ﻿using Common;
+using CRMWebApi.Models;
 using DAL;
 using Model;
 using System;
@@ -15,69 +16,80 @@ namespace CRMWebApi.Controllers
     {
         CompanyDAL _CompanyDAL = new CompanyDAL();
 
+        [HttpGet]
+        [ResponseType(typeof(AjaxResult<IQueryable<Company>>))]
         public IHttpActionResult Get()
         {
-            return Json(_CompanyDAL.Get());
+            AjaxResult<IQueryable<Company>> result = new AjaxResult<IQueryable<Company>>();
+            result.data = _CompanyDAL.Get();
+            return Json(result);
         }
 
+        [HttpGet]
+        [ResponseType(typeof(AjaxResult<Company>))]
         public IHttpActionResult Get(int id)
         {
-            return Json(_CompanyDAL.Get().FirstOrDefault(o => o.Id == id));
+            AjaxResult<Company> result = new AjaxResult<Company>();
+            result.data = _CompanyDAL.Get().FirstOrDefault(o => o.Id == id);
+            return Json(result);
         }
 
+        [HttpGet]
+        [ResponseType(typeof(AjaxPageResult<IQueryable<Company>>))]
         public IHttpActionResult Get(string name, int pageSize = 20, int pageIndex = 1)
         {
-            IQueryable<Company> list = _CompanyDAL.Get();
+            AjaxPageResult<IQueryable<Company>> result = new AjaxPageResult<IQueryable<Company>>();
+            IQueryable<Company> data = _CompanyDAL.Get();
             if (!string.IsNullOrWhiteSpace(name))
             {
-                list = list.Where(o => o.CompanyName.Contains(name));
+                data = data.Where(o => o.CompanyName.Contains(name));
             }
-            int total = list.Count();
-            list = list.OrderByDescending(o => o.CreateTime)
+            int total = data.Count();
+            data = data.OrderByDescending(o => o.CreateTime)
                 .Skip(pageSize * (pageIndex - 1))
                 .Take(pageSize);
-
-            var result = new { list = list, total = total };
+            result.data = data;
+            result.total = total;
 
             return Json(result);
         }
 
         [HttpPost]
-        [ResponseType(typeof(AjaxResult))]
+        [ResponseType(typeof(AjaxStringResult))]
         public IHttpActionResult Post(Company model)
         {
-            AjaxResult result = new AjaxResult();
+            AjaxStringResult result = new AjaxStringResult();
             model.CreateTime = DateTime.Now;
             _CompanyDAL.Add(model);
 
-            result.msg = "保存成功";
+            result.data = "保存成功";
             return Json(result);
         }
 
         [HttpPut]
-        [ResponseType(typeof(AjaxResult))]
+        [ResponseType(typeof(AjaxStringResult))]
         public IHttpActionResult Put(Company model)
         {
-            AjaxResult result = new AjaxResult();
+            AjaxStringResult result = new AjaxStringResult();
             model.CreateTime = DateTime.Now;
             _CompanyDAL.Update(model);
 
-            result.msg = "修改成功";
+            result.data = "修改成功";
             return Json(result);
         }
 
         [HttpDelete]
-        [ResponseType(typeof(AjaxResult))]
+        [ResponseType(typeof(AjaxStringResult))]
         public IHttpActionResult Delete(int id)
         {
-            AjaxResult result = new AjaxResult();
+            AjaxStringResult result = new AjaxStringResult();
             Company model = _CompanyDAL.Get().FirstOrDefault(o => o.Id == id);
             if (model != null)
             {
                 _CompanyDAL.Delete(model);
             }
 
-            result.msg = "删除成功";
+            result.data = "删除成功";
             return Json(result);
         }
     }

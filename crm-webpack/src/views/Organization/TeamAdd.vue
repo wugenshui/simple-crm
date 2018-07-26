@@ -90,11 +90,11 @@ export default {
   },
   mounted() {
     this.$ajax.get("company").then(res => {
-      this.companys = res.data
+      this.companys = res.data.data
       if (this.$route.query.id != null) {
         this.$ajax.get("team/" + this.$route.query.id).then(res => {
-          if (res.data != null) {
-            this.data = res.data
+          if (res.data.data) {
+            this.data = res.data.data
           }
         })
       }

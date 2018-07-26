@@ -1,4 +1,5 @@
 ﻿using Common;
+using CRMWebApi.Models;
 using DAL;
 using Model;
 using System;
@@ -18,13 +19,13 @@ namespace CRMWebApi.Controllers
         UserDAL _UserDAL = new UserDAL();
 
         [HttpPut]
-        [ResponseType(typeof(AjaxResult))]
+        [ResponseType(typeof(AjaxStringResult))]
         public IHttpActionResult Put(User model)
         {
-            AjaxResult result = new AjaxResult();
+            AjaxStringResult result = new AjaxStringResult();
             _UserDAL.changeState(model);
 
-            result.msg = model.UserName + (model.IsEnable ? "启用" : "禁用") + "成功!";
+            result.data = model.UserName + (model.IsEnable ? "启用" : "禁用") + "成功!";
             return Json(result);
         }
     }

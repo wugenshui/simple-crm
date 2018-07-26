@@ -5,6 +5,10 @@ using System.Web;
 
 namespace CRMWebApi.Models
 {
+    /// <summary>
+    /// 统一返回接口
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class AjaxResult<T>
     {
         private bool _state = true;
@@ -42,6 +46,9 @@ namespace CRMWebApi.Models
 
     public class AjaxPageResult<T> : AjaxResult<T>
     {
+        /// <summary>
+        /// 数据总条数
+        /// </summary>
         public int total { get; set; }
     }
 }

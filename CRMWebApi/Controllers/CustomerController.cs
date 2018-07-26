@@ -20,16 +20,20 @@ namespace CRMWebApi.Controllers
         [ResponseType(typeof(AjaxResult<IQueryable<Customer>>))]
         public IHttpActionResult Get()
         {
-            AjaxResult<IQueryable<Customer>> result = new Models.AjaxResult<IQueryable<Customer>>();
+            AjaxResult<IQueryable<Customer>> result = new AjaxResult<IQueryable<Customer>>();
             result.data = _CustomerDAL.Get();
             return Json(result);
         }
 
+        [ResponseType(typeof(AjaxResult<Customer>))]
         public IHttpActionResult Get(int id)
         {
-            return Json(_CustomerDAL.Get().FirstOrDefault(o => o.Id == id));
+            AjaxResult<Customer> result = new AjaxResult<Customer>();
+            result.data = _CustomerDAL.Get().FirstOrDefault(o => o.Id == id);
+            return Json(result);
         }
 
+        [ResponseType(typeof(AjaxResult<DataTable>))]
         public IHttpActionResult Get(string name, int type, int pageSize = 20, int pageIndex = 1)
         {
             AjaxPageResult<DataTable> result = new AjaxPageResult<DataTable>();
@@ -42,39 +46,39 @@ namespace CRMWebApi.Controllers
         }
 
         [HttpPost]
-        [ResponseType(typeof(AjaxResult))]
+        [ResponseType(typeof(Models.AjaxStringResult))]
         public IHttpActionResult Post(Customer model)
         {
-            AjaxResult result = new AjaxResult();
+            Models.AjaxStringResult result = new Models.AjaxStringResult();
             _CustomerDAL.Add(model);
 
-            result.msg = "保存成功";
+            result.data = "保存成功";
             return Json(result);
         }
 
         [HttpPut]
-        [ResponseType(typeof(AjaxResult))]
+        [ResponseType(typeof(Models.AjaxStringResult))]
         public IHttpActionResult Put(Customer model)
         {
-            AjaxResult result = new AjaxResult();
+            Models.AjaxStringResult result = new Models.AjaxStringResult();
             _CustomerDAL.Update(model);
 
-            result.msg = "修改成功";
+            result.data = "修改成功";
             return Json(result);
         }
 
         [HttpDelete]
-        [ResponseType(typeof(AjaxResult))]
+        [ResponseType(typeof(Models.AjaxStringResult))]
         public IHttpActionResult Delete(int id)
         {
-            AjaxResult result = new AjaxResult();
+            Models.AjaxStringResult result = new Models.AjaxStringResult();
             Customer model = _CustomerDAL.Get().FirstOrDefault(o => o.Id == id);
             if (model != null)
             {
                 _CustomerDAL.Delete(model);
             }
 
-            result.msg = "删除成功";
+            result.data = "删除成功";
             return Json(result);
         }
     }

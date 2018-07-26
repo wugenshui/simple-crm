@@ -1,4 +1,5 @@
 ﻿using Common;
+using CRMWebApi.Models;
 using DAL;
 using Model;
 using System;
@@ -17,59 +18,71 @@ namespace CRMWebApi.Controllers
     {
         UserDAL _UserDAL = new UserDAL();
 
+        [HttpGet]
+        [ResponseType(typeof(AjaxResult<IQueryable<User>>))]
         public IHttpActionResult Get()
         {
-            return Json(_UserDAL.Get());
+            AjaxResult<IQueryable<User>> result = new AjaxResult<IQueryable<User>>();
+            result.data = _UserDAL.Get();
+            return Json(result);
         }
 
+        [HttpGet]
+        [ResponseType(typeof(AjaxResult<User>))]
         public IHttpActionResult Get(int id)
         {
-            return Json(_UserDAL.Get().FirstOrDefault(o => o.Id == id));
+            AjaxResult<User> result = new AjaxResult<User>();
+            result.data = _UserDAL.Get().FirstOrDefault(o => o.Id == id);
+            return Json(result);
         }
 
+        [HttpGet]
+        [ResponseType(typeof(AjaxPageResult<DataTable>))]
         public IHttpActionResult Get(string name, int pageSize = 20, int pageIndex = 1)
         {
+            AjaxPageResult<DataTable> result = new AjaxPageResult<DataTable>();
             DataTable data = _UserDAL.Get(name, pageSize, pageIndex);
-            var result = new { list = data, total = data.Rows.Count };
+            result.data = data;
+            result.total = data.Rows.Count;
 
             return Json(result);
         }
 
         [HttpPost]
-        [ResponseType(typeof(AjaxResult))]
+        [ResponseType(typeof(AjaxStringResult))]
         public IHttpActionResult Post(User model)
         {
-            AjaxResult result = new AjaxResult();
+            AjaxStringResult result = new AjaxStringResult();
             model.Password = MD5Helper.CreateMD5(model.Password);
             _UserDAL.Add(model);
 
-            result.msg = "保存成功";
+            result.data = "保存成功";
             return Json(result);
         }
 
         [HttpPut]
-        [ResponseType(typeof(AjaxResult))]
+        [ResponseType(typeof(AjaxStringResult))]
         public IHttpActionResult Put(User model)
         {
-            AjaxResult result = new AjaxResult();
+            AjaxStringResult result = new AjaxStringResult();
             _UserDAL.Update(model);
 
-            result.msg = "修改成功";
+            result.data = "修改成功";
             return Json(result);
         }
 
         [HttpDelete]
-        [ResponseType(typeof(AjaxResult))]
+        [ResponseType(typeof(AjaxStringResult))]
         public IHttpActionResult Delete(int id)
         {
-            AjaxResult result = new AjaxResult();
+            AjaxStringResult result = new AjaxStringResult();
             User model = _UserDAL.Get().FirstOrDefault(o => o.Id == id);
             if (model != null)
             {
                 _UserDAL.Delete(model);
             }
 
-            result.msg = "删除成功";
+            result.data = "删除成功";
             return Json(result);
         }
     }

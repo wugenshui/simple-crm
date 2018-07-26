@@ -28,7 +28,7 @@ export default {
   },
   mounted() {
     this.$ajax.get("menu").then(res => {
-      this.menus = res.data
+      this.menus = res.data.data
     })
   },
   methods: {

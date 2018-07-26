@@ -62,7 +62,7 @@ export default new Router({
         {
           path: "/CompanyAdd",
           name: "CompanyAdd",
-          meta: { name: "添加公司", keepAlive: true },
+          meta: { name: "添加公司", keepAlive: false },
           component: () => import("./views/Organization/CompanyAdd.vue")
         },
         {
@@ -104,7 +104,7 @@ export default new Router({
         {
           path: "/CustomerAdd",
           name: "CustomerAdd",
-          meta: { name: "添加客户", keepAlive: true },
+          meta: { name: "添加客户", keepAlive: false },
           component: () => import("./views/Customer/CustomerAdd.vue")
         },
         {

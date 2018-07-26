@@ -67,6 +67,7 @@ export default {
   },
   methods: {
     save() {
+      debugger
       this.$refs["form"].validate(valid => {
         if (valid) {
           if (this.data.id > 0) {
@@ -92,8 +93,8 @@ export default {
   mounted() {
     if (this.$route.query.id != null) {
       this.$ajax.get("company/" + this.$route.query.id).then(res => {
-        if (res.data != null) {
-          this.data = res.data
+        if (res.data.data) {
+          this.data = res.data.data
         }
       })
     }

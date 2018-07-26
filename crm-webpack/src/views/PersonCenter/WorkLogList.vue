@@ -84,7 +84,7 @@ export default {
         "&pageSize=" +
         this.pageSize
       this.$ajax.get(url).then(res => {
-        this.logs = res.data.logs
+        this.logs = res.data.data
         this.total = res.data.total
       })
     },

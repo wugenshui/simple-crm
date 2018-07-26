@@ -1,4 +1,5 @@
 ﻿using Common;
+using CRMWebApi.Models;
 using DAL;
 using Model;
 using System;
@@ -15,71 +16,78 @@ namespace CRMWebApi.Controllers
     {
         WorkLogDAL _WorkLogDAL = new WorkLogDAL();
 
+        [HttpGet]
+        [ResponseType(typeof(AjaxResult<WorkLog>))]
         public IHttpActionResult Get(int id)
         {
-            return Json(_WorkLogDAL.Get().FirstOrDefault(o => o.Id == id));
+            AjaxResult<WorkLog> result = new AjaxResult<WorkLog>();
+            result.data = _WorkLogDAL.Get().FirstOrDefault(o => o.Id == id);
+            return Json(result);
         }
 
+        [HttpGet]
+        [ResponseType(typeof(AjaxPageResult<IQueryable<WorkLog>>))]
         public IHttpActionResult Get(string title = "", DateTime? date = null, int pageSize = 20, int pageIndex = 1)
         {
-            IQueryable<WorkLog> logs = null;
-            logs = _WorkLogDAL.Get();
+            AjaxPageResult<IQueryable<WorkLog>> result = new AjaxPageResult<IQueryable<WorkLog>>();
+            IQueryable<WorkLog> data = null;
+            data = _WorkLogDAL.Get();
             if (date != null)
             {
                 DateTime tomorrow = date.Value.AddDays(1);
-                logs = logs.Where(o => o.CreateTime >= date.Value && o.CreateTime <= tomorrow);
+                data = data.Where(o => o.CreateTime >= date.Value && o.CreateTime <= tomorrow);
             }
             if (!string.IsNullOrWhiteSpace(title))
             {
-                logs = logs.Where(o => o.Title.Contains(title));
+                data = data.Where(o => o.Title.Contains(title));
             }
-            int total = logs.Count();
-            logs = logs.OrderByDescending(o => o.CreateTime)
+            int total = data.Count();
+            data = data.OrderByDescending(o => o.CreateTime)
                 .Skip(pageSize * (pageIndex - 1))
                 .Take(pageSize);
-
-            var result = new { logs = logs, total = total };
+            result.data = data;
+            result.total = total;
 
             return Json(result);
         }
 
         [HttpPost]
-        [ResponseType(typeof(AjaxResult))]
+        [ResponseType(typeof(AjaxStringResult))]
         public IHttpActionResult Post(WorkLog log)
         {
-            AjaxResult result = new AjaxResult();
+            AjaxStringResult result = new AjaxStringResult();
             log.UserId = CommonHelper.User.Id;
             log.CreateTime = DateTime.Now;
             _WorkLogDAL.Add(log);
 
-            result.msg = "保存成功";
+            result.data = "保存成功";
             return Json(result);
         }
 
         [HttpPut]
-        [ResponseType(typeof(AjaxResult))]
+        [ResponseType(typeof(AjaxStringResult))]
         public IHttpActionResult Put(WorkLog log)
         {
-            AjaxResult result = new AjaxResult();
+            AjaxStringResult result = new AjaxStringResult();
             log.CreateTime = DateTime.Now;
             _WorkLogDAL.Update(log);
 
-            result.msg = "修改成功";
+            result.data = "修改成功";
             return Json(result);
         }
 
         [HttpDelete]
-        [ResponseType(typeof(AjaxResult))]
+        [ResponseType(typeof(AjaxStringResult))]
         public IHttpActionResult Delete(int id)
         {
-            AjaxResult result = new AjaxResult();
+            AjaxStringResult result = new AjaxStringResult();
             WorkLog log = _WorkLogDAL.Get().FirstOrDefault(o => o.Id == id);
             if (log != null)
             {
                 _WorkLogDAL.Delete(log);
             }
 
-            result.msg = "删除成功";
+            result.data = "删除成功";
             return Json(result);
         }
     }

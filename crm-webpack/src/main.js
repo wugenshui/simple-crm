@@ -47,11 +47,11 @@ Axios.interceptors.response.use(
       loading.length--
     }
     // 特殊的AjaxResult 返回格式处理
-    if (response.data != null && response.data.state != null && typeof response.data.msg == "string") {
+    if (response.data != null && response.data.state != null) {
       if (response.data.state === false) {
-        common.error(response.data.msg)
-      } else {
-        common.info(response.data.msg)
+        common.error(response.data.error)
+      } else if (typeof response.data.data == "string") {
+        common.info(response.data.data)
       }
     }
     return response
