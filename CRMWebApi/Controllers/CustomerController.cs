@@ -1,4 +1,5 @@
 ﻿using Common;
+using CRMWebApi.Models;
 using DAL;
 using Model;
 using System;
@@ -16,9 +17,12 @@ namespace CRMWebApi.Controllers
     {
         CustomerDAL _CustomerDAL = new CustomerDAL();
 
+        [ResponseType(typeof(AjaxResult<IQueryable<Customer>>))]
         public IHttpActionResult Get()
         {
-            return Json(_CustomerDAL.Get());
+            AjaxResult<IQueryable<Customer>> result = new Models.AjaxResult<IQueryable<Customer>>();
+            result.data = _CustomerDAL.Get();
+            return Json(result);
         }
 
         public IHttpActionResult Get(int id)
@@ -28,10 +32,11 @@ namespace CRMWebApi.Controllers
 
         public IHttpActionResult Get(string name, int type, int pageSize = 20, int pageIndex = 1)
         {
+            AjaxPageResult<DataTable> result = new AjaxPageResult<DataTable>();
             DataTable data = _CustomerDAL.Get(name, type, pageSize, pageIndex);
             int total = _CustomerDAL.GetCount(name, type);
-
-            var result = new { list = data, total = total };
+            result.total = total;
+            result.data = data;
 
             return Json(result);
         }
