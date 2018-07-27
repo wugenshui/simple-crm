@@ -7,7 +7,10 @@ const store = new Vuex.Store({
   state: {
     user: {},
     ou: {},
-    token: ""
+    token: "",
+    menu: {
+      isCollapse: false // 菜单是否收缩
+    }
   },
   getters: {
     getuser: state => id => {

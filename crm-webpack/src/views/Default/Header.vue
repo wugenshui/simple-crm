@@ -1,14 +1,15 @@
 <template>
   <div>
     <nav style="">
-      <a class="title" href="#">CRM客户管理系统</a>
+      <a class="title" href="#">
+        CRM客户管理系统
+        <i class="icon icon-menu" @click="$store.state.menu.isCollapse=!$store.state.menu.isCollapse;"></i>
+      </a>
       <div class="float-right">
-        <!-- <el-dropdown> -->
         <a>
           <i class="icon icon-todo"></i>
           待办任务
         </a>
-        <!-- </el-dropdown> -->
         <el-dropdown @command="handleCommand">
           <span class="el-dropdown-link">
             <i class="icon icon-consumer"></i>
@@ -31,11 +32,6 @@
           <i class="icon" :class="isFullScreen ? 'icon-fullscreen-exit' : 'icon-fullscreen'"></i>
           {{ isFullScreen ? '退出全屏' : '开启全屏' }}
         </a>
-        <!-- <el-dropdown>
-          <span class="el-dropdown-link" @click="fullscreenToggle">
-            {{ isFullScreen ? '退出全屏' : '开启全屏' }}
-          </span>
-        </el-dropdown> -->
       </div>
     </nav>
   </div>
@@ -45,7 +41,7 @@
 export default {
   data: function() {
     return {
-      isFullScreen: false
+      isFullScreen: true
     }
   },
   methods: {

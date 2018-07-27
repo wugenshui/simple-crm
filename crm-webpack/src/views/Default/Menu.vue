@@ -1,6 +1,6 @@
 <template>
   <div class="menu">
-    <el-menu @open="handleOpen" @close="handleClose" :collapse="isCollapse" :unique-opened="true" background-color="#304156" text-color="#BFCBD9" :router="true">
+    <el-menu @open="handleOpen" @close="handleClose" :collapse="$store.state.menu.isCollapse" :unique-opened="true" background-color="#304156" text-color="#BFCBD9" :router="true">
       <el-menu-item index="/">
         <i class="icon icon-home"></i>
         <span slot="title">首页</span>
@@ -22,8 +22,7 @@
 export default {
   data: function() {
     return {
-      menus: [],
-      isCollapse: false
+      menus: []
     }
   },
   mounted() {
@@ -54,25 +53,9 @@ export default {
   overflow: hidden;
 }
 
-/* .menu a {
-  width: 100%;
-  height: 100%;
-  color: rgb(191, 203, 217);
-  display: inline-block;
-} */
-
-/* .menu .el-submenu {
-  margin-bottom: -1px;
-} */
-
 .menu .el-menu-item.is-active a {
   color: #409eff;
 }
-
-/* .menu .el-submenu__title {
-  border-bottom: 1px solid rgb(38, 52, 69);
-  border-top: 1px solid rgb(38, 52, 69);
-} */
 </style>
 <style scoped>
 </style>
