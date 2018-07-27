@@ -5,21 +5,30 @@
       <div class="float-right">
         <!-- <el-dropdown> -->
         <a>
+          <i class="icon icon-todo"></i>
           待办任务
         </a>
         <!-- </el-dropdown> -->
         <el-dropdown @command="handleCommand">
           <span class="el-dropdown-link">
+            <i class="icon icon-consumer"></i>
             {{ '用户' }}
             <i class="el-icon-arrow-down"></i>
           </span>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item command="info">用户资料</el-dropdown-item>
-            <el-dropdown-item command="setting">系统设置</el-dropdown-item>
-            <el-dropdown-item command="logout">退出系统</el-dropdown-item>
+            <el-dropdown-item command="info">
+              <i class="icon icon-data"></i> 用户资料
+            </el-dropdown-item>
+            <el-dropdown-item command="setting">
+              <i class="icon icon-config"></i> 系统设置
+            </el-dropdown-item>
+            <el-dropdown-item command="logout">
+              <i class="icon icon-exit"></i> 退出系统
+            </el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
         <a @click="fullscreenToggle">
+          <i class="icon" :class="isFullScreen ? 'icon-fullscreen-exit' : 'icon-fullscreen'"></i>
           {{ isFullScreen ? '退出全屏' : '开启全屏' }}
         </a>
         <!-- <el-dropdown>

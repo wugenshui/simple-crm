@@ -1,4 +1,3 @@
-import iview from "iview"
 import { Notification, MessageBox } from "element-ui"
 
 export default {

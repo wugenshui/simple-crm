@@ -13,7 +13,7 @@ import "./filter.js"
 import ElementUI from "element-ui"
 import "element-ui/lib/theme-chalk/index.css"
 import VCharts from "v-charts"
-import "./assets/iconfont/iconfont.css"
+// import "./assets/iconfont/iconfont.css" 先使用外链
 
 Vue.config.productionTip = false
 Vue.use(VurRouter)

@@ -67,7 +67,6 @@ export default {
   },
   methods: {
     save() {
-      debugger
       this.$refs["form"].validate(valid => {
         if (valid) {
           if (this.data.id > 0) {
