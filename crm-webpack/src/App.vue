@@ -17,6 +17,9 @@ export default {
 }
 </script>
 
+<style lang="stylus">
+@import "./style/common.styl";
+</style>
 <style scoped>
 #app {
   width: 100%;
