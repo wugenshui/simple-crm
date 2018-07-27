@@ -102,7 +102,7 @@ export default {
       this.$ajax.put("userenable", data)
     }
   },
-  mounted() {
+  activated() {
     this.search()
   }
 }

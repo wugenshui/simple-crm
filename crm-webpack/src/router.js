@@ -74,7 +74,7 @@ export default new Router({
         {
           path: "/TeamAdd",
           name: "TeamAdd",
-          meta: { name: "添加团队", keepAlive: true },
+          meta: { name: "添加团队", keepAlive: false },
           component: () => import("./views/Organization/TeamAdd.vue")
         },
         {

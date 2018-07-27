@@ -55,7 +55,7 @@ export default {
         owner: [{ required: true, message: "法人代表不能为空!", trigger: "blur" }],
         phone: [{ required: true, message: "电话不能为空!", trigger: "blur" }],
         website: [{ required: true, message: "公司网站不能为空!", trigger: "blur" }],
-        createTime: [{ required: true, type: "date", min: 1, message: "成立时间不能为空!", trigger: "change" }],
+        createTime: [{ required: true, message: "成立时间不能为空!", trigger: "change" }],
         businessLicence: [{ required: true, message: "营业执照不能为空!", trigger: "blur" }]
       },
       filterTitle: "",

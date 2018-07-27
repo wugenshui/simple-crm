@@ -34,7 +34,7 @@
             <el-input type="text" v-model="data.phoneNumber" />
           </el-form-item>
           <el-form-item label="入职时间" prop="workStartDate">
-            <el-date-picker type="date" v-model="data.workStartDate"></el-date-picker>
+            <el-date-picker type="date" v-model="data.workStartDate" value-format="yyyy-MM-dd"></el-date-picker>
           </el-form-item>
           <el-form-item label="主管" prop="supervisorId">
             <el-select v-model.number="data.supervisorId" clearable>
@@ -82,7 +82,7 @@ export default {
         teamId: [{ required: true, type: "number", message: "所属团队不能为空!", trigger: "blur" }],
         postId: [{ required: true, type: "number", message: "职位不能为空!", trigger: "blur" }],
         phoneNumber: [{ required: true, message: "电话不能为空!", trigger: "blur" }],
-        workStartDate: [{ required: true, type: "date", message: "入职时间不能为空!", trigger: "change" }],
+        workStartDate: [{ required: true, message: "入职时间不能为空!", trigger: "change" }],
         supervisorId: [{ required: true, type: "number", message: "主管不能为空!", trigger: "blur" }]
       },
       posts: [{ value: 0, label: "业务" }, { value: 1, label: "主管" }, { value: 2, label: "经理" }],
@@ -120,7 +120,7 @@ export default {
       this.$refs["form"].resetFields()
     }
   },
-  mounted() {
+  activated() {
     this.$ajax.get("company").then(res => {
       this.companys = res.data.data
       if (this.$route.query.id != null) {
