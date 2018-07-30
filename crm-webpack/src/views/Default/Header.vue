@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <nav style="">
+  <div class="header">
+    <nav>
       <a class="title" href="#">
         CRM客户管理系统
         <i class="icon icon-menu" @click="$store.state.menu.isCollapse=!$store.state.menu.isCollapse;"></i>

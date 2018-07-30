@@ -1,7 +1,7 @@
 <template>
-  <div class="tag-nav">
+  <div class="tags">
     <ScrollBar ref="scrollBar">
-      <router-link ref="tag" class="tag-nav-item" :class="isActive(item) ? 'cur' : ''" v-for="(item, index) in tagNavList" :to="item.path" :key="index">
+      <router-link ref="tag" class="tag" :class="isActive(item) ? 'cur' : ''" v-for="(item, index) in tagNavList" :to="item.path" :key="index">
         {{item.title}}
         <span class='icon icon-delete' @click.prevent.stop="closeTheTag(item, index)"></span>
       </router-link>
@@ -86,18 +86,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.tag-nav {
-  position: absolute;
-  top: 0;
-  left: 200px;
-  right: 0;
-  height: 51px;
-  padding: 10px;
-  background: #eee;
-  border-bottom: 1px solid #ccc;
-}
-
-.tag-nav-item {
+.tag {
   display: inline-block;
   position: relative;
   height: 30px;
