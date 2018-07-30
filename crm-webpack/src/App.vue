@@ -17,8 +17,8 @@ export default {
 }
 </script>
 
-<style lang="stylus">
-@import "./style/common.styl";
+<style lang="scss">
+@import "./style/common.scss";
 </style>
 <style scoped>
 #app {

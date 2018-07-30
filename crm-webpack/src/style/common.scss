@@ -51,25 +51,26 @@ a {
   margin-bottom: 10px;
   border-spacing: 0;
 
-  td,th {
-  border: 1px solid #e9eaec;
-  line-height: 42px;
-  padding-left: 5px;
-  padding-right: 5px;
-  text-align: left;
+  td,
+  th {
+    border: 1px solid #e9eaec;
+    line-height: 42px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: left;
   }
 
   tr:nth-of-type(odd) {
-  background-color: rgba(0, 0, 0, 0.05);
-}
+    background-color: rgba(0, 0, 0, 0.05);
+  }
 
-tr:hover {
-  background-color: rgba(0, 0, 0, 0.075);
-}
+  tr:hover {
+    background-color: rgba(0, 0, 0, 0.075);
+  }
 
-.text-center {
-  padding-left: 0;
-}
+  .text-center {
+    padding-left: 0;
+  }
 }
 
 /* #endregion */

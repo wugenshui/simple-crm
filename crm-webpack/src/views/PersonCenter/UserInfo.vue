@@ -85,7 +85,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="scss" scoped>
 .user-info {
   width: 220px;
   height: 420px;

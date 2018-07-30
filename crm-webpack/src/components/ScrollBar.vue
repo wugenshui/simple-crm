@@ -54,7 +54,7 @@ export default {
   }
 }
 </script>
-<style lang="stylus" scoped>
+<style lang="scss" scoped>
 .scroll-wrap {
     position: relative;
     width: 100%;
