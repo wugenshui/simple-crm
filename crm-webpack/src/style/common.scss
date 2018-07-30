@@ -38,7 +38,7 @@ a {
   overflow: hidden;
 }
 
-.el-menu { 
+.el-menu {
   border-right: 0;
 }
 
@@ -179,7 +179,7 @@ $header-height: 56px;
 .container > .tags {
   position: absolute;
   top: 56px;
-  height: 50px;
+  height: 52px;
   left: $menu-width;
   right: 0;
   padding: 10px;
@@ -188,4 +188,14 @@ $header-height: 56px;
   border-bottom: 1px solid #ccc;
 }
 
+.container > .main {
+  position: absolute;
+  top: 106px;
+  bottom: 0;
+  left: $menu-width;
+  right: 0;
+  padding: 10px;
+  background-color: #fff;
+  overflow-y: auto;
+}
 /* #endregion */

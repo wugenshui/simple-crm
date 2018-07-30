@@ -27,16 +27,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.main {
-  position: absolute;
-  top: 50px;
-  bottom: 0;
-  left: 200px;
-  right: 0;
-  padding: 10px;
-  background-color: #fff;
-  overflow-y: auto;
-}
-</style>
