@@ -20,7 +20,7 @@ Vue.use(ElementUI)
 Vue.use(VCharts)
 
 Vue.prototype.$ajax = Axios
-Axios.defaults.baseURL = "http://localhost:10086/api"
+Axios.defaults.baseURL = "http://localhost:8013/api"
 let loading = []
 Axios.interceptors.request.use(function(config) {
   if (loading.length <= 0) {

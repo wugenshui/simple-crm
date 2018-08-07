@@ -1,12 +1,14 @@
 <template>
   <div class="container">
-    <AppHeader></AppHeader>
     <AppMenu></AppMenu>
-    <TagsOpened></TagsOpened>
-    <keep-alive>
-      <router-view class="main" v-if="$route.meta.keepAlive"></router-view>
-    </keep-alive>
-    <router-view class="main" v-if="!$route.meta.keepAlive"></router-view>
+    <div class="right-panel" :style="{ left : ($store.state.menu.isCollapse ? 64 : 200) + 'px'}">
+      <AppHeader></AppHeader>
+      <TagsOpened></TagsOpened>
+      <keep-alive>
+        <router-view class="main" v-if="$route.meta.keepAlive"></router-view>
+      </keep-alive>
+      <router-view class="main" v-if="!$route.meta.keepAlive"></router-view>
+    </div>
   </div>
 </template>
 

@@ -148,7 +148,7 @@ a {
 
 /* #endregion */
 
-/* #region app */
+/* #region app 首页 */
 
 $menu-width: 200px;
 $header-height: 56px;
@@ -164,8 +164,21 @@ $header-height: 56px;
   top: 0;
   bottom: 0;
   left: 0;
-  width: $menu-width;
   background: #e6e6e6;
+}
+
+.container > .menu:not(.el-menu--collapse) {
+  width: $menu-width;
+}
+
+.container > .right-panel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: $menu-width;
+  right: 0;
+  background: #e6e6e6;
+  transition: 0.3s left ease-in-out;
 }
 
 .container > .header {
