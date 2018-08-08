@@ -3,8 +3,8 @@
     <nav>
       <a class="title" href="#">
         CRM客户管理系统
-        <i class="icon icon-menu" @click="$store.state.menu.isCollapse=!$store.state.menu.isCollapse;"></i>
       </a>
+      <i class="icon icon-menu" @click="$store.state.menu.isCollapse=!$store.state.menu.isCollapse;" :style="{transform:'rotate('+ ($store.state.menu.isCollapse==true ? 90 : 0) + 'deg)'}"></i>
       <div class="float-right">
         <a>
           <i class="icon icon-todo"></i>
@@ -110,6 +110,15 @@ nav {
   background-color: #0e90d2;
   height: 56px;
   line-height: 56px;
+}
+
+.icon-menu {
+  transform: rotate(90deg);
+  transition: 0.38s;
+  transform-origin: 50% 50%;
+  display: inline-block;
+  color: white;
+  cursor: pointer;
 }
 
 .title {
