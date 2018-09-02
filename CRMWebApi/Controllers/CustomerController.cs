@@ -46,10 +46,11 @@ namespace CRMWebApi.Controllers
         }
 
         [HttpPost]
-        [ResponseType(typeof(Models.AjaxStringResult))]
+        [ResponseType(typeof(AjaxStringResult))]
         public IHttpActionResult Post(Customer model)
         {
-            Models.AjaxStringResult result = new Models.AjaxStringResult();
+            AjaxStringResult result = new AjaxStringResult();
+            model.CreateTime = DateTime.Now;
             _CustomerDAL.Add(model);
 
             result.data = "保存成功";
@@ -57,10 +58,10 @@ namespace CRMWebApi.Controllers
         }
 
         [HttpPut]
-        [ResponseType(typeof(Models.AjaxStringResult))]
+        [ResponseType(typeof(AjaxStringResult))]
         public IHttpActionResult Put(Customer model)
         {
-            Models.AjaxStringResult result = new Models.AjaxStringResult();
+            AjaxStringResult result = new AjaxStringResult();
             _CustomerDAL.Update(model);
 
             result.data = "修改成功";
@@ -68,10 +69,10 @@ namespace CRMWebApi.Controllers
         }
 
         [HttpDelete]
-        [ResponseType(typeof(Models.AjaxStringResult))]
+        [ResponseType(typeof(AjaxStringResult))]
         public IHttpActionResult Delete(int id)
         {
-            Models.AjaxStringResult result = new Models.AjaxStringResult();
+            AjaxStringResult result = new AjaxStringResult();
             Customer model = _CustomerDAL.Get().FirstOrDefault(o => o.Id == id);
             if (model != null)
             {

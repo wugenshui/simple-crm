@@ -47,7 +47,7 @@
                                 <td>{{ data.state | customerState }}</td>
                                 <td>{{ data.contract }}</td>
                                 <td>
-                                    <el-button type="success" size="mini" @click="$router.push('employeeadd?id='+data.id)" icon="el-icon-edit">编辑</el-button>
+                                    <el-button type="success" size="mini" @click="$router.push('customeradd?id='+data.id)" icon="el-icon-edit">编辑</el-button>
                                     <el-button type="error" size="mini" @click="del(data.id)" icon="el-icon-delete">删除</el-button>
                                 </td>
                             </tr>

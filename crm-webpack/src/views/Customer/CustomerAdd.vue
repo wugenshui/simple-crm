@@ -21,16 +21,16 @@
             <el-input v-model.number="data.customerQQ"></el-input>
           </el-form-item>
           <el-form-item label="邮箱" prop="mail">
-            <el-input v-model.number="data.mail"></el-input>
+            <el-input v-model="data.mail"></el-input>
           </el-form-item>
           <el-form-item label="身份证号码" prop="idcard">
-            <el-input v-model="data.idcard" />
+            <el-input type="text" v-model.number="data.idcard" />
           </el-form-item>
           <el-form-item label="家庭住址" prop="homeAddress">
-            <el-input type="text" v-model="data.workStartDate"></el-input>
+            <el-input type="text" v-model="data.homeAddress"></el-input>
           </el-form-item>
-          <el-form-item label="所属业务" prop="owner">
-            <el-select v-model.number="data.owner" clearable>
+          <el-form-item label="所属业务" prop="ownerID">
+            <el-select v-model.number="data.ownerID" clearable>
               <el-option v-for="u in users" :value="u.id" :key="u.id" :label="u.userName"></el-option>
             </el-select>
           </el-form-item>
@@ -42,6 +42,7 @@
       <div class="panel-footer text-left">
         <el-button type="primary" @click="save">保存</el-button>
         <el-button type="ghost" @click="reset">重置</el-button>
+        <el-button v-if="$route.query.id" type="ghost" @click="$router.go(-1)">返回</el-button>
       </div>
     </div>
   </div>
@@ -64,16 +65,18 @@ export default {
         idcard: null,
         homeAddress: "",
         owner: "",
-        contract: ""
+        contract: "",
+        state: 0,
+        createrId: this.$store.state.user.id
       },
       rules: {
         customerType: [{ required: true, message: "客户类型不能为空!", trigger: "change" }],
-        customerName: [{ required: true, message: "客户名称不能为空!", trigger: "blur" }],
-        customerPhone: [{ required: true, message: "电话不能为空!", trigger: "blur" }],
-        mail: [{ required: true, type: "number", message: "邮箱不能为空!", trigger: "blur" }],
-        idcard: [{ required: true, type: "number", message: "身份证号码不能为空!", trigger: "blur" }],
-        homeAddress: [{ required: true, type: "number", message: "家庭住址不能为空!", trigger: "blur" }],
-        owner: [{ required: true, message: "所属业务不能为空!", trigger: "change" }]
+        customerName: [{ required: true, message: "客户名称不能为空!", trigger: "change" }],
+        customerPhone: [{ required: true, message: "电话不能为空!", trigger: "change" }],
+        mail: [{ required: true, message: "邮箱不能为空!", trigger: "change" }],
+        idcard: [{ required: true, message: "身份证号码不能为空!", trigger: "change" }],
+        homeAddress: [{ required: true, message: "家庭住址不能为空!", trigger: "change" }],
+        ownerID: [{ required: true, message: "所属业务不能为空!", trigger: "change" }]
       },
       companys: [],
       teams: [],
@@ -91,13 +94,13 @@ export default {
       this.$refs["form"].validate(valid => {
         if (valid) {
           if (this.data.id > 0) {
-            this.$ajax.put("user", this.data).then(res => {
+            this.$ajax.put("customer", this.data).then(res => {
               if (res.data.state) {
                 this.$router.go(-1)
               }
             })
           } else {
-            this.$ajax.post("user", this.data).then(res => {
+            this.$ajax.post("customer", this.data).then(res => {
               if (res.data.state) {
                 this.$refs["form"].resetFields()
               }
@@ -114,7 +117,7 @@ export default {
     this.$ajax.get("company").then(res => {
       this.companys = res.data.data
       if (this.$route.query.id != null) {
-        this.$ajax.get("user/" + this.$route.query.id).then(res => {
+        this.$ajax.get("customer/" + this.$route.query.id).then(res => {
           this.data = res.data.data
         })
       }
