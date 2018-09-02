@@ -38,8 +38,17 @@ a {
   overflow: hidden;
 }
 
+/* #endregion */
+
+/* #region element-reset */
+
 .el-menu {
   border-right: 0;
+}
+
+.el-form-item.is-required .el-form-item__label:before {
+  font-family: monospace;
+  color: red;
 }
 
 /* #endregion */
@@ -159,12 +168,18 @@ $header-height: 56px;
   overflow: hidden;
 }
 
-.container > .menu {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  background: #e6e6e6;
+.container {
+  .menu {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background: #e6e6e6;
+
+    &:not(.el-menu--collapse) {
+      width: $menu-width;
+    }
+  }
 }
 
 .container > .menu:not(.el-menu--collapse) {
@@ -181,32 +196,22 @@ $header-height: 56px;
   transition: 0.3s left ease-in-out;
 }
 
-.container > .header {
-  position: absolute;
-  top: 0;
-  height: $header-height;
-  left: $menu-width;
-  right: 0;
-}
-
-.container > .tags {
+.right-panel .tags {
   position: absolute;
   top: 56px;
   height: 52px;
-  left: $menu-width;
-  right: 0;
+  width: 100%;
   padding: 10px;
   background-color: #eee;
   overflow-x: auto;
   border-bottom: 1px solid #ccc;
 }
 
-.container > .main {
+.right-panel > .main {
   position: absolute;
-  top: 106px;
+  top: 108px;
   bottom: 0;
-  left: $menu-width;
-  right: 0;
+  width: 100%;
   padding: 10px;
   background-color: #fff;
   overflow-y: auto;
