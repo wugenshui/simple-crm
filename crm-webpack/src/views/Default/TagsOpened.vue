@@ -3,7 +3,7 @@
     <ScrollBar ref="scrollBar">
       <router-link ref="tag" class="tag" :class="isActive(item) ? 'cur' : ''" v-for="(item, index) in tagNavList" :to="item.path" :key="index">
         {{item.title}}
-        <span class='icon icon-delete' @click.prevent.stop="closeTheTag(item, index)"></span>
+        <span class='icon icon-delete' v-if="item.title!='个人资料'" @click.prevent.stop="closeTheTag(item, index)"></span>
       </router-link>
     </ScrollBar>
   </div>
@@ -20,7 +20,13 @@ export default {
         path: "/UserInfo",
         title: "个人资料"
       },
-      tagNavList: []
+      tagNavList: [
+        {
+          name: "UserInfo",
+          path: "/UserInfo",
+          title: "个人资料"
+        }
+      ]
     }
   },
   computed: {},
@@ -55,16 +61,14 @@ export default {
     closeTheTag(item, index) {
       // 当关闭当前页面的Tag时，则自动加载前一个Tag所属的页面
       // 如果没有前一个Tag，则加载默认页面
-      if (this.$route.path == item.path) {
-        if (index) {
-          this.$router.push(this.tagNavList[index - 1].path)
-          this.tagNavList.splice(index, 1)
-        } else {
-          this.$router.push(this.defaultPage.path)
-          this.tagNavList.splice(index, 1)
-          if (this.tagNavList.length <= 0) {
-            this.addTagNav()
-          }
+      if (index) {
+        this.$router.push(this.tagNavList[index - 1].path)
+        this.tagNavList.splice(index, 1)
+      } else {
+        this.$router.push(this.defaultPage.path)
+        this.tagNavList.splice(index, 1)
+        if (this.tagNavList.length <= 0) {
+          this.addTagNav()
         }
       }
     },

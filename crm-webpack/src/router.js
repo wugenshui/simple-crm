@@ -10,6 +10,7 @@ export default new Router({
       name: "Default",
       meta: { name: "首页", keepAlive: true },
       component: () => import("./views/default/Default.vue"),
+      redirect: "UserInfo",
       children: [
         {
           path: "/PasswordChange",
