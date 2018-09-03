@@ -8,6 +8,7 @@ using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Description;
 
@@ -61,6 +62,11 @@ namespace CRMWebApi.Controllers
         [ResponseType(typeof(AjaxStringResult))]
         public IHttpActionResult Put(Customer model)
         {
+            HttpFileCollection filelist = HttpContext.Current.Request.Files;
+            if (filelist != null && filelist.Count > 0)
+            {
+
+            }
             AjaxStringResult result = new AjaxStringResult();
             _CustomerDAL.Update(model);
 

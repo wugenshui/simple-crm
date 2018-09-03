@@ -35,7 +35,10 @@
             </el-select>
           </el-form-item>
           <el-form-item label="合同附件上传" prop="contract">
-            <el-switch size="default" v-model="data.contract"></el-switch>
+            <el-upload class="upload-demo" ref="upload" :file-list="fileList" :auto-upload="false" action="" :multiple="false" :data="data">
+              <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
+              <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+            </el-upload>
           </el-form-item>
         </el-form>
       </div>
@@ -69,6 +72,7 @@ export default {
         state: 0,
         createrId: this.$store.state.user.id
       },
+      fileList: [],
       rules: {
         customerType: [{ required: true, message: "客户类型不能为空!", trigger: "change" }],
         customerName: [{ required: true, message: "客户名称不能为空!", trigger: "change" }],
@@ -93,6 +97,9 @@ export default {
     save() {
       this.$refs["form"].validate(valid => {
         if (valid) {
+          this.data.file = this.$refs.upload.uploadFiles[0]
+          console.log(this.$refs.upload)
+          debugger
           if (this.data.id > 0) {
             this.$ajax.put("customer", this.data).then(res => {
               if (res.data.state) {
