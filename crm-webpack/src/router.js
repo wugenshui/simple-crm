@@ -9,50 +9,50 @@ export default new Router({
       path: "/",
       name: "Default",
       meta: { name: "首页", keepAlive: true },
-      component: () => import("./views/default/Default.vue"),
+      component: () => import("./views/Default/Default.vue"),
       redirect: "UserInfo",
       children: [
         {
           path: "/PasswordChange",
           name: "PasswordChange",
-          component: () => import("./views/personCenter/PasswordChange.vue"),
+          component: () => import("./views/PersonCenter/PasswordChange.vue"),
           meta: { name: "修改密码", keepAlive: true }
         },
         {
           path: "/CompanyInfo",
           name: "CompanyInfo",
-          component: () => import("./views/personCenter/CompanyInfo.vue"),
+          component: () => import("./views/PersonCenter/CompanyInfo.vue"),
           meta: { name: "公司资料", keepAlive: true }
         },
         {
           path: "/UserInfo",
           name: "UserInfo",
-          component: () => import("./views/personCenter/UserInfo.vue"),
+          component: () => import("./views/PersonCenter/UserInfo.vue"),
           meta: { name: "个人资料", keepAlive: true }
         },
         {
           path: "/WorkLogList",
           name: "WorkLogList",
           meta: { name: "工作日志", keepAlive: true },
-          component: () => import("./views/personCenter/WorkLogList.vue")
+          component: () => import("./views/PersonCenter/WorkLogList.vue")
         },
         {
           path: "/Schedule",
           name: "Schedule",
           meta: { name: "日程管理", keepAlive: true },
-          component: () => import("./views/personCenter/Schedule.vue")
+          component: () => import("./views/PersonCenter/Schedule.vue")
         },
         {
           path: "/HotNews",
           name: "HotNews",
           meta: { name: "最新通知", keepAlive: true },
-          component: () => import("./views/personCenter/HotNews.vue")
+          component: () => import("./views/PersonCenter/HotNews.vue")
         },
         {
           path: "/WorkLogEdit",
           name: "WorkLogEdit",
           meta: { name: "", keepAlive: false },
-          component: () => import("./views/personCenter/WorkLogEdit.vue")
+          component: () => import("./views/PersonCenter/WorkLogEdit.vue")
         },
         {
           path: "/CompanyList",
@@ -134,7 +134,7 @@ export default new Router({
         }
       ]
     },
-    { path: "/Login", name: "Login", component: resolve => require(["./views/login/Login.vue"], resolve) },
+    { path: "/Login", name: "Login", component: resolve => require(["./views/Login/Login.vue"], resolve) },
     { path: "*", name: "404", redirect: "/" }
   ]
 })
