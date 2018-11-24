@@ -28,7 +28,7 @@ const store = new Vuex.Store({
       state.token = token
     }
   },
-  plugins: [createPersistedState()]
+  plugins: [createPersistedState({ storage: window.sessionStorage })]
 })
 
 // this.$store.state.user;
