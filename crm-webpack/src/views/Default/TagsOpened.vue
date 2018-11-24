@@ -44,7 +44,7 @@ export default {
     addTagNav() {
       // 如果需要缓存则必须使用组件自身的name，而不是router的name
       const components = this.$router.getMatchedComponents()
-      if (this.$route.meta.keepAlive && components.length >= 2) {
+      if (this.$route.meta.name.length>1 && components.length >= 2) {
         const name = components[1].name
         if (this.tagNavList != null && this.tagNavList.find(o => o.name == name) == null) {
           this.tagNavList.push({

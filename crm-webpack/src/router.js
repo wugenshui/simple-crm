@@ -34,7 +34,15 @@ export default new Router({
           path: "/WorkLogList",
           name: "WorkLogList",
           meta: { name: "工作日志", keepAlive: true },
-          component: () => import("./views/PersonCenter/WorkLogList.vue")
+          component: () => import("./views/PersonCenter/WorkLogList.vue"),
+          children: [
+            {
+              path: "/WorkLogEdit",
+              name: "WorkLogEdit",
+              meta: { name: "", keepAlive: false },
+              component: () => import("./views/PersonCenter/WorkLogEdit.vue")
+            }
+          ]
         },
         {
           path: "/Schedule",
@@ -48,12 +56,12 @@ export default new Router({
           meta: { name: "最新通知", keepAlive: true },
           component: () => import("./views/PersonCenter/HotNews.vue")
         },
-        {
-          path: "/WorkLogEdit",
-          name: "WorkLogEdit",
-          meta: { name: "", keepAlive: false },
-          component: () => import("./views/PersonCenter/WorkLogEdit.vue")
-        },
+        // {
+        //   path: "/WorkLogEdit",
+        //   name: "WorkLogEdit",
+        //   meta: { name: "", keepAlive: false },
+        //   component: () => import("./views/PersonCenter/WorkLogEdit.vue")
+        // },
         {
           path: "/CompanyList",
           name: "CompanyList",
@@ -87,7 +95,7 @@ export default new Router({
         {
           path: "/EmployeeAdd",
           name: "EmployeeAdd",
-          meta: { name: "添加业务人员", keepAlive: true },
+          meta: { name: "添加业务人员", keepAlive: false },
           component: () => import("./views/Employee/EmployeeAdd.vue")
         },
         {
@@ -105,7 +113,7 @@ export default new Router({
         {
           path: "/CustomerAdd",
           name: "CustomerAdd",
-          meta: { name: "添加客户", keepAlive: false },
+          meta: { name: "添加客户", keepAlive: true },
           component: () => import("./views/Customer/CustomerAdd.vue")
         },
         {
