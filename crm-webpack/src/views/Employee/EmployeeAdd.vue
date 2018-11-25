@@ -120,7 +120,7 @@ export default {
       this.$refs["form"].resetFields()
     }
   },
-  activated() {
+  mounted() {
     this.$ajax.get("company").then(res => {
       this.companys = res.data.data
       if (this.$route.query.id != null) {
