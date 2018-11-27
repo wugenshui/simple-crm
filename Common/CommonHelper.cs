@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -37,6 +38,20 @@ namespace Common
         public static string AppName
         {
             get { return ConfigurationManager.AppSettings["AppName"]; }
+        }
+
+        public static string GetMapPath(string fileName)
+        {
+            string path = string.Empty;
+            if (Directory.Exists(HttpContext.Current.Server.MapPath("~/Files/")))
+            {
+                path = HttpContext.Current.Server.MapPath("~/Files/" + fileName);
+            }
+            else
+            {
+                Directory.CreateDirectory(HttpContext.Current.Server.MapPath("~/Files/"));
+            }
+            return path;
         }
     }
 }

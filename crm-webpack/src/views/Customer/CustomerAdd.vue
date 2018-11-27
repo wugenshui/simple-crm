@@ -35,7 +35,7 @@
             </el-select>
           </el-form-item>
           <el-form-item label="合同附件上传" prop="contract">
-            <el-upload class="upload-demo" ref="upload" :file-list="fileList" :auto-upload="false" action="" :multiple="false" :data="data">
+            <el-upload class="upload-demo" ref="upload" :file-list="fileList" :auto-upload="false" action="" :multiple="false">
               <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
               <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
             </el-upload>
@@ -94,33 +94,65 @@ export default {
     }
   },
   methods: {
-    save() {
-      this.$refs["form"].validate(valid => {
-        if (valid) {
-          this.data.file = this.$refs.upload.uploadFiles[0]
-          console.log(this.$refs.upload)
-          debugger
-          if (this.data.id > 0) {
-            this.$ajax.put("customer", this.data).then(res => {
-              if (res.data.state) {
-                this.$router.go(-1)
-              }
-            })
-          } else {
-            this.$ajax.post("customer", this.data).then(res => {
-              if (res.data.state) {
-                this.$refs["form"].resetFields()
-              }
-            })
-          }
+    uploadFileMethod(param) {
+      let fileObject = param.file
+      console.log(param)
+      let formData = new FormData()
+      formData.append("file", fileObject)
+      for (var key in this.data) {
+        formData.append(key, this.data[key])
+      }
+      this.$ajax.put("customer", formData, { headers: { "Content-Type": "multipart/form-data" } }).then(res => {
+        if (res.data.state) {
+          this.$router.go(-1)
         }
       })
+    },
+    save() {
+      let formData = new FormData()
+      if(this.$refs.upload.uploadFiles.length > 0) {
+        formData.append("file", this.$refs.upload.uploadFiles[0].raw)
+        console.log(this.$refs.upload.uploadFiles)
+        console.log(this.$refs.upload.uploadFiles[0])
+      }
+      for (var key in this.data) {
+        formData.append(key, this.data[key])
+      }
+      this.$ajax.put("customer", formData).then(res => {
+        if (res.data.state) {
+          this.$router.go(-1)
+        }
+      })
+
+      //this.$refs.upload.submit();
+      // this.$refs["form"].validate(valid => {
+      //   if (valid) {
+      //     this.data.file = this.$refs.upload.uploadFiles[0]
+      //     console.log(this.$refs.upload)
+      //     console.log(this.data.file)
+      //     debugger
+      //     if (this.data.id > 0) {
+      //       this.$ajax.put("customer", this.data).then(res => {
+      //         if (res.data.state) {
+      //           this.$router.go(-1)
+      //         }
+      //       })
+      //     } else {
+      //       this.$ajax.post("customer", this.data).then(res => {
+      //         if (res.data.state) {
+      //           this.$refs["form"].resetFields()
+      //         }
+      //       })
+      //     }
+      //   }
+      // })
     },
     reset() {
       this.$refs["form"].resetFields()
     }
   },
-  mounted() {
+  activated() {
+    this.fileList = []
     this.$ajax.get("company").then(res => {
       this.companys = res.data.data
       if (this.$route.query.id != null) {

@@ -2,6 +2,7 @@
 using CRMWebApi.Models;
 using DAL;
 using Model;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -60,17 +61,33 @@ namespace CRMWebApi.Controllers
 
         [HttpPut]
         [ResponseType(typeof(AjaxStringResult))]
-        public IHttpActionResult Put(Customer model)
+        public IHttpActionResult Put()
         {
-            HttpFileCollection filelist = HttpContext.Current.Request.Files;
-            if (filelist != null && filelist.Count > 0)
-            {
-
-            }
             AjaxStringResult result = new AjaxStringResult();
-            _CustomerDAL.Update(model);
+            Customer model = new Customer();
+            JObject obj = new JObject();
+            var form = HttpContext.Current.Request.Form;
+            foreach (var key in form.AllKeys)
+            {
+                obj[key] = form[key];
+            }
+            model = obj.ToObject<Customer>();
+            if (model != null)
+            {
+                HttpFileCollection filelist = HttpContext.Current.Request.Files;
+                if (filelist != null && filelist.Count > 0)
+                {
+                    var filePath = CommonHelper.GetMapPath(filelist[0].FileName);
+                    filelist[0].SaveAs(filePath);
+                    model.Contract = filelist[0].FileName;
+                }
 
-            result.data = "修改成功";
+                result.data = HttpContext.Current.Request.Form.ToString();
+                _CustomerDAL.Update(model);
+
+                result.data = "修改成功";
+            }
+
             return Json(result);
         }
 
