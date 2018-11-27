@@ -45,7 +45,7 @@
                                 <td>{{ data.mail }}</td>
                                 <td>{{ data.customerType | customerType }}</td>
                                 <td>{{ data.state | customerState }}</td>
-                                <td>{{ data.contract }}</td>
+                                <td> <a :href="basePath+'/download?file='+data.contract">{{data.contract}}</a></td>
                                 <td>
                                     <el-button type="success" size="mini" @click="$router.push('customeradd?id='+data.id)" icon="el-icon-edit">编辑</el-button>
                                     <el-button type="error" size="mini" @click="del(data.id)" icon="el-icon-delete">删除</el-button>
@@ -81,7 +81,8 @@ export default {
       pageIndex: 1,
       pageSize: 10,
       total: 0,
-      datas: []
+      datas: [],
+      basePath:this.$ajax.defaults.baseURL
     }
   },
   methods: {
@@ -114,6 +115,9 @@ export default {
           this.search()
         })
       })
+    },
+    download(file) {
+        this.$ajax.get("download?file=" + file)
     }
   },
   activated () {

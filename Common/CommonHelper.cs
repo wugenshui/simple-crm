@@ -11,7 +11,7 @@ namespace Common
 {
     public class CommonHelper
     {
-        private static string BasePath = "~/Files/";
+        public static string BasePath = "~/Files/";
 
         /// <summary>
         /// 当前登陆用户

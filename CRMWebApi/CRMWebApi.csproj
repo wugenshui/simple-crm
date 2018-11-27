@@ -107,6 +107,7 @@
     <Compile Include="App_Start\AuthorizeFilter.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\DownLoadController.cs" />
     <Compile Include="Controllers\TeamController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
