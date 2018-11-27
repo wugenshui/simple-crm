@@ -94,26 +94,10 @@ export default {
     }
   },
   methods: {
-    uploadFileMethod(param) {
-      let fileObject = param.file
-      console.log(param)
-      let formData = new FormData()
-      formData.append("file", fileObject)
-      for (var key in this.data) {
-        formData.append(key, this.data[key])
-      }
-      this.$ajax.put("customer", formData, { headers: { "Content-Type": "multipart/form-data" } }).then(res => {
-        if (res.data.state) {
-          this.$router.go(-1)
-        }
-      })
-    },
     save() {
       let formData = new FormData()
       if(this.$refs.upload.uploadFiles.length > 0) {
         formData.append("file", this.$refs.upload.uploadFiles[0].raw)
-        console.log(this.$refs.upload.uploadFiles)
-        console.log(this.$refs.upload.uploadFiles[0])
       }
       for (var key in this.data) {
         formData.append(key, this.data[key])
@@ -123,29 +107,6 @@ export default {
           this.$router.go(-1)
         }
       })
-
-      //this.$refs.upload.submit();
-      // this.$refs["form"].validate(valid => {
-      //   if (valid) {
-      //     this.data.file = this.$refs.upload.uploadFiles[0]
-      //     console.log(this.$refs.upload)
-      //     console.log(this.data.file)
-      //     debugger
-      //     if (this.data.id > 0) {
-      //       this.$ajax.put("customer", this.data).then(res => {
-      //         if (res.data.state) {
-      //           this.$router.go(-1)
-      //         }
-      //       })
-      //     } else {
-      //       this.$ajax.post("customer", this.data).then(res => {
-      //         if (res.data.state) {
-      //           this.$refs["form"].resetFields()
-      //         }
-      //       })
-      //     }
-      //   }
-      // })
     },
     reset() {
       this.$refs["form"].resetFields()

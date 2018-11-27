@@ -6,6 +6,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -77,9 +78,9 @@ namespace CRMWebApi.Controllers
                 HttpFileCollection filelist = HttpContext.Current.Request.Files;
                 if (filelist != null && filelist.Count > 0)
                 {
-                    var filePath = CommonHelper.GetMapPath(filelist[0].FileName);
+                    string filePath = CommonHelper.GetMapPath(filelist[0].FileName);
                     filelist[0].SaveAs(filePath);
-                    model.Contract = filelist[0].FileName;
+                    model.Contract = Path.GetFileName(filePath);
                 }
 
                 result.data = HttpContext.Current.Request.Form.ToString();

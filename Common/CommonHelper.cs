@@ -11,6 +11,8 @@ namespace Common
 {
     public class CommonHelper
     {
+        private static string BasePath = "~/Files/";
+
         /// <summary>
         /// 当前登陆用户
         /// </summary>
@@ -40,18 +42,52 @@ namespace Common
             get { return ConfigurationManager.AppSettings["AppName"]; }
         }
 
+        /// <summary>
+        /// 获取上传文件路径
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
         public static string GetMapPath(string fileName)
         {
             string path = string.Empty;
-            if (Directory.Exists(HttpContext.Current.Server.MapPath("~/Files/")))
+            if (!Directory.Exists(HttpContext.Current.Server.MapPath(BasePath)))
             {
-                path = HttpContext.Current.Server.MapPath("~/Files/" + fileName);
+                Directory.CreateDirectory(HttpContext.Current.Server.MapPath(BasePath));
+            }
+            string extension = Path.GetExtension(fileName);
+            path = GetNotExistName(fileName, extension, 0);
+
+            return path;
+        }
+
+        /// <summary>
+        /// 获取不存在的文件名
+        /// </summary>
+        /// <param name="fileName">文件名</param>
+        /// <param name="extension">扩展名</param>
+        /// <param name="index">序号</param>
+        /// <returns></returns>
+        private static string GetNotExistName(string fileName, string extension, int index)
+        {
+            string newName = string.Empty;
+            if (index == 0 && !File.Exists(HttpContext.Current.Server.MapPath(BasePath + fileName)))
+            {
+                newName = HttpContext.Current.Server.MapPath(BasePath + fileName);
             }
             else
             {
-                Directory.CreateDirectory(HttpContext.Current.Server.MapPath("~/Files/"));
+                index++;
+                if (File.Exists(HttpContext.Current.Server.MapPath(BasePath + fileName.Replace(extension, "(" + index + ")" + extension))))
+                {
+                    newName = GetNotExistName(fileName, extension, index);
+                }
+                else
+                {
+                    newName = HttpContext.Current.Server.MapPath(BasePath + fileName.Replace(extension, "(" + index + ")" + extension));
+                }
             }
-            return path;
+
+            return newName;
         }
     }
 }
