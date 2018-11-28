@@ -54,44 +54,5 @@ namespace Common
 
             return t;
         }
-
-        /// <summary>
-        /// DataTable序列化为Json字符串
-        /// </summary>
-        /// <param name="table">需要序列化的DataTable</param>
-        /// <returns>Json字符串</returns>
-        public static string DataTableToJson(DataTable table)
-        {
-            if (table.Rows.Count == 0) return "";
-
-            StringBuilder sbJson = new StringBuilder();
-            sbJson.Append("[");
-            for (int i = 0; i < table.Rows.Count; i++)
-            {
-                sbJson.Append("{");
-                for (int j = 0; j < table.Columns.Count; j++)
-                {
-                    string colName = table.Columns[j].ColumnName.ToString();
-                    string colData = table.Rows[i][j].ToString();
-                    if (table.Columns[j].DataType.ToString() == "System.DateTime")
-                    {
-                        colData = Convert.ToDateTime(colData).ToString("yyyy-MM-dd HH:mm:ss");
-                    }
-                    sbJson.Append("\"" + colName + "\":\"" + colData + "\"");
-                    if (j < table.Columns.Count - 1)
-                    {
-                        sbJson.Append(",");
-                    }
-                }
-                sbJson.Append("}");
-                if (i < table.Rows.Count - 1)
-                {
-                    sbJson.Append(",");
-                }
-            }
-            sbJson.Append("]");
-
-            return sbJson.ToString();
-        }
     }
 }
