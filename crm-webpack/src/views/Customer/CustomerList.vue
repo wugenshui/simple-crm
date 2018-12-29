@@ -1,38 +1,18 @@
 <template>
   <div>
     <div class="panel panel-big">
-      <div class="panel-header">
-        客户列表
-      </div>
+      <div class="panel-header">客户列表</div>
       <div class="panel-body">
-        <el-tabs
-          v-model="filtertype"
-          @tab-click="tabChange"
-        >
-          <el-tab-pane
-            :label="tab.label"
-            :name="tab.name"
-            v-for="tab in tabs"
-            :key="tab.name"
-          >
-            <el-form
-              ref="form"
-              label-width="80px"
-            >
+        <el-tabs v-model="filtertype" @tab-click="tabChange">
+          <el-tab-pane :label="tab.label" :name="tab.name" v-for="tab in tabs" :key="tab.name">
+            <el-form ref="form" label-width="80px">
               <el-row>
                 <el-col :span="6">
                   <el-form-item label="客户姓名">
-                    <el-input
-                      type="text"
-                      size="small"
-                      v-model="filtername"
-                    />
+                    <el-input type="text" size="small" v-model="filtername"/>
                   </el-form-item>
                 </el-col>
-                <el-col
-                  :span="4"
-                  :offset="14"
-                >
+                <el-col :span="4" :offset="14">
                   <el-form-item>
                     <el-form-item>
                       <el-button
@@ -59,10 +39,7 @@
                 <th>合同附件</th>
                 <th>操作</th>
               </tr>
-              <tr
-                v-for="(data,index) in datas"
-                :key="index"
-              >
+              <tr v-for="(data,index) in datas" :key="index">
                 <td class="text-center">{{ data.id }}</td>
                 <td>{{ data.createTime | time }}</td>
                 <td>{{ data.customerName }}</td>
@@ -71,7 +48,9 @@
                 <td>{{ data.mail }}</td>
                 <td>{{ data.customerType | customerType }}</td>
                 <td>{{ data.state | customerState }}</td>
-                <td> <a :href="basePath+'/download?file='+data.contract">{{data.contract}}</a></td>
+                <td>
+                  <a :href="basePath+'/download?file='+data.contract">{{data.contract}}</a>
+                </td>
                 <td>
                   <el-button
                     type="success"
@@ -79,12 +58,7 @@
                     @click="$router.push('customeradd?id='+data.id)"
                     icon="el-icon-edit"
                   >编辑</el-button>
-                  <el-button
-                    type="error"
-                    size="mini"
-                    @click="del(data.id)"
-                    icon="el-icon-delete"
-                  >删除</el-button>
+                  <el-button type="error" size="mini" @click="del(data.id)" icon="el-icon-delete">删除</el-button>
                 </td>
               </tr>
             </table>
@@ -159,9 +133,6 @@ export default {
           this.search();
         });
       });
-    },
-    download(file) {
-      this.$ajax.get("download?file=" + file);
     }
   },
   activated() {

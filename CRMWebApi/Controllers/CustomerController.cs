@@ -50,13 +50,32 @@ namespace CRMWebApi.Controllers
 
         [HttpPost]
         [ResponseType(typeof(AjaxStringResult))]
-        public IHttpActionResult Post(Customer model)
+        public IHttpActionResult Post()
         {
             AjaxStringResult result = new AjaxStringResult();
-            model.CreateTime = DateTime.Now;
-            _CustomerDAL.Add(model);
+            Customer model = new Customer();
+            JObject obj = new JObject();
+            var form = HttpContext.Current.Request.Form;
+            foreach (var key in form.AllKeys)
+            {
+                obj[key] = form[key];
+            }
+            model = obj.ToObject<Customer>();
+            if (model != null)
+            {
+                model.CreateTime = DateTime.Now;
+                HttpFileCollection filelist = HttpContext.Current.Request.Files;
+                if (filelist != null && filelist.Count > 0)
+                {
+                    string filePath = CommonHelper.GetMapPath(filelist[0].FileName);
+                    filelist[0].SaveAs(filePath);
+                    model.Contract = Path.GetFileName(filePath);
+                }
+                _CustomerDAL.Add(model);
 
-            result.data = "保存成功";
+                result.data = "保存成功";
+            }
+
             return Json(result);
         }
 
@@ -75,6 +94,7 @@ namespace CRMWebApi.Controllers
             model = obj.ToObject<Customer>();
             if (model != null)
             {
+                model.CreateTime = DateTime.Now;
                 HttpFileCollection filelist = HttpContext.Current.Request.Files;
                 if (filelist != null && filelist.Count > 0)
                 {
