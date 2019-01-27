@@ -16,7 +16,7 @@
             <el-input type="text" v-model="data.leaderPhone" />
           </el-form-item>
           <el-form-item label="团队口号" prop="slogan">
-            <el-input type="textarea" v-model="data.slogan" :autosize="true" />
+            <el-input type="textarea" v-model="data.slogan" autosize />
           </el-form-item>
           <el-form-item label="所属公司" prop="companyId">
             <el-select v-model="data.companyId">

@@ -8,7 +8,7 @@
           <el-row>
             <el-col :span="6">
               <el-form-item label="客户姓名">
-                <el-input type="text" size="small" v-model="filtername" :clearable="true"/>
+                <el-input type="text" size="small" v-model="filtername" clearable/>
               </el-form-item>
             </el-col>
             <el-col :span="4" :offset="14">
@@ -55,13 +55,31 @@
                     type="success"
                     size="mini"
                   >编辑</el-button>
-                  <el-button v-if="tab.canDel" type="danger" size="mini" @click="del(data.id)">删除</el-button>
+                  <el-button v-if="tab.canDel" type="danger" size="mini" @click="del(data.id)">作废</el-button>
                   <el-button
                     v-if="tab.canConfirm"
                     @click="showOperate(data,1)"
                     type="primary"
                     size="mini"
                   >确认</el-button>
+                  <el-button
+                    v-if="tab.canAllot"
+                    @click="showOperate(data,2)"
+                    type="primary"
+                    size="mini"
+                  >分配</el-button>
+                  <el-button
+                    v-if="tab.canFollow"
+                    @click="showOperate(data,3)"
+                    type="primary"
+                    size="mini"
+                  >跟进</el-button>
+                  <el-button
+                    v-if="tab.canFinish"
+                    @click="showOperate(data,4)"
+                    type="primary"
+                    size="mini"
+                  >完成</el-button>
                 </td>
               </tr>
             </table>
@@ -73,7 +91,7 @@
           :current-page="pageIndex"
           :total="total"
           :page-size="pageSize"
-          :show-total="true"
+          show-total
           @current-change="pageChange"
           background
           layout="total, prev, pager, next"
@@ -84,16 +102,21 @@
     <el-dialog :title="winOperateTitle" :visible.sync="winOperateVisible" width="30%">
       <el-form ref="form" label-width="80px">
         <el-form-item label="表单ID">
-          <el-input v-model="currentCustomer.id" :disabled="true"></el-input>
+          <el-input v-model="currentCustomer.id" disabled></el-input>
         </el-form-item>
         <el-form-item label="客户姓名">
-          <el-input v-model="currentCustomer.customerName" :disabled="true"></el-input>
+          <el-input v-model="currentCustomer.customerName" disabled></el-input>
         </el-form-item>
         <el-form-item label="客户电话">
-          <el-input v-model="currentCustomer.customerPhone" :disabled="true"></el-input>
+          <el-input v-model="currentCustomer.customerPhone" disabled></el-input>
         </el-form-item>
         <el-form-item label="备注">
-          <el-input v-model="customerOperate.remark" :clearable="true"></el-input>
+          <el-input v-model="customerOperate.remark" clearable></el-input>
+        </el-form-item>
+        <el-form-item v-if="customerOperate.state==2" label="分配客服">
+          <el-select v-model.number="customerOperate.assigneeId" clearable>
+            <el-option v-for="u in users" :value="u.id" :key="u.id" :label="u.userName"></el-option>
+          </el-select>
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
@@ -116,14 +139,26 @@ export default {
         {
           label: "未确认用户",
           state: "0",
+          canSearch: true, // 查询
+          canDel: true, // 作废
+          canEdit: true, // 编辑
+          canConfirm: true // 确认
+        },
+        {
+          label: "已确认用户",
+          state: "1",
+          canSearch: true,
+          canAllot: true, // 分配
+          canFollow: true // 跟进
+        },
+        {
+          label: "已联系客户",
+          state: "3",
           canSearch: true,
           canFollow: true,
-          canDel: true,
-          canConfirm: true
+          canFinish: true
         },
-        { label: "已确认用户", state: "1", canSearch: true, canEdit: false },
-        { label: "已联系客户", state: "3", canSearch: true, canEdit: false },
-        { label: "已完成客户", state: "4", canSearch: true, canEdit: false }
+        { label: "已完成客户", state: "4", canSearch: true }
       ],
       filtername: "",
       filterstate: "0", // 当前选中的tab state
@@ -132,7 +167,8 @@ export default {
       total: 0,
       datas: [],
       basePath: this.$ajax.defaults.baseURL,
-      winOperateVisible: false,
+      users: [], // 员工列表
+      winOperateVisible: false, // 客户操作窗口相关
       winOperateTitle: "",
       currentCustomer: {},
       customerOperate: {
@@ -180,6 +216,15 @@ export default {
         case 1:
           this.winOperateTitle = "客户确认";
           break;
+        case 2:
+          this.winOperateTitle = "客户分配";
+          break;
+        case 3:
+          this.winOperateTitle = "客户跟进";
+          break;
+        case 4:
+          this.winOperateTitle = "完成交易";
+          break;
         default:
           this.winOperateTitle = "未知操作";
           break;
@@ -192,6 +237,9 @@ export default {
         remark: "",
         state: state
       };
+      if (state == 2) {
+        this.customerOperate.assigneeId = this.$store.state.user.id;
+      }
       this.winOperateVisible = true;
     },
     saveOperate() {
@@ -205,6 +253,9 @@ export default {
   },
   activated() {
     this.search();
+    this.$ajax.get("user").then(res => {
+      this.users = res.data.data;
+    });
   }
 };
 </script>

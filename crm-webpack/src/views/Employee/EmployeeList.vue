@@ -59,7 +59,7 @@
                 </table>
             </div>
             <div class="panel-footer text-right">
-                <el-pagination :current-page="pageIndex" :total="total" :page-size="pageSize" :show-total="true" @current-change="pageChange" background layout="total, prev, pager, next"></el-pagination>
+                <el-pagination :current-page="pageIndex" :total="total" :page-size="pageSize" show-total @current-change="pageChange" background layout="total, prev, pager, next"></el-pagination>
             </div>
         </div>
         <router-view class="container"></router-view>
