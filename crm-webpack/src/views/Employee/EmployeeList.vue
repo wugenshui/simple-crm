@@ -50,7 +50,7 @@
                         <td>{{ data.supervisor }}</td>
                         <td>
                             <el-button type="success" size="mini" @click="$router.push('employeeadd?id='+data.id)" icon="el-icon-edit">编辑</el-button>
-                            <el-button type="error" size="mini" @click="del(data.id)" icon="el-icon-delete">删除</el-button>
+                            <el-button type="danger" size="mini" @click="del(data.id)" icon="el-icon-delete">删除</el-button>
                         </td>
                         <td class="text-center">
                             <el-switch size="default" v-model="data.isEnable" @change="isEnableChange(data)"></el-switch>

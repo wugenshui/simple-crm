@@ -37,11 +37,11 @@ namespace CRMWebApi.Controllers
         }
 
         [ResponseType(typeof(AjaxResult<DataTable>))]
-        public IHttpActionResult Get(string name, int type, int pageSize = 20, int pageIndex = 1)
+        public IHttpActionResult Get(string name, int state, int pageSize = 20, int pageIndex = 1)
         {
             AjaxPageResult<DataTable> result = new AjaxPageResult<DataTable>();
-            DataTable data = _CustomerDAL.Get(name, type, pageSize, pageIndex);
-            int total = _CustomerDAL.GetCount(name, type);
+            DataTable data = _CustomerDAL.Get(name, state, pageSize, pageIndex);
+            int total = _CustomerDAL.GetCount(name, state);
             result.total = total;
             result.data = data;
 

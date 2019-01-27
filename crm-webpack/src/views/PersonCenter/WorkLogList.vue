@@ -45,7 +45,7 @@
                         <td>{{ log.createTime | time }}</td>
                         <td>
                             <el-button type="success" size="mini" @click="$router.push('worklogedit?id='+log.id)" icon="el-icon-edit">编辑</el-button>
-                            <el-button type="error" size="mini" @click="del(log.id)" icon="el-icon-delete">删除</el-button>
+                            <el-button type="danger" size="mini" @click="del(log.id)" icon="el-icon-delete">删除</el-button>
                         </td>
                     </tr>
                 </table>

@@ -39,7 +39,7 @@
 export default {
   data: function() {
     return {
-      isFullScreen: true
+      isFullScreen: false
     }
   },
   methods: {

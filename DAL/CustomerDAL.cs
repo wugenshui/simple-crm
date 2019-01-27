@@ -11,21 +11,21 @@ namespace DAL
 {
     public class CustomerDAL : BaseDAL<Customer>
     {
-        public DataTable Get(string name, int type, int pageSize, int pageIndex)
+        public DataTable Get(string name, int state, int pageSize, int pageIndex)
         {
             DataTable data = new DataTable();
             string sql = @" SELECT c.createTime,c.customerName,c.customerPhone,c.customerQQ,c.mail,c.customerType,c.state,c.contract,c.id
                                 FROM Customer c
                             WHERE c.CustomerName LIKE @name ";
-            if (type >= 0)
+            if (state >= 0)
             {
-                sql += " AND c.customerType=@customerType ";
+                sql += " AND c.state=@state ";
             }
-            sql += " Order BY c.Id Offset @start Row Fetch Next @pagesize Rows Only";
+            sql += " Order BY c.createTime DESC Offset @start Row Fetch Next @pagesize Rows Only";
             SqlParameter[] param = new SqlParameter[]
             {
                 new SqlParameter("name","%" + name + "%"),
-                new SqlParameter("customerType",type),
+                new SqlParameter("state",state),
                 new SqlParameter("start",pageSize * (pageIndex - 1)),
                 new SqlParameter("pagesize",pageSize),
             };

@@ -40,11 +40,15 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CustomerId" Type="varchar" MaxLength="50" />
-          <Property Name="OperatorId" Type="varchar" MaxLength="50" />
-          <Property Name="State" Type="varchar" MaxLength="50" />
-          <Property Name="Remark" Type="varchar" MaxLength="250" />
-          <Property Name="OperatorTime" Type="datetime" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OperatorId" Type="int" Nullable="false" />
+          <Property Name="OperatorName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AssigneeId" Type="int" Nullable="false" />
+          <Property Name="AssigneeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="State" Type="int" Nullable="false" />
+          <Property Name="OperatorTime" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Menu">
           <Key>
@@ -147,7 +151,6 @@
       <Schema Namespace="CRMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="CRMEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Company" EntityType="CRMModel.Company" />
-          <EntitySet Name="CustomerOperate" EntityType="CRMModel.CustomerOperate" />
           <EntitySet Name="Message" EntityType="CRMModel.Message" />
           <EntitySet Name="Schedule" EntityType="CRMModel.Schedule" />
           <EntitySet Name="Team" EntityType="CRMModel.Team" />
@@ -156,6 +159,7 @@
           <EntitySet Name="Menu" EntityType="CRMModel.Menu" />
           <EntitySet Name="User" EntityType="CRMModel.User" />
           <EntitySet Name="Customer" EntityType="CRMModel.Customer" />
+          <EntitySet Name="CustomerOperate" EntityType="CRMModel.CustomerOperate" />
         </EntityContainer>
         <EntityType Name="Company">
           <Key>
@@ -168,17 +172,6 @@
           <Property Name="Website" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="CreateTime" Type="DateTime" Precision="0" />
           <Property Name="BusinessLicence" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="CustomerOperate">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CustomerId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="OperatorId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Remark" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="OperatorTime" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Message">
           <Key>
@@ -281,6 +274,21 @@
           <Property Name="CreateTime" Type="DateTime" Precision="3" />
           <Property Name="CreaterId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="CustomerOperate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="CustomerName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OperatorId" Type="Int32" Nullable="false" />
+          <Property Name="OperatorName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AssigneeId" Type="Int32" Nullable="false" />
+          <Property Name="AssigneeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="Int32" Nullable="false" />
+          <Property Name="OperatorTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -296,18 +304,6 @@
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Owner" ColumnName="Owner" />
                 <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CustomerOperate">
-            <EntityTypeMapping TypeName="CRMModel.CustomerOperate">
-              <MappingFragment StoreEntitySet="CustomerOperate">
-                <ScalarProperty Name="OperatorTime" ColumnName="OperatorTime" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="OperatorId" ColumnName="OperatorId" />
-                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -417,6 +413,22 @@
                 <ScalarProperty Name="CustomerPhone" ColumnName="CustomerPhone" />
                 <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
                 <ScalarProperty Name="CustomerType" ColumnName="CustomerType" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerOperate">
+            <EntityTypeMapping TypeName="CRMModel.CustomerOperate">
+              <MappingFragment StoreEntitySet="CustomerOperate">
+                <ScalarProperty Name="OperatorTime" ColumnName="OperatorTime" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="AssigneeName" ColumnName="AssigneeName" />
+                <ScalarProperty Name="AssigneeId" ColumnName="AssigneeId" />
+                <ScalarProperty Name="OperatorName" ColumnName="OperatorName" />
+                <ScalarProperty Name="OperatorId" ColumnName="OperatorId" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

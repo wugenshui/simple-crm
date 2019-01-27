@@ -47,7 +47,7 @@
                         <td>{{ data.businessLicence }}</td>
                         <td>
                             <el-button type="success" size="mini" @click="$router.push('companyadd?id='+data.id)" icon="el-icon-edit">编辑</el-button>
-                            <el-button type="error" size="mini" @click="del(data.id)" icon="el-icon-delete">删除</el-button>
+                            <el-button type="danger" size="mini" @click="del(data.id)" icon="el-icon-delete">删除</el-button>
                         </td>
                     </tr>
                 </table>

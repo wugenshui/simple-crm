@@ -71,6 +71,9 @@ Axios.interceptors.response.use(
         common.error(error.response.data.Message)
       }
     } else if (error.message != null) {
+      if (error.message === "Network Error") {
+        error.message = "接口访问异常！"
+      }
       common.error(error.message)
     }
     return Promise.reject(error)
