@@ -71,6 +71,10 @@ a {
   color: red;
 }
 
+.el-button--mini {
+  padding: 7px !important;
+}
+
 /* #endregion */
 
 /* #region table */
@@ -79,6 +83,7 @@ a {
   width: 100%;
   margin-bottom: 10px;
   border-spacing: 0;
+  border-collapse: collapse;
 
   td,
   th {
@@ -95,10 +100,6 @@ a {
 
   tr:hover {
     background-color: rgba(0, 0, 0, 0.075);
-  }
-
-  .text-center {
-    padding-left: 0;
   }
 }
 

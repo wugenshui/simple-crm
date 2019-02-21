@@ -21,20 +21,28 @@ namespace CRMWebApi.Controllers
         [AllowAnonymous]
         public IHttpActionResult Get(string file)
         {
+            HttpResponseMessage httpResponseMessage = null;
             var browser = string.Empty;
             if (HttpContext.Current.Request.UserAgent != null)
             {
                 browser = HttpContext.Current.Request.UserAgent.ToUpper();
             }
             string filePath = HttpContext.Current.Server.MapPath(CommonHelper.BasePath + file);
-            HttpResponseMessage httpResponseMessage = new HttpResponseMessage(HttpStatusCode.OK);
-            FileStream fileStream = File.OpenRead(filePath);
-            httpResponseMessage.Content = new StreamContent(fileStream);
-            httpResponseMessage.Content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
-            httpResponseMessage.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
+            if (File.Exists(filePath))
             {
-                FileName = browser.Contains("FIREFOX") ? Path.GetFileName(filePath) : HttpUtility.UrlEncode(Path.GetFileName(filePath))
-            };
+                httpResponseMessage = new HttpResponseMessage(HttpStatusCode.OK);
+                FileStream fileStream = File.OpenRead(filePath);
+                httpResponseMessage.Content = new StreamContent(fileStream);
+                httpResponseMessage.Content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+                httpResponseMessage.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
+                {
+                    FileName = browser.Contains("FIREFOX") ? Path.GetFileName(filePath) : HttpUtility.UrlEncode(Path.GetFileName(filePath))
+                };
+            }
+            else
+            {
+                httpResponseMessage = new HttpResponseMessage(HttpStatusCode.NoContent);
+            }
 
             return ResponseMessage(httpResponseMessage);
         }

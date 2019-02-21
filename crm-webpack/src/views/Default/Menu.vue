@@ -1,5 +1,5 @@
 <template>
-  <el-menu class="menu" @open="handleOpen" @close="handleClose" :collapse="$store.state.menu.isCollapse" :unique-opened="true" background-color="#304156" text-color="#BFCBD9" :router="true">
+  <el-menu class="menu" @open="handleOpen" @close="handleClose" :collapse="$store.state.menu.isCollapse" unique-opened background-color="#304156" text-color="#BFCBD9" router>
     <el-menu-item index="/">
       <i class="icon icon-home"></i>
       <span slot="title">首页</span>

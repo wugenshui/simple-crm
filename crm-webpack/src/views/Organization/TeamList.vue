@@ -45,13 +45,13 @@
                         <td>{{ data.companyName }}</td>
                         <td>
                             <el-button type="success" size="mini" @click="$router.push('teamadd?id='+data.id)" icon="el-icon-edit">编辑</el-button>
-                            <el-button type="error" size="mini" @click="del(data.id)" icon="el-icon-delete">删除</el-button>
+                            <el-button type="danger" size="mini" @click="del(data.id)" icon="el-icon-delete">删除</el-button>
                         </td>
                     </tr>
                 </table>
             </div>
             <div class="panel-footer text-right">
-                <el-pagination :current-page="pageIndex" :total="total" :page-size="pageSize" :show-total="true" @current-change="pageChange" background layout="total, prev, pager, next"></el-pagination>
+                <el-pagination :current-page="pageIndex" :total="total" :page-size="pageSize" show-total @current-change="pageChange" background layout="total, prev, pager, next"></el-pagination>
             </div>
         </div>
         <router-view class="container"></router-view>

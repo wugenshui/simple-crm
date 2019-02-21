@@ -27,17 +27,32 @@ namespace Model
     	/// 
     	/// </summary>
     	[JsonProperty("customerId")]
-    	public string CustomerId { get; set; }
+    	public int CustomerId { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	[JsonProperty("customerName")]
+    	public string CustomerName { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
     	[JsonProperty("operatorId")]
-    	public string OperatorId { get; set; }
+    	public int OperatorId { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
-    	[JsonProperty("state")]
-    	public string State { get; set; }
+    	[JsonProperty("operatorName")]
+    	public string OperatorName { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	[JsonProperty("assigneeId")]
+    	public int AssigneeId { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
+    	[JsonProperty("assigneeName")]
+    	public string AssigneeName { get; set; }
         /// <summary>
     	/// 
     	/// </summary>
@@ -46,7 +61,12 @@ namespace Model
         /// <summary>
     	/// 
     	/// </summary>
+    	[JsonProperty("state")]
+    	public int State { get; set; }
+        /// <summary>
+    	/// 
+    	/// </summary>
     	[JsonProperty("operatorTime")]
-    	public Nullable<System.DateTime> OperatorTime { get; set; }
+    	public System.DateTime OperatorTime { get; set; }
     }
 }
