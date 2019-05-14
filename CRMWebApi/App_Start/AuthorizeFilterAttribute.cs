@@ -11,9 +11,9 @@ using System.Web.Security;
 
 namespace CRMWebApi
 {
-    public class AuthorizeFilter : AuthorizeAttribute
+    public class AuthorizeFilterAttribute : AuthorizeAttribute
     {
-        //重写基类的验证方式，加入我们自定义的Ticket验证  
+        //重写基类的验证方式，加入我们自定义的Ticket验证
         public override void OnAuthorization(HttpActionContext actionContext)
         {
             //url获取token  

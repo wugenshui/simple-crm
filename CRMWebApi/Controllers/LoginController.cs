@@ -15,7 +15,7 @@ namespace CRMWebApi.Controllers
 {
     public class LoginController : ApiController
     {
-        UserDAL _UserDAL = new UserDAL();
+        readonly UserDAL userDAL = new UserDAL();
 
         [AllowAnonymous]
         [HttpPost]
@@ -24,7 +24,7 @@ namespace CRMWebApi.Controllers
         {
             AjaxResult<LoginInfo> result = new AjaxResult<LoginInfo>();
             string md5Password = MD5Helper.CreateMD5(loginForm.password);
-            User user = _UserDAL.Get().FirstOrDefault(o => o.LoginName == loginForm.username && o.Password == md5Password);
+            User user = userDAL.Get().FirstOrDefault(o => o.LoginName == loginForm.username && o.Password == md5Password);
             if (user != null)
             {
                 user.Password = ""; // 将密码隐藏

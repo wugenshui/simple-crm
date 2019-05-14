@@ -10,7 +10,7 @@ using System.Xml;
 
 namespace Common
 {
-    public class JsonHelper
+    public static class JsonHelper
     {
         /// <summary>
         /// 对象序列化为Json字符串

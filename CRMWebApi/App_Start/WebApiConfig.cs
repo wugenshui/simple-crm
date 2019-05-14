@@ -13,7 +13,7 @@ namespace CRMWebApi
             // 允许跨域访问
             config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
             // Web API 配置和服务
-            config.Filters.Add(new AuthorizeFilter());
+            config.Filters.Add(new AuthorizeFilterAttribute());
             // Web API 路由
             config.MapHttpAttributeRoutes();
 

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Common
 {
-    public class LogHelper
+    public static class LogHelper
     {
         // 日志纪录对象
         private static readonly ILogger _Log = LogManager.GetLogger("NLog");

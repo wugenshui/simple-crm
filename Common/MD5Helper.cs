@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Common
 {
-    public class MD5Helper
+    public static class MD5Helper
     {
         /// <summary>  
         /// 获取文件的MD5码  
@@ -18,7 +18,7 @@ namespace Common
         {
             try
             {
-                FileStream file = new FileStream(fileName, System.IO.FileMode.Open);
+                FileStream file = new FileStream(fileName, FileMode.Open);
                 MD5 md5 = new MD5CryptoServiceProvider();
                 byte[] retVal = md5.ComputeHash(file);
                 file.Close();
@@ -47,9 +47,7 @@ namespace Common
             for (int i = 0; i < hashBytes.Length; i++)
             {
                 sb.Append(hashBytes[i].ToString("X2"));
-                // To force the hex string to lower-case letters instead of
-                // upper-case, use he following line instead:
-                // sb.Append(hashBytes[i].ToString("x2")); 
+                // sb.Append(hashBytes[i].ToString("x2")); 左侧写法是将字母替换为小写 
             }
             return sb.ToString();
         }
