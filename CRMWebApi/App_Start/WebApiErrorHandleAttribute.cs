@@ -8,7 +8,7 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http.Filters;
 
-namespace CRMWebApi.App_Start
+namespace CRMWebApi
 {
     public class WebApiErrorHandleAttribute : ExceptionFilterAttribute
     {
