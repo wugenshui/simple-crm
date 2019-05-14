@@ -9,9 +9,9 @@ using System.Web.Security;
 
 namespace Common
 {
-    public class CommonHelper
+    public static class CommonHelper
     {
-        public static string BasePath = "~/Files/";
+        public const string BasePath = "~/Files/";
 
         /// <summary>
         /// 当前登陆用户
